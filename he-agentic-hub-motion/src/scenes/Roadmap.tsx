@@ -3,77 +3,38 @@ import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { C, F } from "../brand";
 import { prog } from "../anim";
 import { SceneTitle } from "../components/ui";
-import { Arrow, Diamond } from "../components/Icons";
+import { Arrow } from "../components/Icons";
 
 /**
- * Placa 2 · Hoja de ruta. Hoy (punto de partida) → Ola 0 → Ola 1 (MVP, primer desarrollo)
- * → Ola 2 y Ola 3 (fases siguientes planeadas). Cada ola se abre solo si la anterior
- * pasa su compuerta (presentación To-Be v4.0, "Cuatro olas"). Sin fechas: se fijan con el
- * equipo técnico (V-21). Fotogramas locales.
+ * Placa 2 · Hoja de ruta, con las etapas de la presentación final (diapositivas 3–5 y 7):
+ * Hoy → Ola 0 · Preparar → MVP → Completar → Validar → Sistema oficial → Escalar.
+ * Sin fechas (las da el deck). Fotogramas locales.
  */
 
-type Wave = {
-  n: string;
-  name: string;
-  desc: string;
-  tag: string;
-  tagStyle: "outline" | "strong" | "muted";
-  gate: string;
-  look: "card" | "mvp" | "later";
-};
+type Stage = { n?: string; name: string; desc: string; tag: string; look: "card" | "mvp" | "oficial" | "later" };
 
-const WAVES: Wave[] = [
-  {
-    n: "Ola 0",
-    name: "Validar",
-    desc: "Reglas y datos listos antes de construir",
-    tag: "Antes de construir",
-    tagStyle: "outline",
-    gate: "Reglas aprobadas y datos saneados",
-    look: "card",
-  },
-  {
-    n: "Ola 1",
-    name: "MVP",
-    desc: "Ficha única, cálculo con reglas y consulta con IA",
-    tag: "Primer desarrollo",
-    tagStyle: "strong",
-    gate: "Coincide con el Excel y negocio da el VoBo",
-    look: "mvp",
-  },
-  {
-    n: "Ola 2",
-    name: "Pago y agentes",
-    desc: "Aprobación, pago y conciliación; agentes que proponen",
-    tag: "Fase siguiente planeada",
-    tagStyle: "muted",
-    gate: "Pagos en el flujo y agentes en su meta",
-    look: "card",
-  },
-  {
-    n: "Ola 3",
-    name: "Evolución",
-    desc: "Brief para negociar el contrato nuevo",
-    tag: "Fase siguiente planeada",
-    tagStyle: "muted",
-    gate: "Alcance adicional por priorizar",
-    look: "later",
-  },
+const STAGES: Stage[] = [
+  { n: "Ola 0", name: "Preparar", desc: "Reglas, códigos de cliente y accesos listos", tag: "Antes de construir", look: "card" },
+  { name: "MVP", desc: "El ciclo mensual completo, del contrato al pago", tag: "Primer desarrollo", look: "mvp" },
+  { name: "Completar", desc: "Chat, alertas, brief y reglas editables", tag: "Siguiente", look: "card" },
+  { name: "Validar", desc: "Cortes en paralelo con el Excel", tag: "Siguiente", look: "card" },
+  { name: "Sistema oficial", desc: "Con el visto bueno de High End se retira el Excel", tag: "Siguiente", look: "oficial" },
+  { name: "Escalar", desc: "Reportes, PRP, Trade y cartas, por priorizar", tag: "Por priorizar", look: "later" },
 ];
 
-const X = [414, 766, 1118, 1470];
-const W = 300;
+const X0 = 410;
+const W = 214;
+const STEP = 232; // ancho + separación
 const TOP = 300;
-const H = 440;
+const H = 360;
 
 export const Roadmap: React.FC = () => {
   const f = useCurrentFrame();
   const hoy = prog(f, 18, 12);
-  const note = prog(f, 168, 14);
 
   return (
     <AbsoluteFill>
-      <SceneTitle text="Hoja de ruta: avanzar por olas" highlight="por olas" start={4} />
+      <SceneTitle text="Hoja de ruta: paso a paso" highlight="paso a paso" start={4} />
 
       {/* Etiqueta del contrato (capa continua) como punto de partida */}
       <div style={{ position: "absolute", left: 120, top: 662, width: 240, opacity: hoy }}>
@@ -83,37 +44,32 @@ export const Roadmap: React.FC = () => {
         </div>
       </div>
 
-      {WAVES.map((w, i) => {
-        const p = prog(f, 34 + i * 26, 14);
-        const g = prog(f, 136 + i * 8, 12);
-        const isMvp = w.look === "mvp";
+      {STAGES.map((s, i) => {
+        const x = X0 + i * STEP;
+        const p = prog(f, 20 + i * 16, 14);
+        const dark = s.look === "later";
+        const bg = s.look === "mvp" ? C.yellowSoft : s.look === "oficial" ? C.yellow : dark ? C.ink : C.card;
+        const top = s.look === "mvp" ? C.yellow : s.look === "oficial" ? C.ink : dark ? C.ink : C.ink;
+        const strongTag = s.look === "mvp";
         return (
-          <React.Fragment key={w.n}>
-            <div
-              style={{
-                position: "absolute",
-                left: X[i] - 42,
-                top: TOP + H / 2 - 15,
-                opacity: p,
-              }}
-            >
-              <Arrow size={30} />
+          <React.Fragment key={s.name}>
+            <div style={{ position: "absolute", left: x - (i === 0 ? 44 : 20), top: TOP + H / 2 - 12, opacity: p }}>
+              <Arrow size={i === 0 ? 30 : 18} strokeWidth={3} />
             </div>
             <div
               style={{
                 position: "absolute",
-                left: X[i],
+                left: x,
                 top: TOP,
                 width: W,
                 height: H,
                 boxSizing: "border-box",
                 borderRadius: 14,
-                background: isMvp ? C.yellowSoft : C.card,
-                borderTop:
-                  w.look === "later" ? `6px dashed ${C.ink}` : `6px solid ${isMvp ? C.yellow : C.ink}`,
-                padding: "22px 22px",
+                background: bg,
+                borderTop: `6px solid ${top}`,
+                padding: "18px 18px",
                 opacity: p,
-                transform: `translateY(${(1 - p) * 22}px)`,
+                transform: `translateY(${(1 - p) * 20}px)`,
               }}
             >
               <div
@@ -121,81 +77,48 @@ export const Roadmap: React.FC = () => {
                   display: "inline-block",
                   fontFamily: F.body,
                   fontWeight: 700,
-                  fontSize: 18,
+                  fontSize: 16,
                   borderRadius: 999,
-                  padding: "5px 14px",
-                  background: w.tagStyle === "strong" ? C.ink : "transparent",
-                  color: w.tagStyle === "strong" ? C.yellow : w.tagStyle === "muted" ? C.text2 : C.ink,
-                  border:
-                    w.tagStyle === "strong"
-                      ? `2px solid ${C.ink}`
-                      : `2px solid ${w.tagStyle === "muted" ? C.text3 : C.ink}`,
+                  padding: "4px 11px",
+                  background: strongTag ? C.ink : "transparent",
+                  color: strongTag ? C.yellow : dark ? C.white : C.ink,
+                  border: `2px solid ${strongTag ? C.ink : dark ? C.white : s.look === "oficial" ? C.ink : C.text3}`,
                 }}
               >
-                {w.tag}
+                {s.tag}
               </div>
-              <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 24, color: C.text2, marginTop: 22 }}>
-                {w.n}
+              <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 21, color: dark ? "#C4C8CF" : C.text2, marginTop: 20, height: 26 }}>
+                {s.n ?? ""}
               </div>
               <div
                 style={{
                   fontFamily: F.display,
                   fontWeight: 700,
-                  fontSize: 38,
-                  color: C.ink,
-                  letterSpacing: -0.6,
+                  fontSize: 32,
+                  color: dark ? C.white : C.ink,
+                  letterSpacing: -0.5,
                   lineHeight: 1.05,
-                  marginTop: 4,
+                  marginTop: 2,
                 }}
               >
-                {w.name}
-              </div>
-              <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.ink, marginTop: 12, lineHeight: 1.3 }}>
-                {w.desc}
+                {s.name}
               </div>
               <div
                 style={{
-                  position: "absolute",
-                  left: 24,
-                  right: 24,
-                  bottom: 22,
-                  borderTop: `1.5px solid ${C.hairline}`,
-                  paddingTop: 14,
-                  display: "flex",
-                  gap: 10,
-                  alignItems: "flex-start",
-                  opacity: g,
+                  fontFamily: F.body,
+                  fontWeight: 500,
+                  fontSize: 21,
+                  color: dark ? C.white : C.ink,
+                  marginTop: 12,
+                  lineHeight: 1.3,
                 }}
               >
-                {w.look === "later" ? null : (
-                  <div style={{ marginTop: 2 }}>
-                    <Diamond size={20} />
-                  </div>
-                )}
-                <div style={{ fontFamily: F.body, fontSize: 20, color: C.text2, lineHeight: 1.3 }}>
-                  {w.look === "later" ? null : <span style={{ fontWeight: 700, color: C.ink }}>Para avanzar: </span>}
-                  {w.gate}
-                </div>
+                {s.desc}
               </div>
             </div>
           </React.Fragment>
         );
       })}
-
-      <div
-        style={{
-          position: "absolute",
-          left: 414,
-          top: 768,
-          fontFamily: F.body,
-          fontWeight: 500,
-          fontSize: 23,
-          color: C.text2,
-          opacity: note,
-        }}
-      >
-        Cada ola arranca cuando la anterior ya demostró que funciona. Las fechas se fijan con el equipo técnico.
-      </div>
     </AbsoluteFill>
   );
 };

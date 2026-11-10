@@ -1,112 +1,116 @@
 /**
- * Línea de tiempo única (30 fps). Versión 4: 63,7 s, ritmo de lectura cómodo.
- * Escenas, locución, subtítulos y efectos se controlan desde aquí.
+ * Línea de tiempo única (30 fps). Versión 5: alineada con la presentación
+ * "HE Propuesta To-Be · Mariana Cárdenas" (11-nov-2026). El video abre la sesión.
+ *
+ * Locución: una sola toma (assets/audio/voice/source_takes/v5A.mp3), cortada en 7 frases
+ * dentro de silencios. Los tiempos de cada palabra salen de su transcripción (ElevenLabs Scribe).
  */
 export const FPS = 30;
 
 export const SCENES = {
-  hoy: { from: 0, to: 290 }, // 00:00–00:09.7 Hoy · los dolores actuales son el punto de partida
-  mapa: { from: 290, to: 530 }, // 00:09.7–00:17.7 Hoja de ruta por olas
-  ola0: { from: 530, to: 725 }, // 00:17.7–00:24.2 Ola 0 · Validar
-  ola1: { from: 725, to: 1100 }, // 00:24.2–00:36.7 Ola 1 · MVP
-  ola2: { from: 1100, to: 1355 }, // 00:36.7–00:45.2 Ola 2 · Pago y agentes
-  ola3: { from: 1355, to: 1550 }, // 00:45.2–00:51.7 Ola 3 · Evolución
-  impacto: { from: 1550, to: 1775 }, // 00:51.7–00:59.2 Impacto esperado
-  decision: { from: 1775, to: 1910 }, // 00:59.2–01:03.7 Decisión
+  hoy: { from: 0, to: 366 }, // Hoy · 5 dolores (punto de partida)
+  mapa: { from: 366, to: 570 }, // Hoja de ruta
+  ola0: { from: 570, to: 826 }, // Ola 0 · Preparar
+  mvp: { from: 826, to: 1309 }, // MVP · ciclo mensual completo
+  despues: { from: 1309, to: 1663 }, // Después del MVP
+  impacto: { from: 1663, to: 1954 }, // Impacto
+  cierre: { from: 1954, to: 2134 }, // Pase al deck
 } as const;
 
 export type SceneKey = keyof typeof SCENES;
-export const TOTAL = SCENES.decision.to;
+export const TOTAL = SCENES.cierre.to;
 
-/** La voz entra 12 fotogramas después del inicio de cada placa. */
-const V = 12;
+/** La voz entra 6 fotogramas después del inicio de cada placa (10 en el cierre). */
+const V = 6;
 
-/** Locución (ElevenLabs, voz "Herduin", español de Colombia). len = duración del archivo en fotogramas. */
+/** cut = segundo de la toma donde empieza cada archivo (para convertir tiempos de palabra). */
 export const VOICE = [
-  { file: "audio/voice/vo1.wav", from: SCENES.hoy.from + 9, len: 234 },
-  { file: "audio/voice/vo2.wav", from: SCENES.mapa.from + V, len: 171 },
-  { file: "audio/voice/vo3.wav", from: SCENES.ola0.from + V, len: 148 },
-  { file: "audio/voice/vo4.wav", from: SCENES.ola1.from + V, len: 320 },
-  { file: "audio/voice/vo5.wav", from: SCENES.ola2.from + V, len: 186 },
-  { file: "audio/voice/vo6.wav", from: SCENES.ola3.from + V, len: 137 },
-  { file: "audio/voice/vo7.wav", from: SCENES.impacto.from + V, len: 125 },
-  { file: "audio/voice/vo8.wav", from: SCENES.decision.from + 18, len: 58 },
+  { file: "audio/voice/vo1.wav", from: SCENES.hoy.from + V, len: 340, cut: 0 },
+  { file: "audio/voice/vo2.wav", from: SCENES.mapa.from + V, len: 153, cut: 11.57 },
+  { file: "audio/voice/vo3.wav", from: SCENES.ola0.from + V, len: 226, cut: 16.84 },
+  { file: "audio/voice/vo4.wav", from: SCENES.mvp.from + V, len: 447, cut: 24.46 },
+  { file: "audio/voice/vo5.wav", from: SCENES.despues.from + V, len: 318, cut: 39.5 },
+  { file: "audio/voice/vo6.wav", from: SCENES.impacto.from + V, len: 240, cut: 50.19 },
+  { file: "audio/voice/vo7.wav", from: SCENES.cierre.from + 10, len: 120, cut: 58.31 },
 ] as const;
 
-const at = (i: number, offset = 0) => VOICE[i].from + offset;
+/** Fotograma absoluto en que se pronuncia el segundo `t` de la toma original, dentro de la frase i. */
+export const word = (i: number, t: number) => VOICE[i].from + Math.round((t - VOICE[i].cut) * 30);
+/** Igual que `word`, pero relativo al inicio de la placa que contiene la frase. */
+export const wordLocal = (i: number, t: number, sceneFrom: number) => word(i, t) - sceneFrom;
+
 const end = (i: number, hold = 8) => VOICE[i].from + VOICE[i].len + hold;
 
-/** Subtítulos por frase, fieles a la locución (cortes en las pausas reales de la voz). */
+/** Subtítulos por frase; cada corte cae en una pausa real de la voz. */
 export const SUBTITLES = [
-  { from: at(0, 1), to: at(0, 152), text: "Hoy, cada contrato exige transcribir, cruzar datos y perseguir aprobaciones." },
-  { from: at(0, 152), to: end(0, 14), text: "Esos dolores son nuestro punto de partida." },
-  { from: at(1, 1), to: end(1), text: "Avanzamos paso a paso: cada ola arranca cuando la anterior ya demostró que funciona." },
-  { from: at(2, 1), to: end(2), text: "Primero, en la ola cero, validamos reglas y datos, y medimos la línea base." },
-  { from: at(3, 1), to: at(3, 104), text: "Luego, en la ola uno, desarrollamos el MVP:" },
-  { from: at(3, 104), to: at(3, 208), text: "una ficha única con contrato, soportes y reglas;" },
-  { from: at(3, 208), to: end(3), text: "el cálculo automático del cumplimiento, y consultas con IA." },
-  { from: at(4, 1), to: at(4, 152), text: "Después, en la ola dos, la IA propone; las personas validan y aprueban." },
-  { from: at(4, 152), to: end(4), text: "Finanzas paga." },
-  { from: at(5, 1), to: end(5), text: "Finalmente, en la ola tres, un brief con evidencia fortalece la negociación." },
-  { from: at(6, 1), to: end(6, 20), text: "La meta: cincuenta por ciento menos trabajo manual a seis meses." },
-  { from: at(7, 1), to: TOTAL - 6, text: "Aprobemos el inicio del desarrollo." },
+  { from: word(0, 0), to: word(0, 2.1), text: "Hoy partimos de cinco dolores:" },
+  { from: word(0, 2.1), to: word(0, 5.8), text: "el contrato no está en datos, el volumen se arma a mano," },
+  { from: word(0, 5.8), to: word(0, 9.45), text: "la regla de pago no está escrita, los pagos no dejan rastro" },
+  { from: word(0, 9.45), to: end(0, 14), text: "y nadie ve el estado real." },
+  { from: word(1, 11.6), to: end(1, 14), text: "Avanzamos paso a paso: cada etapa arranca cuando la anterior ya demostró que funciona." },
+  { from: word(2, 16.86), to: word(2, 19.88), text: "Primero, en la ola cero, preparamos las bases:" },
+  { from: word(2, 19.88), to: end(2, 14), text: "reglas de pago aprobadas, cada contrato con su código y los accesos a los datos." },
+  { from: word(3, 24.5), to: word(3, 29.6), text: "Luego construimos el MVP con el ciclo mensual completo, del contrato al pago." },
+  { from: word(3, 29.6), to: word(3, 32.84), text: "La IA prellena la ficha y la analista la valida;" },
+  { from: word(3, 32.84), to: word(3, 35.04), text: "las reglas calculan el cumplimiento;" },
+  { from: word(3, 35.04), to: end(3, 14), text: "trade da el OK, cada aprobador aprueba por correo y Finanzas paga." },
+  { from: word(4, 39.55), to: word(4, 44.44), text: "Después completamos el resto: consulta por chat, alertas y un brief para negociar." },
+  { from: word(4, 44.44), to: end(4, 14), text: "Cuando los cortes coinciden con el Excel y High End da el visto bueno, el sistema pasa a ser oficial." },
+  { from: word(5, 50.25), to: word(5, 54.09), text: "Así, cada peso se paga con regla, soporte y aprobador." },
+  { from: word(5, 54.09), to: end(5, 20), text: "Y la meta: cincuenta por ciento menos trabajo manual a seis meses." },
+  { from: word(6, 58.35), to: TOTAL - 6, text: "Las reglas calculan, la IA propone y las personas deciden." },
 ];
 
-/** Efectos sincronizados con transformaciones y confirmaciones (offset = fotograma local de la placa). */
-const SFX_LOCAL: ReadonlyArray<{ scene: SceneKey; offset: number; file: string; volume: number }> = [
-  // Hoy
-  { scene: "hoy", offset: 22, file: "tick", volume: 0.5 },
-  { scene: "hoy", offset: 42, file: "tick", volume: 0.45 },
-  { scene: "hoy", offset: 62, file: "tick", volume: 0.45 },
-  { scene: "hoy", offset: 82, file: "tick", volume: 0.45 },
-  { scene: "hoy", offset: 271, file: "whoosh", volume: 0.65 },
-  // Mapa
-  { scene: "mapa", offset: 36, file: "pop", volume: 0.45 },
-  { scene: "mapa", offset: 62, file: "pop", volume: 0.45 },
-  { scene: "mapa", offset: 88, file: "pop", volume: 0.45 },
-  { scene: "mapa", offset: 114, file: "pop", volume: 0.45 },
-  { scene: "mapa", offset: 227, file: "whoosh", volume: 0.6 },
-  // Ola 0
-  { scene: "ola0", offset: 48, file: "confirm", volume: 0.4 },
-  { scene: "ola0", offset: 68, file: "confirm", volume: 0.4 },
-  { scene: "ola0", offset: 88, file: "confirm", volume: 0.4 },
-  { scene: "ola0", offset: 108, file: "confirm", volume: 0.4 },
-  { scene: "ola0", offset: 128, file: "confirm", volume: 0.4 },
-  { scene: "ola0", offset: 182, file: "whoosh", volume: 0.6 },
-  // Ola 1
-  { scene: "ola1", offset: 14, file: "snap", volume: 0.6 },
-  { scene: "ola1", offset: 162, file: "confirm", volume: 0.5 },
-  { scene: "ola1", offset: 210, file: "rise", volume: 0.45 },
-  { scene: "ola1", offset: 268, file: "pop", volume: 0.5 },
-  { scene: "ola1", offset: 292, file: "pop", volume: 0.45 },
-  { scene: "ola1", offset: 362, file: "whoosh", volume: 0.6 },
-  // Ola 2
-  { scene: "ola2", offset: 30, file: "pop", volume: 0.45 },
-  { scene: "ola2", offset: 55, file: "pop", volume: 0.45 },
-  { scene: "ola2", offset: 110, file: "confirm", volume: 0.5 },
-  { scene: "ola2", offset: 142, file: "confirm", volume: 0.5 },
-  { scene: "ola2", offset: 173, file: "snap", volume: 0.55 },
-  { scene: "ola2", offset: 193, file: "confirm", volume: 0.45 },
-  { scene: "ola2", offset: 242, file: "whoosh", volume: 0.6 },
-  // Ola 3
-  { scene: "ola3", offset: 78, file: "snap", volume: 0.5 },
-  { scene: "ola3", offset: 118, file: "confirm", volume: 0.45 },
-  { scene: "ola3", offset: 182, file: "whoosh", volume: 0.6 },
-  // Impacto
-  { scene: "impacto", offset: 26, file: "rise", volume: 0.45 },
-  { scene: "impacto", offset: 104, file: "tick", volume: 0.45 },
-  { scene: "impacto", offset: 120, file: "tick", volume: 0.45 },
-  { scene: "impacto", offset: 136, file: "tick", volume: 0.45 },
-  { scene: "impacto", offset: 212, file: "whoosh", volume: 0.6 },
-  // Decisión
-  { scene: "decision", offset: 22, file: "resolve", volume: 0.6 },
-];
+/** Momentos clave (fotogramas absolutos) que comparten animación y efectos. */
+export const CUE = {
+  dolor: [word(0, 2.12), word(0, 4.04), word(0, 5.84), word(0, 7.92), word(0, 9.52)],
+  ola0Item: [word(2, 19.92), word(2, 21.36), word(2, 22.96), word(2, 23.9)],
+  mvpCiclo: word(3, 26.88),
+  mvpIA: word(3, 29.76),
+  mvpAnalista: word(3, 31.4),
+  mvpReglas: word(3, 32.88),
+  mvpTrade: word(3, 35.12),
+  mvpAprobador: word(3, 36.32),
+  mvpFinanzas: word(3, 38.08),
+  chat: word(4, 41.48),
+  alertas: word(4, 42.6),
+  brief: word(4, 43.2),
+  cortes: word(4, 44.56),
+  oficial: word(4, 46.64),
+  regla: word(5, 52.0),
+  soporte: word(5, 52.56),
+  aprobador: word(5, 53.2),
+  meta: word(5, 54.4),
+} as const;
 
-export const SFX = SFX_LOCAL.map((s) => ({
-  file: s.file,
-  frame: SCENES[s.scene].from + s.offset,
-  volume: s.volume,
-}));
+/** Efectos sincronizados con transformaciones y confirmaciones (fotogramas absolutos). */
+export const SFX: ReadonlyArray<{ file: string; frame: number; volume: number }> = [
+  ...CUE.dolor.map((f) => ({ file: "tick", frame: f, volume: 0.45 })),
+  { file: "whoosh", frame: SCENES.mapa.from - 10, volume: 0.6 },
+  ...[0, 1, 2, 3, 4, 5].map((i) => ({ file: "pop", frame: SCENES.mapa.from + 22 + i * 16, volume: 0.4 })),
+  { file: "whoosh", frame: SCENES.ola0.from - 10, volume: 0.6 },
+  ...CUE.ola0Item.map((f) => ({ file: "confirm", frame: f + 8, volume: 0.38 })),
+  { file: "whoosh", frame: SCENES.mvp.from - 10, volume: 0.6 },
+  { file: "pop", frame: CUE.mvpIA, volume: 0.45 },
+  { file: "confirm", frame: CUE.mvpAnalista + 10, volume: 0.45 },
+  { file: "rise", frame: CUE.mvpReglas - 6, volume: 0.4 },
+  { file: "confirm", frame: CUE.mvpTrade + 8, volume: 0.42 },
+  { file: "confirm", frame: CUE.mvpAprobador + 10, volume: 0.42 },
+  { file: "snap", frame: CUE.mvpFinanzas + 6, volume: 0.5 },
+  { file: "whoosh", frame: SCENES.despues.from - 10, volume: 0.6 },
+  { file: "pop", frame: CUE.chat, volume: 0.42 },
+  { file: "pop", frame: CUE.alertas, volume: 0.42 },
+  { file: "pop", frame: CUE.brief, volume: 0.42 },
+  { file: "confirm", frame: CUE.cortes + 8, volume: 0.42 },
+  { file: "snap", frame: CUE.oficial + 8, volume: 0.5 },
+  { file: "whoosh", frame: SCENES.impacto.from - 10, volume: 0.6 },
+  { file: "tick", frame: CUE.regla, volume: 0.45 },
+  { file: "tick", frame: CUE.soporte, volume: 0.45 },
+  { file: "tick", frame: CUE.aprobador, volume: 0.45 },
+  { file: "rise", frame: CUE.meta - 10, volume: 0.4 },
+  { file: "whoosh", frame: SCENES.cierre.from - 6, volume: 0.6 },
+  { file: "resolve", frame: SCENES.cierre.from + 22, volume: 0.55 },
+];
 
 /** Música: volumen base y reducción automática bajo la voz. */
 export const MUSIC = { base: 0.5, ducked: 0.15, ramp: 8 } as const;

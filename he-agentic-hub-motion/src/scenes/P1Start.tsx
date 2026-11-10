@@ -1,45 +1,40 @@
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { C, F } from "../brand";
-import { easeInOut, prog } from "../anim";
+import { prog } from "../anim";
 import { SceneTitle } from "../components/ui";
-const Bubble: React.FC = () => (
-  <svg width={26} height={26} viewBox="0 0 24 24" fill="none">
-    <path d="M4 5h16v11H10l-5 4v-4H4z" stroke={C.text2} strokeWidth={2} strokeLinejoin="round" />
-  </svg>
-);
+import { CUE, SCENES } from "../timeline";
 
-/** Placa 1 · 00:00–00:04 · El punto de partida. */
+/**
+ * Placa 1 · Hoy: el punto de partida son los 5 dolores de la presentación final
+ * (diapositiva 2, "Los 5 dolores que encontramos"), sin cifras ni nombres de clientes.
+ * Cada dolor aparece cuando la voz lo nombra.
+ */
 
-const CX = 960;
-const CY = 553;
-
-const FRAGMENTS = [
-  // Tarea manual + su consecuencia (Matriz de dolor del AS-IS: 0.1.2, 2.2.1, 1.G1, 3.2.1)
-  { x: 190, y: 300, file: "Word", task: "Transcribir el PDF", pain: "Riesgo de errores en metas y fechas", at: 20, side: -1 },
-  { x: 190, y: 548, file: "Excel", task: "Digitar y cuadrar", pain: "Pagos difíciles de auditar", at: 40, side: -1 },
-  { x: 1250, y: 300, file: "Ventas", task: "Cruzar datos a mano", pain: "Reprocesos y riesgo de doble conteo", at: 60, side: 1 },
-  { x: 1250, y: 548, file: "Correo", task: "Perseguir aprobaciones", pain: "Aprobaciones sin evidencia registrada", at: 80, side: 1 },
+const DOLORES = [
+  { t: "El contrato no está en datos", d: "Las metas están en texto libre y hay contratos sin código de cliente." },
+  { t: "El volumen se arma a mano", d: "Cada mes se edita la consulta de ventas y lo vendido vía Dislicores se suma aparte." },
+  { t: "La regla de pago no está escrita", d: "El cumplimiento depende de quién arme el Excel y los ajustes no se pueden repetir." },
+  { t: "Los pagos no dejan rastro", d: "Pagos sumados en fórmulas, sin fecha ni soporte, y pagos por encima de lo pactado." },
+  { t: "Nadie ve el estado real", d: "Contratos vencidos que siguen como vigentes; el contrato nuevo se negocia sin historial." },
 ];
-const FW = 480;
-const FH = 180;
 
-const REQUESTS = [
-  { x: 360, y: 780, text: "¿Ya cumplió la meta?", at: 100 },
-  { x: 1220, y: 780, text: "¿Cuánto se le paga?", at: 114 },
-];
+const X = 540;
+const Y0 = 292;
+const RH = 106;
+const GAP = 12;
 
 export const P1Start: React.FC = () => {
-  const frame = useCurrentFrame();
-  const gather = prog(frame, 261, 24, easeInOut); // los fragmentos entran al contrato
+  const f = useCurrentFrame();
+  const at = (i: number) => CUE.dolor[i] - SCENES.hoy.from - 4;
 
   return (
     <AbsoluteFill>
-      <SceneTitle text="Hoy: demasiadas tareas manuales" highlight="tareas manuales" start={2} />
+      <SceneTitle text="Hoy: un Excel que ya no cuadra" highlight="ya no cuadra" start={2} />
       <div
         style={{
           position: "absolute",
-          left: 1214,
+          right: 120,
           top: 126,
           background: C.ink,
           color: C.yellow,
@@ -48,121 +43,75 @@ export const P1Start: React.FC = () => {
           fontSize: 28,
           borderRadius: 999,
           padding: "8px 22px",
-          opacity: prog(frame, 16, 12),
-          transform: `translateX(${(1 - prog(frame, 16, 12)) * -16}px)`,
+          opacity: prog(f, 16, 12),
         }}
       >
         Punto de partida: dolores actuales
       </div>
 
-      {/* Conexiones enredadas */}
+      {/* Conexiones manuales desde el contrato */}
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-        {FRAGMENTS.map((f, i) => {
-          const p = prog(frame, f.at + 2, 16);
-          const fx = f.side < 0 ? f.x + FW : f.x;
-          const fy = f.y + FH / 2;
-          const sx = f.side < 0 ? 780 : 1140;
-          const sy = 400 + i * 70;
-          const d = `M ${sx} ${sy} C ${sx + f.side * 120} ${sy + (i % 2 ? -90 : 110)}, ${fx - f.side * 110} ${fy + (i % 2 ? 80 : -70)}, ${fx} ${fy}`;
+        {DOLORES.map((_, i) => {
+          const y = Y0 + i * (RH + GAP) + RH / 2;
           return (
             <path
               key={i}
-              d={d}
+              d={`M 450 ${496} C 490 ${496}, 490 ${y}, ${X} ${y}`}
               fill="none"
               stroke="#9AA0AB"
               strokeWidth={2.5}
-              strokeDasharray="8 8"
-              opacity={p * (1 - gather) * 0.9}
+              strokeDasharray="7 7"
+              opacity={prog(f, at(i), 12) * 0.9}
             />
           );
         })}
       </svg>
 
-      {FRAGMENTS.map((f, i) => {
-        const p = prog(frame, f.at, 14);
-        const float = Math.sin((frame + i * 17) / 11) * 4;
-        const x = interpolate(gather, [0, 1], [f.x, CX - FW / 2]);
-        const y = interpolate(gather, [0, 1], [f.y + float, CY - FH / 2]);
+      {DOLORES.map((d, i) => {
+        const p = prog(f, at(i), 12);
         return (
           <div
-            key={f.file}
+            key={d.t}
             style={{
               position: "absolute",
-              left: x,
-              top: y,
-              width: FW,
-              height: FH,
+              left: X,
+              top: Y0 + i * (RH + GAP),
+              width: 1800 - X,
+              height: RH,
+              boxSizing: "border-box",
               background: C.white,
               border: `2px solid #C4C8CF`,
               borderRadius: 12,
-              padding: "20px 24px",
-              boxSizing: "border-box",
-              opacity: p * (1 - gather),
-              transform: `scale(${(0.92 + 0.08 * p) * (1 - 0.6 * gather)}) rotate(${f.side * (i % 2 ? 1.2 : -1.5)}deg)`,
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <div
-                style={{
-                  fontFamily: F.body,
-                  fontWeight: 700,
-                  fontSize: 20,
-                  color: C.text2,
-                  background: C.card,
-                  borderRadius: 6,
-                  padding: "3px 10px",
-                }}
-              >
-                {f.file}
-              </div>
-              <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 20, color: C.text3 }}>Manual</div>
-            </div>
-            <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 31, color: C.ink, marginTop: 14, whiteSpace: "nowrap" }}>
-              {f.task}
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                marginTop: 12,
-                opacity: prog(frame, f.at + 14, 12),
-              }}
-            >
-              <div style={{ width: 14, height: 5, borderRadius: 3, background: C.yellow, flexShrink: 0 }} />
-              <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.text2, whiteSpace: "nowrap" }}>
-                {f.pain}
-              </div>
-            </div>
-          </div>
-        );
-      })}
-
-      {REQUESTS.map((r, i) => {
-        const p = prog(frame, r.at, 12);
-        return (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              left: r.x,
-              top: r.y + Math.sin((frame + i * 23) / 13) * 3,
+              padding: "0 28px",
               display: "flex",
               alignItems: "center",
-              gap: 10,
-              background: C.card,
-              borderRadius: 999,
-              padding: "10px 22px",
-              fontFamily: F.body,
-              fontWeight: 500,
-              fontSize: 26,
-              color: C.text2,
-              opacity: p * (1 - gather),
-              transform: `translateY(${(1 - p) * 14}px)`,
+              gap: 24,
+              opacity: p,
+              transform: `translateX(${(1 - p) * 26}px)`,
             }}
           >
-            <Bubble />
-            {r.text}
+            <div
+              style={{
+                width: 48,
+                height: 48,
+                borderRadius: 24,
+                background: C.yellow,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: F.display,
+                fontWeight: 700,
+                fontSize: 26,
+                color: C.ink,
+                flexShrink: 0,
+              }}
+            >
+              {i + 1}
+            </div>
+            <div style={{ width: 470, fontFamily: F.body, fontWeight: 700, fontSize: 29, color: C.ink, flexShrink: 0 }}>
+              {d.t}
+            </div>
+            <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.text2, lineHeight: 1.3 }}>{d.d}</div>
           </div>
         );
       })}

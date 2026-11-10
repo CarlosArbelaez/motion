@@ -1,7 +1,7 @@
-# HE Agentic Hub — motion graphic de 30 s (Remotion)
+# HE Gestión de Contratos, Cumplimiento y Pagos — video de apertura (Remotion)
 
-Video ejecutivo para pedir el VoBo de la VP de High End para iniciar el desarrollo de HE Agentic Hub.
-1920 × 1080 · 30 fps · 1910 fotogramas (63,7 s) · MP4 H.264 (yuv420p, BT.709) + AAC.
+Video que abre la sesión con Mariana Cárdenas (Premium Brands & High End Director). Alineado con la presentación final "HE Propuesta To-Be · Mariana Cárdenas" (8 diapositivas, 11-nov-2026). Cierra con un pase al deck; el pedido de visto bueno lo hace el deck.
+1920 × 1080 · 30 fps · 2134 fotogramas (71,1 s) · MP4 H.264 (yuv420p, BT.709) + AAC.
 
 **Archivo final:** `Renders/HE_Agentic_Hub_Final.mp4`
 
@@ -15,30 +15,28 @@ Video ejecutivo para pedir el VoBo de la VP de High End para iniciar el desarrol
 | `Renders/` | MP4 final |
 | `scripts/synth_audio.py` | Genera la música y los efectos originales por síntesis (numpy) |
 
-## Guion (versión 4)
+## Guion (versión 5, alineada con la presentación final)
 
 | Placa | Intervalo | Texto principal | Locución |
 |---|---|---|---|
-| 1 | 00:00–00:09,7 | Hoy: demasiadas tareas manuales · Punto de partida: dolores actuales | Hoy, cada contrato exige transcribir, cruzar datos y perseguir aprobaciones. Esos dolores son nuestro punto de partida. |
-| 2 | 00:09,7–00:17,7 | Hoja de ruta: avanzar por olas (Hoy · dolores actuales → Ola 0 → Ola 1 → Ola 2 → Ola 3) | Avanzamos paso a paso: cada ola arranca cuando la anterior ya demostró que funciona. |
-| 3 | 00:17,7–00:24,2 | Ola 0 · Validar antes de construir | Primero, en la ola cero, validamos reglas y datos, y medimos la línea base. |
-| 4 | 00:24,2–00:36,7 | Ola 1 · MVP: ordenar, automatizar y consultar | Luego, en la ola uno, desarrollamos el MVP: una ficha única con contrato, soportes y reglas; el cálculo automático del cumplimiento, y consultas con IA. |
-| 5 | 00:36,7–00:45,2 | Ola 2 · Pago y agentes, con control humano | Después, en la ola dos, la IA propone; las personas validan y aprueban. Finanzas paga. |
-| 6 | 00:45,2–00:51,7 | Ola 3 · Evolución: negociar con evidencia | Finalmente, en la ola tres, un brief con evidencia fortalece la negociación. |
-| 7 | 00:51,7–00:59,2 | Impacto esperado | La meta: cincuenta por ciento menos trabajo manual a seis meses. |
-| 8 | 00:59,2–01:03,7 | HE Agentic Hub · VoBo para iniciar desarrollo | Aprobemos el inicio del desarrollo. |
+| 1 | 00:00–00:12,2 | Hoy: un Excel que ya no cuadra · Punto de partida: dolores actuales (los 5 dolores del deck) | Hoy partimos de cinco dolores: el contrato no está en datos, el volumen se arma a mano, la regla de pago no está escrita, los pagos no dejan rastro y nadie ve el estado real. |
+| 2 | 00:12,2–00:19 | Hoja de ruta: paso a paso (Hoy → Ola 0 · Preparar → MVP → Completar → Validar → Sistema oficial → Escalar) | Avanzamos paso a paso: cada etapa arranca cuando la anterior ya demostró que funciona. |
+| 3 | 00:19–00:27,5 | Ola 0 · Preparar las bases | Primero, en la ola cero, preparamos las bases: reglas de pago aprobadas, cada contrato con su código y los accesos a los datos. |
+| 4 | 00:27,5–00:43,6 | MVP · el ciclo mensual completo corre en el sistema | Luego construimos el MVP con el ciclo mensual completo, del contrato al pago. La IA prellena la ficha y la analista la valida; las reglas calculan el cumplimiento; trade da el OK, cada aprobador aprueba por correo y Finanzas paga. |
+| 5 | 00:43,6–00:55,4 | Después del MVP · completamos y retiramos el Excel | Después completamos el resto: consulta por chat, alertas y un brief para negociar. Cuando los cortes coinciden con el Excel y High End da el visto bueno, el sistema pasa a ser oficial. |
+| 6 | 00:55,4–01:05,1 | Impacto: cada peso pagado con regla, soporte y aprobador | Así, cada peso se paga con regla, soporte y aprobador. Y la meta: cincuenta por ciento menos trabajo manual a seis meses. |
+| 7 | 01:05,1–01:11,1 | HE Gestión de Contratos, Cumplimiento y Pagos | Las reglas calculan, la IA propone y las personas deciden. |
 
-"MVP" se pronuncia en inglés (em-vi-pi), sin énfasis: la frase pone el peso en lo que se construye. En pantalla aparece solo "MVP".
-
-En la placa 1 cada tarea manual muestra su consecuencia, tomada de la matriz de dolor del AS-IS.
+Sin fechas ni cifras de negocio (las da el deck); las únicas cifras son las de impacto (−50 % a 6 meses, meta; ≈13 h/mes, estimación). "MVP" se pronuncia en inglés, sin énfasis.
 
 Código visual (tomado de la presentación To-Be v4.0): **amarillo = regla automática**, **contorno punteado = agente de IA (propone)**, **contorno negro sólido = persona (valida, aprueba, decide)**.
 
 ## Fuentes de contenido
 
-- `AS-IS_HE_Agentic_Hub.md`, `TO-BE_HE_Gestion_Contratos_Cumplimiento_Pagos_v4.0.md`, `HE_Agentic_Hub_Propuesta_To-Be_v4.0.pptx`.
-- KPIs: "−50 % de horas manuales a 6 meses" (meta, KPI de guarda) y "≈13 h/mes de la analista" (estimación de carga To-Be). La línea base se mide en el experimento E5.
-- Olas y condiciones para avanzar (en el deck, "compuertas"; en pantalla, "Para avanzar"): Ola 0 Validar (reglas aprobadas, contratos con código, saldos conciliados) → Ola 1 MVP (coincide con el Excel + VoBo de negocio) → Ola 2 Pago y agentes (pagos en el flujo + agentes en su meta) → Ola 3 Evolución. Sin fechas: se fijan con el equipo técnico (V-21).
+- **Fuente principal (v5):** `HE_Propuesta_To-Be_Mariana_Cardenas.pptx` (presentación final, 11-nov-2026): 5 dolores, Ola 0 · Preparar, MVP, Completar, Validar, Sistema oficial, Escalar, métricas de éxito de High End e impacto.
+- Antecedentes: `AS-IS_HE_Agentic_Hub.md`, `TO-BE_HE_Gestion_Contratos_Cumplimiento_Pagos_v4.0.md`, `HE_Agentic_Hub_Propuesta_To-Be_v4.0.pptx`.
+- KPIs: "−50 % de horas manuales a 6 meses" (meta) y "≈13 h/mes de la analista" (estimación de carga To-Be). La línea base de horas se mide en la Ola 0.
+- La condición de la IA del alta se muestra sin cifra: "la IA entra solo si demuestra su precisión; si no, la analista llena la ficha a mano".
 
 ## Marca
 
@@ -48,9 +46,9 @@ Código visual (tomado de la presentación To-Be v4.0): **amarillo = regla autom
 
 ## Audio
 
-- Voz: ElevenLabs, voz "Herduin" (español de Colombia), modelo eleven_v4. Tomas originales en `assets/audio/voice/source_takes/` (versión 4: frases 3 y 5–8 de `v2A.mp3`; frase 1 de `v3A.mp3`; frase 4 de `v3B.mp3`, sin ediciones internas; frase 2 de `v4A.mp3`). Cada frase se corta y se funde solo dentro de silencios (márgenes por debajo de −40 dB). Las tres tomas se transcribieron con ElevenLabs Scribe y coinciden palabra por palabra con los subtítulos.; frases cortadas y normalizadas a −16 LUFS en `vo1…vo8.wav`. Sin cambios de velocidad.
+- Voz: ElevenLabs, voz "Herduin" (español de Colombia), modelo eleven_v4. Tomas originales en `assets/audio/voice/source_takes/` (versión 5: una sola toma, `v5A.mp3`, cortada en 7 frases solo dentro de silencios; transcrita con ElevenLabs Scribe y verificada palabra por palabra).
 - Música y efectos: síntesis propia (`scripts/synth_audio.py`), sin samples externos. La música baja automáticamente bajo la voz (`MUSIC` en `timeline.ts`).
-- Mezcla final: −17,1 LUFS integrados, pico −2,5 dBFS. Cada frase del MP4 coincide con su archivo original (correlación ≥ 0,96, sin caídas).
+- Mezcla final: −16,7 LUFS integrados, pico −2,7 dBFS. Cada frase del MP4 coincide con su archivo original (correlación ≥ 0,97, sin caídas).
 
 ## Comandos
 

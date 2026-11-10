@@ -2,9 +2,9 @@ import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
 import { C, F } from "../brand";
 import { easeInOut, prog } from "../anim";
-import { SCENES } from "../timeline";
-import { CheckDot, DataBar, KindPill } from "./ui";
-import { Doc, Person } from "./Icons";
+import { CUE, SCENES } from "../timeline";
+import { CheckDot } from "./ui";
+import { Doc } from "./Icons";
 
 /**
  * "Contrato HE": el mismo contrato recorre todo el video.
@@ -17,20 +17,18 @@ type Key = { f: number } & Rect;
 
 const S = SCENES;
 const KEYS: Key[] = [
-  { f: 0, x: 780, y: 318, w: 360, h: 470 }, // Hoy: documento entre tareas manuales
-  { f: S.hoy.to - 16, x: 780, y: 318, w: 360, h: 470 },
-  { f: S.mapa.from + 20, x: 120, y: 330, w: 240, h: 313 }, // Mapa: el contrato en "Hoy"
-  { f: S.mapa.to - 16, x: 120, y: 330, w: 240, h: 313 },
-  { f: S.ola0.from + 20, x: 150, y: 300, w: 360, h: 470 }, // Ola 0: el contrato que se valida
+  { f: 0, x: 150, y: 300, w: 300, h: 392 }, // Hoy: el contrato entre los 5 dolores
+  { f: S.hoy.to - 16, x: 150, y: 300, w: 300, h: 392 },
+  { f: S.mapa.from + 20, x: 120, y: 330, w: 240, h: 313 }, // Hoja de ruta: el contrato en "Hoy"
+  { f: S.mapa.to - 14, x: 120, y: 330, w: 240, h: 313 },
+  { f: S.ola0.from + 20, x: 150, y: 300, w: 360, h: 470 }, // Ola 0: el contrato que se prepara
   { f: S.ola0.to - 10, x: 150, y: 300, w: 360, h: 470 },
-  { f: S.ola1.from + 28, x: 150, y: 318, w: 760, h: 540 }, // Ola 1: ficha única en App HE
-  { f: S.ola1.to - 4, x: 150, y: 318, w: 760, h: 540 },
-  { f: S.ola2.from + 22, x: 120, y: 300, w: 330, h: 430 }, // Ola 2–3: ficha compacta
-  { f: S.ola3.to - 2, x: 120, y: 300, w: 330, h: 430 },
-  { f: S.impacto.from + 26, x: 150, y: 590, w: 214, h: 278 }, // Impacto: "después", conectado
-  { f: S.impacto.to - 4, x: 150, y: 590, w: 214, h: 278 },
-  { f: S.decision.from + 26, x: 210, y: 300, w: 360, h: 470 }, // Decisión: resuelto
-  { f: S.decision.to, x: 210, y: 300, w: 360, h: 470 },
+  { f: S.mvp.from + 24, x: 120, y: 300, w: 300, h: 391 }, // MVP y después: origen del ciclo
+  { f: S.despues.to - 4, x: 120, y: 300, w: 300, h: 391 },
+  { f: S.impacto.from + 24, x: 150, y: 430, w: 230, h: 300 }, // Impacto: conectado
+  { f: S.impacto.to - 4, x: 150, y: 430, w: 230, h: 300 },
+  { f: S.cierre.from + 26, x: 210, y: 300, w: 360, h: 470 }, // Cierre: resuelto
+  { f: S.cierre.to, x: 210, y: 300, w: 360, h: 470 },
 ];
 
 const rectAt = (frame: number): Rect => {
@@ -135,104 +133,7 @@ export const DocContent: React.FC<{ tone?: "ink" | "muted" }> = ({ tone = "ink" 
   );
 };
 
-const FICHA_ROWS = [
-  { label: "Cliente y códigos", kind: "bar" as const, w: 260 },
-  { label: "Vigencia y periodo", kind: "bar" as const, w: 200 },
-  { label: "Valor por rubro", kind: "rubros" as const, w: 0 },
-  { label: "Meta de volumen", kind: "text" as const, w: 0, text: "En cajas por periodo" },
-  { label: "Escala de pago", kind: "bar" as const, w: 230 },
-  { label: "Soportes y responsables", kind: "bar" as const, w: 180 },
-];
-
 const RUBROS = ["Visibilidad", "Activaciones", "Volumen", "Eventos"];
-
-/** Ficha única (P2). Registro y validación humana — sin agente. */
-const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
-  const o = SCENES.ola1.from;
-  const stamp = prog(frame, o + 150, 14);
-  return (
-    <div style={{ position: "absolute", inset: 0, padding: "28px 34px" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 18 }}>
-          <div style={{ fontFamily: F.display, fontWeight: 700, fontSize: 40, color: C.ink, letterSpacing: -0.6 }}>
-            Contrato HE
-          </div>
-          <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 21, color: C.text2 }}>Ficha única</div>
-        </div>
-        <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 18, color: C.text2, letterSpacing: 1.2 }}>
-          OPTIMIZAR
-        </div>
-      </div>
-      <div style={{ height: 2, background: C.hairline, margin: "18px 0 6px" }} />
-      {FICHA_ROWS.map((r, i) => {
-        const p = prog(frame, o + 64 + i * 12, 14);
-        return (
-          <div
-            key={r.label}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              height: 56,
-              borderBottom: `1.5px solid ${C.hairline}`,
-              opacity: p,
-              transform: `translateX(${(1 - p) * -18}px)`,
-            }}
-          >
-            <div style={{ width: 260, fontFamily: F.body, fontWeight: 500, fontSize: 23, color: C.text2 }}>
-              {r.label}
-            </div>
-            <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 6, paddingRight: 12 }}>
-              {r.kind === "bar" ? <DataBar width={r.w} progress={prog(frame, o + 68 + i * 12, 16)} /> : null}
-              {r.kind === "text" ? (
-                <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 23, color: C.ink }}>{r.text}</div>
-              ) : null}
-              {r.kind === "rubros"
-                ? RUBROS.map((x) => (
-                    <div
-                      key={x}
-                      style={{
-                        fontFamily: F.body,
-                        fontWeight: 500,
-                        fontSize: 16,
-                        color: C.ink,
-                        border: `1.5px solid ${C.ink}`,
-                        borderRadius: 999,
-                        padding: "2px 8px",
-                      }}
-                    >
-                      {x}
-                    </div>
-                  ))
-                : null}
-            </div>
-            <CheckDot progress={prog(frame, o + 74 + i * 12, 10)} size={28} />
-          </div>
-        );
-      })}
-      <div
-        style={{
-          position: "absolute",
-          left: 34,
-          bottom: 26,
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          opacity: stamp,
-          transform: `scale(${0.9 + 0.1 * stamp})`,
-          transformOrigin: "left center",
-        }}
-      >
-        <KindPill kind="persona" size={22}>
-          <Person size={24} strokeWidth={2.6} />
-          La analista valida la ficha
-        </KindPill>
-        <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 20, color: C.text2 }}>
-          Contrato PDF y soportes adjuntos
-        </div>
-      </div>
-    </div>
-  );
-};
 
 /** Ficha compacta (P3–P6). */
 const MiniContent: React.FC<{ resolved: number; linked: number }> = ({ resolved, linked }) => (
@@ -285,10 +186,10 @@ export const ContractLayer: React.FC = () => {
   const r = rectAt(frame);
 
   const appear = prog(frame, 0, 14);
-  const docOp = 1 - prog(frame, S.ola1.from + 2, 16, easeInOut);
-  const fichaOp = prog(frame, S.ola1.from + 10, 16, easeInOut) * (1 - prog(frame, S.ola2.from, 14, easeInOut));
-  const miniOp = prog(frame, S.ola2.from + 4, 14, easeInOut);
-  const resolved = prog(frame, S.decision.from + 20, 12);
+  // La ficha aparece cuando la voz dice "la IA prellena la ficha".
+  const docOp = 1 - prog(frame, CUE.mvpIA, 16, easeInOut);
+  const miniOp = prog(frame, CUE.mvpIA + 4, 16, easeInOut);
+  const resolved = prog(frame, S.cierre.from + 20, 12);
   const linked = prog(frame, S.impacto.from + 30, 14);
 
   // En P1 el documento "tiembla" levemente entre tareas manuales; se estabiliza al ordenarse.
@@ -304,7 +205,7 @@ export const ContractLayer: React.FC = () => {
         height: r.h,
         background: C.white,
         border: `3px solid ${C.ink}`,
-        borderRadius: interpolate(frame, [S.ola1.from, S.ola1.from + 28], [8, 16], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+        borderRadius: interpolate(frame, [CUE.mvpIA, CUE.mvpIA + 16], [8, 14], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
         overflow: "hidden",
         opacity: appear,
         transform: `rotate(${jitter}deg) scale(${0.94 + 0.06 * appear})`,
@@ -313,9 +214,6 @@ export const ContractLayer: React.FC = () => {
     >
       <Fit rect={r} nw={360} nh={470} opacity={docOp}>
         <DocContent />
-      </Fit>
-      <Fit rect={r} nw={760} nh={540} opacity={fichaOp}>
-        <FichaContent frame={frame} />
       </Fit>
       <Fit rect={r} nw={330} nh={430} opacity={miniOp}>
         <MiniContent resolved={resolved} linked={linked} />

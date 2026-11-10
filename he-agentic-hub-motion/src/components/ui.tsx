@@ -75,7 +75,7 @@ export const Legend: React.FC<{ opacity: number }> = ({ opacity }) => (
 
 export const Eyebrow: React.FC<{ opacity: number; text?: string; color?: string }> = ({
   opacity,
-  text = "HE Agentic Hub · Canal High End",
+  text = "HE Gestión de Contratos, Cumplimiento y Pagos · Canal High End",
   color = C.text2,
 }) => (
   <div
