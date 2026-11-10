@@ -1,18 +1,18 @@
 /**
- * Línea de tiempo única (30 fps). Versión 3: 63,2 s, ritmo de lectura cómodo.
+ * Línea de tiempo única (30 fps). Versión 4: 63,7 s, ritmo de lectura cómodo.
  * Escenas, locución, subtítulos y efectos se controlan desde aquí.
  */
 export const FPS = 30;
 
 export const SCENES = {
   hoy: { from: 0, to: 290 }, // 00:00–00:09.7 Hoy · los dolores actuales son el punto de partida
-  mapa: { from: 290, to: 515 }, // 00:09.7–00:17.2 Hoja de ruta por olas
-  ola0: { from: 515, to: 710 }, // 00:17.2–00:23.7 Ola 0 · Validar
-  ola1: { from: 710, to: 1085 }, // 00:23.7–00:36.2 Ola 1 · MVP
-  ola2: { from: 1085, to: 1340 }, // 00:36.2–00:44.7 Ola 2 · Pago y agentes
-  ola3: { from: 1340, to: 1535 }, // 00:44.7–00:51.2 Ola 3 · Evolución
-  impacto: { from: 1535, to: 1760 }, // 00:51.2–00:58.7 Impacto esperado
-  decision: { from: 1760, to: 1895 }, // 00:58.7–01:03.2 Decisión
+  mapa: { from: 290, to: 530 }, // 00:09.7–00:17.7 Hoja de ruta por olas
+  ola0: { from: 530, to: 725 }, // 00:17.7–00:24.2 Ola 0 · Validar
+  ola1: { from: 725, to: 1100 }, // 00:24.2–00:36.7 Ola 1 · MVP
+  ola2: { from: 1100, to: 1355 }, // 00:36.7–00:45.2 Ola 2 · Pago y agentes
+  ola3: { from: 1355, to: 1550 }, // 00:45.2–00:51.7 Ola 3 · Evolución
+  impacto: { from: 1550, to: 1775 }, // 00:51.7–00:59.2 Impacto esperado
+  decision: { from: 1775, to: 1910 }, // 00:59.2–01:03.7 Decisión
 } as const;
 
 export type SceneKey = keyof typeof SCENES;
@@ -24,7 +24,7 @@ const V = 12;
 /** Locución (ElevenLabs, voz "Herduin", español de Colombia). len = duración del archivo en fotogramas. */
 export const VOICE = [
   { file: "audio/voice/vo1.wav", from: SCENES.hoy.from + 9, len: 231 },
-  { file: "audio/voice/vo2.wav", from: SCENES.mapa.from + V, len: 153 },
+  { file: "audio/voice/vo2.wav", from: SCENES.mapa.from + V, len: 169 },
   { file: "audio/voice/vo3.wav", from: SCENES.ola0.from + V, len: 144 },
   { file: "audio/voice/vo4.wav", from: SCENES.ola1.from + V, len: 308 },
   { file: "audio/voice/vo5.wav", from: SCENES.ola2.from + V, len: 182 },
@@ -40,13 +40,13 @@ const end = (i: number, hold = 8) => VOICE[i].from + VOICE[i].len + hold;
 export const SUBTITLES = [
   { from: at(0, 1), to: at(0, 147), text: "Hoy, cada contrato exige transcribir, cruzar datos y perseguir aprobaciones." },
   { from: at(0, 147), to: end(0, 14), text: "Esos dolores son nuestro punto de partida." },
-  { from: at(1, 1), to: end(1), text: "Proponemos avanzar por olas: cada una se abre solo si la anterior cumple su compuerta." },
+  { from: at(1, 1), to: end(1), text: "Avanzamos paso a paso: cada ola arranca cuando la anterior ya demostró que funciona." },
   { from: at(2, 1), to: end(2), text: "Primero, en la ola cero, validamos reglas y datos, y medimos la línea base." },
   { from: at(3, 1), to: at(3, 92), text: "Luego, en la ola uno, desarrollamos el MVP:" },
-  { from: at(3, 92), to: at(3, 195), text: "una ficha única con contrato, soportes y reglas;" },
-  { from: at(3, 195), to: end(3), text: "el cálculo automático del cumplimiento, y consultas con IA." },
-  { from: at(4, 1), to: at(4, 144), text: "Después, en la ola dos, la IA propone; las personas validan y aprueban." },
-  { from: at(4, 144), to: end(4), text: "Finanzas paga." },
+  { from: at(3, 92), to: at(3, 204), text: "una ficha única con contrato, soportes y reglas;" },
+  { from: at(3, 204), to: end(3), text: "el cálculo automático del cumplimiento, y consultas con IA." },
+  { from: at(4, 1), to: at(4, 151), text: "Después, en la ola dos, la IA propone; las personas validan y aprueban." },
+  { from: at(4, 151), to: end(4), text: "Finanzas paga." },
   { from: at(5, 1), to: end(5), text: "Finalmente, en la ola tres, un brief con evidencia fortalece la negociación." },
   { from: at(6, 1), to: end(6, 20), text: "La meta: cincuenta por ciento menos trabajo manual a seis meses." },
   { from: at(7, 1), to: TOTAL - 6, text: "Aprobemos el inicio del desarrollo." },
@@ -65,7 +65,7 @@ const SFX_LOCAL: ReadonlyArray<{ scene: SceneKey; offset: number; file: string; 
   { scene: "mapa", offset: 62, file: "pop", volume: 0.45 },
   { scene: "mapa", offset: 88, file: "pop", volume: 0.45 },
   { scene: "mapa", offset: 114, file: "pop", volume: 0.45 },
-  { scene: "mapa", offset: 212, file: "whoosh", volume: 0.6 },
+  { scene: "mapa", offset: 227, file: "whoosh", volume: 0.6 },
   // Ola 0
   { scene: "ola0", offset: 48, file: "confirm", volume: 0.4 },
   { scene: "ola0", offset: 68, file: "confirm", volume: 0.4 },

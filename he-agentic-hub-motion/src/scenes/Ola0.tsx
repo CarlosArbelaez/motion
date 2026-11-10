@@ -74,7 +74,7 @@ export const Ola0: React.FC = () => {
         }}
       >
         <Diamond size={22} />
-        <span style={{ fontWeight: 700, color: C.ink }}>Compuerta para construir el MVP:</span>
+        <span style={{ fontWeight: 700, color: C.ink }}>Para avanzar al MVP:</span>
         <span style={{ fontWeight: 500 }}>reglas aprobadas, contratos con código y saldos conciliados</span>
       </div>
     </AbsoluteFill>

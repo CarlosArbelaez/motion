@@ -173,7 +173,7 @@ export const Roadmap: React.FC = () => {
                   </div>
                 )}
                 <div style={{ fontFamily: F.body, fontSize: 20, color: C.text2, lineHeight: 1.3 }}>
-                  {w.look === "later" ? null : <span style={{ fontWeight: 700, color: C.ink }}>Compuerta: </span>}
+                  {w.look === "later" ? null : <span style={{ fontWeight: 700, color: C.ink }}>Para avanzar: </span>}
                   {w.gate}
                 </div>
               </div>
@@ -194,7 +194,7 @@ export const Roadmap: React.FC = () => {
           opacity: note,
         }}
       >
-        Cada ola se abre solo si la anterior pasa su compuerta. Las fechas se fijan con el equipo técnico.
+        Cada ola arranca cuando la anterior ya demostró que funciona. Las fechas se fijan con el equipo técnico.
       </div>
     </AbsoluteFill>
   );

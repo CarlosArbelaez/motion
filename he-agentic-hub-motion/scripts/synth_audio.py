@@ -10,7 +10,7 @@ import wave
 import numpy as np
 
 SR = 48000
-TOTAL_SEC = 1895 / 30  # = TOTAL / FPS en src/timeline.ts
+TOTAL_SEC = 1910 / 30  # = TOTAL / FPS en src/timeline.ts
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "assets", "audio")
 RNG = np.random.default_rng(7)

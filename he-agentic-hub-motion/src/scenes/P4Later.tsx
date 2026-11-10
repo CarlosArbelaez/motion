@@ -91,7 +91,7 @@ export const P4Later: React.FC = () => {
           left: 500,
           top: 300,
           width: 420,
-          opacity: fold > 0 && fold < 1 ? Math.sin(fold * Math.PI) * 0.8 : 0,
+          opacity: fold < 0.22 ? 0 : Math.min(1, (fold - 0.22) / 0.18) * (1 - fold) * 1.4,
           transform: `translateX(${fold * 560}px) scale(${1 - fold * 0.55})`,
           transformOrigin: "right center",
         }}
