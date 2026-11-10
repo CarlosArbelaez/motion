@@ -15,13 +15,14 @@ const CX = 960;
 const CY = 553;
 
 const FRAGMENTS = [
-  { x: 220, y: 318, file: "Word", task: "Transcribir el PDF", at: 20, side: -1 },
-  { x: 220, y: 560, file: "Excel", task: "Digitar y cuadrar", at: 40, side: -1 },
-  { x: 1260, y: 318, file: "Ventas", task: "Cruzar datos a mano", at: 60, side: 1 },
-  { x: 1260, y: 560, file: "Correo", task: "Perseguir aprobaciones", at: 80, side: 1 },
+  // Tarea manual + su consecuencia (Matriz de dolor del AS-IS: 0.1.2, 2.2.1, 1.G1, 3.2.1)
+  { x: 190, y: 300, file: "Word", task: "Transcribir el PDF", pain: "Riesgo de errores en metas y fechas", at: 20, side: -1 },
+  { x: 190, y: 548, file: "Excel", task: "Digitar y cuadrar", pain: "Pagos difíciles de auditar", at: 40, side: -1 },
+  { x: 1250, y: 300, file: "Ventas", task: "Cruzar datos a mano", pain: "Reprocesos y riesgo de doble conteo", at: 60, side: 1 },
+  { x: 1250, y: 548, file: "Correo", task: "Perseguir aprobaciones", pain: "Aprobaciones sin evidencia registrada", at: 80, side: 1 },
 ];
-const FW = 440;
-const FH = 132;
+const FW = 480;
+const FH = 180;
 
 const REQUESTS = [
   { x: 360, y: 780, text: "¿Ya cumplió la meta?", at: 100 },
@@ -30,7 +31,7 @@ const REQUESTS = [
 
 export const P1Start: React.FC = () => {
   const frame = useCurrentFrame();
-  const gather = prog(frame, 196, 24, easeInOut); // los fragmentos entran al contrato
+  const gather = prog(frame, 261, 24, easeInOut); // los fragmentos entran al contrato
 
   return (
     <AbsoluteFill>
@@ -51,7 +52,7 @@ export const P1Start: React.FC = () => {
           transform: `translateX(${(1 - prog(frame, 16, 12)) * -16}px)`,
         }}
       >
-        Punto de partida
+        Punto de partida: dolores actuales
       </div>
 
       {/* Conexiones enredadas */}
@@ -118,6 +119,20 @@ export const P1Start: React.FC = () => {
             </div>
             <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 31, color: C.ink, marginTop: 14, whiteSpace: "nowrap" }}>
               {f.task}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
+                marginTop: 12,
+                opacity: prog(frame, f.at + 14, 12),
+              }}
+            >
+              <div style={{ width: 14, height: 5, borderRadius: 3, background: C.yellow, flexShrink: 0 }} />
+              <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.text2, whiteSpace: "nowrap" }}>
+                {f.pain}
+              </div>
             </div>
           </div>
         );

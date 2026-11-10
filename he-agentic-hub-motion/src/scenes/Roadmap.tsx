@@ -79,7 +79,7 @@ export const Roadmap: React.FC = () => {
       <div style={{ position: "absolute", left: 120, top: 662, width: 240, opacity: hoy }}>
         <div style={{ fontFamily: F.display, fontWeight: 700, fontSize: 34, color: C.ink }}>Hoy</div>
         <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.text2, marginTop: 2 }}>
-          Punto de partida
+          Dolores actuales
         </div>
       </div>
 

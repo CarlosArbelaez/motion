@@ -149,7 +149,7 @@ const RUBROS = ["Visibilidad", "Activaciones", "Volumen", "Eventos"];
 /** Ficha única (P2). Registro y validación humana — sin agente. */
 const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
   const o = SCENES.ola1.from;
-  const stamp = prog(frame, o + 120, 14);
+  const stamp = prog(frame, o + 150, 14);
   return (
     <div style={{ position: "absolute", inset: 0, padding: "28px 34px" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -165,7 +165,7 @@ const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
       </div>
       <div style={{ height: 2, background: C.hairline, margin: "18px 0 6px" }} />
       {FICHA_ROWS.map((r, i) => {
-        const p = prog(frame, o + 34 + i * 12, 14);
+        const p = prog(frame, o + 64 + i * 12, 14);
         return (
           <div
             key={r.label}
@@ -182,7 +182,7 @@ const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
               {r.label}
             </div>
             <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 6, paddingRight: 12 }}>
-              {r.kind === "bar" ? <DataBar width={r.w} progress={prog(frame, o + 38 + i * 12, 16)} /> : null}
+              {r.kind === "bar" ? <DataBar width={r.w} progress={prog(frame, o + 68 + i * 12, 16)} /> : null}
               {r.kind === "text" ? (
                 <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 23, color: C.ink }}>{r.text}</div>
               ) : null}
@@ -205,7 +205,7 @@ const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
                   ))
                 : null}
             </div>
-            <CheckDot progress={prog(frame, o + 44 + i * 12, 10)} size={28} />
+            <CheckDot progress={prog(frame, o + 74 + i * 12, 10)} size={28} />
           </div>
         );
       })}

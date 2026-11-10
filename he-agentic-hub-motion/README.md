@@ -1,7 +1,7 @@
 # HE Agentic Hub — motion graphic de 30 s (Remotion)
 
 Video ejecutivo para pedir el VoBo de la VP de High End para iniciar el desarrollo de HE Agentic Hub.
-1920 × 1080 · 30 fps · 1830 fotogramas (61 s) · MP4 H.264 + AAC.
+1920 × 1080 · 30 fps · 1895 fotogramas (63,2 s) · MP4 H.264 + AAC.
 
 **Archivo final:** `Renders/HE_Agentic_Hub_Final.mp4`
 
@@ -15,20 +15,22 @@ Video ejecutivo para pedir el VoBo de la VP de High End para iniciar el desarrol
 | `Renders/` | MP4 final |
 | `scripts/synth_audio.py` | Genera la música y los efectos originales por síntesis (numpy) |
 
-## Guion (versión 2)
+## Guion (versión 3)
 
 | Placa | Intervalo | Texto principal | Locución |
 |---|---|---|---|
-| 1 | 00:00–00:07,5 | Hoy: demasiadas tareas manuales · Punto de partida | Hoy, nuestro punto de partida: cada contrato exige transcribir, cruzar datos y perseguir aprobaciones. |
-| 2 | 00:07,5–00:15 | Hoja de ruta: avanzar por olas (Hoy → Ola 0 → Ola 1 → Ola 2 → Ola 3) | Proponemos avanzar por olas: cada una se abre solo si la anterior cumple su compuerta. |
-| 3 | 00:15–00:21,5 | Ola 0 · Validar antes de construir | Primero, en la ola cero, validamos reglas y datos, y medimos la línea base. |
-| 4 | 00:21,5–00:34 | Ola 1 · MVP: ordenar, automatizar y consultar | Luego, en la ola uno, el primer desarrollo: el MVP. Reúne contrato, soportes y reglas; automatiza cálculos y habilita consultas con IA. |
-| 5 | 00:34–00:42,5 | Ola 2 · Pago y agentes, con control humano | Después, en la ola dos, la IA propone; las personas validan y aprueban. Finanzas paga. |
-| 6 | 00:42,5–00:49 | Ola 3 · Evolución: negociar con evidencia | Finalmente, en la ola tres, un brief con evidencia fortalece la negociación. |
-| 7 | 00:49–00:56,5 | Impacto esperado | La meta: cincuenta por ciento menos trabajo manual a seis meses. |
-| 8 | 00:56,5–01:01 | HE Agentic Hub · VoBo para iniciar desarrollo | Aprobemos el inicio del desarrollo. |
+| 1 | 00:00–00:09,7 | Hoy: demasiadas tareas manuales · Punto de partida: dolores actuales | Hoy, cada contrato exige transcribir, cruzar datos y perseguir aprobaciones. Esos dolores son nuestro punto de partida. |
+| 2 | 00:09,7–00:17,2 | Hoja de ruta: avanzar por olas (Hoy · dolores actuales → Ola 0 → Ola 1 → Ola 2 → Ola 3) | Proponemos avanzar por olas: cada una se abre solo si la anterior cumple su compuerta. |
+| 3 | 00:17,2–00:23,7 | Ola 0 · Validar antes de construir | Primero, en la ola cero, validamos reglas y datos, y medimos la línea base. |
+| 4 | 00:23,7–00:36,2 | Ola 1 · MVP: ordenar, automatizar y consultar | Luego, en la ola uno, desarrollamos el MVP: una ficha única con contrato, soportes y reglas; el cálculo automático del cumplimiento, y consultas con IA. |
+| 5 | 00:36,2–00:44,7 | Ola 2 · Pago y agentes, con control humano | Después, en la ola dos, la IA propone; las personas validan y aprueban. Finanzas paga. |
+| 6 | 00:44,7–00:51,2 | Ola 3 · Evolución: negociar con evidencia | Finalmente, en la ola tres, un brief con evidencia fortalece la negociación. |
+| 7 | 00:51,2–00:58,7 | Impacto esperado | La meta: cincuenta por ciento menos trabajo manual a seis meses. |
+| 8 | 00:58,7–01:03,2 | HE Agentic Hub · VoBo para iniciar desarrollo | Aprobemos el inicio del desarrollo. |
 
-"MVP" se pronuncia en inglés (em-vi-pi); en pantalla aparece solo "MVP".
+"MVP" se pronuncia en inglés (em-vi-pi), sin énfasis: la frase pone el peso en lo que se construye. En pantalla aparece solo "MVP".
+
+En la placa 1 cada tarea manual muestra su consecuencia, tomada de la matriz de dolor del AS-IS.
 
 Código visual (tomado de la presentación To-Be v4.0): **amarillo = regla automática**, **contorno punteado = agente de IA (propone)**, **contorno negro sólido = persona (valida, aprueba, decide)**.
 
@@ -46,9 +48,9 @@ Código visual (tomado de la presentación To-Be v4.0): **amarillo = regla autom
 
 ## Audio
 
-- Voz: ElevenLabs, voz "Herduin" (español de Colombia), modelo eleven_v4. Tomas originales en `assets/audio/voice/source_takes/` (versión 2: `v2A.mp3`); frases cortadas y normalizadas a −16 LUFS en `vo1…vo8.wav`. Sin cambios de velocidad.
+- Voz: ElevenLabs, voz "Herduin" (español de Colombia), modelo eleven_v4. Tomas originales en `assets/audio/voice/source_takes/` (versión 3: frases 2, 3 y 5–8 de `v2A.mp3`; frases 1 y 4 de `v3A.mp3`, con la pausa tras "MVP" acortada); frases cortadas y normalizadas a −16 LUFS en `vo1…vo8.wav`. Sin cambios de velocidad.
 - Música y efectos: síntesis propia (`scripts/synth_audio.py`), sin samples externos. La música baja automáticamente bajo la voz (`MUSIC` en `timeline.ts`).
-- Mezcla final: −17,2 LUFS integrados, pico −2,5 dBFS.
+- Mezcla final: −17,1 LUFS integrados, pico −2,3 dBFS.
 
 ## Comandos
 
