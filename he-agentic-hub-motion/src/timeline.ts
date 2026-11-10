@@ -23,13 +23,13 @@ const V = 12;
 
 /** Locución (ElevenLabs, voz "Herduin", español de Colombia). len = duración del archivo en fotogramas. */
 export const VOICE = [
-  { file: "audio/voice/vo1.wav", from: SCENES.hoy.from + 9, len: 231 },
-  { file: "audio/voice/vo2.wav", from: SCENES.mapa.from + V, len: 169 },
-  { file: "audio/voice/vo3.wav", from: SCENES.ola0.from + V, len: 144 },
-  { file: "audio/voice/vo4.wav", from: SCENES.ola1.from + V, len: 308 },
-  { file: "audio/voice/vo5.wav", from: SCENES.ola2.from + V, len: 182 },
-  { file: "audio/voice/vo6.wav", from: SCENES.ola3.from + V, len: 132 },
-  { file: "audio/voice/vo7.wav", from: SCENES.impacto.from + V, len: 120 },
+  { file: "audio/voice/vo1.wav", from: SCENES.hoy.from + 9, len: 234 },
+  { file: "audio/voice/vo2.wav", from: SCENES.mapa.from + V, len: 171 },
+  { file: "audio/voice/vo3.wav", from: SCENES.ola0.from + V, len: 148 },
+  { file: "audio/voice/vo4.wav", from: SCENES.ola1.from + V, len: 320 },
+  { file: "audio/voice/vo5.wav", from: SCENES.ola2.from + V, len: 186 },
+  { file: "audio/voice/vo6.wav", from: SCENES.ola3.from + V, len: 137 },
+  { file: "audio/voice/vo7.wav", from: SCENES.impacto.from + V, len: 125 },
   { file: "audio/voice/vo8.wav", from: SCENES.decision.from + 18, len: 58 },
 ] as const;
 
@@ -38,15 +38,15 @@ const end = (i: number, hold = 8) => VOICE[i].from + VOICE[i].len + hold;
 
 /** Subtítulos por frase, fieles a la locución (cortes en las pausas reales de la voz). */
 export const SUBTITLES = [
-  { from: at(0, 1), to: at(0, 147), text: "Hoy, cada contrato exige transcribir, cruzar datos y perseguir aprobaciones." },
-  { from: at(0, 147), to: end(0, 14), text: "Esos dolores son nuestro punto de partida." },
+  { from: at(0, 1), to: at(0, 152), text: "Hoy, cada contrato exige transcribir, cruzar datos y perseguir aprobaciones." },
+  { from: at(0, 152), to: end(0, 14), text: "Esos dolores son nuestro punto de partida." },
   { from: at(1, 1), to: end(1), text: "Avanzamos paso a paso: cada ola arranca cuando la anterior ya demostró que funciona." },
   { from: at(2, 1), to: end(2), text: "Primero, en la ola cero, validamos reglas y datos, y medimos la línea base." },
-  { from: at(3, 1), to: at(3, 92), text: "Luego, en la ola uno, desarrollamos el MVP:" },
-  { from: at(3, 92), to: at(3, 204), text: "una ficha única con contrato, soportes y reglas;" },
-  { from: at(3, 204), to: end(3), text: "el cálculo automático del cumplimiento, y consultas con IA." },
-  { from: at(4, 1), to: at(4, 151), text: "Después, en la ola dos, la IA propone; las personas validan y aprueban." },
-  { from: at(4, 151), to: end(4), text: "Finanzas paga." },
+  { from: at(3, 1), to: at(3, 104), text: "Luego, en la ola uno, desarrollamos el MVP:" },
+  { from: at(3, 104), to: at(3, 208), text: "una ficha única con contrato, soportes y reglas;" },
+  { from: at(3, 208), to: end(3), text: "el cálculo automático del cumplimiento, y consultas con IA." },
+  { from: at(4, 1), to: at(4, 152), text: "Después, en la ola dos, la IA propone; las personas validan y aprueban." },
+  { from: at(4, 152), to: end(4), text: "Finanzas paga." },
   { from: at(5, 1), to: end(5), text: "Finalmente, en la ola tres, un brief con evidencia fortalece la negociación." },
   { from: at(6, 1), to: end(6, 20), text: "La meta: cincuenta por ciento menos trabajo manual a seis meses." },
   { from: at(7, 1), to: TOTAL - 6, text: "Aprobemos el inicio del desarrollo." },

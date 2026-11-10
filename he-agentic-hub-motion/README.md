@@ -48,9 +48,9 @@ Código visual (tomado de la presentación To-Be v4.0): **amarillo = regla autom
 
 ## Audio
 
-- Voz: ElevenLabs, voz "Herduin" (español de Colombia), modelo eleven_v4. Tomas originales en `assets/audio/voice/source_takes/` (versión 4: frases 3 y 5–8 de `v2A.mp3`; frases 1 y 4 de `v3A.mp3`, con la pausa tras "MVP" acortada; frase 2 de `v4A.mp3`). Las tres tomas se transcribieron con ElevenLabs Scribe y coinciden palabra por palabra con los subtítulos.; frases cortadas y normalizadas a −16 LUFS en `vo1…vo8.wav`. Sin cambios de velocidad.
+- Voz: ElevenLabs, voz "Herduin" (español de Colombia), modelo eleven_v4. Tomas originales en `assets/audio/voice/source_takes/` (versión 4: frases 3 y 5–8 de `v2A.mp3`; frase 1 de `v3A.mp3`; frase 4 de `v3B.mp3`, sin ediciones internas; frase 2 de `v4A.mp3`). Cada frase se corta y se funde solo dentro de silencios (márgenes por debajo de −40 dB). Las tres tomas se transcribieron con ElevenLabs Scribe y coinciden palabra por palabra con los subtítulos.; frases cortadas y normalizadas a −16 LUFS en `vo1…vo8.wav`. Sin cambios de velocidad.
 - Música y efectos: síntesis propia (`scripts/synth_audio.py`), sin samples externos. La música baja automáticamente bajo la voz (`MUSIC` en `timeline.ts`).
-- Mezcla final: −17,0 LUFS integrados, pico −2,2 dBFS.
+- Mezcla final: −17,1 LUFS integrados, pico −2,5 dBFS. Cada frase del MP4 coincide con su archivo original (correlación ≥ 0,96, sin caídas).
 
 ## Comandos
 
