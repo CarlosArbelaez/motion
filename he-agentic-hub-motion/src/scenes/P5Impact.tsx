@@ -16,9 +16,9 @@ import { DashedCircle } from "../components/Icons";
 
 const BEFORE_TASKS = ["Transcribir", "Digitar", "Cruzar a mano", "Perseguir aprobaciones"];
 const BENEFITS = [
-  { t: "Control del pago", at: 80 },
-  { t: "Trazabilidad", at: 92 },
-  { t: "Consulta autónoma", at: 104 },
+  { t: "Control del pago", at: 104 },
+  { t: "Trazabilidad", at: 120 },
+  { t: "Consulta autónoma", at: 136 },
 ];
 
 const Label: React.FC<{ top: number; children: React.ReactNode; opacity: number }> = ({ top, children, opacity }) => (
@@ -114,7 +114,7 @@ export const P5Impact: React.FC = () => {
   const f = useCurrentFrame();
   const before = prog(f, 2, 14);
   const after = prog(f, 24, 12);
-  const base = prog(f, 54, 14);
+  const base = prog(f, 70, 14);
 
   return (
     <AbsoluteFill>

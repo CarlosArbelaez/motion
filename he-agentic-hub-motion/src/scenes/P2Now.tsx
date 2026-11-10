@@ -11,9 +11,9 @@ import { Arrow, Diamond, Person } from "../components/Icons";
  * Secuencia: 1 ficha única (optimizar) → 2 cálculo con reglas (automatizar) → 3 consulta con IA.
  */
 
-const StepTag: React.FC<{ n: number; text: string }> = ({ n, text }) => (
+const StepTag: React.FC<{ n: number; text: string }> = ({ text }) => (
   <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 18, color: C.text2, letterSpacing: 1.2 }}>
-    {n} · {text}
+    {text}
   </div>
 );
 
@@ -48,17 +48,17 @@ export const P2Now: React.FC = () => {
   const f = useCurrentFrame();
   const frame = rise(f, 0, 18, 18);
 
-  const rules = prog(f, 86, 14);
-  const chat = prog(f, 138, 14);
-  const q = prog(f, 144, 10);
-  const typing = prog(f, 152, 4) * (1 - prog(f, 164, 4));
-  const a = prog(f, 166, 12);
-  const src = prog(f, 176, 10);
-  const note = prog(f, 178, 14);
+  const rules = prog(f, 200, 14);
+  const chat = prog(f, 256, 14);
+  const q = prog(f, 264, 10);
+  const typing = prog(f, 274, 4) * (1 - prog(f, 288, 4));
+  const a = prog(f, 290, 12);
+  const src = prog(f, 302, 10);
+  const note = prog(f, 316, 14);
 
   return (
     <AbsoluteFill>
-      <SceneTitle lead="NOW" text="Ordenar, automatizar y consultar" start={8} />
+      <SceneTitle lead="Ola 1" text="MVP: ordenar, automatizar y consultar" start={8} size={66} />
 
       {/* Representación conceptual de App HE */}
       <div
@@ -113,9 +113,9 @@ export const P2Now: React.FC = () => {
         <PanelHeader title="Cálculo con reglas" n={2} step="AUTOMATIZAR" />
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 18 }}>
           {[
-            { t: "Ventas del mes", s: false, at: 94 },
-            { t: "Regla del contrato", s: true, at: 102 },
-            { t: "Cumplimiento por rubro", s: false, at: 110 },
+            { t: "Ventas del mes", s: false, at: 208 },
+            { t: "Regla del contrato", s: true, at: 216 },
+            { t: "Cumplimiento por rubro", s: false, at: 224 },
           ].map((c, i) => {
             const p = prog(f, c.at, 10);
             return (
@@ -142,14 +142,14 @@ export const P2Now: React.FC = () => {
           }}
         >
           {RUBROS.map((r, i) => {
-            const fill = prog(f, 112 + i * 6, 22);
+            const fill = prog(f, 228 + i * 8, 22);
             return (
               <div key={r} style={{ display: "flex", alignItems: "center", gap: 14 }}>
                 <div style={{ width: 150, fontFamily: F.body, fontWeight: 500, fontSize: 21, color: C.ink }}>{r}</div>
                 <div style={{ flex: 1, height: 12, borderRadius: 6, background: C.white, overflow: "hidden" }}>
                   <div style={{ width: `${fill * 100}%`, height: "100%", background: C.ink, borderRadius: 6 }} />
                 </div>
-                <CheckDot progress={prog(f, 130 + i * 6, 8)} size={26} />
+                <CheckDot progress={prog(f, 248 + i * 8, 8)} size={26} />
               </div>
             );
           })}
@@ -161,10 +161,10 @@ export const P2Now: React.FC = () => {
             fontWeight: 500,
             fontSize: 20,
             color: C.text2,
-            opacity: prog(f, 140, 10),
+            opacity: prog(f, 266, 10),
           }}
         >
-          Corte mensual del día 10 · cálculo determinista y auditable
+          Corte mensual del día 10 · mismo cálculo cada mes, auditable
         </div>
       </div>
 
@@ -184,7 +184,7 @@ export const P2Now: React.FC = () => {
           transform: `translateY(${(1 - chat) * 20}px)`,
         }}
       >
-        <PanelHeader title="Consulta con IA" n={3} step="AGENTIZAR" />
+        <PanelHeader title="Consulta con IA" n={3} step="AGENTIZAR CON IA" />
         <div style={{ position: "relative", height: 160 }}>
           <div
             style={{

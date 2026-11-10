@@ -8,6 +8,8 @@ import { ContractLayer } from "./components/Contract";
 import { Subtitles } from "./components/Subtitles";
 import { Eyebrow, Legend } from "./components/ui";
 import { P1Start } from "./scenes/P1Start";
+import { Roadmap } from "./scenes/Roadmap";
+import { Ola0 } from "./scenes/Ola0";
 import { P2Now } from "./scenes/P2Now";
 import { P3Next } from "./scenes/P3Next";
 import { P4Later } from "./scenes/P4Later";
@@ -49,27 +51,34 @@ const SceneWindow: React.FC<{ from: number; to: number; children: React.ReactNod
 
 export const HEAgenticHub: React.FC = () => {
   const frame = useCurrentFrame();
-  const legendOp = prog(frame, 128, 14) * (1 - prog(frame, 806, 12));
-  const eyebrowOp = prog(frame, 0, 12) * (1 - prog(frame, 806, 12));
+  // La leyenda aparece cuando entran reglas, IA y personas (Ola 1) y se va en el cierre.
+  const legendOp = prog(frame, SCENES.ola1.from + 8, 14) * (1 - prog(frame, SCENES.decision.from - 4, 12));
+  const eyebrowOp = prog(frame, 0, 12) * (1 - prog(frame, SCENES.decision.from - 4, 12));
 
   return (
     <AbsoluteFill style={{ background: C.page }}>
-      <SceneWindow {...SCENES.p1}>
+      <SceneWindow {...SCENES.hoy}>
         <P1Start />
       </SceneWindow>
-      <SceneWindow {...SCENES.p2}>
+      <SceneWindow {...SCENES.mapa}>
+        <Roadmap />
+      </SceneWindow>
+      <SceneWindow {...SCENES.ola0}>
+        <Ola0 />
+      </SceneWindow>
+      <SceneWindow {...SCENES.ola1}>
         <P2Now />
       </SceneWindow>
-      <SceneWindow {...SCENES.p3}>
+      <SceneWindow {...SCENES.ola2}>
         <P3Next />
       </SceneWindow>
-      <SceneWindow {...SCENES.p4}>
+      <SceneWindow {...SCENES.ola3}>
         <P4Later />
       </SceneWindow>
-      <SceneWindow {...SCENES.p5}>
+      <SceneWindow {...SCENES.impacto}>
         <P5Impact />
       </SceneWindow>
-      <SceneWindow {...SCENES.p6} last>
+      <SceneWindow {...SCENES.decision} last>
         <P6Decision />
       </SceneWindow>
 

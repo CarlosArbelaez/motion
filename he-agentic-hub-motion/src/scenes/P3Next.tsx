@@ -12,9 +12,9 @@ import { Arrow, Diamond, Person } from "../components/Icons";
  */
 
 const ZONES = [
-  { x: 500, kind: "ia" as Kind, label: "La IA propone", at: 12 },
-  { x: 945, kind: "persona" as Kind, label: "Personas validan y aprueban", at: 56 },
-  { x: 1390, kind: "persona" as Kind, label: "Finanzas ejecuta", at: 118 },
+  { x: 500, kind: "ia" as Kind, label: "La IA propone", at: 23 },
+  { x: 945, kind: "persona" as Kind, label: "Personas validan y aprueban", at: 78 },
+  { x: 1390, kind: "persona" as Kind, label: "Finanzas ejecuta", at: 156 },
 ];
 const ZW = 410;
 const ZY = 290;
@@ -32,12 +32,12 @@ type CardDef = {
 };
 
 const CARDS: CardDef[] = [
-  { zone: 0, y: 370, kind: "ia", title: "Lectura asistida del contrato", sub: "Cita cláusula y página", at: 18 },
-  { zone: 0, y: 526, kind: "ia", title: "Propuesta de resolución", sub: "Para excepciones que no cruzan", at: 38 },
-  { zone: 1, y: 370, kind: "persona", title: "Validación humana", sub: "La analista confirma o corrige", at: 70, check: 80, person: true },
-  { zone: 1, y: 526, kind: "persona", title: "Aprobación consolidada", sub: "Un aprobador por rubro", at: 98, check: 108, person: true },
-  { zone: 2, y: 370, kind: "persona", title: "Pago por Finanzas", sub: "Nota crédito o BTL", at: 126, check: 132, person: true },
-  { zone: 2, y: 526, kind: "regla", title: "Conciliación con evidencia", sub: "Pago, soporte y aprobador", at: 142, check: 148 },
+  { zone: 0, y: 370, kind: "ia", title: "Lectura asistida del contrato", sub: "Cita cláusula y página", at: 30 },
+  { zone: 0, y: 526, kind: "ia", title: "Propuesta de resolución", sub: "Para excepciones que no cruzan", at: 56 },
+  { zone: 1, y: 370, kind: "persona", title: "Validación humana", sub: "La analista confirma o corrige", at: 96, check: 108, person: true },
+  { zone: 1, y: 526, kind: "persona", title: "Aprobación consolidada", sub: "Un aprobador por rubro", at: 130, check: 143, person: true },
+  { zone: 2, y: 370, kind: "persona", title: "Pago por Finanzas", sub: "Nota crédito o BTL", at: 166, check: 173, person: true },
+  { zone: 2, y: 526, kind: "regla", title: "Conciliación con evidencia", sub: "Pago, soporte y aprobador", at: 186, check: 193 },
 ];
 
 const Card: React.FC<{ c: CardDef; f: number }> = ({ c, f }) => {
@@ -75,17 +75,17 @@ export const P3Next: React.FC = () => {
   const f = useCurrentFrame();
 
   // Una propuesta viaja de la IA a la validación humana
-  const travel = prog(f, 58, 18, easeInOut);
-  const tokenOp = prog(f, 56, 4) * (1 - prog(f, 70, 6));
+  const travel = prog(f, 80, 18, easeInOut);
+  const tokenOp = prog(f, 78, 4) * (1 - prog(f, 96, 6));
   const tx = interpolate(travel, [0, 1], [700, 905]);
   const ty = interpolate(travel, [0, 1], [660, 420]);
 
-  const note = prog(f, 150, 14);
-  const guard = prog(f, 46, 12);
+  const note = prog(f, 196, 14);
+  const guard = prog(f, 66, 12);
 
   return (
     <AbsoluteFill>
-      <SceneTitle lead="NEXT" text="Más capacidad, con control humano" start={8} />
+      <SceneTitle lead="Ola 2" text="Pago y agentes, con control humano" start={8} />
 
       {/* Conector desde el contrato */}
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
@@ -95,7 +95,7 @@ export const P3Next: React.FC = () => {
           strokeWidth={2.5}
           strokeDasharray="6 6"
           fill="none"
-          opacity={prog(f, 16, 10)}
+          opacity={prog(f, 28, 10)}
         />
       </svg>
 
@@ -171,7 +171,7 @@ export const P3Next: React.FC = () => {
           fontSize: 21,
           color: C.text2,
           lineHeight: 1.3,
-          opacity: prog(f, 152, 10),
+          opacity: prog(f, 198, 10),
         }}
       >
         El pago solo sale con

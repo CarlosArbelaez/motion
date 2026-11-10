@@ -15,26 +15,44 @@ const CX = 960;
 const CY = 553;
 
 const FRAGMENTS = [
-  { x: 220, y: 318, file: "Word", task: "Transcribir el PDF", at: 10, side: -1 },
-  { x: 220, y: 560, file: "Excel", task: "Digitar y cuadrar", at: 22, side: -1 },
-  { x: 1260, y: 318, file: "Ventas", task: "Cruzar datos a mano", at: 34, side: 1 },
-  { x: 1260, y: 560, file: "Correo", task: "Perseguir aprobaciones", at: 46, side: 1 },
+  { x: 220, y: 318, file: "Word", task: "Transcribir el PDF", at: 20, side: -1 },
+  { x: 220, y: 560, file: "Excel", task: "Digitar y cuadrar", at: 40, side: -1 },
+  { x: 1260, y: 318, file: "Ventas", task: "Cruzar datos a mano", at: 60, side: 1 },
+  { x: 1260, y: 560, file: "Correo", task: "Perseguir aprobaciones", at: 80, side: 1 },
 ];
 const FW = 440;
 const FH = 132;
 
 const REQUESTS = [
-  { x: 360, y: 780, text: "¿Ya cumplió la meta?", at: 58 },
-  { x: 1220, y: 780, text: "¿Cuánto se le paga?", at: 66 },
+  { x: 360, y: 780, text: "¿Ya cumplió la meta?", at: 100 },
+  { x: 1220, y: 780, text: "¿Cuánto se le paga?", at: 114 },
 ];
 
 export const P1Start: React.FC = () => {
   const frame = useCurrentFrame();
-  const gather = prog(frame, 100, 20, easeInOut); // los fragmentos entran al contrato
+  const gather = prog(frame, 196, 24, easeInOut); // los fragmentos entran al contrato
 
   return (
     <AbsoluteFill>
       <SceneTitle text="Hoy: demasiadas tareas manuales" highlight="tareas manuales" start={2} />
+      <div
+        style={{
+          position: "absolute",
+          left: 1214,
+          top: 126,
+          background: C.ink,
+          color: C.yellow,
+          fontFamily: F.body,
+          fontWeight: 700,
+          fontSize: 28,
+          borderRadius: 999,
+          padding: "8px 22px",
+          opacity: prog(frame, 16, 12),
+          transform: `translateX(${(1 - prog(frame, 16, 12)) * -16}px)`,
+        }}
+      >
+        Punto de partida
+      </div>
 
       {/* Conexiones enredadas */}
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>

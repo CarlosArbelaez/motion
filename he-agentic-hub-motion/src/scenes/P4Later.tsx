@@ -20,27 +20,29 @@ const PATTERN = [
 ];
 
 const STAGES = [
-  { x: 300, label: "NOW: MVP" },
-  { x: 960, label: "NEXT: pagos y agentes" },
-  { x: 1620, label: "LATER: negociación" },
+  { x: 260, label: "Ola 0: validar" },
+  { x: 720, label: "Ola 1: MVP" },
+  { x: 1180, label: "Ola 2: pago y agentes" },
+  { x: 1640, label: "Ola 3: evolución" },
 ];
 const GATES = [
-  { x: 630, label: "Coincide con Excel + VoBo de negocio" },
-  { x: 1290, label: "Pagos en el flujo + agentes en su meta" },
+  { x: 490, label: "Reglas y datos listos" },
+  { x: 950, label: "Coincide con Excel + VoBo" },
+  { x: 1410, label: "Pagos en el flujo + agentes en su meta" },
 ];
 
 export const P4Later: React.FC = () => {
   const f = useCurrentFrame();
-  const hist = prog(f, 4, 14);
-  const fold = prog(f, 40, 18, easeInOut); // el historial se pliega en el brief
-  const brief = prog(f, 50, 14);
-  const person = prog(f, 72, 12);
-  const tl = prog(f, 8, 16);
-  const later = prog(f, 30, 14);
+  const hist = prog(f, 12, 14);
+  const fold = prog(f, 62, 22, easeInOut); // el historial se pliega en el brief
+  const brief = prog(f, 76, 14);
+  const person = prog(f, 106, 12);
+  const tl = prog(f, 16, 18);
+  const later = prog(f, 48, 14);
 
   return (
     <AbsoluteFill>
-      <SceneTitle lead="LATER" text="Negociar con evidencia" start={4} />
+      <SceneTitle lead="Ola 3" text="Evolución: negociar con evidencia" start={6} />
 
       {/* Historial del contrato */}
       <div
@@ -60,7 +62,7 @@ export const P4Later: React.FC = () => {
             <div style={{ width: 170, fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.ink }}>{r}</div>
             <div style={{ display: "flex", gap: 9 }}>
               {PATTERN[i].map((v, j) => {
-                const p = prog(f, 6 + i * 3 + j * 2, 8);
+                const p = prog(f, 14 + i * 4 + j * 3, 8);
                 return (
                   <div
                     key={j}
@@ -102,7 +104,7 @@ export const P4Later: React.FC = () => {
             <div style={{ width: 170, fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.ink }}>{r}</div>
             <div style={{ display: "flex", gap: 9 }}>
               {PATTERN[i].map((v, j) => {
-                const p = prog(f, 6 + i * 3 + j * 2, 8);
+                const p = prog(f, 14 + i * 4 + j * 3, 8);
                 return (
                   <div
                     key={j}
@@ -167,7 +169,7 @@ export const P4Later: React.FC = () => {
           el contrato nuevo
         </div>
         {["Cumplimiento histórico", "Pagos y soportes", "Desempeño frente a inversión"].map((t, i) => {
-          const p = prog(f, 58 + i * 5, 10);
+          const p = prog(f, 86 + i * 7, 10);
           return (
             <div
               key={t}
@@ -218,7 +220,7 @@ export const P4Later: React.FC = () => {
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Person size={52} strokeWidth={2} />
-          <CheckDot progress={prog(f, 82, 10)} size={36} />
+          <CheckDot progress={prog(f, 118, 10)} size={36} />
         </div>
         <div style={{ fontFamily: F.display, fontWeight: 600, fontSize: 32, color: C.ink, marginTop: 22, lineHeight: 1.1 }}>
           Ventas revisa
@@ -244,8 +246,8 @@ export const P4Later: React.FC = () => {
         />
       </svg>
       {STAGES.map((s, i) => {
-        const active = i === 2;
-        const p = prog(f, 10 + i * 6, 10);
+        const active = i === 3;
+        const p = prog(f, 20 + i * 8, 10);
         return (
           <React.Fragment key={s.label}>
             <div
@@ -265,8 +267,8 @@ export const P4Later: React.FC = () => {
             <div
               style={{
                 position: "absolute",
-                left: s.x - 220,
-                width: 440,
+                left: s.x - 200,
+                width: 400,
                 top: 832,
                 textAlign: "center",
                 fontFamily: F.display,
@@ -290,7 +292,7 @@ export const P4Later: React.FC = () => {
         );
       })}
       {GATES.map((g, i) => {
-        const p = prog(f, 18 + i * 6, 10);
+        const p = prog(f, 30 + i * 8, 10);
         return (
           <React.Fragment key={g.label}>
             <div style={{ position: "absolute", left: g.x - 13, top: 806 - 13, opacity: p }}>

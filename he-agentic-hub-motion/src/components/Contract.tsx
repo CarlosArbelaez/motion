@@ -2,6 +2,7 @@ import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
 import { C, F } from "../brand";
 import { easeInOut, prog } from "../anim";
+import { SCENES } from "../timeline";
 import { CheckDot, DataBar, KindPill } from "./ui";
 import { Doc, Person } from "./Icons";
 
@@ -14,17 +15,22 @@ import { Doc, Person } from "./Icons";
 type Rect = { x: number; y: number; w: number; h: number };
 type Key = { f: number } & Rect;
 
+const S = SCENES;
 const KEYS: Key[] = [
-  { f: 0, x: 780, y: 318, w: 360, h: 470 }, // P1: documento entre tareas manuales
-  { f: 108, x: 780, y: 318, w: 360, h: 470 },
-  { f: 142, x: 150, y: 318, w: 760, h: 540 }, // P2: ficha única en App HE
-  { f: 326, x: 150, y: 318, w: 760, h: 540 },
-  { f: 352, x: 120, y: 300, w: 330, h: 430 }, // P3–P4: ficha compacta, origen del flujo
-  { f: 628, x: 120, y: 300, w: 330, h: 430 },
-  { f: 656, x: 150, y: 590, w: 214, h: 278 }, // P5: "después", conectado
-  { f: 806, x: 150, y: 590, w: 214, h: 278 },
-  { f: 836, x: 210, y: 300, w: 360, h: 470 }, // P6: resuelto dentro del sistema
-  { f: 900, x: 210, y: 300, w: 360, h: 470 },
+  { f: 0, x: 780, y: 318, w: 360, h: 470 }, // Hoy: documento entre tareas manuales
+  { f: S.hoy.to - 16, x: 780, y: 318, w: 360, h: 470 },
+  { f: S.mapa.from + 20, x: 120, y: 330, w: 240, h: 313 }, // Mapa: el contrato en "Hoy"
+  { f: S.mapa.to - 16, x: 120, y: 330, w: 240, h: 313 },
+  { f: S.ola0.from + 20, x: 150, y: 300, w: 360, h: 470 }, // Ola 0: el contrato que se valida
+  { f: S.ola0.to - 10, x: 150, y: 300, w: 360, h: 470 },
+  { f: S.ola1.from + 28, x: 150, y: 318, w: 760, h: 540 }, // Ola 1: ficha única en App HE
+  { f: S.ola1.to - 4, x: 150, y: 318, w: 760, h: 540 },
+  { f: S.ola2.from + 22, x: 120, y: 300, w: 330, h: 430 }, // Ola 2–3: ficha compacta
+  { f: S.ola3.to - 2, x: 120, y: 300, w: 330, h: 430 },
+  { f: S.impacto.from + 26, x: 150, y: 590, w: 214, h: 278 }, // Impacto: "después", conectado
+  { f: S.impacto.to - 4, x: 150, y: 590, w: 214, h: 278 },
+  { f: S.decision.from + 26, x: 210, y: 300, w: 360, h: 470 }, // Decisión: resuelto
+  { f: S.decision.to, x: 210, y: 300, w: 360, h: 470 },
 ];
 
 const rectAt = (frame: number): Rect => {
@@ -142,7 +148,8 @@ const RUBROS = ["Visibilidad", "Activaciones", "Volumen", "Eventos"];
 
 /** Ficha única (P2). Registro y validación humana — sin agente. */
 const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
-  const stamp = prog(frame, 196, 12);
+  const o = SCENES.ola1.from;
+  const stamp = prog(frame, o + 120, 14);
   return (
     <div style={{ position: "absolute", inset: 0, padding: "28px 34px" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -153,12 +160,12 @@ const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
           <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 21, color: C.text2 }}>Ficha única</div>
         </div>
         <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 18, color: C.text2, letterSpacing: 1.2 }}>
-          1 · OPTIMIZAR
+          OPTIMIZAR
         </div>
       </div>
       <div style={{ height: 2, background: C.hairline, margin: "18px 0 6px" }} />
       {FICHA_ROWS.map((r, i) => {
-        const p = prog(frame, 142 + i * 8, 12);
+        const p = prog(frame, o + 34 + i * 12, 14);
         return (
           <div
             key={r.label}
@@ -175,7 +182,7 @@ const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
               {r.label}
             </div>
             <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 6, paddingRight: 12 }}>
-              {r.kind === "bar" ? <DataBar width={r.w} progress={prog(frame, 146 + i * 8, 14)} /> : null}
+              {r.kind === "bar" ? <DataBar width={r.w} progress={prog(frame, o + 38 + i * 12, 16)} /> : null}
               {r.kind === "text" ? (
                 <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 23, color: C.ink }}>{r.text}</div>
               ) : null}
@@ -198,7 +205,7 @@ const FichaContent: React.FC<{ frame: number }> = ({ frame }) => {
                   ))
                 : null}
             </div>
-            <CheckDot progress={prog(frame, 150 + i * 8, 10)} size={28} />
+            <CheckDot progress={prog(frame, o + 44 + i * 12, 10)} size={28} />
           </div>
         );
       })}
@@ -278,14 +285,14 @@ export const ContractLayer: React.FC = () => {
   const r = rectAt(frame);
 
   const appear = prog(frame, 0, 14);
-  const docOp = 1 - prog(frame, 112, 16, easeInOut);
-  const fichaOp = prog(frame, 120, 16, easeInOut) * (1 - prog(frame, 330, 14, easeInOut));
-  const miniOp = prog(frame, 334, 14, easeInOut);
-  const resolved = prog(frame, 830, 12);
-  const linked = prog(frame, 660, 14);
+  const docOp = 1 - prog(frame, S.ola1.from + 2, 16, easeInOut);
+  const fichaOp = prog(frame, S.ola1.from + 10, 16, easeInOut) * (1 - prog(frame, S.ola2.from, 14, easeInOut));
+  const miniOp = prog(frame, S.ola2.from + 4, 14, easeInOut);
+  const resolved = prog(frame, S.decision.from + 20, 12);
+  const linked = prog(frame, S.impacto.from + 30, 14);
 
   // En P1 el documento "tiembla" levemente entre tareas manuales; se estabiliza al ordenarse.
-  const jitter = frame < 110 ? Math.sin(frame / 5) * 0.8 : 0;
+  const jitter = frame < S.hoy.to - 18 ? Math.sin(frame / 5) * 0.8 : 0;
 
   return (
     <div
@@ -297,7 +304,7 @@ export const ContractLayer: React.FC = () => {
         height: r.h,
         background: C.white,
         border: `3px solid ${C.ink}`,
-        borderRadius: interpolate(frame, [110, 142], [8, 16], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+        borderRadius: interpolate(frame, [S.ola1.from, S.ola1.from + 28], [8, 16], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
         overflow: "hidden",
         opacity: appear,
         transform: `rotate(${jitter}deg) scale(${0.94 + 0.06 * appear})`,

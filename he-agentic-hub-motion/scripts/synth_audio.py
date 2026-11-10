@@ -10,6 +10,7 @@ import wave
 import numpy as np
 
 SR = 48000
+TOTAL_SEC = 61.0  # = TOTAL / FPS en src/timeline.ts
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "assets", "audio")
 RNG = np.random.default_rng(7)
@@ -95,16 +96,17 @@ def midi(m):
 
 
 # --------------------------------------------------------------------------------------
-# Música: 96 BPM, 12 compases de 4/4 = 30 s exactos. La menor → resolución en Do mayor.
+# Música: 24 compases de 4/4 repartidos en la duración del video (~94 BPM para 61 s).
+# La menor → resolución en Do mayor.
 # --------------------------------------------------------------------------------------
 
-def build_music():
-    total = 30.0
+def build_music(total=TOTAL_SEC):
     n = int(total * SR)
     L = np.zeros(n)
     R = np.zeros(n)
-    beat = 60 / 96
-    bar = beat * 4
+    n_bars = 24
+    bar = total / n_bars
+    beat = bar / 4
 
     # Acordes por compás (voicings en MIDI)
     Am = [57, 60, 64, 69]
@@ -113,8 +115,8 @@ def build_music():
     G = [55, 59, 62, 67]
     Fmaj7 = [53, 57, 64, 69]
     Cadd9 = [48, 55, 62, 64, 67]
-    prog = [Am, Am, F, C, G, Am, F, C, Am, F, Fmaj7, Cadd9]
-    bass = [45, 45, 41, 48, 43, 45, 41, 48, 45, 41, 41, 36]
+    prog = [Am, Am] + [F, C, G, Am] * 5 + [Fmaj7, Cadd9]
+    bass = [45, 45] + [41, 48, 43, 45] * 5 + [41, 36]
 
     def add(sig, start, gain_l, gain_r):
         s = int(start * SR)
@@ -155,7 +157,7 @@ def build_music():
                 pan = 0.3 + 0.4 * ((i % 4) / 3)
                 add(y * 0.05, start + i * beat / 2, pan, 1 - pan)
         # Pulso rítmico: hi-hat suave (ruido filtrado) desde la placa 3 (compás 4)
-        if 4 <= b < len(prog) - 1:
+        if 6 <= b < len(prog) - 2:
             for i in range(8):
                 hh = swept_band_noise(0.06, 7000, 9000, 0.5) * np.exp(-t_axis(0.06) * 60)
                 g = 0.022 if i % 2 else 0.012
@@ -170,7 +172,7 @@ def build_music():
     # Fade in corto y fade out final que termina antes de 30 s
     fi = int(0.4 * SR)
     mix[:fi] *= np.linspace(0, 1, fi)[:, None]
-    fo_start, fo_end = int(28.3 * SR), int(29.85 * SR)
+    fo_start, fo_end = int((total - 1.7) * SR), int((total - 0.15) * SR)
     fade = np.ones(n)
     fade[fo_start:fo_end] = np.linspace(1, 0, fo_end - fo_start) ** 1.5
     fade[fo_end:] = 0
