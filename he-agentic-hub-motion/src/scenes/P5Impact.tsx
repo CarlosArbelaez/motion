@@ -7,7 +7,7 @@ import { Check, DashedCircle } from "../components/Icons";
 import { CUE, SCENES } from "../timeline";
 
 /**
- * Placa 6 · Impacto (diapositiva 6 de la presentación final).
+ * Placa 6 · Impacto (diapositiva 6 del deck v2).
  * Métricas de éxito de High End en palabras (sin cifras nuevas) y los dos KPIs de siempre,
  * identificados como meta y estimación (no resultados medidos). Fotogramas locales.
  */
@@ -39,14 +39,14 @@ const Kpi: React.FC<{
       style={{
         position: "absolute",
         left: x,
-        top: 430,
+        top: 424,
         width: 510,
-        height: 330,
+        height: 296,
         boxSizing: "border-box",
         background: C.white,
         borderTop: `8px solid ${C.ink}`,
         borderRadius: 14,
-        padding: "22px 30px",
+        padding: "16px 28px",
         opacity: p,
         transform: `translateY(${(1 - p) * 20}px)`,
       }}
@@ -55,7 +55,7 @@ const Kpi: React.FC<{
         style={{
           fontFamily: F.display,
           fontWeight: 700,
-          fontSize: 112,
+          fontSize: 100,
           lineHeight: 1,
           letterSpacing: -3,
           color: C.ink,
@@ -66,14 +66,14 @@ const Kpi: React.FC<{
       >
         {value}
       </div>
-      <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 30, color: C.ink, marginTop: 10 }}>{label}</div>
+      <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 28, color: C.ink, marginTop: 6 }}>{label}</div>
       <div
         style={{
           display: "inline-block",
-          marginTop: 14,
+          marginTop: 10,
           fontFamily: F.body,
           fontWeight: 700,
-          fontSize: 23,
+          fontSize: 22,
           borderRadius: 12,
           padding: "6px 14px",
           background: strong ? C.ink : C.white,
@@ -84,7 +84,7 @@ const Kpi: React.FC<{
       >
         {qualifier}
       </div>
-      <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 19, color: C.text2, marginTop: 12, opacity: q, lineHeight: 1.3 }}>
+      <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 18, color: C.text2, marginTop: 8, opacity: q, lineHeight: 1.3 }}>
         {note}
       </div>
     </div>
@@ -94,6 +94,7 @@ const Kpi: React.FC<{
 export const P5Impact: React.FC = () => {
   const f = useCurrentFrame();
   const meta = L(CUE.meta);
+  // Los KPIs entran con "La meta"; el tablero del canal, cuando la voz dice "y el canal se ve cada día".
 
   return (
     <AbsoluteFill>
@@ -108,9 +109,9 @@ export const P5Impact: React.FC = () => {
             style={{
               position: "absolute",
               left: 120 + i * 850,
-              top: 236,
+              top: 232,
               width: 830,
-              height: 150,
+              height: 144,
               boxSizing: "border-box",
               background: C.yellow,
               borderRadius: 14,
@@ -194,7 +195,7 @@ export const P5Impact: React.FC = () => {
         style={{
           position: "absolute",
           left: 760,
-          top: 400,
+          top: 394,
           fontFamily: F.body,
           fontWeight: 700,
           fontSize: 21,
@@ -221,18 +222,60 @@ export const P5Impact: React.FC = () => {
         value={
           <>
             ≈13
-            <span style={{ fontSize: 50, letterSpacing: -1, marginLeft: 12, marginBottom: 10 }}>h/mes</span>
+            <span style={{ fontSize: 46, letterSpacing: -1, marginLeft: 12, marginBottom: 8 }}>h/mes</span>
           </>
         }
         label="de la analista"
         qualifier="Estimación de carga de trabajo To-Be"
         note="Carga mensual estimada con el To-Be; no son horas ahorradas."
       />
+      {/* Tercer beneficio (deck v2): desempeño del canal en un tablero diario — meta */}
       <div
         style={{
           position: "absolute",
           left: 760,
-          top: 782,
+          top: 734,
+          width: 1040,
+          height: 74,
+          boxSizing: "border-box",
+          background: C.white,
+          borderLeft: "none",
+          borderTop: `8px solid ${C.ink}`,
+          borderRadius: 14,
+          padding: "0 28px",
+          display: "flex",
+          alignItems: "center",
+          gap: 18,
+          opacity: prog(f, L(CUE.canal), 12),
+          transform: `translateY(${(1 - prog(f, L(CUE.canal), 12)) * 14}px)`,
+        }}
+      >
+        <div style={{ fontFamily: F.display, fontWeight: 700, fontSize: 28, color: C.ink, whiteSpace: "nowrap" }}>
+          Desempeño del canal
+        </div>
+        <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.text2, whiteSpace: "nowrap" }}>
+          de descargas y consolidación manual a un tablero diario
+        </div>
+        <div
+          style={{
+            marginLeft: "auto",
+            fontFamily: F.body,
+            fontWeight: 700,
+            fontSize: 20,
+            borderRadius: 10,
+            padding: "4px 12px",
+            background: C.ink,
+            color: C.yellow,
+          }}
+        >
+          Meta
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          left: 760,
+          top: 826,
           display: "flex",
           alignItems: "center",
           gap: 14,

@@ -6,7 +6,7 @@ import { CheckDot, SceneTitle } from "../components/ui";
 import { CUE, SCENES } from "../timeline";
 
 /**
- * Placa 3 · Ola 0 · Preparar (diapositiva 3 de la presentación final), más la línea base de
+ * Placa 3 · Ola 0 · Preparar (diapositiva 3 del deck v2: 4 puntos), más la línea base de
  * horas, que el deck indica que se mide en la Ola 0 (diapositiva 6). Cada punto aparece
  * cuando la voz lo nombra. Fotogramas locales.
  */
@@ -14,6 +14,7 @@ import { CUE, SCENES } from "../timeline";
 const ITEMS = [
   { t: "Reglas de pago aprobadas", s: "Cómo se mide el cumplimiento, cómo se paga cada rubro y quién aprueba" },
   { t: "Cada contrato con su código de cliente", s: "La base para asignar las ventas a cada contrato" },
+  { t: "Indicadores del canal priorizados", s: "High End define qué se mide y de qué fuente sale" },
   { t: "Accesos a datos y buzón", s: "Listos antes de empezar a construir" },
   { t: "Línea base de horas medida", s: "Se cronometra un ciclo mensual de trabajo" },
 ];
@@ -34,9 +35,9 @@ export const Ola0: React.FC = () => {
             style={{
               position: "absolute",
               left: 600,
-              top: 300 + i * 118,
+              top: 290 + i * 100,
               width: 1200,
-              height: 102,
+              height: 88,
               boxSizing: "border-box",
               background: C.white,
               border: `2.5px solid ${C.ink}`,
@@ -51,8 +52,8 @@ export const Ola0: React.FC = () => {
           >
             <CheckDot progress={prog(f, at(i) + 8, 10)} size={38} />
             <div>
-              <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 29, color: C.ink }}>{it.t}</div>
-              <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.text2, marginTop: 4 }}>{it.s}</div>
+              <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 27, color: C.ink }}>{it.t}</div>
+              <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 21, color: C.text2, marginTop: 2 }}>{it.s}</div>
             </div>
           </div>
         );

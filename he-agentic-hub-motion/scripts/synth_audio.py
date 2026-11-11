@@ -10,7 +10,7 @@ import wave
 import numpy as np
 
 SR = 48000
-TOTAL_SEC = 2134 / 30  # = TOTAL / FPS en src/timeline.ts
+TOTAL_SEC = 2800 / 30  # = TOTAL / FPS en src/timeline.ts
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "assets", "audio")
 RNG = np.random.default_rng(7)
@@ -96,7 +96,7 @@ def midi(m):
 
 
 # --------------------------------------------------------------------------------------
-# Música: 24 compases de 4/4 repartidos en la duración del video (~94 BPM para 61 s).
+# Música: 36 compases de 4/4 repartidos en la duración del video (~94 BPM para 61 s).
 # La menor → resolución en Do mayor.
 # --------------------------------------------------------------------------------------
 
@@ -104,7 +104,7 @@ def build_music(total=TOTAL_SEC):
     n = int(total * SR)
     L = np.zeros(n)
     R = np.zeros(n)
-    n_bars = 24
+    n_bars = 36
     bar = total / n_bars
     beat = bar / 4
 
@@ -115,8 +115,8 @@ def build_music(total=TOTAL_SEC):
     G = [55, 59, 62, 67]
     Fmaj7 = [53, 57, 64, 69]
     Cadd9 = [48, 55, 62, 64, 67]
-    prog = [Am, Am] + [F, C, G, Am] * 5 + [Fmaj7, Cadd9]
-    bass = [45, 45] + [41, 48, 43, 45] * 5 + [41, 36]
+    prog = [Am, Am] + [F, C, G, Am] * 8 + [Fmaj7, Cadd9]
+    bass = [45, 45] + [41, 48, 43, 45] * 8 + [41, 36]
 
     def add(sig, start, gain_l, gain_r):
         s = int(start * SR)

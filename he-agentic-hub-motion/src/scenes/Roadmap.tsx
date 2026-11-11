@@ -14,12 +14,12 @@ import { Arrow } from "../components/Icons";
 type Stage = { n?: string; name: string; desc: string; tag: string; look: "card" | "mvp" | "oficial" | "later" };
 
 const STAGES: Stage[] = [
-  { n: "Ola 0", name: "Preparar", desc: "Reglas, códigos de cliente y accesos listos", tag: "Antes de construir", look: "card" },
-  { name: "MVP", desc: "El ciclo mensual completo, del contrato al pago", tag: "Primer desarrollo", look: "mvp" },
+  { n: "Ola 0", name: "Preparar", desc: "Reglas, códigos, indicadores del canal y accesos", tag: "Antes de construir", look: "card" },
+  { name: "MVP", desc: "El ciclo mensual completo y el tablero diario del canal", tag: "Primer desarrollo", look: "mvp" },
   { name: "Completar", desc: "Chat, alertas, brief y reglas editables", tag: "Siguiente", look: "card" },
   { name: "Validar", desc: "Cortes en paralelo con el Excel", tag: "Siguiente", look: "card" },
   { name: "Sistema oficial", desc: "Con el visto bueno de High End se retira el Excel", tag: "Siguiente", look: "oficial" },
-  { name: "Escalar", desc: "Reportes, PRP, Trade y cartas, por priorizar", tag: "Por priorizar", look: "later" },
+  { name: "Escalar", desc: "Más fuentes del canal conectadas y alcance adicional", tag: "Después", look: "later" },
 ];
 
 const X0 = 410;

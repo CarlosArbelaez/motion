@@ -7,7 +7,7 @@ import { Arrow, Person } from "../components/Icons";
 import { CUE, SCENES } from "../timeline";
 
 /**
- * Placa 5 · Después del MVP (diapositiva 5 de la presentación final, sin fechas):
+ * Placa 5 · Después del MVP (diapositiva 5 del deck v2, sin fechas):
  * Completar → Validar → Sistema oficial → Escalar. Fotogramas locales.
  */
 
@@ -28,6 +28,7 @@ const COLS: Col[] = [
       { kind: "ia", text: "Brief para negociar el contrato nuevo", at: L(CUE.brief) },
       { kind: "persona", text: "Ventas decide la negociación", at: L(CUE.brief) + 18 },
       { kind: "persona", text: "Reglas editables con doble aprobación", at: L(CUE.brief) + 34 },
+      { text: "Controles de Control Interno y Ciberseguridad", at: L(CUE.brief) + 48 },
     ],
   },
   {
@@ -51,15 +52,16 @@ const COLS: Col[] = [
     ],
   },
   {
-    tag: "Por priorizar",
+    tag: "Después",
     name: "Escalar",
     look: "later",
-    at: L(CUE.oficial) + 40,
+    at: L(CUE.fuentes) - 10,
     rows: [
       {
-        text: "Alcance adicional con High End: reportes mensuales, informe PRP, Trade y lectura de cartas",
-        at: L(CUE.oficial) + 48,
+        text: "Fuentes externas del canal conectadas de forma automática, en el orden que priorice High End",
+        at: L(CUE.fuentes),
       },
+      { text: "Alcance adicional por priorizar: reportes, informe PRP, Trade y cartas", at: L(CUE.fuentes) + 18 },
     ],
   },
 ];
@@ -68,14 +70,14 @@ const X0 = 460;
 const W = 323;
 const STEP = 339;
 const TOP = 290;
-const H = 520;
+const H = 590;
 
 export const Despues: React.FC = () => {
   const f = useCurrentFrame();
 
   return (
     <AbsoluteFill>
-      <SceneTitle lead="Después del MVP" text="completamos y retiramos el Excel" start={6} size={60} />
+      <SceneTitle lead="Después del MVP" text="completamos, conectamos y retiramos el Excel" start={6} size={56} />
 
       {COLS.map((c, i) => {
         const p = prog(f, c.at, 12);

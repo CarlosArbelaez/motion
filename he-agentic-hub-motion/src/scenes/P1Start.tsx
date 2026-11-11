@@ -7,13 +7,13 @@ import { CUE, SCENES } from "../timeline";
 
 /**
  * Placa 1 · Hoy: el punto de partida son los 5 dolores de la presentación final
- * (diapositiva 2, "Los 5 dolores que encontramos"), sin cifras ni nombres de clientes.
+ * (diapositiva 2 del deck v2, "Los 5 dolores que encontramos"), sin cifras ni nombres de clientes.
  * Cada dolor aparece cuando la voz lo nombra.
  */
 
 const DOLORES = [
   { t: "El contrato no está en datos", d: "Las metas están en texto libre y hay contratos sin código de cliente." },
-  { t: "El volumen se arma a mano", d: "Cada mes se edita la consulta de ventas y lo vendido vía Dislicores se suma aparte." },
+  { t: "El volumen y el desempeño se arman a mano", d: "Dislicores se suma aparte; el desempeño del canal se descarga y se consolida a mano." },
   { t: "La regla de pago no está escrita", d: "El cumplimiento depende de quién arme el Excel y los ajustes no se pueden repetir." },
   { t: "Los pagos no dejan rastro", d: "Pagos sumados en fórmulas, sin fecha ni soporte, y pagos por encima de lo pactado." },
   { t: "Nadie ve el estado real", d: "Contratos vencidos que siguen como vigentes; el contrato nuevo se negocia sin historial." },
@@ -108,7 +108,7 @@ export const P1Start: React.FC = () => {
             >
               {i + 1}
             </div>
-            <div style={{ width: 470, fontFamily: F.body, fontWeight: 700, fontSize: 29, color: C.ink, flexShrink: 0 }}>
+            <div style={{ width: 600, fontFamily: F.body, fontWeight: 700, fontSize: 28, color: C.ink, flexShrink: 0 }}>
               {d.t}
             </div>
             <div style={{ fontFamily: F.body, fontWeight: 500, fontSize: 22, color: C.text2, lineHeight: 1.3 }}>{d.d}</div>

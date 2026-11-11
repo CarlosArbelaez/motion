@@ -7,13 +7,13 @@ import { Diamond, Person } from "../components/Icons";
 import { CUE, SCENES } from "../timeline";
 
 /**
- * Placa 4 · MVP (diapositiva 4 de la presentación final): el ciclo mensual completo,
- * del contrato al pago. Reglas (amarillo), IA (punteado) y personas (contorno sólido).
+ * Placa 4 · MVP (diapositiva 4 del deck v2): el ciclo mensual completo, del contrato al pago,
+ * y el desempeño del canal v1 (tablero diario, informativo). Reglas (amarillo), IA (punteado) y personas (contorno sólido).
  * Cada fila se enciende cuando la voz la menciona. Fotogramas locales.
  */
 
 type Row = { kind: Kind; text: string; at: number };
-type Step = { title: string; rows: Row[] };
+type Step = { title: string; rows: Row[]; daily?: boolean };
 
 const L = (abs: number) => abs - SCENES.mvp.from;
 
@@ -47,13 +47,20 @@ const STEPS: Step[] = [
       { kind: "regla", text: "Cada pago queda conciliado", at: L(CUE.mvpFinanzas) + 14 },
     ],
   },
+  {
+    title: "Desempeño del canal",
+    daily: true,
+    rows: [
+      { kind: "regla", text: "Volumen, sell-out y cobertura de cada contrato, en un tablero", at: L(CUE.mvpCanal) },
+    ],
+  },
 ];
 
 const X0 = 460;
-const W = 256;
-const STEP = 270;
-const TOP = 290;
-const H = 410;
+const W = 213;
+const STEP = 225;
+const TOP = 286;
+const H = 404;
 
 const NOTES = [
   { text: "búsqueda y ficha del contrato con su PDF.", strong: "Pantalla web v1:", at: L(CUE.mvpCiclo) + 20 },
@@ -63,6 +70,8 @@ const NOTES = [
     at: L(CUE.mvpAnalista) + 24,
   },
   { text: "con el Excel, que sigue siendo el oficial.", strong: "Se valida en paralelo", at: L(CUE.mvpFinanzas) + 22 },
+  { text: "para pagar vale el corte del día 10.", strong: "El tablero diario es informativo;", at: L(CUE.mvpCanal) + 26 },
+  { text: "con carga controlada hasta conectarlo.", strong: "Dislicores entra", at: L(CUE.mvpCanal) + 40 },
 ];
 
 export const Mvp: React.FC = () => {
@@ -71,7 +80,7 @@ export const Mvp: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <SceneTitle lead="MVP" text="el ciclo mensual completo corre en el sistema" start={6} size={60} />
+      <SceneTitle lead="MVP" text="el ciclo mensual completo y el canal cada día" start={6} size={60} />
 
       {/* Conector desde el contrato */}
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
@@ -94,7 +103,7 @@ export const Mvp: React.FC = () => {
               borderRadius: 14,
               background: C.card,
               border: `2.5px solid ${active > 0.5 ? C.ink : C.card}`,
-              padding: "18px 16px",
+              padding: "16px 12px",
               opacity: p,
               transform: `translateY(${(1 - p) * 18}px)`,
             }}
@@ -118,9 +127,26 @@ export const Mvp: React.FC = () => {
               >
                 {i + 1}
               </div>
-              <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 23, color: C.ink, lineHeight: 1.15 }}>{s.title}</div>
+              <div style={{ fontFamily: F.body, fontWeight: 700, fontSize: 21, color: C.ink, lineHeight: 1.15 }}>{s.title}</div>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 18 }}>
+            <div
+              style={{
+                display: "inline-block",
+                marginTop: 12,
+                fontFamily: F.body,
+                fontWeight: 700,
+                fontSize: 15,
+                letterSpacing: 0.8,
+                borderRadius: 999,
+                padding: "2px 10px",
+                background: s.daily ? C.ink : "transparent",
+                color: s.daily ? C.yellow : C.text2,
+                border: `1.5px solid ${s.daily ? C.ink : C.text3}`,
+              }}
+            >
+              {s.daily ? "CADA DÍA" : i === 0 ? "POR CONTRATO" : "CADA MES"}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 12 }}>
               {s.rows.map((r) => {
                 const q = prog(f, r.at, 10);
                 return (
@@ -129,10 +155,10 @@ export const Mvp: React.FC = () => {
                     style={{
                       ...kindStyle(r.kind, 2.5),
                       borderRadius: 10,
-                      padding: "11px 12px",
+                      padding: "9px 10px",
                       fontFamily: F.body,
                       fontWeight: 500,
-                      fontSize: 20,
+                      fontSize: 19,
                       lineHeight: 1.3,
                       color: C.ink,
                       opacity: q,
@@ -162,17 +188,17 @@ export const Mvp: React.FC = () => {
           style={{
             position: "absolute",
             left: X0,
-            top: 726 + i * 44,
+            top: 706 + i * 38,
             display: "flex",
             alignItems: "center",
             gap: 12,
             fontFamily: F.body,
-            fontSize: 23,
+            fontSize: 21,
             color: C.text2,
             opacity: prog(f, n.at, 12),
           }}
         >
-          <Diamond size={18} />
+          <Diamond size={16} />
           {n.strong ? <span style={{ fontWeight: 700, color: C.ink }}>{n.strong}</span> : null}
           <span style={{ fontWeight: 500 }}>{n.text}</span>
         </div>
