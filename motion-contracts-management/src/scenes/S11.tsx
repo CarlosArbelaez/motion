@@ -8,7 +8,7 @@ const ID = "s11";
 // kind: meta = resultado que se busca · diseño = característica del proceso propuesto (no mide horas)
 const TILES = [
   { at: cue(ID, "De tres"), kind: "META", from: "3", to: "1", label: "capturas manuales del mismo dato" },
-  { at: cue(ID, "De veintiséis"), kind: "META", from: "~26", to: "1", label: "avisos por contrato: de correos sin cierre a una tarjeta con acuse" },
+  { at: cue(ID, "De veintiséis"), kind: "META", from: "~26", to: "1", label: "avisos por contrato: de correos sin cierre a una tarjeta que exige respuesta" },
   { at: cue(ID, "El cien"), kind: "META", from: "Sin medir", to: "100 %", label: "de los contratos vigentes con su PDF en Ariba" },
   { at: cue(ID, "Al menos"), kind: "META", from: "No se mide", to: "≥ 95 %", label: "de las alertas con decisión antes del preaviso" },
   { at: cue(ID, "Y los pasos"), kind: "DISEÑO", from: "12 %", to: "62 %", label: "de los pasos sin intervención manual (4 de 34 hoy; 56 de 90). Mide pasos, no horas." },
@@ -57,12 +57,12 @@ export const S11: React.FC = () => (
         </Rise>
       );
     })}
-    <Rise at={cue(ID, "Lo que aún") - 0.15} y={26} style={{ position: "absolute", ...pos(5) }}>
-      <div style={{ width: TW, height: TH, background: C.ink, color: C.white, borderRadius: 20, boxSizing: "border-box", padding: "22px 28px" }}>
-        <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: 2, color: C.yellow }}>AÚN NO SE PROMETE</div>
-        <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 38, lineHeight: 1.1, marginTop: 10, letterSpacing: -0.5 }}>Ahorro de tiempo con IA</div>
-        <div style={{ fontSize: 25, lineHeight: 1.24, marginTop: 10, color: "rgba(255,255,255,0.8)" }}>
-          Primero se mide la línea base; la meta se fija tras un piloto de 20 contratos.
+    <Rise at={cue(ID, "El impacto") - 0.15} y={26} style={{ position: "absolute", ...pos(5) }}>
+      <div style={{ width: TW, height: TH, background: C.purple, color: C.white, borderRadius: 20, boxSizing: "border-box", padding: "22px 28px" }}>
+        <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: 2, color: C.yellow }}>DESPUÉS DEL MVP · OLAS 2 Y 3</div>
+        <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 38, lineHeight: 1.1, marginTop: 10, letterSpacing: -0.5 }}>El impacto de la IA</div>
+        <div style={{ fontSize: 25, lineHeight: 1.24, marginTop: 10, color: "rgba(255,255,255,0.88)" }}>
+          Reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto de 20 contratos.
         </div>
       </div>
     </Rise>

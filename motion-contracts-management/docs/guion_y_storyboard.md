@@ -1,6 +1,6 @@
 # Contracts Management Finance Tech — Guion y storyboard
 
-**Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · 4:28 · español (voz de Colombia) con subtítulos.
+**Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · 4:35 · español (voz de Colombia) con subtítulos.
 **Audiencia:** stakeholders ejecutivos de la sesión de Vo.Bo. (Procurement, Value Creation, Tecnología MAZ).
 **Estado de la iniciativa que comunica:** propuesta To-Be v3.2 para aprobación (no es un piloto ni una solución operativa).
 
@@ -44,7 +44,7 @@ desde la locución real con `npx tsx scripts/export_docs.ts`.
 ## Escena 3 · Alertas hoy (0:35–0:54)
 
 - **Locución:** Cuando un contrato se acerca a su vencimiento, llega un correo cada martes y cada jueves, desde noventa días antes. Son hasta veintiséis correos por contrato, que no se pueden responder ni cerrar. Después del vencimiento, siguen llegando. Y ninguna decisión de renovación queda registrada.
-- **Texto principal:** contador hasta ~26 · "Sin acuse / Sin cierre" · «Urgente: vencido» · 0 decisiones registradas.
+- **Texto principal:** contador hasta ~26 · "Sin respuesta / Sin cierre" · «Urgente: vencido» · 0 decisiones registradas.
 - **Movimiento:** los sobres caen uno a uno sobre la línea de tiempo mientras sube el contador; pasado el vencimiento siguen llegando en rojo; cierra la tarjeta "0 decisiones".
 
 ## Escena 4 · Riesgo para el negocio (0:54–1:07)
@@ -62,7 +62,7 @@ desde la locución real con `npx tsx scripts/export_docs.ts`.
 
 ## Escena 6 · El nuevo ciclo (1:29–2:00)
 
-- **Locución:** Así recorre un contrato el nuevo ciclo. Primero se formaliza: la solicitud se captura una sola vez, la regla escrita de la política decide si requiere contrato, y su espacio en Ariba se abre desde el día uno. Luego se registra: los datos clave nacen al firmar, los valida una persona, y se concilian cada día con Ariba. Y después se vigila: con una alerta que exige acuse y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio.
+- **Locución:** Así recorre un contrato el nuevo ciclo. Primero se formaliza: la solicitud se captura una sola vez, la regla escrita de la política decide si requiere contrato, y su espacio en Ariba se abre desde el día uno. Luego se registra: los datos clave nacen al firmar, los valida una persona, y se concilian cada día con Ariba. Y después se vigila: con una alerta que exige respuesta y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio.
 - **Texto principal:** 3 bloques · 7 fases · estado del contrato · "Si el servicio continúa, vuelve a la Fase 1".
 - **Movimiento:** el contrato avanza por un riel bajo las 7 fases; el bloque activo se enciende en amarillo, el estado del contrato cambia (Solicitud → … → Vigente → En renovación) y cada mejora deja una etiqueta; al final la flecha de retorno cierra el ciclo y el contrato vuelve a la Fase 1.
 
@@ -85,19 +85,19 @@ desde la locución real con `npx tsx scripts/export_docs.ts`.
 - **Texto principal:** Contrato → la IA propone la ficha (con «cita») → una persona valida → registro · cuatro límites.
 - **Movimiento:** el flujo avanza de izquierda a derecha con la voz; las citas se encienden; los cuatro "no" caen uno a uno.
 
-## Escena 10 · Alcance inicial y evolución (2:58–3:28)
+## Escena 10 · Alcance inicial y evolución (2:59–3:29)
 
 - **Locución:** El alcance inicial es el producto mínimo viable: las olas cero y uno. Cierra el ciclo sin agentes de inteligencia artificial, con herramientas de Microsoft tres sesenta y cinco que la compañía ya tiene. Después, la ola dos trae la ficha del contrato con inteligencia artificial, empezando con un piloto de veinte contratos. Y la ola tres, la consulta, el resumen de renovación y la búsqueda de servicios similares. Cada ola arranca solo cuando la anterior cumple sus criterios de salida.
 - **Texto principal:** Ahora (MVP, Olas 0 y 1) · Después (Ola 2) · Luego (Ola 3) · compuertas de salida.
 - **Movimiento:** tres columnas Now–Next–Later que entran en orden; las compuertas (✓) aparecen entre columnas al mencionar los criterios de salida.
 
-## Escena 11 · Metas e indicadores (3:28–3:59)
+## Escena 11 · Metas e indicadores (3:29–4:06)
 
-- **Locución:** Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una tarjeta con acuse. El cien por ciento de los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión antes del preaviso. Y los pasos automáticos del proceso pasan del doce al sesenta y dos por ciento. Lo que aún no prometemos: ahorros de tiempo con inteligencia artificial. Primero se mide la línea base, en el piloto.
-- **Texto principal:** cinco indicadores "hoy → meta" y una tarjeta "Aún no se promete".
+- **Locución:** Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola tarjeta que exige respuesta. El cien por ciento de los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión antes del preaviso. Y los pasos automáticos del proceso pasan del doce al sesenta y dos por ciento. El impacto de la inteligencia artificial llega después del producto mínimo viable, en las olas dos y tres: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto de veinte contratos.
+- **Texto principal:** cinco indicadores "hoy → meta" y una tarjeta morada "El impacto de la IA · después del MVP, Olas 2 y 3".
 - **Movimiento:** cada tarjeta entra con su frase; las metas llevan la etiqueta META y el 12 % → 62 % la etiqueta DISEÑO.
 
-## Escena 12 · Decisiones (3:59–4:28)
+## Escena 12 · Decisiones (4:06–4:35)
 
 - **Locución:** Hoy pedimos tres decisiones. Uno: aprobar el diseño del proceso, versión tres punto dos. Dos: aprobar el alcance del producto mínimo viable, sin agentes de inteligencia artificial. Tres: aprobar el modelo de tres dueños y nombrar a sus responsables. Y para fijar el calendario, elegir con cuántas personas se construye. Con su visto bueno, la ola cero arranca el dieciocho de noviembre.
 - **Texto principal:** 1 El diseño · 2 El MVP · 3 El gobierno · elección del equipo (estimación preliminar) · "Con el Vo.Bo., la Ola 0 arranca el 18 de noviembre".

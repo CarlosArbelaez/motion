@@ -34,7 +34,7 @@
     {
       "id": "s06",
       "title": "El nuevo ciclo",
-      "vo": "Así recorre un contrato el nuevo ciclo. Primero se formaliza: la solicitud se captura una sola vez, la regla escrita de la política decide si requiere contrato, y su espacio en Ariba se abre desde el día uno. Luego se registra: los datos clave nacen al firmar, los valida una persona, y se concilian cada día con Ariba. Y después se vigila: con una alerta que exige acuse y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio."
+      "vo": "Así recorre un contrato el nuevo ciclo. Primero se formaliza: la solicitud se captura una sola vez, la regla escrita de la política decide si requiere contrato, y su espacio en Ariba se abre desde el día uno. Luego se registra: los datos clave nacen al firmar, los valida una persona, y se concilian cada día con Ariba. Y después se vigila: con una alerta que exige respuesta y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio."
     },
     {
       "id": "s07",
@@ -59,7 +59,7 @@
     {
       "id": "s11",
       "title": "Metas e indicadores",
-      "vo": "Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una tarjeta con acuse. El cien por ciento de los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión antes del preaviso. Y los pasos automáticos del proceso pasan del doce al sesenta y dos por ciento. Lo que aún no prometemos: ahorros de tiempo con inteligencia artificial. Primero se mide la línea base, en el piloto."
+      "vo": "Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola tarjeta que exige respuesta. El cien por ciento de los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión antes del preaviso. Y los pasos automáticos del proceso pasan del doce al sesenta y dos por ciento. El impacto de la inteligencia artificial llega después del producto mínimo viable, en las olas dos y tres: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto de veinte contratos."
     },
     {
       "id": "s12",

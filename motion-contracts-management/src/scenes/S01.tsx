@@ -14,7 +14,7 @@ const NODES: { x: number; y: number; name: string; sub: string; side: "top" | "b
   { x: 1792, y: 420, name: "Aprobación", sub: "y firma", side: "left" },
   { x: 1792, y: 580, name: "Ficha", sub: "y Ariba", side: "left" },
   { x: 1550, y: 690, name: "Control", sub: "diario", side: "bottom" },
-  { x: 1350, y: 690, name: "Alertas", sub: "con acuse", side: "bottom" },
+  { x: 1350, y: 690, name: "Alertas", sub: "con respuesta", side: "bottom" },
   { x: 1090, y: 500, name: "Decisión", sub: "y renovación", side: "right" },
 ];
 // Anillo (estadio) que arranca y termina en "Decisión".

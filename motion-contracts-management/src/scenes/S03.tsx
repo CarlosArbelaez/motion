@@ -22,7 +22,7 @@ export const S03: React.FC = () => {
     <Shell
       id={ID}
       chapter={1}
-      title="Cada vencimiento genera hasta ~26 correos, sin acuse ni cierre"
+      title="Cada vencimiento genera hasta ~26 correos que no se pueden responder ni cerrar"
       foot="Fuente: levantamiento As-Is · el correo sale martes y jueves desde 90 días antes, del buzón de una persona"
     >
       <Rise at={start - 0.2} y={16} style={{ position: "absolute", left: MX, top: 300, display: "flex", alignItems: "baseline", gap: 18 }}>
@@ -33,7 +33,7 @@ export const S03: React.FC = () => {
       </Rise>
       <Rise at={cue(ID, "que no se pueden")} y={12} style={{ position: "absolute", left: 800, top: 306, display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap", width: 640 }}>
         <Pill bg={C.white} color={C.red} border={C.red} size={28}>
-          Sin acuse
+          Sin respuesta
         </Pill>
         <Pill bg={C.white} color={C.red} border={C.red} size={28}>
           Sin cierre

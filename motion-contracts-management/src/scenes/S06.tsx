@@ -14,7 +14,7 @@ const PHASES = [
   { n: "3", h: "Aprobación y firma", d: "Aprueba quien indica la política.", state: "Firmado" },
   { n: "4", h: "Ficha y Ariba", d: "Datos clave validados por una persona.", state: "Vigente" },
   { n: "5", h: "Control diario", d: "Conciliación con Ariba y el Budget.", state: "Vigente" },
-  { n: "6", h: "Alertas", d: "Tarjeta con acuse y escalamiento.", state: "Vigente · en alerta" },
+  { n: "6", h: "Alertas", d: "Tarjeta que exige respuesta, con escalamiento.", state: "Vigente · en alerta" },
   { n: "7", h: "Decisión", d: "El owner decide, su líder aprueba y Procurement confirma.", state: "En renovación" },
 ];
 const BLOCKS = [
@@ -34,7 +34,7 @@ const CALLOUTS = [
   { b: 0, t: "Ariba desde el día uno", at: cue(ID, "su espacio") },
   { b: 1, t: "El dato nace al firmar", at: cue(ID, "nacen") },
   { b: 1, t: "Lo valida una persona", at: cue(ID, "los valida") },
-  { b: 2, t: "Alerta con acuse", at: cue(ID, "una alerta") },
+  { b: 2, t: "Alerta que exige respuesta", at: cue(ID, "una alerta") },
   { b: 2, t: "Decisión registrada", at: cue(ID, "una decisión registrada") },
 ];
 const TOP = 396;

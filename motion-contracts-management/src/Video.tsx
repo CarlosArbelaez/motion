@@ -60,7 +60,7 @@ const SFX: Sfx[] = [
   ...at("s09", ["no decide", "no aprueba", "no interpreta", "ni confirma"], "thud", 0.14, -0.1),
   ...at("s10", ["producto mínimo", "Después", "Y la ola tres"], "pop", 0.16, -0.2),
   ...at("s10", ["Cada ola"], "chime", 0.16),
-  ...at("s11", ["De tres", "De veintiséis", "El cien", "Al menos", "Y los pasos", "Lo que aún"], "pop", 0.15, -0.15),
+  ...at("s11", ["De tres", "De veintiséis", "El cien", "Al menos", "Y los pasos", "El impacto"], "pop", 0.15, -0.15),
   ...at("s12", ["Uno: aprobar", "Dos: aprobar", "Tres: aprobar"], "pop", 0.2, -0.15),
   ...at("s12", ["Con su visto bueno"], "chime", 0.24, 1.1),
 ];

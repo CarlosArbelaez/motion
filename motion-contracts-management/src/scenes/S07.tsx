@@ -80,7 +80,7 @@ export const S07: React.FC = () => {
               </div>
             </div>
             <div style={{ fontSize: 23, color: C.text, marginTop: 18, lineHeight: 1.25 }}>
-              Cualquier botón cuenta como acuse y detiene los recordatorios.
+              Cualquier botón cuenta como respuesta y detiene los recordatorios.
             </div>
           </div>
         </Card>
@@ -97,7 +97,7 @@ export const S07: React.FC = () => {
         ))}
       </svg>
       <Rise at={weekAt} y={8} style={{ position: "absolute", left: mx(83) - 6, top: LY - 70, fontSize: 25, color: C.blue, fontWeight: 700 }}>
-        Recordatorio semanal, solo hasta el acuse
+        Recordatorio semanal, solo hasta que respondan
       </Rise>
       {MILES.map((m, i) => (
         <Rise

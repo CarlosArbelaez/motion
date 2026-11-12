@@ -59,7 +59,7 @@ export const S10: React.FC = () => {
           gobierno, catálogo de reglas y política de preaviso.
         </Item>
         <Item at={cue(ID, "las olas") + 0.5} h="Ola 1 · Registro único:">
-          alta con la regla, conciliación con Ariba y el Budget, alertas con acuse y dashboard.
+          alta con la regla, conciliación con Ariba y el Budget, alertas con respuesta y dashboard.
         </Item>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 6 }}>
           <Rise at={cue(ID, "sin agentes")} y={10} scaleFrom={0.9}>

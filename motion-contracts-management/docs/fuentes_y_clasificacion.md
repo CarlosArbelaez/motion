@@ -34,7 +34,7 @@ Estado de la iniciativa en todas las fuentes: **propuesta de consultoría para V
 | 10 | Una ola arranca cuando la anterior cumple su salida | **Condición** | PRE §6.2 |
 | 11 | 3 → 1 capturas · ~26 → 1 aviso · 100 % vigentes con PDF en Ariba · ≥ 95 % alertas con decisión | **Metas** (rotuladas META) | PRE §3.12 |
 | 11 | 12 % → 62 % de pasos no humanos (4 de 34; 56 de 90) | **Característica del diseño**, no resultado medido (rotulada DISEÑO; "mide pasos, no horas") | PRE §4.1 |
-| 11 | Ahorro de tiempo con IA | **No se promete**: se fija tras medir la línea base en el piloto (TL7) | PRE §3.4, §3.12 · SES lám. 5 |
+| 11 | El impacto de la IA (reducir el tiempo de lectura, captura y validación) llega después del MVP, en las Olas 2 y 3; su meta se fija con un piloto de 20 contratos | **Beneficio cualitativo documentado**, sin cifra; la meta queda sujeta al piloto (TL7) | PRE §3.4, §3.12 · SES lám. 5 |
 | 12 | Tres decisiones: diseño, alcance del MVP, gobierno | Decisión solicitada | PRE §7 · EJE lám. 2 y 16 |
 | 12 | Elegir el equipo; MVP hacia fines de enero de 2027 (4 personas) o mediados de marzo (2) | **Estimación** preliminar, por validar con el Tech Lead (así se rotula) | SES lám. 6 y 7 |
 | 12 | La Ola 0 arranca el 18 de noviembre | **Condición**: sujeta al Vo.Bo. | PRE §7 |
@@ -66,3 +66,8 @@ No se afirma "9 a 11 semanas". Si la sesión va a usar solo una de las dos versi
 - **Tipografía — PROVISIONAL:** las presentaciones declaran **Avantt** (títulos) y **Satoshi** (texto), pero no vienen
   incrustadas y no se pudieron obtener en este entorno. Se usan sustitutos de licencia abierta: **Outfit**, **DM Sans** y
   **DM Mono**. Para usar las oficiales: copiar sus `.woff2` a `public/assets/fonts/` y cambiar las rutas en `src/theme.ts`.
+
+## Terminología
+
+- En el video se usa **"respuesta"** en lugar de "acuse" (término de las fuentes): significa que el dueño del servicio
+  oprime cualquier botón de la tarjeta, lo que detiene los recordatorios. Cambio pedido para facilitar la comprensión.
