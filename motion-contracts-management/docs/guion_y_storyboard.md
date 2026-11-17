@@ -1,10 +1,9 @@
 # Contracts Management Finance Tech — Guion y storyboard (To-Be v4.0)
 
-**Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · ~3:54 · español (voz de Colombia) con subtítulos.
+**Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · 4:05 · español (voz de Colombia) con subtítulos.
 **Audiencia:** stakeholders ejecutivos de la sesión de Vo.Bo. del 19-nov-2026.
 **Estado de la iniciativa que comunica:** propuesta To-Be v4.0 para aprobación (no es un piloto ni una solución operativa).
-**Estado de la pieza:** PREVISUALIZACIÓN. Falta la locución de la v4.0; los tiempos y subtítulos son estimados
-(ver "Pendientes" al final).
+**Estado de la pieza:** versión final, con locución, subtítulos sincronizados, música y efectos.
 
 ## Mensaje central
 
@@ -111,13 +110,7 @@ Los tiempos por escena están en `tiempos.md` y los subtítulos en `subtitulos.s
 
 ## Audio
 
-- **Voz:** ElevenLabs, voz "Herduin" (español de Colombia). **Pendiente de generar para la v4.0.**
+- **Voz:** ElevenLabs, voz "Herduin" (español de Colombia), modelo `eleven_v4`. Una toma por escena, normalizada a −16 LUFS.
 - **Música y efectos:** originales, sintetizados con `scripts/synth_audio.py` (sin samples ni pistas externas).
-- **Subtítulos:** con la voz real se sincronizan por palabra; hoy usan tiempos estimados.
-
-## Pendientes
-
-1. **Locución v4.0.** La generación falló porque la cuenta de ElevenLabs reporta un pago pendiente. Al regularizarla:
-   generar un archivo por escena desde `src/data/script.json`, guardarlo en `public/assets/voice/sNN.mp3`, ejecutar
-   `python3 scripts/build_timing.py <transcripción>` y renderizar como `contracts-management_Final.mp4`.
-2. Con la voz real la duración puede variar unos segundos respecto a la estimada.
+- **Mezcla:** la música baja bajo la voz y sube en el cierre; los efectos están atados a las palabras de la locución.
+- **Subtítulos:** tiempos por palabra tomados de la transcripción de la voz real; máximo dos líneas, en franja propia.

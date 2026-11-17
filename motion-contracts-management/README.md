@@ -1,9 +1,8 @@
 # Motion · Contracts Management Finance Tech
 
-Motion graphic ejecutivo (1920 × 1080, 30 fps, ~3:54) de la propuesta To-Be v4.0, hecho con [Remotion](https://www.remotion.dev).
+Motion graphic ejecutivo (1920 × 1080, 30 fps, 4:05) de la propuesta To-Be v4.0, hecho con [Remotion](https://www.remotion.dev).
 
-- **Video:** `Renders/contracts-management_Previsualizacion.mp4` (H.264 + AAC). Es una previsualización: falta la
-  locución de la v4.0 (ver `docs/guion_y_storyboard.md`, "Pendientes"); los tiempos son estimados.
+- **Video final:** `Renders/contracts-management_Final.mp4` (H.264 + AAC)
 - **Guion y storyboard:** `docs/guion_y_storyboard.md`
 - **Fuentes y clasificación de afirmaciones:** `docs/fuentes_y_clasificacion.md`
 - **Subtítulos:** `docs/subtitulos.srt` · **Tiempos por escena:** `docs/tiempos.md`
