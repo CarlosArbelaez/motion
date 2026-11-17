@@ -15,6 +15,8 @@ import { S09 } from "./scenes/S09";
 import { S10 } from "./scenes/S10";
 import { S11 } from "./scenes/S11";
 import { S12 } from "./scenes/S12";
+import { S13 } from "./scenes/S13";
+import { S14 } from "./scenes/S14";
 
 export const SCENE_COMPONENTS: Record<string, React.FC> = {
   s01: S01,
@@ -29,6 +31,8 @@ export const SCENE_COMPONENTS: Record<string, React.FC> = {
   s10: S10,
   s11: S11,
   s12: S12,
+  s13: S13,
+  s14: S14,
 };
 
 // Efectos (síntesis propia): [escena, segundo dentro de la escena, archivo, volumen]. Atados a la locución con cue().
@@ -59,11 +63,14 @@ const SFX: Sfx[] = [
   ...at("s08", ["El dueño del servicio", "Procurement", "Value Creation"], "pop", 0.18, -0.1),
   ...at("s09", ["Lee el contrato", "propone", "Una persona"], "pop", 0.14, -0.1),
   ...at("s09", ["no decide", "no aprueba", "ni confirma"], "thud", 0.14, -0.1),
-  ...at("s10", ["Los cimientos", "El registro único", "Las alertas", "Y la decisión", "Después", "la ficha del contrato", "y la consulta"], "pop", 0.15, -0.1),
-  ...at("s10", ["Cada versión"], "chime", 0.16),
-  ...at("s11", ["De tres", "De veintiséis", "El cien", "Al menos", "Y todas", "El impacto"], "pop", 0.15, -0.15),
-  ...at("s12", ["El visto bueno", "Elegir el equipo", "Cerrar las reglas", "Aprobar los tres", "Nombrar un responsable", "Y validar"], "pop", 0.18, -0.15),
-  ...at("s12", ["Con su visto bueno"], "chime", 0.24, 1.1),
+  ...at("s10", ["Los cimientos", "El registro único", "Las alertas", "Y la decisión", "La quinta", "la ficha del contrato", "y la consulta"], "pop", 0.15, -0.1),
+  ...at("s11", ["Los dos Excel", "El dashboard y las alertas", "Todos los contratos", "La primera alerta", "Y los tres dueños"], "tick", 0.3),
+  ...at("s11", ["Y los tres dueños"], "chime", 0.16, 0.8),
+  ...at("s12", ["Con dos personas", "Con cuatro personas"], "pop", 0.18, -0.1),
+  ...at("s12", ["diez de mayo", "veinte de septiembre", "primero de marzo", "diecisiete de mayo"], "ding", 0.1),
+  ...at("s13", ["De tres", "De veintiséis", "Todos los contratos", "Al menos", "Y todas", "El impacto"], "pop", 0.15, -0.15),
+  ...at("s14", ["El visto bueno", "Elegir el escenario", "Cerrar las reglas", "Aprobar los tres", "Nombrar un responsable", "Y validar"], "pop", 0.18, -0.15),
+  ...at("s14", ["Con su visto bueno"], "chime", 0.24, 1.1),
 ];
 
 const Music: React.FC = () => {

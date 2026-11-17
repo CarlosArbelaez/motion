@@ -28,14 +28,16 @@ del 19-nov-2026, con inicio previsto el 23-nov-2026.
 | 7 | Preaviso de 90 días por defecto | **Condición**: política de Value Creation por definir (P18) | PRE §3.4, §6.5 |
 | 8 | Modelo de tres dueños | **Propuesta por aprobar** en el Vo.Bo. | PRE §2.3 |
 | 9 | La IA propone con cita; una persona valida todas las fichas; límites de la IA | Diseño de la propuesta | PRE §2.5, §3.4 |
-| 10 | MVP = v0.1.0 a v1.0.0, sin IA; v1.1.0 alta con la regla; v1.2.0 y v1.3.0 con IA | Alcance propuesto | PRE §5, §6.2 |
-| 10 | Piloto de 20 contratos; una versión arranca cuando la anterior cumple su salida | **Condición** | PRE §3.4, §6.2 |
-| 11 | 3 → 1 · ~26 → 1 · 100 % con PDF en Ariba · ≥ 95 % de alertas con decisión · 100 % de aprobaciones y decisiones en un histórico | **Metas** | PRE §3.13 |
-| 11 | 12 % → 63 % de pasos no humanos (4 de 34; 57 de 91) | **Característica del diseño**, no resultado medido (va al pie) | PRE §4.1 |
-| 11 | Impacto de la IA: reducir tiempo de lectura, captura y validación; meta tras el piloto | **Beneficio cualitativo**, sin cifra (TL7) | PRE §3.4, §3.13 |
-| 12 | Seis peticiones de la sesión | Decisión solicitada | PRE §7 · SES lám. 7 |
-| 12 | MVP ~1-mar-2027 con 4 personas o ~10-may-2027 con 2 | **Estimación** preliminar, por validar con el Tech Lead | PRE §6.2 · SES lám. 6 |
-| 12 | La primera entrega (v0.1.0) arranca el 23 de noviembre | **Condición**: sujeta al Vo.Bo. | PRE §7 |
+| 10 | Siete entregas: MVP = v0.1.0 a v1.0.0, sin IA; v1.1.0 alta con la regla; v1.2.0 y v1.3.0 con IA; piloto de 20 contratos | Alcance propuesto | PRE §5, §6.2 |
+| 11 | Cada entrega resuelve un dolor completo; una arranca cuando la anterior cumple su salida | **Condición** | PRE §5.1, §6.2 |
+| 11 | Cinco criterios de salida del MVP | **Condición** verificable | PRE §5.3 |
+| 12 | Inicio el 23-nov-2026 | **Condición**: sujeta al Vo.Bo. | PRE §6.1 |
+| 12 | 2 personas: MVP ~24 semanas (~10-may-2027), To-Be completo ~43 semanas (~20-sep-2027) · 4 personas: MVP ~14 semanas (~1-mar-2027), To-Be completo ~25 semanas (~17-may-2027) | **Estimación** preliminar, por validar con el Tech Lead | PRE §6.2 · SES lám. 6 |
+| 13 | 3 → 1 · ~26 → 1 · 100 % con PDF en Ariba · ≥ 95 % de alertas con decisión · 100 % de aprobaciones y decisiones en un histórico | **Metas** | PRE §3.13 |
+| 13 | 12 % → 63 % de pasos no humanos (4 de 34; 57 de 91) | **Característica del diseño**, no resultado medido (va al pie) | PRE §4.1 |
+| 13 | Impacto de la IA: reducir tiempo de lectura, captura y validación; meta tras el piloto | **Beneficio cualitativo**, sin cifra (TL7) | PRE §3.4, §3.13 |
+| 14 | Seis peticiones de la sesión | Decisión solicitada | PRE §7 · SES lám. 7 |
+| 14 | La primera entrega (v0.1.0) arranca el 23 de noviembre | **Condición**: sujeta al Vo.Bo. | PRE §7 |
 
 No hay **resultados medidos** en las fuentes y el video no presenta ninguno.
 
@@ -43,10 +45,10 @@ No hay **resultados medidos** en las fuentes y el video no presenta ninguno.
 
 - **Arquitectura técnica** (Postgres, LangGraph, BrewDat, hospedaje): tema del Tech Lead.
 - **Nombre provisional** "BrewTech New Platform": se dice "la plataforma que diseñaremos".
-- **Costos**: se calculan al aprobar el To-Be y elegir el escenario; van en la presentación.
+- **Costos, semanas-persona y esfuerzo adicional por coordinación**: van en la presentación.
+- **Duración de cada entrega por escenario**: el video muestra solo los hitos (MVP y To-Be completo).
 - **Antecedente de ~USD 600.000**: caso pasado, no meta ni ahorro comprometido.
 - **Nombres propios** del equipo: el video habla de roles.
-- Fechas de "To-Be completo" (~17-may y ~20-sep-2027) y semanas-persona: detalle de la presentación.
 
 ## Terminología
 

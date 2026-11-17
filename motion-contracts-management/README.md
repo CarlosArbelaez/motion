@@ -1,6 +1,6 @@
 # Motion · Contracts Management Finance Tech
 
-Motion graphic ejecutivo (1920 × 1080, 30 fps, 4:05) de la propuesta To-Be v4.0, hecho con [Remotion](https://www.remotion.dev).
+Motion graphic ejecutivo (1920 × 1080, 30 fps, 4:50) de la propuesta To-Be v4.0, hecho con [Remotion](https://www.remotion.dev).
 
 - **Video final:** `Renders/contracts-management_Final.mp4` (H.264 + AAC)
 - **Guion y storyboard:** `docs/guion_y_storyboard.md`
@@ -34,7 +34,7 @@ REMOTION_BROWSER=/ruta/a/chrome-headless-shell npx remotion render ContractsMana
 
 | Qué | Dónde |
 |---|---|
-| Textos y cifras en pantalla | `src/scenes/S01.tsx` … `S12.tsx` (constantes al inicio de cada archivo) |
+| Textos y cifras en pantalla | `src/scenes/S01.tsx` … `S14.tsx` (constantes al inicio de cada archivo) |
 | Guion de locución | `src/data/script.json` |
 | Tiempos de la voz (por palabra) | `src/data/timing.json` (generado) |
 | Colores y tipografías | `src/theme.ts` · fuentes en `public/assets/fonts/` |

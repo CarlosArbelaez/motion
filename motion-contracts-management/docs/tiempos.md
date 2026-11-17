@@ -1,6 +1,6 @@
 # Tiempos por escena
 
-Duración total: 4:05 (7361 frames a 30 fps)
+Duración total: 4:50 (8719 frames a 30 fps)
 
 | Escena | Título | Inicio | Fin | Duración |
 |---|---|---|---|---|
@@ -13,6 +13,8 @@ Duración total: 4:05 (7361 frames a 30 fps)
 | 07 | La alerta que exige respuesta | 1:46 | 2:06 | 20.0 s |
 | 08 | Tres dueños | 2:06 | 2:20 | 13.7 s |
 | 09 | IA con control | 2:20 | 2:36 | 16.6 s |
-| 10 | Alcance inicial y evolución | 2:36 | 3:04 | 28.1 s |
-| 11 | Metas e indicadores | 3:04 | 3:36 | 32.2 s |
-| 12 | Lo que necesitamos | 3:36 | 4:05 | 28.5 s |
+| 10 | Qué haremos | 2:36 | 3:04 | 27.8 s |
+| 11 | Cómo lo haremos | 3:04 | 3:28 | 23.7 s |
+| 12 | Cuándo y con quién | 3:28 | 3:54 | 26.6 s |
+| 13 | Metas e indicadores | 3:54 | 4:25 | 30.5 s |
+| 14 | Lo que necesitamos | 4:25 | 4:50 | 25.4 s |

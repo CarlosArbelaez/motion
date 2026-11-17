@@ -1,6 +1,6 @@
 # Contracts Management Finance Tech — Guion y storyboard (To-Be v4.0)
 
-**Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · 4:05 · español (voz de Colombia) con subtítulos.
+**Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · 4:50 · español (voz de Colombia) con subtítulos.
 **Audiencia:** stakeholders ejecutivos de la sesión de Vo.Bo. del 19-nov-2026.
 **Estado de la iniciativa que comunica:** propuesta To-Be v4.0 para aprobación (no es un piloto ni una solución operativa).
 **Estado de la pieza:** versión final, con locución, subtítulos sincronizados, música y efectos.
@@ -17,8 +17,11 @@ que propone mientras las personas validan y deciden.
 - Se dice **"respuesta"**, no "acuse".
 - La plataforma se llama **"la plataforma que diseñaremos"**; no se usa el nombre provisional.
 - **Sin arquitectura técnica**: es tema del Tech Lead. El video muestra qué encuentra cada persona.
-- El cierre muestra la **estimación preliminar** de los dos escenarios; los costos quedan para la presentación.
-- Duración objetivo: **unos 4 minutos**.
+- El plan se explica en tres escenas: **qué, cómo, y cuándo y con quién**. En la voz se dice "entregas"; el número de
+  versión va en pantalla.
+- Los dos escenarios (2 y 4 personas) se muestran con **solo los hitos** y como **estimación preliminar**; esfuerzo y
+  costos quedan para la presentación.
+- Duración objetivo: **hasta 5 minutos**.
 - Identidad: **sistema de diseño de AB InBev** (Avantt, Satoshi y sus roles de color).
 
 ## Estructura
@@ -28,8 +31,8 @@ que propone mientras las personas validan y deciden.
 | 1 · Hoy | 2, 3 |
 | 2 · La propuesta | 4, 5, 6, 7, 8 |
 | 3 · IA con control | 9 |
-| 4 · MVP y plan | 10, 11 |
-| 5 · Decisiones | 12 |
+| 4 · MVP y plan | 10, 11, 12, 13 |
+| 5 · Decisiones | 14 |
 
 Los tiempos por escena están en `tiempos.md` y los subtítulos en `subtitulos.srt` (ambos se regeneran con
 `npx tsx scripts/export_docs.ts`).
@@ -89,20 +92,33 @@ Los tiempos por escena están en `tiempos.md` y los subtítulos en `subtitulos.s
 - **Locución:** La inteligencia artificial llega después, y con límites claros. Lee el contrato y propone sus datos clave, cada uno con su cita. Una persona valida todas las fichas. La inteligencia artificial no decide, no aprueba, ni confirma ahorros.
 - **En pantalla:** Contrato → la IA propone la ficha (con «cita») → una persona valida → registro · cuatro límites.
 
-## Escena 10 · Alcance inicial y evolución
+## Escena 10 · Qué haremos
 
-- **Locución:** El alcance inicial es el producto mínimo viable: cuatro entregas, sin inteligencia artificial. Los cimientos. El registro único y el dashboard. Las alertas. Y la decisión, con el histórico de aprobaciones. Después, el alta de solicitudes con la regla escrita. Y luego, la inteligencia artificial: la ficha del contrato, con un piloto de veinte contratos, y la consulta. Cada versión arranca cuando la anterior cumple sus criterios de salida.
-- **En pantalla:** siete versiones en fila: v0.1.0 a v1.0.0 (MVP, sin IA) · v1.1.0 (sin IA) · v1.2.0 y v1.3.0 (con IA).
-- **Movimiento:** cada versión entra al nombrarse, bajo la franja de su grupo.
+- **Locución:** Esto es lo que haremos: siete entregas, sobre la misma plataforma. Las primeras cuatro forman el producto mínimo viable, sin inteligencia artificial. Los cimientos. El registro único y el dashboard. Las alertas. Y la decisión, con el histórico de aprobaciones. La quinta entrega trae el alta de solicitudes con la regla escrita. Y las dos últimas, la inteligencia artificial: la ficha del contrato, con un piloto de veinte contratos, y la consulta.
+- **En pantalla:** siete entregas en fila, cada una con su número de versión: 1 a 4 (v0.1.0 a v1.0.0, MVP sin IA) · 5 (v1.1.0, sin IA) · 6 y 7 (v1.2.0 y v1.3.0, con IA).
+- **Movimiento:** cada entrega entra al nombrarse, bajo la franja de su grupo.
 
-## Escena 11 · Metas e indicadores
+## Escena 11 · Cómo lo haremos (nueva)
 
-- **Locución:** Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. El cien por ciento de los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión a tiempo. Y todas las aprobaciones y decisiones, consultables en un solo histórico. El impacto de la inteligencia artificial llega después del producto mínimo viable: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto.
+- **Locución:** Así lo haremos. Cada entrega resuelve un dolor completo, y solo arranca cuando la anterior cumple sus criterios de salida. Para el producto mínimo viable son cinco. Los dos Excel retirados. El dashboard y las alertas leyendo el mismo registro. Todos los contratos vigentes con su PDF en Ariba. La primera alerta cerrada con una decisión. Y los tres dueños operando.
+- **En pantalla:** "Una entrega resuelve un dolor completo" → compuerta "Cumple sus criterios de salida" → "Arranca la siguiente entrega" · los cinco criterios de salida del MVP. Al pie: cómo se cubre lo que aún no llega.
+- **Movimiento:** la compuerta se abre con la voz; cada criterio entra y se marca como cumplido.
+
+## Escena 12 · Cuándo y con quién (nueva)
+
+- **Locución:** Cuándo, y con quién. Arrancamos el veintitrés de noviembre, y hay dos escenarios. Con dos personas dedicadas, el producto mínimo viable estaría listo hacia el diez de mayo de dos mil veintisiete, y la propuesta completa, hacia el veinte de septiembre. Con cuatro personas dedicadas, el producto mínimo viable llegaría hacia el primero de marzo, y la propuesta completa, hacia el diecisiete de mayo. Es una estimación preliminar, por validar con el líder técnico.
+- **En pantalla:** dos líneas de tiempo paralelas desde el 23-nov-2026 sobre un eje de meses: 2 personas (MVP ~24 semanas, ~10-may-2027; To-Be completo ~43 semanas, ~20-sep-2027) y 4 personas (MVP ~14 semanas, ~1-mar-2027; To-Be completo ~25 semanas, ~17-may-2027). Sello "Estimación preliminar · por validar con el Tech Lead".
+- **Movimiento:** cada barra crece a escala real y los hitos se marcan al decir su fecha.
+- **Fuera, por decisión editorial:** semanas-persona, esfuerzo adicional por coordinación y costos (van en la presentación); duración de cada entrega (solo hitos).
+
+## Escena 13 · Metas e indicadores
+
+- **Locución:** Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. Todos los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión a tiempo. Y todas las aprobaciones y decisiones, en un solo histórico. El impacto de la inteligencia artificial llega después del producto mínimo viable: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto.
 - **En pantalla:** cinco metas "hoy → meta" y la tarjeta "El impacto de la IA · después del MVP". Al pie: 12 % → 63 % de pasos no humanos.
 
-## Escena 12 · Lo que necesitamos
+## Escena 14 · Lo que necesitamos
 
-- **Locución:** Para arrancar, necesitamos seis definiciones. El visto bueno de la propuesta. Elegir el equipo: con cuatro personas, el producto mínimo viable llegaría hacia marzo; con dos, hacia mayo. Cerrar las reglas de negocio pendientes. Aprobar los tres dueños. Nombrar un responsable para cada dependencia. Y validar el nombre de la plataforma. Con su visto bueno, la primera entrega arranca el veintitrés de noviembre.
+- **Locución:** Para arrancar, necesitamos seis definiciones. El visto bueno de la propuesta. Elegir el escenario: dos o cuatro personas. Cerrar las reglas de negocio pendientes. Aprobar los tres dueños. Nombrar un responsable para cada dependencia. Y validar el nombre de la plataforma. Con su visto bueno, la primera entrega arranca el veintitrés de noviembre.
 - **En pantalla:** seis tarjetas numeradas · "Con el Vo.Bo., la primera entrega arranca el 23 de noviembre".
 - **Movimiento:** vuelve el fondo amarillo de la apertura; el anillo se cierra con un visto bueno.
 

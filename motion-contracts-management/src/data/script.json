@@ -53,18 +53,28 @@
     },
     {
       "id": "s10",
-      "title": "Alcance inicial y evolución",
-      "vo": "El alcance inicial es el producto mínimo viable: cuatro entregas, sin inteligencia artificial. Los cimientos. El registro único y el dashboard. Las alertas. Y la decisión, con el histórico de aprobaciones. Después, el alta de solicitudes con la regla escrita. Y luego, la inteligencia artificial: la ficha del contrato, con un piloto de veinte contratos, y la consulta. Cada versión arranca cuando la anterior cumple sus criterios de salida."
+      "title": "Qué haremos",
+      "vo": "Esto es lo que haremos: siete entregas, sobre la misma plataforma. Las primeras cuatro forman el producto mínimo viable, sin inteligencia artificial. Los cimientos. El registro único y el dashboard. Las alertas. Y la decisión, con el histórico de aprobaciones. La quinta entrega trae el alta de solicitudes con la regla escrita. Y las dos últimas, la inteligencia artificial: la ficha del contrato, con un piloto de veinte contratos, y la consulta."
     },
     {
       "id": "s11",
-      "title": "Metas e indicadores",
-      "vo": "Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. El cien por ciento de los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión a tiempo. Y todas las aprobaciones y decisiones, consultables en un solo histórico. El impacto de la inteligencia artificial llega después del producto mínimo viable: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto."
+      "title": "Cómo lo haremos",
+      "vo": "Así lo haremos. Cada entrega resuelve un dolor completo, y solo arranca cuando la anterior cumple sus criterios de salida. Para el producto mínimo viable son cinco. Los dos Excel retirados. El dashboard y las alertas leyendo el mismo registro. Todos los contratos vigentes con su PDF en Ariba. La primera alerta cerrada con una decisión. Y los tres dueños operando."
     },
     {
       "id": "s12",
+      "title": "Cuándo y con quién",
+      "vo": "Cuándo, y con quién. Arrancamos el veintitrés de noviembre, y hay dos escenarios. Con dos personas dedicadas, el producto mínimo viable estaría listo hacia el diez de mayo de dos mil veintisiete, y la propuesta completa, hacia el veinte de septiembre. Con cuatro personas dedicadas, el producto mínimo viable llegaría hacia el primero de marzo, y la propuesta completa, hacia el diecisiete de mayo. Es una estimación preliminar, por validar con el líder técnico."
+    },
+    {
+      "id": "s13",
+      "title": "Metas e indicadores",
+      "vo": "Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. Todos los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión a tiempo. Y todas las aprobaciones y decisiones, en un solo histórico. El impacto de la inteligencia artificial llega después del producto mínimo viable: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto."
+    },
+    {
+      "id": "s14",
       "title": "Lo que necesitamos",
-      "vo": "Para arrancar, necesitamos seis definiciones. El visto bueno de la propuesta. Elegir el equipo: con cuatro personas, el producto mínimo viable llegaría hacia marzo; con dos, hacia mayo. Cerrar las reglas de negocio pendientes. Aprobar los tres dueños. Nombrar un responsable para cada dependencia. Y validar el nombre de la plataforma. Con su visto bueno, la primera entrega arranca el veintitrés de noviembre."
+      "vo": "Para arrancar, necesitamos seis definiciones. El visto bueno de la propuesta. Elegir el escenario: dos o cuatro personas. Cerrar las reglas de negocio pendientes. Aprobar los tres dueños. Nombrar un responsable para cada dependencia. Y validar el nombre de la plataforma. Con su visto bueno, la primera entrega arranca el veintitrés de noviembre."
     }
   ],
   "version": "To-Be v4.0"

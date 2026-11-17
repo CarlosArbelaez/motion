@@ -15,22 +15,22 @@ const VERSIONS = [
   { v: "v0.2.0", h: "Registro y dashboard", d: "Registro único y dashboard con descarga. Se retiran los 2 Excel.", at: cue(ID, "El registro único") },
   { v: "v0.3.0", h: "Alertas", d: "En la plataforma y por correo, con respuesta y escalamiento.", at: cue(ID, "Las alertas") },
   { v: "v1.0.0", h: "Decisión e histórico", d: "Decisión de renovación, histórico de aprobaciones y cruce con Ariba.", at: cue(ID, "Y la decisión") },
-  { v: "v1.1.0", h: "Alta con la regla", d: "Formulario único: la regla escrita decide si va contrato.", at: cue(ID, "Después") },
+  { v: "v1.1.0", h: "Alta con la regla", d: "Formulario único: la regla escrita decide si va contrato.", at: cue(ID, "La quinta") },
   { v: "v1.2.0", h: "Ficha con IA", d: "La IA lee el PDF y propone; una persona valida. Piloto de 20 contratos.", at: cue(ID, "la ficha del contrato") },
   { v: "v1.3.0", h: "Consulta con IA", d: "Consulta con cita, resumen de renovación y servicios similares.", at: cue(ID, "y la consulta") },
 ];
 const GROUPS = [
   { from: 0, to: 3, label: "MVP · sin IA", bg: C.yellow, fg: C.ink, at: cue(ID, "producto mínimo") - 0.3 },
-  { from: 4, to: 4, label: "Sin IA", bg: C.blueSoft, fg: C.ink, at: cue(ID, "Después") - 0.2 },
-  { from: 5, to: 6, label: "Con IA", bg: C.purple, fg: C.white, at: cue(ID, "Y luego") - 0.2 },
+  { from: 4, to: 4, label: "Sin IA", bg: C.blueSoft, fg: C.ink, at: cue(ID, "La quinta") - 0.2 },
+  { from: 5, to: 6, label: "Con IA", bg: C.purple, fg: C.white, at: cue(ID, "Y las dos últimas") - 0.2 },
 ];
 
 export const S10: React.FC = () => (
   <Shell
     id={ID}
     chapter={4}
-    title="Alcance inicial: un MVP en cuatro entregas, sin IA"
-    foot="Estado: propuesta para aprobación · mientras llega la IA, la ficha de cada contrato se captura a mano al firmar, una sola vez"
+    title="Qué haremos: siete entregas sobre la misma plataforma"
+    foot="Estado: propuesta para aprobación · cada entrega lleva su número de versión"
   >
     {GROUPS.map((g) => (
       <Rise key={g.label} at={g.at} y={14} style={{ position: "absolute", left: cx(g.from), top: TOP - 72 }}>
@@ -67,7 +67,9 @@ export const S10: React.FC = () => (
             padding: "18px 18px",
           }}
         >
-          <div style={{ fontSize: 22, fontWeight: 500, color: C.mute, fontVariantNumeric: "tabular-nums" }}>{x.v}</div>
+          <div style={{ fontSize: 22, fontWeight: 500, color: C.mute, fontVariantNumeric: "tabular-nums" }}>
+            Entrega {i + 1} · {x.v}
+          </div>
           <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 29, lineHeight: 1.08, marginTop: 6, height: 66, letterSpacing: -0.3 }}>{x.h}</div>
           <div style={{ fontSize: 23, lineHeight: 1.24, color: C.text, marginTop: 8 }}>{x.d}</div>
           {i === 3 ? (
@@ -78,9 +80,9 @@ export const S10: React.FC = () => (
         </div>
       </Rise>
     ))}
-    <Rise at={cue(ID, "Cada versión") - 0.1} y={16} style={{ position: "absolute", left: MX, top: TOP + CH + 40, width: 1700 }}>
+    <Rise at={cue(ID, "Las primeras cuatro") - 0.1} y={16} style={{ position: "absolute", left: MX, top: TOP + CH + 40, width: 1700 }}>
       <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 40, letterSpacing: -0.6, lineHeight: 1.1 }}>
-        Una versión arranca cuando la anterior cumple sus criterios de salida.
+        El alcance inicial es el MVP: cuatro entregas que cierran el seguimiento, sin IA.
       </div>
     </Rise>
   </Shell>

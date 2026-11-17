@@ -203,142 +203,206 @@ Una persona valida todas las fichas.
 La inteligencia artificial no decide, no aprueba, ni confirma ahorros.
 
 52
-00:02:36,953 --> 00:02:40,153
-El alcance inicial es el producto mínimo viable:
+00:02:36,953 --> 00:02:38,393
+Esto es lo que haremos:
 
 53
-00:02:40,153 --> 00:02:42,873
-cuatro entregas, sin inteligencia artificial.
+00:02:38,393 --> 00:02:41,113
+siete entregas, sobre la misma plataforma.
 
 54
-00:02:42,873 --> 00:02:43,993
-Los cimientos.
+00:02:41,113 --> 00:02:44,233
+Las primeras cuatro forman el producto mínimo viable,
 
 55
-00:02:43,993 --> 00:02:46,313
-El registro único y el dashboard.
+00:02:44,233 --> 00:02:45,833
+sin inteligencia artificial.
 
 56
-00:02:46,313 --> 00:02:47,273
-Las alertas.
+00:02:45,833 --> 00:02:47,033
+Los cimientos.
 
 57
-00:02:47,273 --> 00:02:50,153
-Y la decisión, con el histórico de aprobaciones.
+00:02:47,033 --> 00:02:49,273
+El registro único y el dashboard.
 
 58
-00:02:50,153 --> 00:02:53,513
-Después, el alta de solicitudes con la regla escrita.
+00:02:49,273 --> 00:02:50,313
+Las alertas.
 
 59
-00:02:53,513 --> 00:02:55,673
-Y luego, la inteligencia artificial:
+00:02:50,313 --> 00:02:53,273
+Y la decisión, con el histórico de aprobaciones.
 
 60
-00:02:55,673 --> 00:02:56,953
-la ficha del contrato,
+00:02:53,273 --> 00:02:57,073
+La quinta entrega trae el alta de solicitudes con la regla escrita.
 
 61
-00:02:56,953 --> 00:03:00,233
-con un piloto de veinte contratos, y la consulta.
+00:02:57,073 --> 00:02:59,713
+Y las dos últimas, la inteligencia artificial:
 
 62
-00:03:00,233 --> 00:03:02,313
-Cada versión arranca cuando la anterior
+00:02:59,713 --> 00:03:00,953
+la ficha del contrato,
 
 63
-00:03:02,313 --> 00:03:04,653
-cumple sus criterios de salida.
+00:03:00,953 --> 00:03:04,413
+con un piloto de veinte contratos, y la consulta.
 
 64
-00:03:05,053 --> 00:03:06,333
-Estas son las metas.
+00:03:04,787 --> 00:03:06,067
+Así lo haremos.
 
 65
-00:03:06,333 --> 00:03:09,373
-De tres capturas del mismo dato, a una.
+00:03:06,067 --> 00:03:08,667
+Cada entrega resuelve un dolor completo,
 
 66
-00:03:09,373 --> 00:03:12,333
-De veintiséis correos, a una sola alerta.
+00:03:08,667 --> 00:03:12,227
+y solo arranca cuando la anterior cumple sus criterios de salida.
 
 67
-00:03:12,333 --> 00:03:16,493
-El cien por ciento de los contratos vigentes con su PDF en Ariba.
+00:03:12,227 --> 00:03:14,787
+Para el producto mínimo viable son cinco.
 
 68
-00:03:16,493 --> 00:03:18,493
-Al menos el noventa y cinco por ciento
+00:03:14,787 --> 00:03:16,627
+Los dos Excel retirados.
 
 69
-00:03:18,493 --> 00:03:20,693
-de las alertas con decisión a tiempo.
+00:03:16,627 --> 00:03:19,747
+El dashboard y las alertas leyendo el mismo registro.
 
 70
-00:03:20,693 --> 00:03:23,093
-Y todas las aprobaciones y decisiones,
+00:03:19,747 --> 00:03:23,027
+Todos los contratos vigentes con su PDF en Ariba.
 
 71
-00:03:23,093 --> 00:03:25,373
-consultables en un solo histórico.
+00:03:23,027 --> 00:03:25,747
+La primera alerta cerrada con una decisión.
 
 72
-00:03:25,373 --> 00:03:27,293
-El impacto de la inteligencia artificial
+00:03:25,747 --> 00:03:28,087
+Y los tres dueños operando.
 
 73
-00:03:27,293 --> 00:03:29,853
-llega después del producto mínimo viable:
+00:03:28,453 --> 00:03:30,133
+Cuándo, y con quién.
 
 74
-00:03:29,853 --> 00:03:34,333
-reducir el tiempo de lectura, captura y validación de cada contrato.
+00:03:30,133 --> 00:03:33,573
+Arrancamos el veintitrés de noviembre, y hay dos escenarios.
 
 75
-00:03:34,333 --> 00:03:36,833
-Su meta se fija con un piloto.
+00:03:33,573 --> 00:03:36,613
+Con dos personas dedicadas, el producto mínimo viable
 
 76
-00:03:37,220 --> 00:03:40,340
-Para arrancar, necesitamos seis definiciones.
+00:03:36,613 --> 00:03:39,773
+estaría listo hacia el diez de mayo de dos mil veintisiete,
 
 77
-00:03:40,340 --> 00:03:42,180
-El visto bueno de la propuesta.
+00:03:39,773 --> 00:03:42,693
+y la propuesta completa, hacia el veinte de septiembre.
 
 78
-00:03:42,180 --> 00:03:43,380
-Elegir el equipo:
+00:03:42,693 --> 00:03:45,533
+Con cuatro personas dedicadas, el producto mínimo
 
 79
-00:03:43,380 --> 00:03:45,833
-con cuatro personas, el producto mínimo viable
+00:03:45,533 --> 00:03:47,853
+viable llegaría hacia el primero de marzo,
 
 80
-00:03:45,833 --> 00:03:48,740
-llegaría hacia marzo; con dos, hacia mayo.
+00:03:47,853 --> 00:03:50,733
+y la propuesta completa, hacia el diecisiete de mayo.
 
 81
-00:03:48,740 --> 00:03:50,980
-Cerrar las reglas de negocio pendientes.
+00:03:50,733 --> 00:03:54,713
+Es una estimación preliminar, por validar con el líder técnico.
 
 82
-00:03:50,980 --> 00:03:52,660
-Aprobar los tres dueños.
+00:03:55,087 --> 00:03:56,487
+Estas son las metas.
 
 83
-00:03:52,660 --> 00:03:55,380
-Nombrar un responsable para cada dependencia.
+00:03:56,487 --> 00:03:59,367
+De tres capturas del mismo dato, a una.
 
 84
-00:03:55,380 --> 00:03:57,780
-Y validar el nombre de la plataforma.
+00:03:59,367 --> 00:04:02,447
+De veintiséis correos, a una sola alerta.
 
 85
-00:03:57,780 --> 00:03:59,620
-Con su visto bueno, la primera entrega
+00:04:02,447 --> 00:04:05,727
+Todos los contratos vigentes con su PDF en Ariba.
 
 86
-00:03:59,620 --> 00:04:02,280
+00:04:05,727 --> 00:04:07,607
+Al menos el noventa y cinco por ciento
+
+87
+00:04:07,607 --> 00:04:09,967
+de las alertas con decisión a tiempo.
+
+88
+00:04:09,967 --> 00:04:14,047
+Y todas las aprobaciones y decisiones, en un solo histórico.
+
+89
+00:04:14,047 --> 00:04:15,887
+El impacto de la inteligencia artificial
+
+90
+00:04:15,887 --> 00:04:18,367
+llega después del producto mínimo viable:
+
+91
+00:04:18,367 --> 00:04:22,727
+reducir el tiempo de lectura, captura y validación de cada contrato.
+
+92
+00:04:22,727 --> 00:04:25,187
+Su meta se fija con un piloto.
+
+93
+00:04:25,553 --> 00:04:28,753
+Para arrancar, necesitamos seis definiciones.
+
+94
+00:04:28,753 --> 00:04:30,673
+El visto bueno de la propuesta.
+
+95
+00:04:30,673 --> 00:04:31,953
+Elegir el escenario:
+
+96
+00:04:31,953 --> 00:04:33,633
+dos o cuatro personas.
+
+97
+00:04:33,633 --> 00:04:36,033
+Cerrar las reglas de negocio pendientes.
+
+98
+00:04:36,033 --> 00:04:37,873
+Aprobar los tres dueños.
+
+99
+00:04:37,873 --> 00:04:40,593
+Nombrar un responsable para cada dependencia.
+
+100
+00:04:40,593 --> 00:04:43,073
+Y validar el nombre de la plataforma.
+
+101
+00:04:43,073 --> 00:04:44,993
+Con su visto bueno, la primera entrega
+
+102
+00:04:44,993 --> 00:04:47,573
 arranca el veintitrés de noviembre.
 
