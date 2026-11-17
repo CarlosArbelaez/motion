@@ -1,348 +1,344 @@
 1
-00:00:00,420 --> 00:00:02,980
+00:00:00,320 --> 00:00:02,350
 Contracts Management Finance Tech.
 
 2
-00:00:02,980 --> 00:00:07,340
+00:00:02,350 --> 00:00:06,410
 Hoy, el ciclo de vida de un contrato de tecnología no se cierra.
 
 3
-00:00:07,340 --> 00:00:08,940
-Esta propuesta lo cierra:
+00:00:06,410 --> 00:00:08,506
+Proponemos cerrarlo, con una plataforma
 
 4
-00:00:08,940 --> 00:00:11,820
-con un solo registro, alertas que se responden,
+00:00:08,506 --> 00:00:11,249
+donde todo se consulta en un solo lugar.
 
 5
-00:00:11,820 --> 00:00:14,680
-y una decisión siempre registrada.
-
-6
-00:00:15,453 --> 00:00:18,573
+00:00:11,753 --> 00:00:14,521
 Hoy, cerca de doscientos veinte servicios y ciento
 
-7
-00:00:18,573 --> 00:00:22,573
-setenta contratos de tecnología se siguen con dos archivos de Excel,
+6
+00:00:14,521 --> 00:00:17,526
+setenta contratos se siguen con dos archivos de Excel,
 
-8
-00:00:22,573 --> 00:00:25,213
+7
+00:00:17,526 --> 00:00:19,796
 un correo automático y dos personas.
 
+8
+00:00:19,796 --> 00:00:22,108
+El mismo dato se teclea tres veces.
+
 9
-00:00:25,213 --> 00:00:27,613
-El mismo dato se teclea tres veces:
+00:00:22,108 --> 00:00:26,317
+Por eso, el dashboard y las alertas pueden mostrar fechas distintas.
 
 10
-00:00:27,613 --> 00:00:29,613
-en Ariba y en los dos Excel.
+00:00:26,853 --> 00:00:29,420
+Cada vencimiento genera hasta veintiséis correos,
 
 11
-00:00:29,613 --> 00:00:31,853
-Por eso, el dashboard y las alertas pueden
-
-12
-00:00:31,853 --> 00:00:35,153
-mostrar fechas distintas para el mismo contrato.
-
-13
-00:00:35,920 --> 00:00:38,320
-Cuando un contrato se acerca a su vencimiento,
-
-14
-00:00:38,320 --> 00:00:42,960
-llega un correo cada martes y cada jueves, desde noventa días antes.
-
-15
-00:00:42,960 --> 00:00:45,480
-Son hasta veintiséis correos por contrato,
-
-16
-00:00:45,480 --> 00:00:47,920
+00:00:29,420 --> 00:00:31,810
 que no se pueden responder ni cerrar.
 
-17
-00:00:47,920 --> 00:00:50,320
-Después del vencimiento, siguen llegando.
+12
+00:00:31,810 --> 00:00:34,548
+Ninguna decisión de renovación queda registrada.
 
-18
-00:00:50,320 --> 00:00:53,940
-Y ninguna decisión de renovación queda registrada.
+13
+00:00:34,548 --> 00:00:37,774
+Hay contratos fuera de Ariba, el repositorio oficial.
 
-19
-00:00:54,720 --> 00:00:57,200
-El riesgo no es solo trabajo manual.
-
-20
-00:00:57,200 --> 00:01:00,800
-Hay contratos fuera de Ariba, el repositorio auditable.
-
-21
-00:01:00,800 --> 00:01:03,440
-Hay contratos que vencen sin una decisión.
-
-22
-00:01:03,440 --> 00:01:07,380
+14
+00:00:37,774 --> 00:00:41,030
 Y nadie responde por el proceso de punta a punta.
 
-23
-00:01:08,153 --> 00:01:09,993
+15
+00:00:41,553 --> 00:00:43,430
 La propuesta sigue un orden.
 
-24
-00:01:09,993 --> 00:01:11,513
-Primero, ordenar:
+16
+00:00:43,430 --> 00:00:45,357
+Primero, ordenar el proceso.
 
-25
-00:01:11,513 --> 00:01:15,393
-reglas escritas, dueños con nombre y un solo registro.
+17
+00:00:45,357 --> 00:00:47,557
+Después, automatizar lo repetitivo.
 
-26
-00:01:15,393 --> 00:01:17,913
-Después, automatizar lo repetitivo:
+18
+00:00:47,557 --> 00:00:50,153
+Y solo al final, inteligencia artificial.
 
-27
-00:01:17,913 --> 00:01:21,313
-calcular fechas, conciliar, avisar y escalar.
-
-28
-00:01:21,313 --> 00:01:23,673
-Y solo al final, inteligencia artificial,
-
-29
-00:01:23,673 --> 00:01:25,433
-donde hay que leer documentos.
-
-30
-00:01:25,433 --> 00:01:29,773
+19
+00:00:50,153 --> 00:00:54,114
 Porque automatizar un proceso roto solo hace más rápido el error.
 
-31
-00:01:30,553 --> 00:01:33,153
+20
+00:00:54,620 --> 00:00:57,088
 Así recorre un contrato el nuevo ciclo.
 
-32
-00:01:33,153 --> 00:01:34,713
+21
+00:00:57,088 --> 00:00:58,530
 Primero se formaliza:
 
-33
-00:01:34,713 --> 00:01:37,113
-la solicitud se captura una sola vez,
+22
+00:00:58,530 --> 00:01:02,704
+con una sola captura, y la regla escrita decide si requiere contrato.
 
-34
-00:01:37,113 --> 00:01:40,513
-la regla escrita de la política decide si requiere contrato,
-
-35
-00:01:40,513 --> 00:01:43,673
-y su espacio en Ariba se abre desde el día uno.
-
-36
-00:01:43,673 --> 00:01:45,193
+23
+00:01:02,704 --> 00:01:04,029
 Luego se registra:
 
-37
-00:01:45,193 --> 00:01:48,793
-los datos clave nacen al firmar, los valida una persona,
+24
+00:01:04,029 --> 00:01:05,933
+los datos clave nacen al firmar,
 
-38
-00:01:48,793 --> 00:01:51,273
-y se concilian cada día con Ariba.
+25
+00:01:05,933 --> 00:01:09,480
+los valida una persona, y se cruzan cada día con Ariba.
 
-39
-00:01:51,273 --> 00:01:53,033
+26
+00:01:09,480 --> 00:01:10,964
 Y después se vigila:
 
-40
-00:01:53,033 --> 00:01:56,713
+27
+00:01:10,964 --> 00:01:14,533
 con una alerta que exige respuesta y una decisión registrada.
 
-41
-00:01:56,713 --> 00:02:00,333
+28
+00:01:14,533 --> 00:01:17,917
 Si el servicio continúa, el ciclo vuelve al inicio.
 
-42
-00:02:01,120 --> 00:02:03,280
+29
+00:01:18,453 --> 00:01:20,372
+Todo vive en un solo lugar:
+
+30
+00:01:20,372 --> 00:01:22,246
+la plataforma que diseñaremos.
+
+31
+00:01:22,246 --> 00:01:24,870
+Un registro único de servicios y contratos.
+
+32
+00:01:24,870 --> 00:01:27,388
+Un dashboard, con descarga del reporte.
+
+33
+00:01:27,388 --> 00:01:29,265
+Las alertas de cada persona.
+
+34
+00:01:29,265 --> 00:01:31,259
+Y el histórico de aprobaciones:
+
+35
+00:01:31,259 --> 00:01:33,702
+quién aprobó qué, cuándo y por qué.
+
+36
+00:01:33,702 --> 00:01:35,264
+Ariba no se reemplaza:
+
+37
+00:01:35,264 --> 00:01:38,963
+sigue siendo la fuente oficial, y ahí se sigue aprobando.
+
+38
+00:01:39,487 --> 00:01:41,442
 La alerta cambia por completo.
 
-43
-00:02:03,280 --> 00:02:06,720
-En lugar de veintiséis correos, una sola tarjeta en Teams,
+39
+00:01:41,442 --> 00:01:44,263
+En lugar de veintiséis correos, una sola alerta,
 
-44
-00:02:06,720 --> 00:02:08,880
-para el dueño del servicio y su líder.
+40
+00:01:44,263 --> 00:01:48,599
+en la plataforma y por correo, para el dueño del servicio y su líder.
 
-45
-00:02:08,880 --> 00:02:12,400
-Un recordatorio semanal, solo hasta que alguien responde.
-
-46
-00:02:12,400 --> 00:02:16,200
+41
+00:01:48,599 --> 00:01:52,620
 Si no hay respuesta, escala a los sesenta y a los treinta días.
 
-47
-00:02:16,200 --> 00:02:18,720
-Y toda alerta termina en una decisión:
+42
+00:01:52,620 --> 00:01:54,812
+Y siempre termina en una decisión:
 
-48
-00:02:18,720 --> 00:02:23,060
+43
+00:01:54,812 --> 00:01:58,600
 el dueño decide, su líder aprueba, y Procurement confirma.
 
-49
-00:02:23,820 --> 00:02:27,340
-Para que funcione, tres dueños llenan el vacío de hoy.
+44
+00:01:59,120 --> 00:02:01,429
+Tres dueños responden por el proceso.
 
-50
-00:02:27,340 --> 00:02:31,100
-El dueño del servicio y su líder responden por cada contrato.
+45
+00:02:01,429 --> 00:02:04,778
+El dueño del servicio y su líder, por cada contrato.
 
-51
-00:02:31,100 --> 00:02:34,380
+46
+00:02:04,778 --> 00:02:08,043
 Procurement, por la cobertura contractual y por Ariba.
 
-52
-00:02:34,380 --> 00:02:38,800
+47
+00:02:08,043 --> 00:02:11,901
 Y Value Creation, por el seguimiento y la calidad del dato.
 
-53
-00:02:39,587 --> 00:02:43,907
+48
+00:02:12,420 --> 00:02:16,117
 La inteligencia artificial llega después, y con límites claros.
 
-54
-00:02:43,907 --> 00:02:46,427
-Lee el contrato y propone sus datos clave,
+49
+00:02:16,117 --> 00:02:20,177
+Lee el contrato y propone sus datos clave, cada uno con su cita.
 
-55
-00:02:46,427 --> 00:02:48,707
-cada uno con la cita de donde sale.
+50
+00:02:20,177 --> 00:02:22,447
+Una persona valida todas las fichas.
 
-56
-00:02:48,707 --> 00:02:52,307
-Una persona valida todas las fichas antes de publicarlas.
+51
+00:02:22,447 --> 00:02:26,784
+La inteligencia artificial no decide, no aprueba, ni confirma ahorros.
 
-57
-00:02:52,307 --> 00:02:55,667
-La inteligencia artificial no decide, no aprueba,
-
-58
-00:02:55,667 --> 00:02:59,287
-no interpreta cláusulas, ni confirma ahorros.
-
-59
-00:03:00,053 --> 00:03:03,173
+52
+00:02:27,320 --> 00:02:30,220
 El alcance inicial es el producto mínimo viable:
 
+53
+00:02:30,220 --> 00:02:32,891
+cuatro entregas, sin inteligencia artificial.
+
+54
+00:02:32,891 --> 00:02:33,979
+Los cimientos.
+
+55
+00:02:33,979 --> 00:02:36,132
+El registro único y el dashboard.
+
+56
+00:02:36,132 --> 00:02:37,142
+Las alertas.
+
+57
+00:02:37,142 --> 00:02:40,173
+Y la decisión, con el histórico de aprobaciones.
+
+58
+00:02:40,173 --> 00:02:43,480
+Después, el alta de solicitudes con la regla escrita.
+
+59
+00:02:43,480 --> 00:02:45,800
+Y luego, la inteligencia artificial:
+
 60
-00:03:03,173 --> 00:03:05,133
-las olas cero y uno.
+00:02:45,800 --> 00:02:47,152
+la ficha del contrato,
 
 61
-00:03:05,133 --> 00:03:07,893
-Cierra el ciclo sin agentes de inteligencia artificial,
+00:02:47,152 --> 00:02:50,303
+con un piloto de veinte contratos, y la consulta.
 
 62
-00:03:07,893 --> 00:03:12,053
-con herramientas de Microsoft tres sesenta y cinco que la compañía ya tiene.
+00:02:50,303 --> 00:02:52,349
+Cada versión arranca cuando la anterior
 
 63
-00:03:12,053 --> 00:03:16,533
-Después, la ola dos trae la ficha del contrato con inteligencia artificial,
-
-64
-00:03:16,533 --> 00:03:19,133
-empezando con un piloto de veinte contratos.
-
-65
-00:03:19,133 --> 00:03:21,053
-Y la ola tres, la consulta,
-
-66
-00:03:21,053 --> 00:03:24,693
-el resumen de renovación y la búsqueda de servicios similares.
-
-67
-00:03:24,693 --> 00:03:27,013
-Cada ola arranca solo cuando la anterior
-
-68
-00:03:27,013 --> 00:03:29,353
+00:02:52,349 --> 00:02:54,498
 cumple sus criterios de salida.
 
-69
-00:03:30,120 --> 00:03:31,720
+64
+00:02:55,020 --> 00:02:56,504
 Estas son las metas.
 
-70
-00:03:31,720 --> 00:03:34,480
+65
+00:02:56,504 --> 00:02:59,184
 De tres capturas del mismo dato, a una.
 
-71
-00:03:34,480 --> 00:03:38,520
-De veintiséis correos, a una sola tarjeta que exige respuesta.
+66
+00:02:59,184 --> 00:03:01,861
+De veintiséis correos, a una sola alerta.
 
-72
-00:03:38,520 --> 00:03:42,840
+67
+00:03:01,861 --> 00:03:05,829
 El cien por ciento de los contratos vigentes con su PDF en Ariba.
 
-73
-00:03:42,840 --> 00:03:44,880
+68
+00:03:05,829 --> 00:03:07,998
 Al menos el noventa y cinco por ciento
 
+69
+00:03:07,998 --> 00:03:10,388
+de las alertas con decisión a tiempo.
+
+70
+00:03:10,388 --> 00:03:12,526
+Y todas las aprobaciones y decisiones,
+
+71
+00:03:12,526 --> 00:03:14,637
+consultables en un solo histórico.
+
+72
+00:03:14,637 --> 00:03:16,722
+El impacto de la inteligencia artificial
+
+73
+00:03:16,722 --> 00:03:19,187
+llega después del producto mínimo viable:
+
 74
-00:03:44,880 --> 00:03:47,880
-de las alertas con decisión antes del preaviso.
-
-75
-00:03:47,880 --> 00:03:50,040
-Y los pasos automáticos del proceso pasan
-
-76
-00:03:50,040 --> 00:03:52,840
-del doce al sesenta y dos por ciento.
-
-77
-00:03:52,840 --> 00:03:55,480
-El impacto de la inteligencia artificial llega después
-
-78
-00:03:55,480 --> 00:03:58,920
-del producto mínimo viable, en las olas dos y tres:
-
-79
-00:03:58,920 --> 00:04:03,160
+00:03:19,187 --> 00:03:23,241
 reducir el tiempo de lectura, captura y validación de cada contrato.
 
+75
+00:03:23,241 --> 00:03:25,513
+Su meta se fija con un piloto.
+
+76
+00:03:26,020 --> 00:03:28,691
+Para arrancar, necesitamos seis definiciones.
+
+77
+00:03:28,691 --> 00:03:30,766
+El visto bueno de la propuesta.
+
+78
+00:03:30,766 --> 00:03:32,052
+Elegir el equipo:
+
+79
+00:03:32,052 --> 00:03:34,583
+con cuatro personas, el producto mínimo viable
+
 80
-00:04:03,160 --> 00:04:06,540
-Su meta se fija con un piloto de veinte contratos.
+00:03:34,583 --> 00:03:37,640
+llegaría hacia marzo; con dos, hacia mayo.
 
 81
-00:04:07,320 --> 00:04:09,480
-Hoy pedimos tres decisiones.
+00:03:37,640 --> 00:03:40,066
+Cerrar las reglas de negocio pendientes.
 
 82
-00:04:09,480 --> 00:04:13,880
-Uno: aprobar el diseño del proceso, versión tres punto dos.
+00:03:40,066 --> 00:03:41,706
+Aprobar los tres dueños.
 
 83
-00:04:13,880 --> 00:04:17,080
-Dos: aprobar el alcance del producto mínimo viable,
+00:03:41,706 --> 00:03:44,327
+Nombrar un responsable para cada dependencia.
 
 84
-00:04:17,080 --> 00:04:19,480
-sin agentes de inteligencia artificial.
+00:03:44,327 --> 00:03:46,717
+Y validar el nombre de la plataforma.
 
 85
-00:04:19,480 --> 00:04:23,840
-Tres: aprobar el modelo de tres dueños y nombrar a sus responsables.
+00:03:46,717 --> 00:03:48,936
+Con su visto bueno, la primera entrega
 
 86
-00:04:23,840 --> 00:04:27,760
-Y para fijar el calendario, elegir con cuántas personas se construye.
-
-87
-00:04:27,760 --> 00:04:32,060
-Con su visto bueno, la ola cero arranca el dieciocho de noviembre.
+00:03:48,936 --> 00:03:51,241
+arranca el veintitrés de noviembre.
 

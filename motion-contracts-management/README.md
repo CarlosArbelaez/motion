@@ -1,8 +1,9 @@
 # Motion · Contracts Management Finance Tech
 
-Motion graphic ejecutivo (1920 × 1080, 30 fps, 4:35) de la propuesta To-Be v3.2, hecho con [Remotion](https://www.remotion.dev).
+Motion graphic ejecutivo (1920 × 1080, 30 fps, ~3:54) de la propuesta To-Be v4.0, hecho con [Remotion](https://www.remotion.dev).
 
-- **Video final:** `Renders/contracts-management_Final.mp4` (H.264 + AAC)
+- **Video:** `Renders/contracts-management_Previsualizacion.mp4` (H.264 + AAC). Es una previsualización: falta la
+  locución de la v4.0 (ver `docs/guion_y_storyboard.md`, "Pendientes"); los tiempos son estimados.
 - **Guion y storyboard:** `docs/guion_y_storyboard.md`
 - **Fuentes y clasificación de afirmaciones:** `docs/fuentes_y_clasificacion.md`
 - **Subtítulos:** `docs/subtitulos.srt` · **Tiempos por escena:** `docs/tiempos.md`
@@ -56,6 +57,7 @@ frase. Si se regenera la voz, la animación y los subtítulos se reacomodan solo
 
 ## Notas
 
-- **Tipografía provisional:** las presentaciones fuente declaran Avantt y Satoshi; aquí se usan Outfit y DM Sans
-  (licencia abierta). Ver `docs/fuentes_y_clasificacion.md`.
+- **Identidad:** sistema de diseño de AB InBev (Avantt y Satoshi en `public/assets/fonts/`, roles de color en `src/theme.ts`).
+- **Tiempos provisionales:** `python3 scripts/provisional_timing.py` estima los tiempos desde el guion mientras no
+  haya voz. Con la voz real, `scripts/build_timing.py` los reemplaza y quita la marca `provisional`.
 - Remotion requiere licencia de empresa para organizaciones de más de 3 personas: https://www.remotion.dev/docs/license

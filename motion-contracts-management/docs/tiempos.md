@@ -1,18 +1,18 @@
 # Tiempos por escena
 
-Duración total: 4:35 (8277 frames a 30 fps)
+Duración total: 3:54 (7033 frames a 30 fps)
 
 | Escena | Título | Inicio | Fin | Duración |
 |---|---|---|---|---|
-| 01 | Apertura | 0:00 | 0:15 | 15.0 s |
-| 02 | Punto de partida | 0:15 | 0:35 | 20.5 s |
-| 03 | Alertas hoy | 0:35 | 0:54 | 18.8 s |
-| 04 | Riesgo para el negocio | 0:54 | 1:07 | 13.4 s |
-| 05 | El orden de la propuesta | 1:07 | 1:30 | 22.4 s |
-| 06 | El nuevo ciclo | 1:30 | 2:00 | 30.6 s |
-| 07 | La alerta que exige respuesta | 2:00 | 2:23 | 22.7 s |
-| 08 | Tres dueños | 2:23 | 2:39 | 15.8 s |
-| 09 | IA con control | 2:39 | 2:59 | 20.5 s |
-| 10 | Alcance inicial y evolución | 2:59 | 3:29 | 30.1 s |
-| 11 | Metas e indicadores | 3:29 | 4:06 | 37.2 s |
-| 12 | Decisiones | 4:06 | 4:35 | 29.0 s |
+| 01 | Apertura | 0:00 | 0:11 | 11.4 s |
+| 02 | Punto de partida | 0:11 | 0:26 | 15.1 s |
+| 03 | Alertas y riesgo | 0:26 | 0:41 | 14.7 s |
+| 04 | El orden de la propuesta | 0:41 | 0:54 | 13.1 s |
+| 05 | El nuevo ciclo | 0:54 | 1:18 | 23.8 s |
+| 06 | La plataforma | 1:18 | 1:39 | 21.0 s |
+| 07 | La alerta que exige respuesta | 1:39 | 1:58 | 19.6 s |
+| 08 | Tres dueños | 1:58 | 2:12 | 13.3 s |
+| 09 | IA con control | 2:12 | 2:27 | 14.9 s |
+| 10 | Alcance inicial y evolución | 2:27 | 2:54 | 27.7 s |
+| 11 | Metas e indicadores | 2:54 | 3:25 | 31.0 s |
+| 12 | Lo que necesitamos | 3:25 | 3:54 | 28.7 s |

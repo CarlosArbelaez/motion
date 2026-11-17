@@ -1,69 +1,190 @@
 import React from "react";
-import { C, FONT } from "../theme";
-import { Rise } from "../lib/anim";
+import { C, FONT, R } from "../theme";
+import { lin, prog, Rise, useSec } from "../lib/anim";
 import { cue } from "../lib/timing";
-import { MX, Shell } from "../components/ui";
+import { Check, ContractIcon, MX, Pill, Shell } from "../components/ui";
 
 const ID = "s05";
-const STEPS = [
-  {
-    at: cue(ID, "Primero"),
-    n: "1",
-    h: "Ordenar",
-    body: "Reglas escritas, dueños con nombre y un solo registro.",
-    tag: "10 cambios de proceso",
-    bg: C.ink,
-    fg: C.white,
-    sub: "rgba(255,255,255,0.78)",
-    tagBg: "rgba(255,255,255,0.14)",
-    top: 400,
-  },
-  {
-    at: cue(ID, "Después"),
-    n: "2",
-    h: "Automatizar",
-    body: "Lo repetitivo: calcular fechas, conciliar, avisar y escalar.",
-    tag: "8 automatizaciones · Microsoft 365",
-    bg: C.yellow,
-    fg: C.ink,
-    sub: "rgba(20,22,26,0.8)",
-    tagBg: "rgba(20,22,26,0.1)",
-    top: 350,
-  },
-  {
-    at: cue(ID, "Y solo al final"),
-    n: "3",
-    h: "Usar IA",
-    body: "Solo donde hay que leer documentos. La IA propone y una persona valida.",
-    tag: "5 agentes, de complejidad distinta",
-    bg: C.purple,
-    fg: C.white,
-    sub: "rgba(255,255,255,0.82)",
-    tagBg: "rgba(255,255,255,0.16)",
-    top: 300,
-  },
+const CW = 224;
+const CG = 22;
+const cx = (i: number) => MX + i * (CW + CG);
+const PHASES = [
+  { n: "1", h: "Solicitud", d: "Captura única; decide la regla escrita.", state: "Solicitud" },
+  { n: "2", h: "Negociación", d: "Legal negocia como hoy, con rastro.", state: "En negociación" },
+  { n: "3", h: "Aprobación y firma", d: "Se aprueba en Ariba; la plataforma lo refleja.", state: "Firmado" },
+  { n: "4", h: "Ficha y Ariba", d: "Datos clave validados por una persona.", state: "Vigente" },
+  { n: "5", h: "Control diario", d: "Cruce diario con Ariba y el Budget.", state: "Vigente" },
+  { n: "6", h: "Alertas", d: "En la plataforma y por correo, con escalamiento.", state: "Vigente · en alerta" },
+  { n: "7", h: "Decisión", d: "El owner decide, su líder aprueba y Procurement confirma.", state: "En renovación" },
 ];
+const BLOCKS = [
+  { name: "Bloque 1 · Formalizar", from: 0, to: 2, start: cue(ID, "formaliza"), end: cue(ID, "Luego") },
+  { name: "Bloque 2 · Registrar", from: 3, to: 4, start: cue(ID, "registra"), end: cue(ID, "Y después") },
+  { name: "Bloque 3 · Vigilar y renovar", from: 5, to: 6, start: cue(ID, "vigila"), end: cue(ID, "Si el servicio") },
+];
+// Momento en que el contrato llega a cada fase (repartido dentro de la locución de su bloque).
+export const ARRIVE: number[] = [];
+BLOCKS.forEach((b) => {
+  const n = b.to - b.from + 1;
+  for (let k = 0; k < n; k++) ARRIVE.push(b.start + (k * (b.end - b.start - 0.5)) / n);
+});
+const CALLOUTS = [
+  { b: 0, t: "Una sola captura", at: cue(ID, "una sola captura") },
+  { b: 0, t: "La regla escrita decide", at: cue(ID, "la regla escrita") },
+  { b: 1, t: "El dato nace al firmar", at: cue(ID, "nacen") },
+  { b: 1, t: "Lo valida una persona", at: cue(ID, "los valida") },
+  { b: 2, t: "Alerta que exige respuesta", at: cue(ID, "una alerta") },
+  { b: 2, t: "Decisión registrada", at: cue(ID, "una decisión registrada") },
+];
+const TOP = 396;
+const CH = 266;
+const TRACK = TOP + CH + 52;
 
-export const S05: React.FC = () => (
-  <Shell id={ID} chapter={2} title="Primero ordenar, después automatizar y, solo al final, usar IA">
-    {STEPS.map((s, i) => (
-      <Rise key={s.h} at={s.at - 0.15} y={60} dur={0.7} style={{ position: "absolute", left: MX + i * 580, top: s.top }}>
-        <div style={{ width: 540, height: 340, background: s.bg, color: s.fg, borderRadius: 24, padding: "30px 36px", boxSizing: "border-box" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 18 }}>
-            <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 84, lineHeight: 1 }}>{s.n}</div>
-            <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 52, letterSpacing: -1 }}>{s.h}</div>
-          </div>
-          <div style={{ fontSize: 30, lineHeight: 1.25, marginTop: 16, color: s.sub, height: 116 }}>{s.body}</div>
-          <div style={{ display: "inline-block", fontSize: 24, fontWeight: 700, background: s.tagBg, padding: "8px 16px", borderRadius: 10, marginTop: 10 }}>
-            {s.tag}
-          </div>
-        </div>
+export const S05: React.FC = () => {
+  const t = useSec();
+  const loopAt = cue(ID, "vuelve");
+  let idx = -1;
+  ARRIVE.forEach((a, i) => {
+    if (t >= a) idx = i;
+  });
+  // Posición del contrato sobre el riel
+  let x = cx(0) + CW / 2;
+  for (let i = 1; i < 7; i++) x += (CW + CG) * prog(t, ARRIVE[i] - 0.35, 0.6);
+  const back = prog(t, loopAt, 1.0);
+  x = x + (cx(0) + CW / 2 - x) * back;
+  const loop = lin(t, loopAt, 1.0);
+  return (
+    <Shell
+      id={ID}
+      chapter={2}
+      title="El nuevo ciclo: 3 bloques, 7 fases y un cierre"
+      foot="El To-Be tiene 37 tarjetas y 7 compuertas, cada una con salidas SÍ, NO y excepción"
+    >
+      {/* Retorno al inicio */}
+      <svg style={{ position: "absolute", left: 0, top: 0 }} width={1920} height={1080}>
+        <path
+          d={`M${cx(6) + CW / 2} ${TOP - 76} V 288 H ${cx(0) + CW / 2} V ${TOP - 80}`}
+          fill="none"
+          stroke={C.ink}
+          strokeWidth={4}
+          pathLength={1}
+          strokeDasharray={`${loop} 1`}
+          strokeLinejoin="round"
+        />
+        <path
+          d={`M${cx(0) + CW / 2 - 12} ${TOP - 94} L${cx(0) + CW / 2} ${TOP - 78} L${cx(0) + CW / 2 + 12} ${TOP - 94}`}
+          fill="none"
+          stroke={C.ink}
+          strokeWidth={4}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity={prog(t, loopAt + 0.9, 0.2)}
+        />
+      </svg>
+      <Rise at={loopAt + 0.1} y={8} style={{ position: "absolute", left: 560, top: 268, width: 800, textAlign: "center" }}>
+        <span style={{ background: C.bg, padding: "0 18px", fontSize: 27, fontWeight: 700 }}>Si el servicio continúa, vuelve a la Fase 1</span>
       </Rise>
-    ))}
-    <Rise at={cue(ID, "Porque") - 0.1} y={20} style={{ position: "absolute", left: MX, top: 772, width: 1700 }}>
-      <div style={{ borderLeft: `12px solid ${C.yellow}`, background: C.white, border: `2px solid ${C.line}`, borderLeftWidth: 12, borderLeftColor: C.yellow, borderRadius: 16, padding: "20px 34px", fontFamily: FONT.head, fontWeight: 600, fontSize: 40, letterSpacing: -0.5 }}>
-        Automatizar un proceso roto solo hace más rápido el error.
+
+      {BLOCKS.map((b, i) => {
+        const on = t >= b.start - 0.2 && t < b.end;
+        return (
+          <Rise key={b.name} at={0.4 + i * 0.12} y={14} style={{ position: "absolute", left: cx(b.from), top: TOP - 72 }}>
+            <div
+              style={{
+                width: cx(b.to) + CW - cx(b.from),
+                height: 56,
+                borderRadius: R.ctl,
+                background: on ? C.ink : C.panel,
+                color: on ? C.white : C.text,
+                fontFamily: FONT.head,
+                fontWeight: 600,
+                fontSize: 28,
+                display: "flex",
+                alignItems: "center",
+                padding: "0 20px",
+                boxSizing: "border-box",
+              }}
+            >
+              {b.name}
+            </div>
+          </Rise>
+        );
+      })}
+      {PHASES.map((p, i) => {
+        const active = idx === i && back < 0.5;
+        const done = idx > i || back >= 0.5;
+        return (
+          <Rise key={p.n} at={0.6 + i * 0.08} y={24} style={{ position: "absolute", left: cx(i), top: TOP }}>
+            <div
+              style={{
+                width: CW,
+                height: CH,
+                borderRadius: R.card,
+                boxSizing: "border-box",
+                padding: "16px 18px",
+                background: active ? C.yellow : C.white,
+                border: `2px solid ${active ? C.ink : C.line}`,
+                position: "relative",
+              }}
+            >
+              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 46, lineHeight: 1 }}>{p.n}</div>
+              <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 28, lineHeight: 1.08, marginTop: 8, height: 62 }}>{p.h}</div>
+              <div style={{ fontSize: 23, lineHeight: 1.22, color: active ? C.ink : C.text, marginTop: 6 }}>{p.d}</div>
+              {done ? (
+                <div style={{ position: "absolute", right: 14, top: 14 }}>
+                  <Check size={34} />
+                </div>
+              ) : null}
+            </div>
+          </Rise>
+        );
+      })}
+
+      {/* Riel y contrato */}
+      <div style={{ position: "absolute", left: cx(0) + CW / 2, top: TRACK, width: cx(6) - cx(0), height: 4, background: C.line, opacity: prog(t, 1.0, 0.5) }} />
+      {PHASES.map((p, i) => (
+        <div
+          key={p.n}
+          style={{
+            position: "absolute",
+            left: cx(i) + CW / 2 - 9,
+            top: TRACK - 7,
+            width: 18,
+            height: 18,
+            borderRadius: 9,
+            background: idx >= i ? C.ink : C.line,
+            opacity: prog(t, 1.0, 0.5),
+          }}
+        />
+      ))}
+      <div style={{ position: "absolute", left: x - 26, top: TRACK - 36, opacity: prog(t, ARRIVE[0] - 0.4, 0.4) }}>
+        <ContractIcon size={52} />
       </div>
-    </Rise>
-  </Shell>
-);
+      <div
+        style={{
+          position: "absolute",
+          // En las últimas fases la etiqueta pasa a la izquierda del contrato para no salirse del cuadro.
+          ...(idx >= 5 ? { right: 1920 - x + 36 } : { left: x + 34 }),
+          top: TRACK - 24,
+          opacity: prog(t, ARRIVE[0] - 0.2, 0.4) * (1 - back),
+        }}
+      >
+        <Pill size={22} bg={C.ink} color={C.white}>
+          {idx >= 0 ? PHASES[idx].state : ""}
+        </Pill>
+      </div>
+
+      {BLOCKS.map((b, bi) => (
+        <div key={b.name} style={{ position: "absolute", left: cx(b.from), top: TRACK + 42, width: cx(b.to) + CW - cx(b.from), display: "flex", flexWrap: "wrap", gap: 10 }}>
+          {CALLOUTS.filter((c) => c.b === bi).map((c) => (
+            <Rise key={c.t} at={c.at} y={12}>
+              <Pill size={23} bg={C.white} color={C.ink} border={C.line}>
+                {c.t}
+              </Pill>
+            </Rise>
+          ))}
+        </div>
+      ))}
+    </Shell>
+  );
+};

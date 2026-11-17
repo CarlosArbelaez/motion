@@ -1,191 +1,270 @@
 import React from "react";
-import { C, FONT } from "../theme";
-import { lin, prog, Rise, useSec } from "../lib/anim";
+import { C, FONT, R } from "../theme";
+import { prog, Rise, useSec } from "../lib/anim";
 import { cue } from "../lib/timing";
-import { Check, ContractIcon, MX, Pill, Shell } from "../components/ui";
+import { Card, MX, Pill, Shell } from "../components/ui";
 
 const ID = "s06";
-const CW = 224;
-const CG = 22;
-const cx = (i: number) => MX + i * (CW + CG);
-const PHASES = [
-  { n: "1", h: "Solicitud", d: "Captura única; decide la regla escrita.", state: "Solicitud" },
-  { n: "2", h: "Negociación", d: "Legal negocia como hoy, con rastro.", state: "En negociación" },
-  { n: "3", h: "Aprobación y firma", d: "Aprueba quien indica la política.", state: "Firmado" },
-  { n: "4", h: "Ficha y Ariba", d: "Datos clave validados por una persona.", state: "Vigente" },
-  { n: "5", h: "Control diario", d: "Conciliación con Ariba y el Budget.", state: "Vigente" },
-  { n: "6", h: "Alertas", d: "Tarjeta que exige respuesta, con escalamiento.", state: "Vigente · en alerta" },
-  { n: "7", h: "Decisión", d: "El owner decide, su líder aprueba y Procurement confirma.", state: "En renovación" },
+// Representación conceptual de la plataforma, armada con los patrones del sistema de diseño
+// (barra de aplicación, navegación lateral, tabla, badges). Sin datos inventados: los textos de
+// ejemplo se muestran como barras y solo se escriben módulos y estados documentados.
+const NAV = ["Registro", "Dashboard", "Alertas", "Decisiones", "Histórico", "Reglas"];
+const VIEWS = [
+  { nav: 0, at: 0, title: "Registro de servicios y contratos" },
+  { nav: 1, at: cue(ID, "Un dashboard") - 0.2, title: "Dashboard general" },
+  { nav: 2, at: cue(ID, "Las alertas") - 0.2, title: "Mis alertas" },
+  { nav: 4, at: cue(ID, "el histórico") - 0.2, title: "Histórico de aprobaciones" },
 ];
-const BLOCKS = [
-  { name: "Bloque 1 · Formalizar", from: 0, to: 2, start: cue(ID, "formaliza"), end: cue(ID, "Luego") },
-  { name: "Bloque 2 · Registrar", from: 3, to: 4, start: cue(ID, "registra"), end: cue(ID, "Y después") },
-  { name: "Bloque 3 · Vigilar y renovar", from: 5, to: 6, start: cue(ID, "vigila"), end: cue(ID, "Si el servicio") },
-];
-// Momento en que el contrato llega a cada fase (repartido dentro de la locución de su bloque).
-export const ARRIVE: number[] = [];
-BLOCKS.forEach((b) => {
-  const n = b.to - b.from + 1;
-  for (let k = 0; k < n; k++) ARRIVE.push(b.start + (k * (b.end - b.start - 0.6)) / n);
-});
-const CALLOUTS = [
-  { b: 0, t: "Una sola captura", at: cue(ID, "una sola vez") },
-  { b: 0, t: "La regla escrita decide", at: cue(ID, "la regla escrita") },
-  { b: 0, t: "Ariba desde el día uno", at: cue(ID, "su espacio") },
-  { b: 1, t: "El dato nace al firmar", at: cue(ID, "nacen") },
-  { b: 1, t: "Lo valida una persona", at: cue(ID, "los valida") },
-  { b: 2, t: "Alerta que exige respuesta", at: cue(ID, "una alerta") },
-  { b: 2, t: "Decisión registrada", at: cue(ID, "una decisión registrada") },
-];
-const TOP = 396;
-const CH = 266;
-const TRACK = TOP + CH + 52;
+const FX = MX;
+const FY = 286;
+const FW = 1200;
+const FH = 566;
+const NAVW = 236;
+const BAR = 62;
 
-export const S06: React.FC = () => {
-  const t = useSec();
-  const loopAt = cue(ID, "vuelve");
-  let idx = -1;
-  ARRIVE.forEach((a, i) => {
-    if (t >= a) idx = i;
-  });
-  // Posición del contrato sobre el riel
-  let x = cx(0) + CW / 2;
-  for (let i = 1; i < 7; i++) x += (CW + CG) * prog(t, ARRIVE[i] - 0.35, 0.6);
-  const back = prog(t, loopAt, 1.0);
-  x = x + (cx(0) + CW / 2 - x) * back;
-  const loop = lin(t, loopAt, 1.0);
+const Bar: React.FC<{ w: number; h?: number; dark?: boolean }> = ({ w, h = 14, dark }) => (
+  <div style={{ width: w, height: h, borderRadius: h / 2, background: dark ? "#c9cdd4" : C.line }} />
+);
+const Badge: React.FC<{ bg: string; children: React.ReactNode }> = ({ bg, children }) => (
+  <span style={{ background: bg, color: C.ink, fontSize: 19, fontWeight: 500, padding: "5px 14px", borderRadius: R.full, whiteSpace: "nowrap" }}>{children}</span>
+);
+const row: React.CSSProperties = { display: "flex", alignItems: "center", borderBottom: `2px solid ${C.line}`, height: 68 };
+const th: React.CSSProperties = { fontSize: 19, fontWeight: 500, color: C.mute };
+
+const Registro: React.FC = () => {
+  const rows: [number, string, string][] = [
+    [250, "Vigente", C.greenSoft],
+    [190, "En renovación", C.blueSoft],
+    [280, "Vigente", C.greenSoft],
+    [220, "Sin contrato", C.panel],
+    [240, "Vencido sin decisión", C.coralSoft],
+  ];
   return (
-    <Shell
-      id={ID}
-      chapter={2}
-      title="El nuevo ciclo: 3 bloques, 7 fases y un cierre"
-      foot="El To-Be tiene 37 tarjetas y 7 compuertas, cada una con salidas SÍ, NO y excepción"
-    >
-      {/* Retorno al inicio */}
-      <svg style={{ position: "absolute", left: 0, top: 0 }} width={1920} height={1080}>
-        <path
-          d={`M${cx(6) + CW / 2} ${TOP - 76} V 288 H ${cx(0) + CW / 2} V ${TOP - 80}`}
-          fill="none"
-          stroke={C.ink}
-          strokeWidth={4}
-          pathLength={1}
-          strokeDasharray={`${loop} 1`}
-          strokeLinejoin="round"
-        />
-        <path
-          d={`M${cx(0) + CW / 2 - 12} ${TOP - 94} L${cx(0) + CW / 2} ${TOP - 78} L${cx(0) + CW / 2 + 12} ${TOP - 94}`}
-          fill="none"
-          stroke={C.ink}
-          strokeWidth={4}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          opacity={prog(t, loopAt + 0.9, 0.2)}
-        />
-      </svg>
-      <Rise at={loopAt + 0.1} y={8} style={{ position: "absolute", left: 560, top: 268, width: 800, textAlign: "center" }}>
-        <span style={{ background: C.bg, padding: "0 18px", fontSize: 27, fontWeight: 700 }}>Si el servicio continúa, vuelve a la Fase 1</span>
-      </Rise>
-
-      {BLOCKS.map((b, i) => {
-        const on = t >= b.start - 0.2 && t < b.end;
-        return (
-          <Rise key={b.name} at={0.5 + i * 0.12} y={14} style={{ position: "absolute", left: cx(b.from), top: TOP - 72 }}>
-            <div
-              style={{
-                width: cx(b.to) + CW - cx(b.from),
-                height: 56,
-                borderRadius: 12,
-                background: on ? C.yellow : C.ink,
-                color: on ? C.ink : C.white,
-                fontFamily: FONT.head,
-                fontWeight: 600,
-                fontSize: 28,
-                display: "flex",
-                alignItems: "center",
-                padding: "0 20px",
-                boxSizing: "border-box",
-              }}
-            >
-              {b.name}
-            </div>
-          </Rise>
-        );
-      })}
-      {PHASES.map((p, i) => {
-        const active = idx === i && back < 0.5;
-        const done = idx > i || back >= 0.5;
-        return (
-          <Rise key={p.n} at={0.7 + i * 0.08} y={24} style={{ position: "absolute", left: cx(i), top: TOP }}>
-            <div
-              style={{
-                width: CW,
-                height: CH,
-                borderRadius: 18,
-                boxSizing: "border-box",
-                padding: "16px 18px",
-                background: active ? C.yellow : C.white,
-                border: `3px solid ${active ? C.ink : C.line}`,
-                position: "relative",
-              }}
-            >
-              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 46, lineHeight: 1 }}>{p.n}</div>
-              <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 28, lineHeight: 1.08, marginTop: 8, height: 62 }}>{p.h}</div>
-              <div style={{ fontSize: 23, lineHeight: 1.22, color: active ? C.ink : C.text, marginTop: 6 }}>{p.d}</div>
-              {done ? (
-                <div style={{ position: "absolute", right: 14, top: 14 }}>
-                  <Check size={34} />
-                </div>
-              ) : null}
-            </div>
-          </Rise>
-        );
-      })}
-
-      {/* Riel y contrato */}
-      <div style={{ position: "absolute", left: cx(0) + CW / 2, top: TRACK, width: cx(6) - cx(0), height: 4, background: C.line, opacity: prog(t, 1.2, 0.5) }} />
-      {PHASES.map((p, i) => (
-        <div
-          key={p.n}
-          style={{
-            position: "absolute",
-            left: cx(i) + CW / 2 - 9,
-            top: TRACK - 7,
-            width: 18,
-            height: 18,
-            borderRadius: 9,
-            background: idx >= i ? C.ink : C.line,
-            opacity: prog(t, 1.2, 0.5),
-          }}
-        />
+    <div>
+      <div style={{ ...row, height: 44 }}>
+        <div style={{ ...th, width: 340 }}>Servicio</div>
+        <div style={{ ...th, width: 260 }}>Estado</div>
+        <div style={{ ...th, width: 160 }}>Vence</div>
+        <div style={th}>Owner</div>
+      </div>
+      {rows.map(([w, st, bg], i) => (
+        <div key={i} style={row}>
+          <div style={{ width: 340 }}>
+            <Bar w={w} dark />
+          </div>
+          <div style={{ width: 260 }}>
+            <Badge bg={bg}>{st}</Badge>
+          </div>
+          <div style={{ width: 160 }}>
+            <Bar w={96} />
+          </div>
+          <Bar w={120} />
+        </div>
       ))}
-      <div style={{ position: "absolute", left: x - 26, top: TRACK - 36, opacity: prog(t, ARRIVE[0] - 0.4, 0.4) }}>
-        <ContractIcon size={52} />
+    </div>
+  );
+};
+
+const Dashboard: React.FC<{ hl: number }> = ({ hl }) => {
+  const kpis = ["Vencen en 90 días", "Alertas abiertas", "Vigentes con PDF en Ariba", "Calidad del dato"];
+  const bars = [46, 70, 38, 92, 60, 110, 74, 52, 88, 64, 40, 78];
+  return (
+    <div>
+      <div style={{ display: "flex", gap: 14 }}>
+        {kpis.map((k) => (
+          <div key={k} style={{ flex: 1, border: `2px solid ${C.line}`, borderRadius: R.card, padding: "14px 16px", height: 128, boxSizing: "border-box" }}>
+            <div style={{ fontSize: 19, fontWeight: 500, color: C.mute, lineHeight: 1.15, height: 54 }}>{k}</div>
+            <Bar w={84} h={24} dark />
+          </div>
+        ))}
+      </div>
+      <div style={{ border: `2px solid ${C.line}`, borderRadius: R.card, marginTop: 14, padding: "14px 18px", height: 236, boxSizing: "border-box" }}>
+        <div style={{ fontSize: 19, fontWeight: 500, color: C.mute }}>Vencimientos por período</div>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 16, height: 160, marginTop: 14, borderBottom: `2px solid ${C.line}` }}>
+          {bars.map((b, i) => (
+            <div key={i} style={{ flex: 1, height: b, background: "#c9cdd4", borderRadius: "4px 4px 0 0" }} />
+          ))}
+        </div>
       </div>
       <div
         style={{
           position: "absolute",
-          // En las últimas fases la etiqueta pasa a la izquierda del contrato para no salirse del cuadro.
-          ...(idx >= 5 ? { right: 1920 - x + 36 } : { left: x + 34 }),
-          top: TRACK - 24,
-          opacity: prog(t, ARRIVE[0] - 0.2, 0.4) * (1 - back),
+          right: 0,
+          top: -62,
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          fontSize: 21,
+          fontWeight: 500,
+          padding: "9px 18px",
+          borderRadius: R.ctl,
+          border: `2px solid ${C.ink}`,
+          background: hl > 0.5 ? C.ink : C.white,
+          color: hl > 0.5 ? C.white : C.ink,
         }}
       >
-        <Pill size={22} bg={C.ink} color={C.yellow}>
-          {idx >= 0 ? PHASES[idx].state : ""}
-        </Pill>
+        <svg width={20} height={20} viewBox="0 0 20 20">
+          <path d="M10 2 V13 M5 9 L10 14 L15 9 M3 18 H17" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Descargar reporte
       </div>
+    </div>
+  );
+};
 
-      {BLOCKS.map((b, bi) => (
-        <div key={b.name} style={{ position: "absolute", left: cx(b.from), top: TRACK + 42, width: cx(b.to) + CW - cx(b.from), display: "flex", flexWrap: "wrap", gap: 10 }}>
-          {CALLOUTS.filter((c) => c.b === bi).map((c) => (
-            <Rise key={c.t} at={c.at} y={12} scaleFrom={0.9}>
-              <Pill size={23} bg={C.white} color={C.ink} border={C.ink}>
-                {c.t}
-              </Pill>
-            </Rise>
-          ))}
+const Alertas: React.FC = () => {
+  const items: [string, string][] = [
+    ["Faltan 90 días", C.blueSoft],
+    ["Faltan 60 días", C.coralSoft],
+    ["Respondida", C.greenSoft],
+  ];
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+      {items.map(([b, bg], i) => (
+        <div key={b} style={{ border: `2px solid ${C.line}`, borderRadius: R.card, height: 116, display: "flex", alignItems: "center", padding: "0 22px", gap: 20, boxSizing: "border-box" }}>
+          <svg width={34} height={34} viewBox="0 0 34 34">
+            <path d="M17 4 C11 4 8 9 8 15 V21 L5 25 H29 L26 21 V15 C26 9 23 4 17 4 Z M13 28 C14 31 20 31 21 28" fill="none" stroke={C.ink} strokeWidth={2.6} strokeLinejoin="round" strokeLinecap="round" />
+          </svg>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 24, fontWeight: 700 }}>Contrato por vencer</div>
+            <div style={{ marginTop: 10 }}>
+              <Bar w={220 + i * 40} />
+            </div>
+          </div>
+          <Badge bg={bg}>{b}</Badge>
+          {i < 2 ? (
+            <div style={{ fontSize: 21, fontWeight: 500, padding: "9px 18px", borderRadius: R.ctl, border: `2px solid ${C.ink}` }}>Responder</div>
+          ) : (
+            <div style={{ width: 132 }} />
+          )}
         </div>
       ))}
+    </div>
+  );
+};
+
+const Historico: React.FC<{ hl: number }> = ({ hl }) => {
+  const rows: [string, string][] = [
+    ["Aprobación de la DAG", "Leída de Ariba"],
+    ["Validación de la ficha", "En la plataforma"],
+    ["Decisión de renovación", "En la plataforma"],
+  ];
+  const head: React.CSSProperties = { ...th, color: hl > 0.5 ? C.ink : C.mute, fontWeight: hl > 0.5 ? 700 : 500 };
+  return (
+    <div>
+      <div style={{ ...row, height: 44 }}>
+        <div style={{ ...th, width: 430 }}>Qué</div>
+        <div style={{ ...head, width: 170 }}>Quién aprobó</div>
+        <div style={{ ...head, width: 130 }}>Cuándo</div>
+        <div style={head}>Por qué</div>
+      </div>
+      {rows.map(([q, src], i) => (
+        <div key={q} style={{ ...row, height: 112 }}>
+          <div style={{ width: 430 }}>
+            <div style={{ fontSize: 24, fontWeight: 700 }}>{q}</div>
+            <div style={{ fontSize: 19, color: C.mute, marginTop: 2 }}>{src}</div>
+          </div>
+          <div style={{ width: 170 }}>
+            <Bar w={110} dark />
+          </div>
+          <div style={{ width: 130 }}>
+            <Bar w={84} />
+          </div>
+          <Bar w={130 - i * 14} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export const S06: React.FC = () => {
+  const t = useSec();
+  let v = 0;
+  VIEWS.forEach((x, i) => {
+    if (t >= x.at) v = i;
+  });
+  const ariba = cue(ID, "Ariba no se reemplaza") - 0.2;
+  const op = (i: number) => (i === v ? prog(t, VIEWS[i].at, 0.35) : 0);
+  return (
+    <Shell
+      id={ID}
+      chapter={2}
+      title="Todo en un solo lugar: la plataforma que diseñaremos"
+      foot="Representación conceptual · el nombre de la plataforma se valida con negocio"
+    >
+      <Rise at={0.3} y={30} dur={0.7} style={{ position: "absolute", left: FX, top: FY }}>
+        <div style={{ width: FW, height: FH, background: C.white, border: `2px solid ${C.line}`, borderRadius: R.panel, overflow: "hidden", boxSizing: "border-box" }}>
+          {/* Barra de aplicación */}
+          <div style={{ height: BAR, borderBottom: `2px solid ${C.line}`, display: "flex", alignItems: "center", padding: "0 22px", gap: 14, boxSizing: "border-box" }}>
+            <div style={{ width: 28, height: 28, borderRadius: 7, background: C.ink }} />
+            <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 25, flex: 1 }}>Gestión de contratos</div>
+            <span style={{ fontSize: 19, color: C.mute }}>Rol: service owner</span>
+            <div style={{ width: 34, height: 34, borderRadius: 17, background: C.line }} />
+          </div>
+          <div style={{ display: "flex", height: FH - BAR }}>
+            {/* Navegación lateral */}
+            <div style={{ width: NAVW, borderRight: `2px solid ${C.line}`, padding: "16px 14px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 4 }}>
+              {NAV.map((n, i) => {
+                const on = VIEWS[v].nav === i;
+                return (
+                  <div
+                    key={n}
+                    style={{
+                      fontSize: 23,
+                      fontWeight: on ? 700 : 500,
+                      color: on ? C.ink : C.text,
+                      background: on ? C.yellow : "transparent",
+                      borderRadius: R.ctl,
+                      padding: "11px 16px",
+                    }}
+                  >
+                    {n}
+                  </div>
+                );
+              })}
+            </div>
+            {/* Contenido */}
+            <div style={{ flex: 1, padding: "20px 28px", position: "relative" }}>
+              {VIEWS.map((x, i) => (
+                <div key={x.title} style={{ position: "absolute", left: 28, right: 28, top: 20, opacity: op(i) }}>
+                  <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 31, marginBottom: 16, height: 42 }}>{x.title}</div>
+                  <div style={{ position: "relative" }}>
+                    {i === 0 ? <Registro /> : null}
+                    {i === 1 ? <Dashboard hl={prog(t, cue(ID, "con descarga"), 0.3)} /> : null}
+                    {i === 2 ? <Alertas /> : null}
+                    {i === 3 ? <Historico hl={prog(t, cue(ID, "quién aprobó"), 0.3)} /> : null}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Rise>
+
+      {/* Acceso y fuente oficial */}
+      <Rise at={0.9} y={20} style={{ position: "absolute", left: 1350, top: FY }}>
+        <Card style={{ width: 460, height: 168, padding: "22px 26px" }}>
+          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 30, lineHeight: 1.12 }}>Se entra con el usuario corporativo</div>
+          <div style={{ fontSize: 25, color: C.text, marginTop: 8, lineHeight: 1.22 }}>Cada persona ve solo lo que le corresponde por su rol.</div>
+        </Card>
+      </Rise>
+      <svg style={{ position: "absolute", left: 0, top: 0, opacity: prog(t, ariba + 0.2, 0.4) }} width={1920} height={1080}>
+        <path d="M1316 640 H1344 M1324 630 L1314 640 L1324 650 M1336 630 L1346 640 L1336 650" fill="none" stroke={C.ink} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <Rise at={ariba} y={20} style={{ position: "absolute", left: 1350, top: FY + 192 }}>
+        <Card style={{ width: 460, height: 374, padding: "24px 26px", borderColor: C.ink }}>
+          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 42, letterSpacing: -0.8 }}>SAP Ariba</div>
+          <div style={{ fontSize: 27, color: C.text, marginTop: 8, lineHeight: 1.24 }}>No se reemplaza: sigue siendo la fuente oficial de los contratos y de sus aprobaciones.</div>
+          <div style={{ fontSize: 25, color: C.text, marginTop: 14, paddingTop: 14, borderTop: `2px solid ${C.line}`, lineHeight: 1.24 }}>
+            La plataforma lo refleja y verifica que cada contrato vigente tenga su PDF ahí.
+          </div>
+          <Rise at={cue(ID, "ahí se sigue")} y={10} style={{ marginTop: 14 }}>
+            <Pill size={23} bg={C.ink} color={C.white}>
+              Ahí se sigue aprobando
+            </Pill>
+          </Rise>
+        </Card>
+      </Rise>
     </Shell>
   );
 };

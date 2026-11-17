@@ -2,15 +2,17 @@ import timing from "../data/timing.json";
 
 export const FPS = 30;
 /** Silencio antes de la locución de cada escena (s). */
-export const LEAD = 0.5;
+export const LEAD = 0.4;
 /** Respiro después de la locución de cada escena (s). */
-export const TAIL = 0.9;
+export const TAIL = 0.6;
 /** Tiempo extra al final del video para leer la decisión (s). */
-export const END_HOLD = 3.5;
+export const END_HOLD = 3;
 
 type Word = { w: string; s: number; e: number };
 type SceneTiming = { id: string; title: string; dur: number; words: Word[] };
 export const SCENES = (timing as { scenes: SceneTiming[] }).scenes;
+/** true mientras no exista la locución real: los tiempos son estimados y no se monta audio de voz. */
+export const PROVISIONAL = Boolean((timing as { provisional?: boolean }).provisional);
 const LAST = SCENES[SCENES.length - 1].id;
 
 const norm = (s: string) =>

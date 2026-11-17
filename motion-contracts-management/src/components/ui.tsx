@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { C, FONT } from "../theme";
+import { C, FONT, R } from "../theme";
 import { prog, Rise, useSec } from "../lib/anim";
 import { captionsOf, sceneSeconds } from "../lib/timing";
 
@@ -29,7 +29,7 @@ export const Shell: React.FC<{
             key={c}
             style={{
               fontSize: 24,
-              fontWeight: i + 1 === chapter ? 700 : 400,
+              fontWeight: i + 1 === chapter ? 700 : 500,
               color: i + 1 === chapter ? C.ink : C.mute,
               background: i + 1 === chapter ? C.yellow : "transparent",
               padding: "8px 18px",
@@ -40,12 +40,12 @@ export const Shell: React.FC<{
           </div>
         ))}
       </div>
-      <div style={{ position: "absolute", right: MX, top: 62, fontSize: 22, color: C.faint, fontFamily: FONT.mono }}>
+      <div style={{ position: "absolute", right: MX, top: 62, fontSize: 22, color: C.mute }}>
         Contracts Management · Finance Tech
       </div>
       <AbsoluteFill style={{ opacity: fade }}>
         <Rise at={0.1} y={18} style={{ position: "absolute", left: MX, top: 128, width: 1700 }}>
-          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 62, lineHeight: 1.08, letterSpacing: -1.2 }}>
+          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 60, lineHeight: 1.1, letterSpacing: -1.2 }}>
             {title}
           </div>
         </Rise>
@@ -80,7 +80,7 @@ export const Captions: React.FC<{ id: string }> = ({ id }) => {
           fontSize: 36,
           lineHeight: 1.25,
           padding: "12px 30px 14px",
-          borderRadius: 16,
+          borderRadius: R.card,
           textAlign: "center",
           textWrap: "balance",
         }}
@@ -96,7 +96,7 @@ export const Card: React.FC<{ style?: React.CSSProperties; children?: React.Reac
     style={{
       background: C.white,
       border: `2px solid ${C.line}`,
-      borderRadius: 20,
+      borderRadius: R.card,
       boxSizing: "border-box",
       ...style,
     }}
@@ -122,7 +122,7 @@ export const Pill: React.FC<{
       color,
       border: border ? `2px solid ${border}` : undefined,
       fontSize: size,
-      fontWeight: 700,
+      fontWeight: 500,
       padding: `${Math.round(size * 0.34)}px ${Math.round(size * 0.75)}px`,
       borderRadius: 999,
       whiteSpace: "nowrap",

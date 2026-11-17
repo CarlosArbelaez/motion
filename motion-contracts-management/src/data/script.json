@@ -9,62 +9,63 @@
     {
       "id": "s01",
       "title": "Apertura",
-      "vo": "Contracts Management Finance Tech. Hoy, el ciclo de vida de un contrato de tecnología no se cierra. Esta propuesta lo cierra: con un solo registro, alertas que se responden, y una decisión siempre registrada."
+      "vo": "Contracts Management Finance Tech. Hoy, el ciclo de vida de un contrato de tecnología no se cierra. Proponemos cerrarlo, con una plataforma donde todo se consulta en un solo lugar."
     },
     {
       "id": "s02",
       "title": "Punto de partida",
-      "vo": "Hoy, cerca de doscientos veinte servicios y ciento setenta contratos de tecnología se siguen con dos archivos de Excel, un correo automático y dos personas. El mismo dato se teclea tres veces: en Ariba y en los dos Excel. Por eso, el dashboard y las alertas pueden mostrar fechas distintas para el mismo contrato."
+      "vo": "Hoy, cerca de doscientos veinte servicios y ciento setenta contratos se siguen con dos archivos de Excel, un correo automático y dos personas. El mismo dato se teclea tres veces. Por eso, el dashboard y las alertas pueden mostrar fechas distintas."
     },
     {
       "id": "s03",
-      "title": "Alertas hoy",
-      "vo": "Cuando un contrato se acerca a su vencimiento, llega un correo cada martes y cada jueves, desde noventa días antes. Son hasta veintiséis correos por contrato, que no se pueden responder ni cerrar. Después del vencimiento, siguen llegando. Y ninguna decisión de renovación queda registrada."
+      "title": "Alertas y riesgo",
+      "vo": "Cada vencimiento genera hasta veintiséis correos, que no se pueden responder ni cerrar. Ninguna decisión de renovación queda registrada. Hay contratos fuera de Ariba, el repositorio oficial. Y nadie responde por el proceso de punta a punta."
     },
     {
       "id": "s04",
-      "title": "Riesgo para el negocio",
-      "vo": "El riesgo no es solo trabajo manual. Hay contratos fuera de Ariba, el repositorio auditable. Hay contratos que vencen sin una decisión. Y nadie responde por el proceso de punta a punta."
+      "title": "El orden de la propuesta",
+      "vo": "La propuesta sigue un orden. Primero, ordenar el proceso. Después, automatizar lo repetitivo. Y solo al final, inteligencia artificial. Porque automatizar un proceso roto solo hace más rápido el error."
     },
     {
       "id": "s05",
-      "title": "El orden de la propuesta",
-      "vo": "La propuesta sigue un orden. Primero, ordenar: reglas escritas, dueños con nombre y un solo registro. Después, automatizar lo repetitivo: calcular fechas, conciliar, avisar y escalar. Y solo al final, inteligencia artificial, donde hay que leer documentos. Porque automatizar un proceso roto solo hace más rápido el error."
+      "title": "El nuevo ciclo",
+      "vo": "Así recorre un contrato el nuevo ciclo. Primero se formaliza: con una sola captura, y la regla escrita decide si requiere contrato. Luego se registra: los datos clave nacen al firmar, los valida una persona, y se cruzan cada día con Ariba. Y después se vigila: con una alerta que exige respuesta y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio."
     },
     {
       "id": "s06",
-      "title": "El nuevo ciclo",
-      "vo": "Así recorre un contrato el nuevo ciclo. Primero se formaliza: la solicitud se captura una sola vez, la regla escrita de la política decide si requiere contrato, y su espacio en Ariba se abre desde el día uno. Luego se registra: los datos clave nacen al firmar, los valida una persona, y se concilian cada día con Ariba. Y después se vigila: con una alerta que exige respuesta y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio."
+      "title": "La plataforma",
+      "vo": "Todo vive en un solo lugar: la plataforma que diseñaremos. Un registro único de servicios y contratos. Un dashboard, con descarga del reporte. Las alertas de cada persona. Y el histórico de aprobaciones: quién aprobó qué, cuándo y por qué. Ariba no se reemplaza: sigue siendo la fuente oficial, y ahí se sigue aprobando."
     },
     {
       "id": "s07",
       "title": "La alerta que exige respuesta",
-      "vo": "La alerta cambia por completo. En lugar de veintiséis correos, una sola tarjeta en Teams, para el dueño del servicio y su líder. Un recordatorio semanal, solo hasta que alguien responde. Si no hay respuesta, escala a los sesenta y a los treinta días. Y toda alerta termina en una decisión: el dueño decide, su líder aprueba, y Procurement confirma."
+      "vo": "La alerta cambia por completo. En lugar de veintiséis correos, una sola alerta, en la plataforma y por correo, para el dueño del servicio y su líder. Si no hay respuesta, escala a los sesenta y a los treinta días. Y siempre termina en una decisión: el dueño decide, su líder aprueba, y Procurement confirma."
     },
     {
       "id": "s08",
       "title": "Tres dueños",
-      "vo": "Para que funcione, tres dueños llenan el vacío de hoy. El dueño del servicio y su líder responden por cada contrato. Procurement, por la cobertura contractual y por Ariba. Y Value Creation, por el seguimiento y la calidad del dato."
+      "vo": "Tres dueños responden por el proceso. El dueño del servicio y su líder, por cada contrato. Procurement, por la cobertura contractual y por Ariba. Y Value Creation, por el seguimiento y la calidad del dato."
     },
     {
       "id": "s09",
       "title": "IA con control",
-      "vo": "La inteligencia artificial llega después, y con límites claros. Lee el contrato y propone sus datos clave, cada uno con la cita de donde sale. Una persona valida todas las fichas antes de publicarlas. La inteligencia artificial no decide, no aprueba, no interpreta cláusulas, ni confirma ahorros."
+      "vo": "La inteligencia artificial llega después, y con límites claros. Lee el contrato y propone sus datos clave, cada uno con su cita. Una persona valida todas las fichas. La inteligencia artificial no decide, no aprueba, ni confirma ahorros."
     },
     {
       "id": "s10",
       "title": "Alcance inicial y evolución",
-      "vo": "El alcance inicial es el producto mínimo viable: las olas cero y uno. Cierra el ciclo sin agentes de inteligencia artificial, con herramientas de Microsoft tres sesenta y cinco que la compañía ya tiene. Después, la ola dos trae la ficha del contrato con inteligencia artificial, empezando con un piloto de veinte contratos. Y la ola tres, la consulta, el resumen de renovación y la búsqueda de servicios similares. Cada ola arranca solo cuando la anterior cumple sus criterios de salida."
+      "vo": "El alcance inicial es el producto mínimo viable: cuatro entregas, sin inteligencia artificial. Los cimientos. El registro único y el dashboard. Las alertas. Y la decisión, con el histórico de aprobaciones. Después, el alta de solicitudes con la regla escrita. Y luego, la inteligencia artificial: la ficha del contrato, con un piloto de veinte contratos, y la consulta. Cada versión arranca cuando la anterior cumple sus criterios de salida."
     },
     {
       "id": "s11",
       "title": "Metas e indicadores",
-      "vo": "Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola tarjeta que exige respuesta. El cien por ciento de los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión antes del preaviso. Y los pasos automáticos del proceso pasan del doce al sesenta y dos por ciento. El impacto de la inteligencia artificial llega después del producto mínimo viable, en las olas dos y tres: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto de veinte contratos."
+      "vo": "Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. El cien por ciento de los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión a tiempo. Y todas las aprobaciones y decisiones, consultables en un solo histórico. El impacto de la inteligencia artificial llega después del producto mínimo viable: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto."
     },
     {
       "id": "s12",
-      "title": "Decisiones",
-      "vo": "Hoy pedimos tres decisiones. Uno: aprobar el diseño del proceso, versión tres punto dos. Dos: aprobar el alcance del producto mínimo viable, sin agentes de inteligencia artificial. Tres: aprobar el modelo de tres dueños y nombrar a sus responsables. Y para fijar el calendario, elegir con cuántas personas se construye. Con su visto bueno, la ola cero arranca el dieciocho de noviembre."
+      "title": "Lo que necesitamos",
+      "vo": "Para arrancar, necesitamos seis definiciones. El visto bueno de la propuesta. Elegir el equipo: con cuatro personas, el producto mínimo viable llegaría hacia marzo; con dos, hacia mayo. Cerrar las reglas de negocio pendientes. Aprobar los tres dueños. Nombrar un responsable para cada dependencia. Y validar el nombre de la plataforma. Con su visto bueno, la primera entrega arranca el veintitrés de noviembre."
     }
-  ]
+  ],
+  "version": "To-Be v4.0"
 }

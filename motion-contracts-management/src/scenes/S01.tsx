@@ -7,7 +7,7 @@ import { MX, Pill } from "../components/ui";
 
 const ID = "s01";
 const TITLE = ["Contracts", "Management", "Finance Tech"];
-const PROMISES = ["Un solo registro", "Alertas que se responden", "Una decisión siempre registrada"];
+const PROMISES = ["Un solo registro", "Alertas que exigen respuesta", "Histórico de cada aprobación y decisión"];
 const NODES: { x: number; y: number; name: string; sub: string; side: "top" | "bottom" | "left" | "right" }[] = [
   { x: 1350, y: 310, name: "Solicitud", sub: "regla escrita", side: "top" },
   { x: 1550, y: 310, name: "Negociación", sub: "Legal", side: "top" },
@@ -23,8 +23,8 @@ const RING = "M1090,500 A190,190 0 0 1 1280,310 L1620,310 A190,190 0 0 1 1620,69
 const Ring: React.FC = () => {
   const t = useSec();
   const open = prog(t, cue(ID, "el ciclo de vida") - 0.3, 2.2) * 0.9; // se dibuja, pero no cierra
-  const close = prog(t, cue(ID, "lo cierra"), 0.9) * 0.1; // la propuesta lo cierra
-  const closed = prog(t, cue(ID, "lo cierra") + 0.7, 0.4);
+  const close = prog(t, cue(ID, "cerrarlo"), 0.9) * 0.1; // la propuesta lo cierra
+  const closed = prog(t, cue(ID, "cerrarlo") + 0.7, 0.4);
   return (
     <AbsoluteFill>
       <svg width={1920} height={1080}>
@@ -40,7 +40,7 @@ const Ring: React.FC = () => {
       </svg>
       {NODES.map((n, i) => {
         const isLast = i === NODES.length - 1;
-        const at = isLast ? cue(ID, "lo cierra") + 0.7 : cue(ID, "el ciclo de vida") + i * 0.3;
+        const at = isLast ? cue(ID, "cerrarlo") + 0.7 : cue(ID, "el ciclo de vida") + i * 0.3;
         const pos: React.CSSProperties =
           n.side === "top"
             ? { left: n.x - 150, top: n.y - 92, width: 300, textAlign: "center" }
@@ -57,12 +57,12 @@ const Ring: React.FC = () => {
         );
       })}
       <div style={{ position: "absolute", left: 1300, top: 452, width: 320, textAlign: "center", fontFamily: FONT.head, fontWeight: 600, fontSize: 40, lineHeight: 1.1 }}>
-        <div style={{ opacity: prog(t, cue(ID, "no se cierra") - 0.2, 0.4) * (1 - prog(t, cue(ID, "lo cierra"), 0.3)), position: "absolute", width: "100%" }}>
+        <div style={{ opacity: prog(t, cue(ID, "no se cierra") - 0.2, 0.4) * (1 - prog(t, cue(ID, "cerrarlo"), 0.3)), position: "absolute", width: "100%" }}>
           Hoy el ciclo
           <br />
           no se cierra
         </div>
-        <div style={{ opacity: prog(t, cue(ID, "lo cierra") + 0.4, 0.4), position: "absolute", width: "100%" }}>
+        <div style={{ opacity: prog(t, cue(ID, "cerrarlo") + 0.4, 0.4), position: "absolute", width: "100%" }}>
           El ciclo
           <br />
           se cierra
@@ -85,21 +85,21 @@ export const S01: React.FC = () => {
         <div style={{ position: "absolute", left: MX, top: 230 }}>
           {TITLE.map((l, i) => (
             <Rise key={l} at={at[i]} y={40} dur={0.7}>
-              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 138, lineHeight: 1.02, letterSpacing: -4.5 }}>{l}</div>
+              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 132, lineHeight: 1.04, letterSpacing: -4 }}>{l}</div>
             </Rise>
           ))}
         </div>
         <div style={{ position: "absolute", left: MX, top: 700, width: 940, display: "flex", flexWrap: "wrap", gap: 14 }}>
           {PROMISES.map((p, i) => (
-            <Rise key={p} at={cue(ID, ["un solo registro", "alertas que se", "una decisión siempre"][i])} y={16} scaleFrom={0.92}>
-              <Pill size={30} bg={C.ink} color={C.yellow}>
+            <Rise key={p} at={cue(ID, ["con una plataforma", "todo se consulta", "un solo lugar"][i])} y={16}>
+              <Pill size={30} bg={C.ink} color={C.white}>
                 {p}
               </Pill>
             </Rise>
           ))}
         </div>
         <Rise at={0.6} y={0} style={{ position: "absolute", left: MX, top: 866, fontSize: 24, color: "rgba(20,22,26,0.75)" }}>
-          Propuesta To-Be v3.2 · para Vo.Bo. del negocio
+          Propuesta To-Be v4.0 · para Vo.Bo. del negocio
         </Rise>
         <Ring />
       </AbsoluteFill>

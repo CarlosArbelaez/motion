@@ -2,13 +2,13 @@ import React from "react";
 import { AbsoluteFill, interpolate, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { Audio } from "@remotion/media";
 import { Captions } from "./components/ui";
-import { cue, LEAD, sceneFrames, SCENES, sceneOf, sceneStartFrame, TOTAL_FRAMES } from "./lib/timing";
+import { cue, LEAD, PROVISIONAL, sceneFrames, SCENES, sceneOf, sceneStartFrame, TOTAL_FRAMES } from "./lib/timing";
 import { S01 } from "./scenes/S01";
 import { S02 } from "./scenes/S02";
 import { S03 } from "./scenes/S03";
 import { S04 } from "./scenes/S04";
-import { S05 } from "./scenes/S05";
-import { ARRIVE, S06 } from "./scenes/S06";
+import { ARRIVE, S05 } from "./scenes/S05";
+import { S06 } from "./scenes/S06";
 import { S07 } from "./scenes/S07";
 import { S08 } from "./scenes/S08";
 import { S09 } from "./scenes/S09";
@@ -35,33 +35,34 @@ export const SCENE_COMPONENTS: Record<string, React.FC> = {
 type Sfx = [string, number, string, number];
 const at = (id: string, phrases: string[], file: string, vol: number, offset = 0): Sfx[] =>
   phrases.map((p) => [id, cue(id, p) + offset, file, vol]);
-const mailStart = cue("s03", "llega un correo");
-const mailEnd = cue("s03", "veintiséis") + 0.5;
+const mailStart = cue("s03", "Cada vencimiento") + 0.3;
+const mailEnd = cue("s03", "veintiséis") + 0.9;
 const SFX: Sfx[] = [
-  ...at("s01", ["un solo registro", "alertas que se", "una decisión siempre"], "pop", 0.16),
-  ...at("s01", ["lo cierra"], "chime", 0.2, 0.7),
+  ...at("s01", ["con una plataforma", "todo se consulta", "un solo lugar"], "pop", 0.16),
+  ...at("s01", ["cerrarlo"], "chime", 0.2, 0.7),
   ...at("s02", ["doscientos veinte", "ciento setenta", "dos archivos", "un correo", "dos personas"], "pop", 0.13, -0.15),
-  ...at("s02", ["en Ariba", "los dos Excel"], "tick", 0.3),
-  ...at("s02", ["los dos Excel"], "tick", 0.3, 0.55),
+  ...at("s02", ["el mismo dato"], "tick", 0.3, 0.3),
+  ...at("s02", ["tres veces"], "tick", 0.3, -0.2),
+  ...at("s02", ["tres veces"], "tick", 0.3, 0.4),
   ...at("s02", ["fechas distintas"], "thud", 0.2),
-  ...Array.from({ length: 26 }).map((_, i): Sfx => ["s03", mailStart + (i / 26) * (mailEnd - mailStart), "tick", 0.12]),
-  ...at("s03", ["Después del vencimiento"], "ding", 0.1, 0.2),
-  ...at("s03", ["ninguna decisión"], "thud", 0.22),
-  ...at("s04", ["Hay contratos fuera", "Hay contratos que", "nadie responde"], "thud", 0.18, -0.1),
-  ...at("s05", ["Primero", "Después", "Y solo al final"], "pop", 0.18, -0.1),
-  ...ARRIVE.map((a): Sfx => ["s06", a, "tick", 0.3]),
-  ...at("s06", ["vuelve"], "chime", 0.2, 0.9),
-  ...at("s07", ["una sola tarjeta"], "pop", 0.2, -0.1),
+  ...Array.from({ length: 13 }).map((_, i): Sfx => ["s03", mailStart + (i / 13) * (mailEnd - mailStart), "tick", 0.12]),
+  ...at("s03", ["Ninguna decisión", "Hay contratos fuera", "nadie responde"], "thud", 0.18, -0.1),
+  ...at("s04", ["Primero", "Después", "Y solo al final"], "pop", 0.18, -0.1),
+  ...ARRIVE.map((a): Sfx => ["s05", a, "tick", 0.3]),
+  ...at("s05", ["vuelve"], "chime", 0.2, 0.9),
+  ...at("s06", ["Un dashboard", "Las alertas", "el histórico"], "tick", 0.3, -0.2),
+  ...at("s06", ["Ariba no se reemplaza"], "pop", 0.18, -0.2),
+  ...at("s07", ["una sola alerta"], "pop", 0.2, -0.1),
   ...at("s07", ["sesenta", "treinta"], "ding", 0.1),
   ...at("s07", ["el dueño decide", "su líder aprueba", "Procurement confirma"], "pop", 0.15, -0.1),
   ...at("s07", ["Procurement confirma"], "chime", 0.18, 0.5),
   ...at("s08", ["El dueño del servicio", "Procurement", "Value Creation"], "pop", 0.18, -0.1),
-  ...at("s09", ["Lee el contrato", "propone", "Una persona", "antes de publicarlas"], "pop", 0.14, -0.1),
-  ...at("s09", ["no decide", "no aprueba", "no interpreta", "ni confirma"], "thud", 0.14, -0.1),
-  ...at("s10", ["producto mínimo", "Después", "Y la ola tres"], "pop", 0.16, -0.2),
-  ...at("s10", ["Cada ola"], "chime", 0.16),
-  ...at("s11", ["De tres", "De veintiséis", "El cien", "Al menos", "Y los pasos", "El impacto"], "pop", 0.15, -0.15),
-  ...at("s12", ["Uno: aprobar", "Dos: aprobar", "Tres: aprobar"], "pop", 0.2, -0.15),
+  ...at("s09", ["Lee el contrato", "propone", "Una persona"], "pop", 0.14, -0.1),
+  ...at("s09", ["no decide", "no aprueba", "ni confirma"], "thud", 0.14, -0.1),
+  ...at("s10", ["Los cimientos", "El registro único", "Las alertas", "Y la decisión", "Después", "la ficha del contrato", "y la consulta"], "pop", 0.15, -0.1),
+  ...at("s10", ["Cada versión"], "chime", 0.16),
+  ...at("s11", ["De tres", "De veintiséis", "El cien", "Al menos", "Y todas", "El impacto"], "pop", 0.15, -0.15),
+  ...at("s12", ["El visto bueno", "Elegir el equipo", "Cerrar las reglas", "Aprobar los tres", "Nombrar un responsable", "Y validar"], "pop", 0.18, -0.15),
   ...at("s12", ["Con su visto bueno"], "chime", 0.24, 1.1),
 ];
 
@@ -91,9 +92,11 @@ export const ContractsVideo: React.FC<{ showCaptions: boolean }> = ({ showCaptio
           <Sequence key={s.id} name={`${s.id} · ${s.title}`} from={sceneStartFrame(s.id)} durationInFrames={sceneFrames(s.id)}>
             <Comp />
             {showCaptions ? <Captions id={s.id} /> : null}
-            <Sequence name="Locución" from={Math.round(LEAD * fps)} layout="none">
-              <Audio src={staticFile(`assets/voice/${s.id}.mp3`)} volume={1} />
-            </Sequence>
+            {PROVISIONAL ? null : (
+              <Sequence name="Locución" from={Math.round(LEAD * fps)} layout="none">
+                <Audio src={staticFile(`assets/voice/${s.id}.mp3`)} volume={1} />
+              </Sequence>
+            )}
           </Sequence>
         );
       })}

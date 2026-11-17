@@ -1,73 +1,65 @@
-# Fuentes y clasificación de las afirmaciones
+# Fuentes y clasificación de las afirmaciones (To-Be v4.0)
 
 ## Documentos leídos
 
 | Abrev. | Documento | Uso |
 |---|---|---|
-| **PRE** | `Contracts_Management_Finance_Tech_Propuesta_ToBe_v3.2.pdf` (lectura previa, 19 págs.) | Fuente principal de cifras, metas y decisiones |
-| **TOBE** | `TO-BE_Contracts_Management_Finance_Tech.md` (v3.2, 11-nov-2026, "En revisión") | Detalle del proceso, estados, reglas |
-| **EJE** | `Contracts_Management_Finance_Tech_Presentacion_Ejecutiva_v3.2.pptx` (16 láminas; son imágenes, con notas) | Narrativa, identidad visual |
-| **SES** | `Session_Contracts_Management_Finance_Tech_Propuesta_v3.2.pptx` (7 láminas editables) | Paleta y tipografías declaradas, escenarios A/B |
+| **PRE** | `Contracts_Management_Finance_Tech_Propuesta_ToBe_v4.0.pdf` (lectura previa, 22 págs., 17-nov-2026) | Fuente principal |
+| **SES** | `Contracts_Management_Finance_Tech_Propuesta_v4.0.pptx` (7 láminas) | Narrativa, peticiones de la sesión |
+| **TOBE** | `TO-BE_Contracts_Management_Finance_Tech.md` (v4.0, "En revisión") | Detalle del proceso |
+| **ARQ** | Plano de arquitectura (imagen) | Leído; no se usa en el video por decisión editorial |
 
-Estado de la iniciativa en todas las fuentes: **propuesta de consultoría para Vo.Bo.** del 17-nov-2026.
+Las tres fuentes coinciden entre sí (peticiones, fechas y cifras). Estado de la iniciativa: **propuesta para Vo.Bo.**
+del 19-nov-2026, con inicio previsto el 23-nov-2026.
 
-## Clasificación (lo que dice el video y cómo se presenta)
+## Clasificación
 
 | Escena | Afirmación | Tipo | Fuente |
 |---|---|---|---|
-| 2 | ~220 servicios y ~170 contratos | Hecho documentado (**cifras declaradas**, así se rotula) | PRE §1.1 · TOBE ficha |
-| 2 | Dos Excel, un correo automático y dos personas | Hecho documentado | PRE resumen ejecutivo |
-| 2 | El mismo dato se captura 3 veces (Ariba y dos Excel) | Hecho documentado | PRE §1.3 |
-| 2 | Dashboard y alertas pueden mostrar fechas distintas | Hecho documentado (riesgo, no caso medido; se muestra como "fecha A ≠ fecha B", sin fechas inventadas) | PRE §1.3 |
-| 3 | Correo martes y jueves desde 90 días antes; hasta ~26 por contrato; sin acuse ni cierre; sigue como "Urgente: vencido" | Hecho documentado | PRE §1.4 |
-| 3 | 0 decisiones de renovación registradas ("el ciclo nunca registra una decisión") | Hecho documentado | PRE §1.2 · SES lám. 1 |
-| 4 | Contratos fuera de Ariba / en correos de exempleados; vencidos sin decisión; sin dueño desde Vendor Management | Hecho documentado | PRE §1.5 · SES lám. 1 |
-| 5 | Orden optimizar → automatizar → agentizar; 10 cambios, 8 automatizaciones, 5 agentes | Hecho documentado (diseño de la propuesta) | PRE §2.1–2.5 |
-| 6 | 3 bloques, 7 fases, 37 tarjetas, 7 compuertas; estados del contrato | Hecho documentado (diseño) | PRE §3.1, §3.9 |
-| 7 | Tarjeta en Teams con tres botones, recordatorio semanal, escalamiento a 60 y 30 días | Hecho documentado (diseño) | PRE §3.6 |
-| 7 | Preaviso de 90 días por defecto | **Condición**: lo fija una política de Value Creation, aún por definir (P18) | PRE §3.4, §6.5 |
-| 8 | Modelo de tres dueños | **Propuesta por aprobar** en el Vo.Bo. (así se rotula) | PRE §2.3 |
-| 9 | La IA propone con cita; una persona valida todas las fichas; límites de la IA | Hecho documentado (diseño) | PRE §2.5, §3.4 |
-| 9 | La IA llega en Olas 2 y 3 | Alcance futuro, no inicial | PRE §5, §6.2 |
-| 10 | MVP = Olas 0 y 1, sin agentes de IA, sobre Microsoft 365 | Alcance inicial propuesto | PRE §5 |
-| 10 | Ola 2: piloto de 20 contratos; aval de Seguridad y Compliance | **Condición** | PRE §6.2, §6.3 · SES lám. 4 |
-| 10 | Una ola arranca cuando la anterior cumple su salida | **Condición** | PRE §6.2 |
-| 11 | 3 → 1 capturas · ~26 → 1 aviso · 100 % vigentes con PDF en Ariba · ≥ 95 % alertas con decisión | **Metas** (rotuladas META) | PRE §3.12 |
-| 11 | 12 % → 62 % de pasos no humanos (4 de 34; 56 de 90) | **Característica del diseño**, no resultado medido (rotulada DISEÑO; "mide pasos, no horas") | PRE §4.1 |
-| 11 | El impacto de la IA (reducir el tiempo de lectura, captura y validación) llega después del MVP, en las Olas 2 y 3; su meta se fija con un piloto de 20 contratos | **Beneficio cualitativo documentado**, sin cifra; la meta queda sujeta al piloto (TL7) | PRE §3.4, §3.12 · SES lám. 5 |
-| 12 | Tres decisiones: diseño, alcance del MVP, gobierno | Decisión solicitada | PRE §7 · EJE lám. 2 y 16 |
-| 12 | Elegir el equipo; MVP hacia fines de enero de 2027 (4 personas) o mediados de marzo (2) | **Estimación** preliminar, por validar con el Tech Lead (así se rotula) | SES lám. 6 y 7 |
-| 12 | La Ola 0 arranca el 18 de noviembre | **Condición**: sujeta al Vo.Bo. | PRE §7 |
+| 2 | ~220 servicios y ~170 contratos | Hecho documentado (**cifras declaradas**) | PRE §1.1 |
+| 2 | Dos Excel, un correo y dos personas; el dato se captura 3 veces; fechas distintas posibles | Hecho documentado | PRE resumen, §1.3 |
+| 3 | Hasta ~26 correos por contrato, sin respuesta ni cierre; siguen tras el vencimiento | Hecho documentado | PRE §1.4 |
+| 3 | Ninguna decisión de renovación registrada; contratos fuera de Ariba; proceso sin dueño | Hecho documentado | PRE §1.2, §1.5 |
+| 4 | Orden optimizar → automatizar → agentizar; 10 cambios, 8 automatizaciones dentro de la plataforma, 5 agentes | Diseño de la propuesta | PRE §2.1–2.5 |
+| 5 | 3 bloques, 7 fases, 37 tarjetas, 7 compuertas; estados del contrato; se aprueba en Ariba | Diseño de la propuesta | PRE §3.1, §3.9 · SES lám. 2 |
+| 6 | Plataforma propia con registro, dashboard con descarga, alertas, decisiones e histórico de aprobaciones; entrada con usuario corporativo y permisos por rol | Diseño de la propuesta (**por construir**) | PRE §3.10 · SES lám. 2 |
+| 6 | Ariba sigue siendo la fuente oficial y ahí se aprueba; la plataforma lo refleja y verifica el PDF | Diseño de la propuesta | PRE resumen, §3.10–3.11 |
+| 7 | Alerta en la plataforma y por correo; tres botones; recordatorio semanal; escalamiento a 60 y 30 días | Diseño de la propuesta | PRE §3.6 |
+| 7 | Preaviso de 90 días por defecto | **Condición**: política de Value Creation por definir (P18) | PRE §3.4, §6.5 |
+| 8 | Modelo de tres dueños | **Propuesta por aprobar** en el Vo.Bo. | PRE §2.3 |
+| 9 | La IA propone con cita; una persona valida todas las fichas; límites de la IA | Diseño de la propuesta | PRE §2.5, §3.4 |
+| 10 | MVP = v0.1.0 a v1.0.0, sin IA; v1.1.0 alta con la regla; v1.2.0 y v1.3.0 con IA | Alcance propuesto | PRE §5, §6.2 |
+| 10 | Piloto de 20 contratos; una versión arranca cuando la anterior cumple su salida | **Condición** | PRE §3.4, §6.2 |
+| 11 | 3 → 1 · ~26 → 1 · 100 % con PDF en Ariba · ≥ 95 % de alertas con decisión · 100 % de aprobaciones y decisiones en un histórico | **Metas** | PRE §3.13 |
+| 11 | 12 % → 63 % de pasos no humanos (4 de 34; 57 de 91) | **Característica del diseño**, no resultado medido (va al pie) | PRE §4.1 |
+| 11 | Impacto de la IA: reducir tiempo de lectura, captura y validación; meta tras el piloto | **Beneficio cualitativo**, sin cifra (TL7) | PRE §3.4, §3.13 |
+| 12 | Seis peticiones de la sesión | Decisión solicitada | PRE §7 · SES lám. 7 |
+| 12 | MVP ~1-mar-2027 con 4 personas o ~10-may-2027 con 2 | **Estimación** preliminar, por validar con el Tech Lead | PRE §6.2 · SES lám. 6 |
+| 12 | La primera entrega (v0.1.0) arranca el 23 de noviembre | **Condición**: sujeta al Vo.Bo. | PRE §7 |
 
-No hay **resultados medidos** en las fuentes (la iniciativa no se ha implementado) y el video no presenta ninguno.
+No hay **resultados medidos** en las fuentes y el video no presenta ninguno.
 
 ## Lo que se dejó fuera a propósito
 
-- **Antecedente de ~USD 600.000** en consolidación on-site: las fuentes insisten en que es un caso pasado, no una meta ni un ahorro comprometido. Se omitió para que no se lea como promesa.
-- **Duraciones por ola** ("~3", "~6–8 semanas") y "MVP en unas 9 a 11 semanas": ver la discrepancia de abajo.
+- **Arquitectura técnica** (Postgres, LangGraph, BrewDat, hospedaje): tema del Tech Lead.
+- **Nombre provisional** "BrewTech New Platform": se dice "la plataforma que diseñaremos".
+- **Costos**: se calculan al aprobar el To-Be y elegir el escenario; van en la presentación.
+- **Antecedente de ~USD 600.000**: caso pasado, no meta ni ahorro comprometido.
 - **Nombres propios** del equipo: el video habla de roles.
-- Detalle de umbrales de la DAG, bandas de aprobación y arquitectura de tres capas: están en la lectura previa.
-
-## Discrepancia entre fuentes (resuelta de forma conservadora)
-
-- **PRE y EJE** piden **tres decisiones** y describen el MVP como "unas 9 a 11 semanas" (orden de magnitud).
-- **SES** (el archivo más reciente, 11-nov 22:20 UTC) pide **cinco cosas** — las mismas tres, más elegir el Escenario A o B
-  y cerrar reglas y responsables de dependencias — y estima el MVP en ~10 semanas con 4 personas (~27-ene-2027)
-  o ~17 semanas con 2 (~17-mar-2027), como **estimación preliminar pendiente de validar con el Tech Lead**.
-
-Cómo quedó en el video: las **tres decisiones** comunes a todas las fuentes son el llamado a la acción; la elección del
-equipo aparece como cuarto punto "para fijar el calendario", con las fechas de SES rotuladas como estimación preliminar.
-No se afirma "9 a 11 semanas". Si la sesión va a usar solo una de las dos versiones, basta editar `src/scenes/S12.tsx`.
-
-## Identidad visual
-
-- **Colores:** tomados de los valores del tema de las presentaciones (`F5E003` amarillo, `14161A` tinta, `591B9D` morado para IA, grises `525966`/`666F80`/`E0E2E6`).
-- **Logotipo:** las fuentes no incluyen ninguno; el video no usa ni reconstruye logotipos.
-- **Tipografía — PROVISIONAL:** las presentaciones declaran **Avantt** (títulos) y **Satoshi** (texto), pero no vienen
-  incrustadas y no se pudieron obtener en este entorno. Se usan sustitutos de licencia abierta: **Outfit**, **DM Sans** y
-  **DM Mono**. Para usar las oficiales: copiar sus `.woff2` a `public/assets/fonts/` y cambiar las rutas en `src/theme.ts`.
+- Fechas de "To-Be completo" (~17-may y ~20-sep-2027) y semanas-persona: detalle de la presentación.
 
 ## Terminología
 
-- En el video se usa **"respuesta"** en lugar de "acuse" (término de las fuentes): significa que el dueño del servicio
-  oprime cualquier botón de la tarjeta, lo que detiene los recordatorios. Cambio pedido para facilitar la comprensión.
+- **"Respuesta"** en lugar de "acuse" (término de las fuentes): el dueño del servicio oprime cualquier botón de la
+  alerta, lo que detiene los recordatorios.
+
+## Identidad visual
+
+- **Sistema de diseño de AB InBev** (artefacto "AB InBev Design System", sincronizado desde `ux-react-designsystem`).
+- **Tipografía oficial:** Avantt (display en bold, títulos en semibold) y Satoshi (texto), con los archivos del sistema.
+- **Color:** roles del tema claro (`colors-status-brand-base`, `colors-text-*`, `colors-background-*`, estados de
+  éxito, error e información). El amarillo de marca se usa como señalador (elemento activo o acción principal).
+- **Superficies planas:** sin degradados ni sombras; jerarquía por peso tipográfico y una línea fina.
+- **Excepciones declaradas:** las portadas amarillas de apertura y cierre siguen las presentaciones de la propuesta;
+  el morado para "versiones con IA" es el código de color de esas presentaciones, no un rol del sistema.
+- **Logotipo:** el sistema no incluye un logotipo corporativo completo; el video no usa ni reconstruye ninguno.

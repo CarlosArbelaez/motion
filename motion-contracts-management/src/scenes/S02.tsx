@@ -26,7 +26,7 @@ const FY = 492;
 
 const Token: React.FC = () => {
   const t = useSec();
-  const stops = [cue(ID, "el mismo dato"), cue(ID, "en Ariba"), cue(ID, "los dos Excel"), cue(ID, "los dos Excel") + 0.55];
+  const stops = [cue(ID, "el mismo dato") - 0.4, cue(ID, "el mismo dato") + 0.3, cue(ID, "tres veces") - 0.2, cue(ID, "tres veces") + 0.4];
   let x = bx(0);
   stops.slice(1).forEach((s, i) => {
     x += (bx(i + 1) - bx(i)) * prog(t, s - 0.25, 0.55);
@@ -40,8 +40,8 @@ const Token: React.FC = () => {
 
 export const S02: React.FC = () => {
   const t = useSec();
-  const flowAt = cue(ID, "el mismo dato") - 0.5;
-  const capAt = [cue(ID, "en Ariba"), cue(ID, "los dos Excel"), cue(ID, "los dos Excel") + 0.55];
+  const flowAt = cue(ID, "el mismo dato") - 1.0;
+  const capAt = [cue(ID, "el mismo dato") + 0.3, cue(ID, "tres veces") - 0.2, cue(ID, "tres veces") + 0.4];
   const diff = cue(ID, "fechas distintas") - 0.4;
   return (
     <Shell
@@ -54,7 +54,7 @@ export const S02: React.FC = () => {
         {STATS.map((s) => (
           <Rise key={s.l} at={cue(ID, s.c) - 0.15} y={20}>
             <Card style={{ width: 324, height: 116, padding: "14px 24px", display: "flex", alignItems: "center", gap: 16 }}>
-              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 64, letterSpacing: -2 }}>{s.n}</div>
+              <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 60, letterSpacing: -2 }}>{s.n}</div>
               <div style={{ fontSize: 27, color: C.text, lineHeight: 1.15 }}>{s.l}</div>
             </Card>
           </Rise>
@@ -80,18 +80,19 @@ export const S02: React.FC = () => {
         </React.Fragment>
       ))}
       {capAt.map((a, i) => (
-        <Rise key={i} at={a} y={0} scaleFrom={0.3} dur={0.45} style={{ position: "absolute", left: bx(i + 1) - 22, top: FY - 26 }}>
+        <Rise key={i} at={a} y={0} dur={0.45} style={{ position: "absolute", left: bx(i + 1) - 22, top: FY - 26 }}>
           <div
             style={{
               width: 56,
               height: 56,
               borderRadius: 28,
-              background: C.yellow,
+              background: C.ink,
+              color: C.white,
               border: `3px solid ${C.ink}`,
               boxSizing: "border-box",
               fontFamily: FONT.head,
-              fontWeight: 700,
-              fontSize: 32,
+              fontWeight: 600,
+              fontSize: 30,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -113,16 +114,16 @@ export const S02: React.FC = () => {
         <path d={`M${bx(4) + BW / 2} ${FY + 170} V 778`} stroke={C.red} strokeWidth={3} strokeDasharray="6 8" fill="none" />
       </svg>
       <Rise at={diff + 0.1} y={14} style={{ position: "absolute", left: bx(2) - 40, top: 778, width: BW + 80 }}>
-        <div style={{ border: `3px solid ${C.red}`, background: C.white, borderRadius: 14, padding: "12px 18px", fontSize: 27, textAlign: "center" }}>
+        <div style={{ border: `3px solid ${C.red}`, background: C.white, borderRadius: 10, padding: "12px 18px", fontSize: 27, textAlign: "center" }}>
           Alertas: <b>fecha A</b>
         </div>
       </Rise>
       <Rise at={diff + 0.25} y={14} style={{ position: "absolute", left: bx(4) - 80, top: 778, width: BW + 80 }}>
-        <div style={{ border: `3px solid ${C.red}`, background: C.white, borderRadius: 14, padding: "12px 18px", fontSize: 27, textAlign: "center" }}>
+        <div style={{ border: `3px solid ${C.red}`, background: C.white, borderRadius: 10, padding: "12px 18px", fontSize: 27, textAlign: "center" }}>
           Dashboard: <b>fecha B</b>
         </div>
       </Rise>
-      <Rise at={diff + 0.45} y={0} scaleFrom={0.5} style={{ position: "absolute", left: bx(3) + 40, top: 768, width: 210, textAlign: "center" }}>
+      <Rise at={diff + 0.45} y={0} style={{ position: "absolute", left: bx(3) + 40, top: 768, width: 210, textAlign: "center" }}>
         <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 64, color: C.red, lineHeight: 1 }}>≠</div>
       </Rise>
     </Shell>
