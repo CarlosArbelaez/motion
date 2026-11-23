@@ -8,6 +8,6 @@
 import { Config } from "@remotion/cli/config";
 
 Config.setRspack(true);
-Config.setVideoImageFormat("jpeg");
+Config.setVideoImageFormat("png"); // PNG → salida yuv420p estándar
 Config.setOverwriteOutput(true);
 Config.setDefaultPremountInSeconds(2);
