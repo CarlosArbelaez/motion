@@ -1,0 +1,45 @@
+{
+  "name": "motion-lumina",
+  "version": "1.0.0",
+  "description": "Motion graphic ejecutivo de LÚMINA (Remotion)",
+  "repository": {},
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@fontsource/barlow-semi-condensed": "^5.3.0",
+    "@fontsource/work-sans": "^5.3.0",
+    "@remotion/cli": "4.0.546",
+    "@remotion/fonts": "4.0.546",
+    "@remotion/media": "4.0.546",
+    "@remotion/transitions": "4.0.546",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.546",
+    "@remotion/bundler": "4.0.546",
+    "@remotion/renderer": "4.0.546"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.546",
+    "@types/react": "19.3.0",
+    "@types/web": "0.0.166",
+    "eslint": "10.15.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "render": "remotion render Lumina Renders/lumina_Final.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p --crf=18 ${REMOTION_BROWSER:+--browser-executable=$REMOTION_BROWSER}",
+    "previews": "node scripts/previews.mjs",
+    "captions": "node scripts/make_captions.mjs",
+    "audio": "python3 scripts/make_audio.py 128.4"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}

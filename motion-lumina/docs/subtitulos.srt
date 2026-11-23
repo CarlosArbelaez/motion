@@ -1,0 +1,193 @@
+1
+00:00:01,500 --> 00:00:02,100
+Lúmina.
+
+2
+00:00:02,140 --> 00:00:05,770
+Transformamos oportunidades
+en crecimiento.
+
+3
+00:00:05,900 --> 00:00:09,450
+Lúmina es un proyecto de Growth
+para el canal tradicional.
+
+4
+00:00:09,500 --> 00:00:13,540
+Su foco: adquirir,
+activar y retener clientes
+
+5
+00:00:13,580 --> 00:00:16,580
+para impulsar la Distribución
+Numérica de Bavaria.
+
+6
+00:00:16,620 --> 00:00:18,140
+El reto es claro:
+
+7
+00:00:18,180 --> 00:00:21,260
+que cada cliente nuevo
+haga su primera compra
+
+8
+00:00:21,300 --> 00:00:23,100
+que compre de forma recurrente
+
+9
+00:00:23,140 --> 00:00:24,650
+y que no se fugue.
+
+10
+00:00:24,700 --> 00:00:27,290
+Por eso trabajamos en dos frentes.
+
+11
+00:00:27,340 --> 00:00:30,100
+En adquisición,
+identificamos oportunidades
+
+12
+00:00:30,140 --> 00:00:34,330
+y gestionamos la creación de nuevos
+clientes a través de Onboard.
+
+13
+00:00:34,380 --> 00:00:37,140
+Uno o dos días después,
+cargamos promociones
+
+14
+00:00:37,180 --> 00:00:39,250
+para incentivar la primera compra.
+
+15
+00:00:39,290 --> 00:00:43,060
+Y aseguramos una visita de
+seguimiento al mes siguiente.
+
+16
+00:00:43,100 --> 00:00:45,900
+En retención, un algoritmo
+identifica cambios
+
+17
+00:00:45,940 --> 00:00:48,580
+en el comportamiento de
+compra de los clientes.
+
+18
+00:00:48,620 --> 00:00:52,580
+Con esa señal, habilitamos
+estrategias comerciales diferenciales
+
+19
+00:00:52,620 --> 00:00:55,300
+como promociones cargadas mediante GPO
+
+20
+00:00:55,340 --> 00:00:58,330
+para prevenir la fuga
+y promover la recompra.
+
+21
+00:00:58,540 --> 00:01:00,580
+En total, son cinco actividades
+
+22
+00:01:00,620 --> 00:01:04,380
+que cubren el 360 de nuestro
+universo de clientes:
+
+23
+00:01:04,420 --> 00:01:06,420
+promociones para clientes nuevos
+
+24
+00:01:06,460 --> 00:01:08,060
+visita de seguimiento
+
+25
+00:01:08,100 --> 00:01:11,220
+tareas comerciales para los
+representantes de ventas
+
+26
+00:01:11,260 --> 00:01:12,540
+promociones churn
+
+27
+00:01:12,580 --> 00:01:16,570
+y comunicaciones personalizadas
+dentro de la aplicación BEES.
+
+28
+00:01:16,780 --> 00:01:20,490
+Nuestro diferencial:
+visibilidad y seguimiento.
+
+29
+00:01:20,540 --> 00:01:22,900
+Un dashboard que se actualiza a diario
+
+30
+00:01:22,940 --> 00:01:26,620
+y reúne creación, activación, retención
+
+31
+00:01:26,660 --> 00:01:29,220
+comportamiento de compra, ejecución
+
+32
+00:01:29,260 --> 00:01:31,300
+logística y servicio.
+
+33
+00:01:31,340 --> 00:01:34,500
+Esta visibilidad permite
+identificar rápidamente
+
+34
+00:01:34,540 --> 00:01:36,620
+dónde hay problemas o stoppers
+
+35
+00:01:36,660 --> 00:01:39,540
+hacer seguimiento a la
+gestión de la fuerza de ventas
+
+36
+00:01:39,580 --> 00:01:42,300
+detectar lo que impide la
+activación de un cliente
+
+37
+00:01:42,340 --> 00:01:46,180
+y encontrar oportunidades de
+mejora en la operación logística.
+
+38
+00:01:46,220 --> 00:01:49,810
+Todo, con información
+actualizada para tomar decisiones
+
+39
+00:01:49,850 --> 00:01:53,700
+y trazabilidad de los resultados
+de adquisición y retención.
+
+40
+00:01:53,740 --> 00:01:57,620
+En Lúmina conectamos datos,
+estrategia y ejecución
+
+41
+00:01:57,660 --> 00:02:00,180
+para impulsar el
+crecimiento del negocio.
+
+42
+00:02:00,220 --> 00:02:04,570
+Activación, más retención,
+igual a crecimiento.
