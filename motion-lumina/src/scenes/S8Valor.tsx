@@ -1,23 +1,25 @@
 import React from "react";
-import {Easing, interpolate, useCurrentFrame} from "remotion";
+import {Easing, Img, interpolate, staticFile, useCurrentFrame} from "remotion";
 import {PhaseTitle} from "../components/motion";
 import {Highlight, Scene} from "../components/ui";
 import {ap, beesRadius, body, C, f, h1} from "../theme";
-import {LX, Pattern, ROW, RX, tracks} from "./S7Dashboard";
 
-const X0 = 1010;
-const WL = 814;
-const SC = WL / (RX - LX);
-const TOP = 262;
-const PITCH = 80;
-// zona del tablero que enfoca cada beneficio: [x, y, ancho, alto]
+// Captura real del dashboard (public/assets/dashboard.png, 861 × 653 px).
+const IW = 861;
+const IH = 653;
+const DW = 880; // ancho en pantalla
+const SC = DW / IW;
+const DH = IH * SC;
+const DX = 1824 - DW;
+const DY = 236;
+// Zona de la captura que enfoca cada beneficio, en píxeles de la imagen: [x, y, ancho, alto]
 const focus: [number, number, number, number][] = [
-  [X0 + 108, TOP + 5 * PITCH + 20, 96, 62], // stoppers: una no entrega
-  [X0 - 12, TOP + 4 * PITCH + 20, WL + 24, 62], // ejecución de la fuerza de ventas
-  [X0 + 84, TOP + 1 * PITCH + 20, 78, 62], // un cliente sin activar
-  [X0 - 12, TOP + 5 * PITCH + 20, WL + 24, 62], // operación logística
-  [X0 + WL - 86, TOP + 8, 98, 7 * PITCH - 6], // lo más reciente
-  [X0 - 12, TOP + 8, WL + 24, 3 * PITCH - 6], // de la creación a la retención
+  [434, 503, 410, 142], // stoppers: razones de no plan y de no entrega
+  [28, 268, 248, 198], // gestión comercial: embudo de clientes nuevos (pedido, visita)
+  [278, 268, 282, 198], // activación: creación vs. activación
+  [28, 503, 396, 142], // operación logística: seguimiento logístico
+  [28, 120, 816, 108], // información actualizada: indicadores del periodo
+  [28, 250, 816, 216], // trazabilidad: creación, activación y retención
 ];
 
 export const S8Valor: React.FC<{start: number; duration: number}> = ({start, duration}) => {
@@ -27,7 +29,19 @@ export const S8Valor: React.FC<{start: number; duration: number}> = ({start, dur
   const ease = Easing.bezier(0.16, 1, 0.3, 1);
   const cues = [c(91.3), c(95.16), c(98.08), c(100.96), c(104.72), c(108.4)];
   const active = cues.reduce((acc, q, i) => (frame >= q ? i : acc), 0);
-  const fx = (k: number) => interpolate(frame, cues.flatMap((q) => [q - 2, q + 18]), focus.flatMap((fo, i) => [focus[Math.max(0, i - 1)][k], fo[k]]), {...cl, easing: ease});
+  const fx = (k: number) => interpolate(frame, cues.flatMap((q) => [q - 2, q + 18]), focus.flatMap((fo, i) => [focus[Math.max(0, i - 1)][k], fo[k]]), {...cl, easing: ease}) * SC;
+  const [x, y, w, h] = [fx(0), fx(1), fx(2), fx(3)];
+  // la cámara se acerca a la zona enfocada (sin salirse de la captura)
+  const cam = focus.map(([fx0, fy0, fw, fh]) => {
+    const z = Math.min(1.7, DW / (fw * SC * 1.18), DH / (fh * SC * 1.18));
+    const tx = Math.min(0, Math.max(DW - DW * z, DW / 2 - (fx0 + fw / 2) * SC * z));
+    const ty = Math.min(0, Math.max(DH - DH * z, DH / 2 - (fy0 + fh / 2) * SC * z));
+    return [z, tx, ty];
+  });
+  const cv = (k: number) => interpolate(frame, [cues[0] - 2, cues[0] + 22, ...cues.slice(1).flatMap((q) => [q - 2, q + 22])], [k === 0 ? 1 : 0, cam[0][k], ...cam.slice(1).flatMap((cm, i) => [cam[i][k], cm[k]])], {...cl, easing: Easing.inOut(Easing.cubic)});
+  const z = cv(0);
+  const dim = 0.72 * ap(frame, cues[0], 14);
+  const enter = ap(frame, 8, 24);
   const lines: React.ReactNode[] = [
     <>Ver rápido dónde hay <Highlight at={cues[0] + 18}>stoppers</Highlight></>,
     <>Seguir la gestión de la <Highlight at={cues[1] + 18}>fuerza de ventas</Highlight></>,
@@ -36,6 +50,7 @@ export const S8Valor: React.FC<{start: number; duration: number}> = ({start, dur
     <>Decidir con información <Highlight at={cues[4] + 18}>actualizada</Highlight></>,
     <>Dar <Highlight at={cues[5] + 18}>trazabilidad</Highlight> a los resultados</>,
   ];
+  const veil: React.CSSProperties = {position: "absolute", background: C.white, opacity: dim};
   return (
     <Scene duration={duration}>
       <PhaseTitle phases={[{at: 6, node: <>Lo que esta visibilidad permite</>}]} />
@@ -51,32 +66,25 @@ export const S8Valor: React.FC<{start: number; duration: number}> = ({start, dur
         const inP = interpolate(frame, [cues[i], cues[i] + 18], [0, 1], {...cl, easing: ease});
         const outP = interpolate(frame, [next - 8, next + 4], [0, 1], cl);
         return (
-          <div key={i} style={{position: "absolute", left: 96, top: 330, width: 840, ...h1(104), lineHeight: 1.16, opacity: inP * (1 - outP), translate: `0px ${(1 - inP) * 60 - outP * 40}px`}}>
+          <div key={i} style={{position: "absolute", left: 96, top: 330, width: 800, ...h1(88), lineHeight: 1.17, opacity: inP * (1 - outP), translate: `0px ${(1 - inP) * 60 - outP * 40}px`}}>
             {node}
           </div>
         );
       })}
-      {/* el tablero, en pequeño */}
-      <svg width={1920} height={1080} style={{position: "absolute", inset: 0, opacity: ap(frame, 10, 20)}}>
-        {tracks.map((t, i) => (
-          <g key={t.name}>
-            <line x1={X0} y1={TOP + i * PITCH + 4} x2={X0 + WL} y2={TOP + i * PITCH + 4} stroke={C.black} strokeWidth={2} />
-            <g transform={`translate(${X0}, ${TOP + i * PITCH + 30}) scale(${SC})`}>
-              <Pattern i={i} />
-            </g>
-          </g>
-        ))}
-        <line x1={X0 + WL} y1={TOP - 12} x2={X0 + WL} y2={TOP + 7 * PITCH + 8} stroke={C.black} strokeWidth={6} />
-      </svg>
-      {tracks.map((t, i) => (
-        <div key={t.name} style={{position: "absolute", left: X0, top: TOP + i * PITCH + 6, ...body(24, 600), background: C.white, paddingRight: 8, opacity: ap(frame, 10, 20)}}>
-          {t.name}
+      {/* el dashboard real; el foco salta a lo que cada beneficio permite ver */}
+      <div style={{position: "absolute", left: DX, top: DY, width: DW, height: DH, opacity: enter, translate: `0px ${(1 - enter) * 50}px`}}>
+        <div style={{position: "absolute", inset: 0, overflow: "hidden", borderRadius: beesRadius(30), border: `6px solid ${C.black}`, boxSizing: "border-box"}}>
+          <div style={{position: "absolute", left: 0, top: 0, width: DW, height: DH, transformOrigin: "0 0", transform: `translate(${cv(1)}px, ${cv(2)}px) scale(${z})`}}>
+          <Img src={staticFile("assets/dashboard.png")} style={{position: "absolute", left: 0, top: 0, width: DW, height: DH}} />
+          <div style={{...veil, left: 0, top: 0, width: DW, height: y}} />
+          <div style={{...veil, left: 0, top: y + h, width: DW, height: DH - y - h}} />
+          <div style={{...veil, left: 0, top: y, width: x, height: h}} />
+          <div style={{...veil, left: x + w, top: y, width: DW - x - w, height: h}} />
+          <div style={{position: "absolute", left: x - 3, top: y - 3, width: w + 6, height: h + 6, boxSizing: "border-box", border: `${6 / z}px solid ${C.black}`, borderRadius: beesRadius(16), boxShadow: `0 0 0 ${4 / z}px ${C.yellow}`, opacity: ap(frame, cues[0], 12)}} />
+          </div>
         </div>
-      ))}
-      <div style={{position: "absolute", left: X0, top: TOP + 7 * PITCH + 16, ...body(22), color: C.ink60, opacity: ap(frame, 20, 20)}}>Visualización ilustrativa, sin datos reales</div>
-      {/* foco que salta a lo que cada beneficio permite ver */}
-      <div style={{position: "absolute", left: fx(0), top: fx(1), width: fx(2), height: fx(3), boxSizing: "border-box", border: `7px solid ${C.black}`, borderRadius: beesRadius(22), background: "rgba(255,255,0,0.35)", opacity: ap(frame, cues[0], 12)}} />
-      <span style={{display: "none"}}>{ROW}</span>
+      </div>
+      <div style={{position: "absolute", left: 96, top: 850, ...body(22), color: C.ink60, opacity: ap(frame, 20, 20)}}>Captura del dashboard Lúmina · Resumen</div>
     </Scene>
   );
 };

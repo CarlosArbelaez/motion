@@ -20,7 +20,7 @@ La locución no cambió respecto a la versión 1. Cada escena es un diagrama que
 | 5 | 0:43–0:58,3 | Frente 2: retención | El pulso se aplana; la ventana "Algoritmo" se fija sobre la zona y marca "Cambio detectado"; baja la promoción (estrategia comercial, p. ej. GPO) y el pulso vuelve en amarillo (recompra). Titular en tres fases; la última rotulada "Objetivo". |
 | 6 | 0:58,3–1:16,5 | Cinco actividades | Anillo 360 de cinco arcos alrededor de la tienda; gira para traer la actividad activa hacia la lista, unida por una línea. |
 | 7 | 1:16,5–1:31,2 | Dashboard | El titular abre en grande y sube; siete carriles se dibujan uno a uno con patrones ilustrativos; la marca "Hoy" avanza día a día. |
-| 8 | 1:31,2–1:53,6 | Valor | Seis frases grandes se relevan; un foco salta dentro del tablero a lo que cada beneficio permite ver; barra de avance de seis segmentos. |
+| 8 | 1:31,2–1:53,6 | Valor | Seis frases grandes se relevan junto a la **captura real del dashboard** (`public/assets/dashboard.png`, vista Resumen); la cámara se acerca y un foco resalta la zona que corresponde a cada beneficio: razones de no plan/no entrega, embudo de clientes nuevos, creación y activación, seguimiento logístico, indicadores del periodo y el bloque de creación, activación y retención. |
 | 9 | 1:53,6–2:08,2 | Cierre | Datos, Estrategia y Ejecución se unen en una sola línea que sube ("Crecimiento del negocio"); inundación amarilla y regreso del logo. |
 
 La locución completa está en `docs/subtitulos.srt` y `docs/words.json`.
@@ -60,7 +60,7 @@ Fuente única de contenido: **"Proyecto Lúmina – qué es" (.docx)**. El docum
 
 - **Llamado a la acción:** la fuente no solicita una decisión específica (aprobación, presupuesto, piloto). El video cierra con la frase de cierre documentada, sin inventar una petición.
 - "Activación" en el dashboard se resumió como "Activados en el mes de creación y fuera de él" (fuente: "activados en el mes de creación y activados independientemente del mes de creación").
-- El pulso de compra (escenas 3 a 5), el campo de clientes (escena 2) y los patrones del tablero (escenas 7 y 8) son **representaciones conceptuales**, rotuladas como tales, y no contienen datos.
+- El pulso de compra (escenas 3 a 5), el campo de clientes (escena 2) y los patrones del tablero (escena 7) son **representaciones conceptuales**, rotuladas como tales, y no contienen datos.
 - Los títulos de escena ("El reto", "De la oportunidad a la primera compra", etc.) son redacción editorial sobre contenido de la fuente.
 - En la locución, "BEES" se escribió fonéticamente para asegurar la pronunciación; en subtítulos y pantalla aparece "BEES".
 
@@ -72,3 +72,5 @@ Fuente única de contenido: **"Proyecto Lúmina – qué es" (.docx)**. El docum
 - **Logo Lúmina:** imagen original extraída del PDF adjunto (PNG 930 × 724 con transparencia), sin redibujar, siempre sobre blanco.
 - **No se usó** el logo de BEES ni sus pictogramas 3D (no se adjuntaron como archivos); las ilustraciones (tienda, etiqueta de promoción, representante) son formas planas propias en colores BEES.
 - Los acentos azul, naranja y rojo aparecen solo como relleno de formas, nunca en tipografía.
+
+- La escena 8 muestra una captura real del dashboard aportada por el responsable del proyecto: contiene cifras reales del periodo de la captura. La locución no cita ninguna de esas cifras.
