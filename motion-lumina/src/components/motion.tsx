@@ -11,7 +11,7 @@ export const PhaseTitle: React.FC<{
   left?: number;
   top?: number;
   width?: number;
-}> = ({phases, size = 76, left = 96, top = 84, width = 1480}) => {
+}> = ({phases, size = 70, left = 96, top = 84, width = 1480}) => {
   const frame = useCurrentFrame();
   return (
     <div style={{position: "absolute", left, top, width, height: size * 1.3, overflow: "hidden"}}>
@@ -66,3 +66,24 @@ export const Store: React.FC<{x: number; bottom: number; w?: number}> = ({x, bot
     </g>
   );
 };
+
+/** Trazo que se dibuja de 0 a 1 (progreso `p`). */
+export const Draw: React.FC<{d: string; p: number; stroke?: string; width?: number; dash?: string}> = ({d, p, stroke = "#000", width = 10}) => (
+  <path d={d} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - Math.min(1, Math.max(0, p))} fill="none" stroke={stroke} strokeWidth={width} strokeLinejoin="round" strokeLinecap="round" opacity={p <= 0 ? 0 : 1} />
+);
+
+/** Segmentos de "pulso": un pico por cada compra. */
+export const peaksPath = (xs: number[], yb: number, h: number, half = 30) => xs.map((x) => ` L${x - half},${yb} L${x},${yb - h} L${x + half},${yb}`).join("");
+
+/** Rayos alrededor de la bombilla del logo. */
+export const Rays: React.FC<{cx: number; cy: number; at: number; frame: number}> = ({cx, cy, at, frame}) => (
+  <svg width={1920} height={1080} style={{position: "absolute", inset: 0}}>
+    {Array.from({length: 9}).map((_, i) => {
+      const a = ((-170 + i * 20) * Math.PI) / 180;
+      const p = interpolate(frame, [at + i * 2, at + i * 2 + 12], [0, 1], {extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease});
+      const r0 = 168;
+      const r1 = r0 + 46 * p;
+      return <line key={i} x1={cx + Math.cos(a) * r0} y1={cy + Math.sin(a) * r0} x2={cx + Math.cos(a) * r1} y2={cy + Math.sin(a) * r1} stroke="#000" strokeWidth={9} strokeLinecap="round" opacity={p} />;
+    })}
+  </svg>
+);

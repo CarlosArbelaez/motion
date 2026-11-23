@@ -1,106 +1,66 @@
 import React from "react";
-import {interpolate, useCurrentFrame} from "remotion";
-import {Highlight, Icon, Scene} from "../components/ui";
-import {content} from "../data/content";
-import {ap, beesRadius, C, f, h1, HEAD, pop} from "../theme";
+import {Easing, interpolate, useCurrentFrame} from "remotion";
+import {PhaseTitle, peaksPath, RevealX, Store} from "../components/motion";
+import {Highlight, Scene} from "../components/ui";
+import {ap, beesRadius, body, C, f, h1, rise} from "../theme";
+
+const YB = 600;
+const PEAK = 210;
+const first = [600];
+const rec = [900, 1030, 1160, 1290];
+const stay = [1450, 1580, 1710];
 
 export const S3Reto: React.FC<{start: number; duration: number}> = ({start, duration}) => {
   const frame = useCurrentFrame();
   const c = (s: number) => f(s) - start;
-  const t = content.s3;
-  const xs = [250, 723, 1197, 1670];
-  const y = 500;
-  // la ficha del cliente llega a cada momento cuando la locución lo nombra
-  const arrive = [14, c(19.1), c(20.5), c(22.3)];
-  const tokenX = interpolate(frame, [14, c(17.3), arrive[1], c(19.9), arrive[2], c(21.7), arrive[3]], [xs[0], xs[0], xs[1], xs[1], xs[2], xs[2], xs[3]], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const cl = {extrapolateLeft: "clamp", extrapolateRight: "clamp"} as const;
+  const ease = Easing.bezier(0.16, 1, 0.3, 1);
+  const a1 = c(18.7);
+  const a2 = c(20.1);
+  const a3 = c(21.9);
+  // la cabeza del trazo avanza cuando la locución nombra cada momento
+  const head = interpolate(frame, [12, a1, a1 + 22, a2, a2 + 34, a3, a3 + 30], [330, 520, 700, 700, 1370, 1370, 1860], {...cl, easing: Easing.inOut(Easing.quad)});
   const frontsAt = c(23.3);
+  const d = `M330,${YB}${peaksPath([...first, ...rec, ...stay], YB, PEAK)} L1850,${YB}`;
+  const labels = [
+    {x: 600, t: "Primera compra", at: a1 + 14},
+    {x: 1095, t: "Compra recurrente", at: a2 + 20},
+    {x: 1580, t: "Sin fuga", at: a3 + 16},
+  ];
   return (
-    <Scene
-      duration={duration}
-      kicker={t.kicker}
-      title={
-        <>
-          {t.pre} <Highlight at={c(16.2)}>{t.highlight}</Highlight>
-        </>
-      }
-    >
-      <div style={{position: "absolute", left: xs[0], top: y - 3, width: (xs[3] - xs[0]) * ap(frame, 8, 24), height: 6, background: C.grey, borderRadius: 3}} />
-      <div style={{position: "absolute", left: xs[0], top: y - 3, width: tokenX - xs[0], height: 6, background: C.black, borderRadius: 3}} />
-      {t.nodes.map((n, i) => {
-        const on = frame >= arrive[i];
+    <Scene duration={duration}>
+      <PhaseTitle phases={[{at: 6, node: <>Que cada cliente compre, repita y <Highlight at={c(22.0)}>permanezca</Highlight></>}]} />
+      <div style={{position: "absolute", left: 0, top: 330, width: 1920 * ap(frame, 2, 26), height: 340, background: C.grey}} />
+      <svg width={1920} height={1080} style={{position: "absolute", inset: 0}}>
+        <line x1={330} y1={YB} x2={1850} y2={YB} stroke="#CFC9E2" strokeWidth={4} strokeDasharray="2 14" strokeLinecap="round" />
+        <RevealX id="s3" x={head} height={1080}>
+          <path d={d} fill="none" stroke={C.black} strokeWidth={10} strokeLinejoin="round" strokeLinecap="round" />
+          {[...first, ...rec, ...stay].map((x, i) => (
+            <circle key={x} cx={x} cy={YB - PEAK} r={i === 0 ? 26 : 18} fill={C.yellow} stroke={C.black} strokeWidth={6} />
+          ))}
+        </RevealX>
+        <path d={`M1846,${YB - 22} L1884,${YB} L1846,${YB + 22} Z`} fill={C.black} opacity={head > 1850 ? 1 : 0} />
+        <g opacity={ap(frame, 2, 14)}>
+          <Store x={96} bottom={YB + 5} w={220} />
+        </g>
+      </svg>
+      {labels.map((l) => (
+        <div key={l.t} style={{position: "absolute", left: l.x - 220, top: 694, width: 440, textAlign: "center", ...h1(50), ...rise(frame, l.at, 24)}}>
+          {l.t}
+        </div>
+      ))}
+      <div style={{position: "absolute", left: 96, top: 694, width: 220, textAlign: "center", ...body(27), color: C.ink60, opacity: ap(frame, 16, 16)}}>Cliente nuevo</div>
+      {/* por eso, dos frentes */}
+      {[
+        {l: 96, w: 664, t: "Frente 1 · Adquisición"},
+        {l: 800, w: 1024, t: "Frente 2 · Retención"},
+      ].map((fr, i) => {
+        const p = interpolate(frame, [frontsAt + i * 8, frontsAt + i * 8 + 20], [0, 1], {...cl, easing: ease});
         return (
-          <React.Fragment key={n}>
-            <div
-              style={{
-                position: "absolute",
-                left: xs[i] - 24,
-                top: y - 24,
-                width: 48,
-                height: 48,
-                borderRadius: 24,
-                boxSizing: "border-box",
-                border: `5px solid ${C.black}`,
-                background: on ? C.yellow : C.white,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                opacity: ap(frame, 10 + i * 4, 12),
-              }}
-            >
-              {on && i > 0 ? <Icon name="check" size={28} /> : null}
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                left: xs[i] - 200,
-                top: y + 44,
-                width: 400,
-                textAlign: "center",
-                fontFamily: HEAD,
-                fontWeight: 600,
-                fontSize: 46,
-                lineHeight: 1.05,
-                transformOrigin: "top center",
-                ...pop(frame, arrive[i]),
-              }}
-            >
-              {n}
-            </div>
-          </React.Fragment>
-        );
-      })}
-      <div
-        style={{
-          position: "absolute",
-          left: tokenX - 48,
-          top: y - 134,
-          width: 96,
-          height: 96,
-          borderRadius: 48,
-          boxSizing: "border-box",
-          background: C.yellow,
-          border: `5px solid ${C.black}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          scale: String(ap(frame, 10, 14)),
-        }}
-      >
-        <Icon name="store" size={54} />
-      </div>
-      <div style={{position: "absolute", left: tokenX - 3, top: y - 38, width: 6, height: 16, background: C.black, opacity: ap(frame, 14, 10)}} />
-      {/* dos frentes */}
-      {t.fronts.map((fr, i) => {
-        const left = i === 0 ? 150 : 990;
-        const p = ap(frame, frontsAt + i * 8, 18);
-        return (
-          <div key={fr} style={{position: "absolute", left, top: 680, width: 780, opacity: p}}>
-            <div style={{height: 24, borderLeft: `6px solid ${C.black}`, borderRight: `6px solid ${C.black}`, borderBottom: `6px solid ${C.black}`, boxSizing: "border-box", transformOrigin: "left center", scale: `${p} 1`}} />
-            <div style={{display: "flex", justifyContent: "center", marginTop: 20}}>
-              <div style={{...h1(44), background: C.black, color: C.yellow, padding: "8px 30px 12px", borderRadius: beesRadius(22)}}>{fr}</div>
+          <div key={fr.t} style={{position: "absolute", left: fr.l, top: 778, width: fr.w, opacity: p}}>
+            <div style={{height: 22, borderLeft: `6px solid ${C.black}`, borderRight: `6px solid ${C.black}`, borderBottom: `6px solid ${C.black}`, boxSizing: "border-box", transformOrigin: "left center", scale: `${p} 1`}} />
+            <div style={{display: "flex", justifyContent: "center", marginTop: 14}}>
+              <div style={{...h1(42), background: C.black, color: C.yellow, padding: "6px 28px 10px", borderRadius: beesRadius(20)}}>{fr.t}</div>
             </div>
           </div>
         );

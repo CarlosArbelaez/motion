@@ -1,5 +1,5 @@
 import React from "react";
-import {AbsoluteFill, Sequence} from "remotion";
+import {AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame} from "remotion";
 import {AudioMix} from "./components/AudioMix";
 import {Subtitles} from "./components/Subtitles";
 import "./fonts";
@@ -15,6 +15,21 @@ import {S9Cierre} from "./scenes/S9Cierre";
 import {C, SCENES} from "./theme";
 
 const d = (s: {from: number; to: number}) => s.to - s.from;
+
+/** Barrido amarillo y negro entre escenas: da continuidad en lugar de un corte. */
+const Wipe: React.FC = () => {
+  const frame = useCurrentFrame();
+  const cuts = [SCENES.s2, SCENES.s3, SCENES.s4, SCENES.s5, SCENES.s6, SCENES.s7, SCENES.s8, SCENES.s9].map((s) => s.from);
+  const cut = cuts.find((b) => frame >= b - 12 && frame <= b + 12);
+  if (cut === undefined) return null;
+  const p = interpolate(frame, [cut - 12, cut + 12], [0, 1], {easing: Easing.inOut(Easing.cubic)});
+  return (
+    <>
+      <div style={{position: "absolute", top: 0, height: 1080, width: 2300, left: interpolate(p, [0, 1], [-2500, 2120]), background: C.black}} />
+      <div style={{position: "absolute", top: 0, height: 1080, width: 2300, left: interpolate(p, [0, 1], [-2380, 2000]), background: C.yellow}} />
+    </>
+  );
+};
 
 export const LuminaVideo: React.FC<{subtitles: boolean; audio: boolean}> = ({subtitles, audio}) => {
   return (
@@ -46,6 +61,7 @@ export const LuminaVideo: React.FC<{subtitles: boolean; audio: boolean}> = ({sub
       <Sequence name="9 · Cierre" from={SCENES.s9.from} durationInFrames={d(SCENES.s9)}>
         <S9Cierre start={SCENES.s9.from} duration={d(SCENES.s9)} />
       </Sequence>
+      <Wipe />
       {subtitles ? <Subtitles /> : null}
       {audio ? <AudioMix /> : null}
     </AbsoluteFill>

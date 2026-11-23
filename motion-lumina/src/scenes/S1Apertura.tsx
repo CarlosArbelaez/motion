@@ -1,42 +1,27 @@
 import React from "react";
 import {AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame} from "remotion";
+import {Rays} from "../components/motion";
 import {Highlight} from "../components/ui";
-import {content} from "../data/content";
 import {ap, C, f, h1, rise} from "../theme";
 
 export const S1Apertura: React.FC<{duration: number}> = ({duration}) => {
   const frame = useCurrentFrame();
-  const out = interpolate(frame, [duration - 9, duration - 1], [1, 0], {extrapolateLeft: "clamp", extrapolateRight: "clamp"});
+  const cl = {extrapolateLeft: "clamp", extrapolateRight: "clamp"} as const;
+  const ease = Easing.bezier(0.16, 1, 0.3, 1);
+  const out = interpolate(frame, [duration - 9, duration - 1], [1, 0], cl);
+  // la luz se enciende: un disco blanco se abre sobre el amarillo BEES
+  const open = interpolate(frame, [4, 40], [0, 1], {...cl, easing: ease});
   return (
-    <AbsoluteFill style={{background: C.white, opacity: out}}>
-      {/* halo: la bombilla "se enciende" */}
-      <div
-        style={{
-          position: "absolute",
-          left: 960 - 330,
-          top: 300 - 330,
-          width: 660,
-          height: 660,
-          borderRadius: 330,
-          background: C.grey,
-          scale: interpolate(frame, [0, 34], [0, 1], {extrapolateRight: "clamp", easing: Easing.bezier(0.16, 1, 0.3, 1), output: "perceptual-scale"}),
-        }}
-      />
+    <AbsoluteFill style={{background: C.yellow, opacity: out}}>
+      <div style={{position: "absolute", left: 960 - 1300, top: 270 - 1300, width: 2600, height: 2600, borderRadius: 1300, background: C.white, scale: String(open)}} />
+      <Rays cx={960} cy={262} at={26} frame={frame} />
       <Img
         src={staticFile("assets/lumina-logo.png")}
-        style={{
-          position: "absolute",
-          left: 960 - 360,
-          top: 90,
-          height: 560,
-          opacity: ap(frame, 6, 16),
-          scale: interpolate(frame, [6, 30], [0.86, 1], {extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.bezier(0.16, 1, 0.3, 1)}),
-        }}
+        style={{position: "absolute", left: 960 - 360, top: 90, height: 560, opacity: ap(frame, 12, 14), scale: String(interpolate(frame, [12, 36], [0.8, 1], {...cl, easing: Easing.bezier(0.34, 1.4, 0.64, 1)}))}}
       />
-      <div style={{position: "absolute", left: 0, right: 0, top: 716, textAlign: "center", ...h1(72), ...rise(frame, f(0.64), 30, 18)}}>
+      <div style={{position: "absolute", left: 0, right: 0, top: 716, textAlign: "center", ...h1(76), ...rise(frame, f(0.64), 30, 18)}}>
         Transformamos oportunidades en <Highlight at={f(2.5)}>crecimiento</Highlight>
       </div>
-      <span style={{display: "none"}}>{content.s1.claim}</span>
     </AbsoluteFill>
   );
 };

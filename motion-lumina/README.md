@@ -5,7 +5,8 @@ Motion graphic ejecutivo de **LÚMINA** (Remotion 4, 1920 × 1080, 30 fps, ~2:08
 ## Estructura
 
 - `src/` — composición (`Video.tsx`), escenas (`scenes/`), componentes y tema BEES (`theme.ts`).
-- `src/data/content.ts` — **todos los textos en pantalla** (editables).
+- `src/scenes/*.tsx` — cada escena contiene sus textos, tiempos (en segundos de locución) y su diagrama.
+- `src/components/motion.tsx` — piezas de animación compartidas (titular por fases, trazos, tienda, rayos).
 - `src/data/captions.json` — subtítulos (generados por `scripts/make_captions.mjs`).
 - `public/assets/` — logo original, fuentes y audio (locución, música, efectos).
 - `scripts/` — `make_audio.py` (música y efectos por síntesis), `make_captions.mjs`, `previews.mjs`.

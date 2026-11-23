@@ -5,12 +5,12 @@ import {Highlight, Scene} from "../components/ui";
 import {ap, beesRadius, body, C, f, h1} from "../theme";
 
 // Carriles del dashboard. Los patrones son ilustrativos: no representan datos reales.
-const LX = 580; // inicio de los carriles
-const RX = 1824;
+export const LX = 580; // inicio de los carriles
+export const RX = 1824;
 const TOP = 286;
-const ROW = 82;
+export const ROW = 82;
 const DAY = (RX - LX) / 8;
-const tracks = [
+export const tracks = [
   {name: "Creación", text: "Clientes nuevos creados"},
   {name: "Activación", text: "En el mes de creación o después"},
   {name: "Retención", text: "Retenidos o recuperados"},
@@ -22,7 +22,7 @@ const tracks = [
 // posiciones pseudoaleatorias fijas
 const xs = Array.from({length: 26}, (_, i) => 24 + i * 47 + ((i * 37) % 23));
 
-const Pattern: React.FC<{i: number}> = ({i}) => {
+export const Pattern: React.FC<{i: number}> = ({i}) => {
   const w = RX - LX;
   const m = ROW / 2;
   switch (i) {

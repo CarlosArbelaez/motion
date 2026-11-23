@@ -4,7 +4,7 @@ import {bundle} from "@remotion/bundler";
 import {renderStill, selectComposition} from "@remotion/renderer";
 const shots = {
   "01-apertura": 150, "02-contexto": 470, "03-reto": 790, "04-adquisicion": 1262, "05-retencion": 1722,
-  "06-actividades": 2270, "07-dashboard": 2712, "08-valor": 3384, "09a-cierre-triada": 3590, "09b-cierre-logo": 3760,
+  "06-actividades": 2230, "07-dashboard": 2712, "08-valor": 3000, "09a-cierre-triada": 3590, "09b-cierre-logo": 3760,
 };
 // Navegador: usa REMOTION_BROWSER si está definido (p. ej. un Chrome Headless Shell local).
 const browserExecutable = process.env.REMOTION_BROWSER || null;

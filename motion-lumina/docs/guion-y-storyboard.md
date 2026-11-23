@@ -7,19 +7,23 @@
 **Estructura narrativa:** se sigue a un cliente (punto de venta) desde que es una oportunidad hasta que es retenido.
 Punto de partida → reto → dos frentes → cinco actividades → diferencial (visibilidad) → valor → cierre.
 
-## Escenas
+## Escenas (versión 2: diagramas animados)
 
-| # | Intervalo | Idea principal | Texto principal en pantalla | Acción visual | Locución |
-|---|-----------|----------------|-----------------------------|---------------|----------|
-| 1 | 0:00–0:05,7 | Apertura | Logo Lúmina · "Transformamos oportunidades en CRECIMIENTO" | La bombilla "se enciende" (halo que crece), entra el logo y el claim | Lúmina. Transformamos oportunidades en crecimiento. |
-| 2 | 0:05,7–0:16,5 | Contexto: qué es | "Un proyecto de GROWTH para el canal tradicional" · Adquisición → Activación → Retención → "Para impulsar la Distribución Numérica de Bavaria" | Panel amarillo se despliega; las tres etapas aparecen al nombrarlas y se conectan con el objetivo | Lúmina es un proyecto de Growth para el canal tradicional. Su foco: adquirir, activar y retener clientes, para impulsar la Distribución Numérica de Bavaria. |
-| 3 | 0:16,5–0:27,2 | El reto / oportunidad | "Que cada cliente nuevo compre, repita y PERMANEZCA" · Cliente nuevo → Primera compra → Compra recurrente → No se fuga · Frente 1 / Frente 2 | La ficha del cliente recorre la línea y enciende cada momento; la línea se divide en dos frentes | El reto es claro: que cada cliente nuevo haga su primera compra, que compre de forma recurrente, y que no se fugue. Por eso trabajamos en dos frentes. |
-| 4 | 0:27,2–0:43 | Frente 1: adquisición | "De la oportunidad a la PRIMERA COMPRA" · Oportunidad, Creación (Onboard), Promoción (1–2 días), Primera compra, Visita de seguimiento (mes siguiente) | El cliente avanza paso a paso; cada tarjeta aparece con la locución | En adquisición, identificamos oportunidades y gestionamos la creación de nuevos clientes a través de Onboard. Uno o dos días después, cargamos promociones para incentivar la primera compra. Y aseguramos una visita de seguimiento al mes siguiente. |
-| 5 | 0:43–0:58,3 | Frente 2: retención | "De la señal de cambio a la RECOMPRA" · Ritmo de compra (conceptual) · Detección (algoritmo) → Tratamiento diferencial (estrategia comercial) → Retención (objetivo) | El ritmo de compra se interrumpe, el algoritmo lo marca ("Cambio detectado") y vuelve la compra ("Recompra") | En retención, un algoritmo identifica cambios en el comportamiento de compra de los clientes. Con esa señal, habilitamos estrategias comerciales diferenciales, como promociones cargadas mediante GPO, para prevenir la fuga y promover la recompra. |
-| 6 | 0:58,3–1:16,5 | Cinco actividades | "5 actividades en el 360 de nuestros clientes" + 5 tarjetas | Cinco espacios numerados se llenan uno a uno | En total, son cinco actividades que cubren el 360 de nuestro universo de clientes: promociones para clientes nuevos, visita de seguimiento, tareas comerciales para los representantes de ventas, promociones churn, y comunicaciones personalizadas dentro de la aplicación BEES. |
-| 7 | 1:16,5–1:31,2 | Diferencial y cómo se mide | "VISIBILIDAD y seguimiento" · Dashboard de seguimiento · "Se actualiza diariamente" · 7 frentes de información | El tablero sube y sus siete bloques se encienden al nombrarlos | Nuestro diferencial: visibilidad y seguimiento. Un dashboard que se actualiza a diario, y reúne creación, activación, retención, comportamiento de compra, ejecución, logística y servicio. |
-| 8 | 1:31,2–1:53,6 | Valor de la visibilidad | "Lo que esta visibilidad PERMITE" + 6 beneficios | Cada beneficio aparece y se resalta en amarillo cuando se menciona | Esta visibilidad permite identificar rápidamente dónde hay problemas o stoppers, hacer seguimiento a la gestión de la fuerza de ventas, detectar lo que impide la activación de un cliente, y encontrar oportunidades de mejora en la operación logística. Todo, con información actualizada para tomar decisiones, y trazabilidad de los resultados de adquisición y retención. |
-| 9 | 1:53,6–2:08,2 | Cierre | Datos — Estrategia — Ejecución → "Crecimiento del negocio" · Logo · claim | Los tres elementos se conectan y convergen en el crecimiento; se transforman en el logo | En Lúmina conectamos datos, estrategia y ejecución, para impulsar el crecimiento del negocio. Activación, más retención, igual a crecimiento. |
+La locución no cambió respecto a la versión 1. Cada escena es un diagrama que se construye con la voz; no hay rejillas de tarjetas ni rótulos sobre los titulares. Entre escenas hay un barrido amarillo y negro.
+
+| # | Intervalo | Idea principal | Gráfica y movimiento |
+|---|-----------|----------------|----------------------|
+| 1 | 0:00–0:05,7 | Apertura | Un disco blanco se abre sobre amarillo BEES; entra el logo original y la bombilla "se enciende" con rayos; claim con highlight. |
+| 2 | 0:05,7–0:16,5 | Qué es | Titular. Los verbos Adquirir / Activar / Retener se encienden al nombrarlos; en un campo de puntos (clientes del canal tradicional) aparecen clientes, se activan en amarillo y un lazo los retiene; crece la flecha de la Distribución Numérica de Bavaria. |
+| 3 | 0:16,5–0:27,2 | El reto | El pulso de compra sale de la tienda: primer pico (primera compra), picos repetidos (compra recurrente) y continuidad con flecha (sin fuga). Dos llaves marcan Frente 1 y Frente 2. |
+| 4 | 0:27,2–0:43 | Frente 1: adquisición | Línea de tiempo: tienda fantasma (oportunidad), tienda creada (Onboard), etiqueta de promoción que cae con el arco "1–2 días después", pico de primera compra y representante de ventas con el arco "Al mes siguiente". El titular cambia en cuatro fases. |
+| 5 | 0:43–0:58,3 | Frente 2: retención | El pulso se aplana; la ventana "Algoritmo" se fija sobre la zona y marca "Cambio detectado"; baja la promoción (estrategia comercial, p. ej. GPO) y el pulso vuelve en amarillo (recompra). Titular en tres fases; la última rotulada "Objetivo". |
+| 6 | 0:58,3–1:16,5 | Cinco actividades | Anillo 360 de cinco arcos alrededor de la tienda; gira para traer la actividad activa hacia la lista, unida por una línea. |
+| 7 | 1:16,5–1:31,2 | Dashboard | El titular abre en grande y sube; siete carriles se dibujan uno a uno con patrones ilustrativos; la marca "Hoy" avanza día a día. |
+| 8 | 1:31,2–1:53,6 | Valor | Seis frases grandes se relevan; un foco salta dentro del tablero a lo que cada beneficio permite ver; barra de avance de seis segmentos. |
+| 9 | 1:53,6–2:08,2 | Cierre | Datos, Estrategia y Ejecución se unen en una sola línea que sube ("Crecimiento del negocio"); inundación amarilla y regreso del logo. |
+
+La locución completa está en `docs/subtitulos.srt` y `docs/words.json`.
 
 Subtítulos: `docs/subtitulos.srt` (generados con las marcas de tiempo por palabra de la locución real).
 
@@ -56,7 +60,7 @@ Fuente única de contenido: **"Proyecto Lúmina – qué es" (.docx)**. El docum
 
 - **Llamado a la acción:** la fuente no solicita una decisión específica (aprobación, presupuesto, piloto). El video cierra con la frase de cierre documentada, sin inventar una petición.
 - "Activación" en el dashboard se resumió como "Activados en el mes de creación y fuera de él" (fuente: "activados en el mes de creación y activados independientemente del mes de creación").
-- La gráfica "Ritmo de compra de un cliente" es una **representación conceptual** (así rotulada) y no contiene datos.
+- El pulso de compra (escenas 3 a 5), el campo de clientes (escena 2) y los patrones del tablero (escenas 7 y 8) son **representaciones conceptuales**, rotuladas como tales, y no contienen datos.
 - Los títulos de escena ("El reto", "De la oportunidad a la primera compra", etc.) son redacción editorial sobre contenido de la fuente.
 - En la locución, "BEES" se escribió fonéticamente para asegurar la pronunciación; en subtítulos y pantalla aparece "BEES".
 
@@ -66,4 +70,5 @@ Fuente única de contenido: **"Proyecto Lúmina – qué es" (.docx)**. El docum
 - **Tipografías (nombradas en el manual):** Barlow Semi Condensed SemiBold para titulares (tracking −5, interlineado ajustado) y Work Sans para cuerpo. Archivos de `@fontsource` (licencia OFL).
 - **Highlight device:** franja negra, texto en mayúsculas, esquinas superior izquierda e inferior derecha redondeadas; amarillo sobre fondos claros y blanco sobre amarillo; una sola palabra o cifra por titular.
 - **Logo Lúmina:** imagen original extraída del PDF adjunto (PNG 930 × 724 con transparencia), sin redibujar, siempre sobre blanco.
-- **No se usó** el logo de BEES ni sus pictogramas 3D (no se adjuntaron como archivos); los íconos lineales son dibujos propios y simples.
+- **No se usó** el logo de BEES ni sus pictogramas 3D (no se adjuntaron como archivos); las ilustraciones (tienda, etiqueta de promoción, representante) son formas planas propias en colores BEES.
+- Los acentos azul, naranja y rojo aparecen solo como relleno de formas, nunca en tipografía.
