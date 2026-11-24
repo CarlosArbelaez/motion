@@ -2,18 +2,18 @@ import React from "react";
 import {AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame} from "remotion";
 import {Draw, Rays} from "../components/motion";
 import {Highlight} from "../components/ui";
-import {ap, C, f, h1, rise} from "../theme";
+import {ap, C, f, h1, rise, t} from "../theme";
 
 export const S9Cierre: React.FC<{start: number; duration: number}> = ({start, duration}) => {
   const frame = useCurrentFrame();
   const c = (s: number) => f(s) - start;
   const cl = {extrapolateLeft: "clamp", extrapolateRight: "clamp"} as const;
   const ease = Easing.bezier(0.16, 1, 0.3, 1);
-  const cues = [c(113.5), c(114.3), c(115.2)];
+  const cues = [c(t("datos", 1, -0.1)), c(t("estrategia")), c(t("ejecución", 2))];
   const words = ["Datos", "Estrategia", "Ejecución"];
   const ys = [330, 545, 760];
-  const resultAt = c(116.3);
-  const logoAt = c(118.6);
+  const resultAt = c(t("impulsar", 2));
+  const logoAt = c(t("Activación", 1, -0.1));
   const fadeIn = interpolate(frame, [0, 8], [0, 1], cl);
   const fadeOut = interpolate(frame, [duration - 20, duration - 1], [1, 0], cl);
   const flood = interpolate(frame, [logoAt - 12, logoAt + 8], [0, 1], {...cl, easing: Easing.in(Easing.cubic)});

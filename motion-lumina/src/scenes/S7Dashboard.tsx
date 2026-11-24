@@ -2,7 +2,7 @@ import React from "react";
 import {Easing, interpolate, useCurrentFrame} from "remotion";
 import {RevealX} from "../components/motion";
 import {Highlight, Scene} from "../components/ui";
-import {ap, beesRadius, body, C, f, h1} from "../theme";
+import {ap, beesRadius, body, C, f, h1, t} from "../theme";
 
 // Carriles del dashboard. Los patrones son ilustrativos: no representan datos reales.
 export const LX = 580; // inicio de los carriles
@@ -79,13 +79,13 @@ export const S7Dashboard: React.FC<{start: number; duration: number}> = ({start,
   const c = (s: number) => f(s) - start;
   const cl = {extrapolateLeft: "clamp", extrapolateRight: "clamp"} as const;
   const ease = Easing.bezier(0.16, 1, 0.3, 1);
-  const cues = [c(82.0), c(83.04), c(84.12), c(85.16), c(86.72), c(87.76), c(88.8)];
+  const cues = [c(t("creación", 2)), c(t("activación")), c(t("retención", 2)), c(t("comportamiento", 2)), c(t("ejecución")), c(t("logística")), c(t("servicio"))];
   const active = cues.reduce((acc, q, i) => (frame >= q ? i : acc), -1);
-  const gridAt = c(78.9);
+  const gridAt = c(t("Un", 1, -0.1));
   // el titular abre en grande y sube para dar paso al tablero
   const dock = interpolate(frame, [gridAt - 6, gridAt + 20], [0, 1], {...cl, easing: ease});
   // actualización diaria: la marca "Hoy" avanza un día cada vez
-  const dayStart = c(80.2);
+  const dayStart = c(t("actualiza", 1, 0.3));
   const day = [0, 1, 2, 3, 4, 5].reduce(
     (acc, k) => acc + interpolate(frame, [dayStart + k * 52, dayStart + k * 52 + 16], [0, 1], {...cl, easing: ease}),
     2,
@@ -96,13 +96,13 @@ export const S7Dashboard: React.FC<{start: number; duration: number}> = ({start,
   return (
     <Scene duration={duration}>
       <div style={{position: "absolute", left: 96, top: interpolate(dock, [0, 1], [400, 84]), ...h1(interpolate(dock, [0, 1], [150, 76])), opacity: ap(frame, 4, 14)}}>
-        <Highlight at={c(76.6)}>Visibilidad</Highlight> y seguimiento
+        <Highlight at={c(t("visibilidad"))}>Visibilidad</Highlight> y seguimiento
       </div>
       {/* estado del tablero */}
-      <div style={{position: "absolute", left: 96, top: 206, display: "flex", alignItems: "center", gap: 14, opacity: ap(frame, c(79.0), 14)}}>
+      <div style={{position: "absolute", left: 96, top: 206, display: "flex", alignItems: "center", gap: 14, opacity: ap(frame, c(t("Un")), 14)}}>
         <div style={{...body(30, 600)}}>Dashboard de seguimiento</div>
         <div style={{width: 18, height: 18, borderRadius: 9, background: C.black, marginLeft: 18, opacity: 0.35 + 0.65 * pulse}} />
-        <div style={{...body(30, 500), opacity: ap(frame, c(79.9), 12)}}>se actualiza diariamente</div>
+        <div style={{...body(30, 500), opacity: ap(frame, c(t("actualiza")), 12)}}>se actualiza diariamente</div>
       </div>
       {/* días */}
       <svg width={1920} height={1080} style={{position: "absolute", inset: 0}}>
@@ -125,11 +125,11 @@ export const S7Dashboard: React.FC<{start: number; duration: number}> = ({start,
           );
         })}
         {/* marca "Hoy" */}
-        <g opacity={ap(frame, c(79.9), 12)}>
+        <g opacity={ap(frame, c(t("actualiza")), 12)}>
           <line x1={sweep} y1={TOP - 20} x2={sweep} y2={TOP + ROW * 7 + 14} stroke={C.black} strokeWidth={6} />
         </g>
       </svg>
-      <div style={{position: "absolute", left: sweep - 6, top: TOP - 62, opacity: ap(frame, c(79.9), 12), ...body(24, 600), background: C.black, color: C.yellow, padding: "6px 16px 8px", borderRadius: beesRadius(12), letterSpacing: "0.06em", textTransform: "uppercase"}}>
+      <div style={{position: "absolute", left: sweep - 6, top: TOP - 62, opacity: ap(frame, c(t("actualiza")), 12), ...body(24, 600), background: C.black, color: C.yellow, padding: "6px 16px 8px", borderRadius: beesRadius(12), letterSpacing: "0.06em", textTransform: "uppercase"}}>
         Hoy
       </div>
       {/* nombres de carril */}
@@ -146,7 +146,7 @@ export const S7Dashboard: React.FC<{start: number; duration: number}> = ({start,
           </div>
         );
       })}
-      <div style={{position: "absolute", right: 96, top: TOP + ROW * 7 + 14, ...body(22), color: C.ink60, opacity: ap(frame, c(82.0), 20)}}>Visualización ilustrativa, sin datos reales</div>
+      <div style={{position: "absolute", right: 96, top: TOP + ROW * 7 + 14, ...body(22), color: C.ink60, opacity: ap(frame, c(t("creación", 2)), 20)}}>Visualización ilustrativa, sin datos reales</div>
     </Scene>
   );
 };

@@ -73,7 +73,7 @@ def add(buf, sig, at, gain=1.0, pan=0.0):
 
 
 def make_music(total):
-    bpm = 96.0
+    bpm = 112.0  # más animada y juvenil
     beat = 60 / bpm
     bar = beat * 4
     n = int(total * SR)
@@ -99,10 +99,17 @@ def make_music(total):
                 s = tone(midi(nn) * (1 + det / 400), bar + 0.6, pad_h)
                 s *= env_adsr(len(s), 0.5, 0.4, 0.8, 0.9)
                 add(buf, s, t0, 0.05, pan=(j - 1.5) * 0.25)
-        # bajo
-        s = tone(midi(root), bar, [(1, 1.0), (2, 0.3)])
-        s *= env_adsr(len(s), 0.02, 0.5, 0.6, 0.4)
-        add(buf, s, t0, 0.20 * energy)
+        # bajo: nota larga en la intro, pulso de corcheas después
+        if b < 2:
+            s = tone(midi(root), bar, [(1, 1.0), (2, 0.3)])
+            s *= env_adsr(len(s), 0.02, 0.5, 0.6, 0.4)
+            add(buf, s, t0, 0.20 * energy)
+        else:
+            for k in range(8):
+                nn = root + (12 if k in (3, 6) else 0)
+                s = tone(midi(nn), beat / 2 * 0.9, [(1, 1.0), (2, 0.35), (3, 0.1)])
+                s *= env_adsr(len(s), 0.008, 0.08, 0.5, 0.06)
+                add(buf, s, t0 + k * beat / 2, 0.17 * energy)
         if b >= 2:
             # arpegio de corcheas
             order = [0, 1, 2, 3, 2, 1, 2, 3]
@@ -114,9 +121,13 @@ def make_music(total):
                 add(buf, s, t0 + k * beat / 2, 0.055 * energy, pan=0.4 * (-1) ** k)
                 # eco
                 add(buf, s, t0 + k * beat / 2 + beat * 0.75, 0.02 * energy, pan=-0.4 * (-1) ** k)
-        if b >= 4:
-            # bombo suave en 1 y 3, shaker en contratiempos
-            for k in (0, 2):
+        if b >= 2:
+            # bombo en los cuatro tiempos, palmas en 2 y 4, shaker en contratiempos
+            for k in (1, 3):
+                cl = fft_band(rng.standard_normal(int(0.12 * SR)), 900, 5000)
+                cl *= np.exp(-np.arange(len(cl)) / SR * 38)
+                add(buf, cl, t0 + k * beat, 0.05, pan=-0.2)
+            for k in (0, 1, 2, 3):
                 t = np.arange(int(0.25 * SR)) / SR
                 kick = np.sin(2 * np.pi * (48 * t + 60 * (1 - np.exp(-t * 30)) / 30)) * np.exp(-t * 14)
                 add(buf, kick, t0 + k * beat, 0.22)

@@ -2,7 +2,7 @@
 
 **Mensaje central:** Lúmina conecta datos, estrategia y ejecución para adquirir, activar y retener clientes del canal tradicional, y así impulsar la Distribución Numérica de Bavaria.
 
-**Formato:** 1920 × 1080, 30 fps, 2:08 (3.847 frames). Locución femenina en español de Colombia (ElevenLabs, voz "Milena – Narradora versátil", modelo eleven_v4), subtítulos sincronizados, música y efectos sintetizados.
+**Formato:** 1920 × 1080, 30 fps, 1:54. Locución femenina de acento latino neutro (ElevenLabs, voz "Valeria – Energetic & Engaging", modelo eleven_v4, con tempo +8 % aplicado en posproducción), subtítulos sincronizados, música y efectos sintetizados.
 
 **Estructura narrativa:** se sigue a un cliente (punto de venta) desde que es una oportunidad hasta que es retenido.
 Punto de partida → reto → dos frentes → cinco actividades → diferencial (visibilidad) → valor → cierre.
@@ -74,3 +74,12 @@ Fuente única de contenido: **"Proyecto Lúmina – qué es" (.docx)**. El docum
 - Los acentos azul, naranja y rojo aparecen solo como relleno de formas, nunca en tipografía.
 
 - La escena 8 muestra una captura real del dashboard aportada por el responsable del proyecto: contiene cifras reales del periodo de la captura. La locución no cita ninguna de esas cifras.
+
+## Versión 4 (voz Valeria, 1:54)
+
+- **Voz:** Valeria (ElevenLabs), elegida por el responsable entre tres muestras (`docs/muestras-voz/`). La locución original dura 1:59; se aplicó tempo ×1,08 sin cambiar el tono (`scripts/prepare_voice.py`). Las voces anteriores están en `docs/voz/`.
+- **Guion:** "Distribución Numérica" sin "de Bavaria". El reto tiene cuatro momentos: primera compra, **recibir el pedido a satisfacción**, compra recurrente y que no se fugue. En adquisición se añadió: "Hacemos seguimiento logístico para que su pedido llegue a satisfacción."
+- **Origen del punto de entrega:** lo aportó el responsable del proyecto en la revisión (no está en el documento original, que solo menciona logística dentro del dashboard). La frase de la locución fue elegida por él.
+- **Gráficas:** escena 3 con el paquete entregado entre la primera compra y la compra recurrente; escena 4 con el camión de reparto como paso "Entrega · con seguimiento logístico".
+- **Tiempos:** todas las animaciones se anclan a palabras de la locución con `t("palabra")` (`src/theme.ts`, `src/data/words.json`), no a segundos fijos. Los intervalos de la tabla de escenas de arriba corresponden a la versión de 2:08; en esta versión cada escena empieza con su párrafo de locución.
+- **Música:** 112 bpm, bombo en los cuatro tiempos, palmas y bajo en corcheas (antes 96 bpm).

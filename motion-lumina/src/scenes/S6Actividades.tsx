@@ -2,7 +2,7 @@ import React from "react";
 import {Easing, interpolate, useCurrentFrame} from "remotion";
 import {PhaseTitle, Store} from "../components/motion";
 import {Highlight, Scene} from "../components/ui";
-import {ap, body, C, f, h1, HEAD, rise} from "../theme";
+import {ap, body, C, f, h1, HEAD, rise, t} from "../theme";
 
 const CX = 470;
 const CY = 560;
@@ -21,7 +21,7 @@ export const S6Actividades: React.FC<{start: number; duration: number}> = ({star
   const c = (s: number) => f(s) - start;
   const cl = {extrapolateLeft: "clamp", extrapolateRight: "clamp"} as const;
   const ease = Easing.bezier(0.16, 1, 0.3, 1);
-  const cues = [c(62.92), c(64.96), c(66.6), c(69.76), c(71.2)];
+  const cues = [c(t("promociones", 3)), c(t("visita", 2)), c(t("tareas")), c(t("promociones", 4)), c(t("comunicaciones"))];
   const active = cues.reduce((acc, q, i) => (frame >= q ? i : acc), -1);
   // el anillo gira para traer la actividad activa hacia la lista
   const rot = -72 * cues.slice(1).reduce((acc, q) => acc + interpolate(frame, [q - 4, q + 18], [0, 1], {...cl, easing: ease}), 0);
@@ -29,7 +29,7 @@ export const S6Actividades: React.FC<{start: number; duration: number}> = ({star
   const linkY = interpolate(frame, cues.flatMap((q) => [q - 4, q + 18]), cues.flatMap((_, i) => [rowY(Math.max(0, i - 1)) + 30, rowY(i) + 30]), {...cl, easing: ease});
   return (
     <Scene duration={duration}>
-      <PhaseTitle phases={[{at: 6, node: <>5 actividades en el <Highlight at={c(59.8)}>360</Highlight> de nuestros clientes</>}]} />
+      <PhaseTitle phases={[{at: 6, node: <>5 actividades en el <Highlight at={c(t("trescientos"))}>360</Highlight> de nuestros clientes</>}]} />
       <svg width={1920} height={1080} style={{position: "absolute", inset: 0}}>
         {items.map((_, i) => {
           const a0 = i * 72 - 33 + rot;
@@ -37,7 +37,7 @@ export const S6Actividades: React.FC<{start: number; duration: number}> = ({star
           const [x0, y0] = pol(a0, R);
           const [x1, y1] = pol(a1, R);
           const [nx, ny] = pol(i * 72 + rot, R);
-          const drawn = interpolate(frame, [c(58.0) + i * 6, c(58.0) + i * 6 + 18], [0, 1], {...cl, easing: ease});
+          const drawn = interpolate(frame, [c(t("cinco")) + i * 6, c(t("cinco")) + i * 6 + 18], [0, 1], {...cl, easing: ease});
           const lit = frame >= cues[i];
           const isActive = i === active;
           return (

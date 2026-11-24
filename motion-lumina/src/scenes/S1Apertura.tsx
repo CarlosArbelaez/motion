@@ -2,7 +2,7 @@ import React from "react";
 import {AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame} from "remotion";
 import {Rays} from "../components/motion";
 import {Highlight} from "../components/ui";
-import {ap, C, f, h1, rise} from "../theme";
+import {ap, C, f, h1, rise, t} from "../theme";
 
 export const S1Apertura: React.FC<{duration: number}> = ({duration}) => {
   const frame = useCurrentFrame();
@@ -19,8 +19,8 @@ export const S1Apertura: React.FC<{duration: number}> = ({duration}) => {
         src={staticFile("assets/lumina-logo.png")}
         style={{position: "absolute", left: 960 - 360, top: 90, height: 560, opacity: ap(frame, 12, 14), scale: String(interpolate(frame, [12, 36], [0.8, 1], {...cl, easing: Easing.bezier(0.34, 1.4, 0.64, 1)}))}}
       />
-      <div style={{position: "absolute", left: 0, right: 0, top: 716, textAlign: "center", ...h1(76), ...rise(frame, f(0.64), 30, 18)}}>
-        Transformamos oportunidades en <Highlight at={f(2.5)}>crecimiento</Highlight>
+      <div style={{position: "absolute", left: 0, right: 0, top: 716, textAlign: "center", ...h1(76), ...rise(frame, f(t("Transformamos")), 30, 18)}}>
+        Transformamos oportunidades en <Highlight at={f(t("crecimiento", 1, -0.3))}>crecimiento</Highlight>
       </div>
     </AbsoluteFill>
   );

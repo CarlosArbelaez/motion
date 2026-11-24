@@ -1,26 +1,29 @@
 // Genera subtítulos sincronizados con la locución real (marcas por palabra de ElevenLabs Scribe).
 // Uso: node scripts/make_captions.mjs
 import fs from "node:fs";
-const VO_OFFSET = 1.5; // segundos que la voz se retrasa en el video (ver src/theme.ts)
+const VO_OFFSET = 0.8; // segundos que la voz se retrasa en el video (ver src/theme.ts)
 const MAX_LINE = 40;
 const fix = (t) => t.replace(/^Bis([.,]?)$/, "BEES$1").replace(/^trescientos$/, "360").replace(/^sesenta$/, "");
 const MAXL = MAX_LINE;
-const {words} = JSON.parse(fs.readFileSync("docs/words.json", "utf8"));
+const words = JSON.parse(fs.readFileSync("src/data/words.json", "utf8"));
 // Frases de subtítulo definidas a mano (editables). Deben cubrir, en orden, todas las palabras de la locución.
 const PHRASES = `Lúmina.
 Transformamos oportunidades en crecimiento.
 Lúmina es un proyecto de Growth para el canal tradicional.
 Su foco: adquirir, activar y retener clientes,
-para impulsar la Distribución Numérica de Bavaria.
+para impulsar la Distribución Numérica.
 El reto es claro:
 que cada cliente nuevo haga su primera compra,
-que compre de forma recurrente,
+que reciba su pedido a satisfacción,
+que compre de manera recurrente,
 y que no se fugue.
 Por eso trabajamos en dos frentes.
 En adquisición, identificamos oportunidades
 y gestionamos la creación de nuevos clientes a través de Onboard.
 Uno o dos días después, cargamos promociones
 para incentivar la primera compra.
+Hacemos seguimiento logístico
+para que su pedido llegue a satisfacción.
 Y aseguramos una visita de seguimiento al mes siguiente.
 En retención, un algoritmo identifica cambios
 en el comportamiento de compra de los clientes.

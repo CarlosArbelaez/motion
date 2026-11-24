@@ -2,7 +2,7 @@ import React from "react";
 import {Easing, interpolate, useCurrentFrame} from "remotion";
 import {PhaseTitle, RevealX, Store} from "../components/motion";
 import {Highlight, Scene, Tag} from "../components/ui";
-import {ap, beesRadius, body, C, f, h1, pop, rise} from "../theme";
+import {ap, beesRadius, body, C, f, h1, pop, rise, t} from "../theme";
 
 // Geometría del "pulso" de compra (representación conceptual, sin datos).
 const YB = 640; // línea base
@@ -24,15 +24,15 @@ export const S5Retencion: React.FC<{start: number; duration: number}> = ({start,
   const cl = {extrapolateLeft: "clamp", extrapolateRight: "clamp"} as const;
   const ease = Easing.bezier(0.16, 1, 0.3, 1);
 
-  const lockAt = c(44.0);
-  const stratAt = c(48.2);
-  const promoAt = c(51.1);
-  const backAt = c(54.0);
+  const lockAt = c(t("cambios"));
+  const stratAt = c(t("habilitamos"));
+  const promoAt = c(t("promociones", 2));
+  const backAt = c(t("prevenir"));
 
   // cabeza del trazo: recorre el ritmo sano, luego la zona sin compras, luego la recompra
   const head = interpolate(frame, [10, lockAt - 14, lockAt + 34, backAt, backAt + 70], [330, GAP0, GAP1, GAP1, 1840], cl);
   // ventana del algoritmo: sigue la cabeza y se fija sobre el cambio
-  const scanIn = ap(frame, c(42.6), 14);
+  const scanIn = ap(frame, c(t("algoritmo", 1, -0.2)), 14);
   const lock = interpolate(frame, [lockAt - 6, lockAt + 14], [0, 1], {...cl, easing: ease});
   const heal = interpolate(frame, [backAt, backAt + 24], [0, 1], cl);
   const scanX = interpolate(lock, [0, 1], [Math.max(330, head - 150), GAP0 - 14]);
@@ -48,8 +48,8 @@ export const S5Retencion: React.FC<{start: number; duration: number}> = ({start,
       <PhaseTitle
         phases={[
           {at: 6, node: <>Un algoritmo identifica <Highlight at={20}>cambios</Highlight> de compra</>},
-          {at: c(47.1), node: <>La señal habilita una estrategia <Highlight at={c(50.0)}>diferencial</Highlight></>},
-          {at: backAt, node: <>Objetivo: prevenir la fuga, promover <Highlight at={c(55.9)}>recompra</Highlight></>},
+          {at: c(t("Con")), node: <>La señal habilita una estrategia <Highlight at={c(t("diferenciales", 1, -0.1))}>diferencial</Highlight></>},
+          {at: backAt, node: <>Objetivo: prevenir la fuga, promover <Highlight at={c(t("recompra", 1, -0.1))}>recompra</Highlight></>},
         ]}
       />
       <div style={{position: "absolute", inset: 0, scale: String(cam), transformOrigin: "30% 60%"}}>

@@ -2,7 +2,7 @@ import React from "react";
 import {Easing, interpolate, useCurrentFrame} from "remotion";
 import {Draw, PhaseTitle} from "../components/motion";
 import {Highlight, Scene} from "../components/ui";
-import {ap, body, C, f, h1, rise} from "../theme";
+import {ap, body, C, f, h1, rise, t} from "../theme";
 
 const COLS = 9;
 const ROWS = 6;
@@ -16,18 +16,18 @@ export const S2Contexto: React.FC<{start: number; duration: number}> = ({start, 
   const c = (s: number) => f(s) - start;
   const cl = {extrapolateLeft: "clamp", extrapolateRight: "clamp"} as const;
   const ease = Easing.bezier(0.16, 1, 0.3, 1);
-  const cues = [c(8.88), c(9.96), c(10.64)];
+  const cues = [c(t("adquirir")), c(t("activar")), c(t("retener"))];
   const words = ["Adquirir", "Activar", "Retener"];
-  const dnAt = c(12.4);
+  const dnAt = c(t("impulsar"));
   const grow = interpolate(frame, [dnAt, dnAt + 40], [0, 1], {...cl, easing: ease});
   return (
     <Scene duration={duration}>
-      <PhaseTitle phases={[{at: 6, node: <>Un proyecto de <Highlight at={c(5.7)}>Growth</Highlight> para el canal tradicional</>}]} />
+      <PhaseTitle phases={[{at: 6, node: <>Un proyecto de <Highlight at={c(t("Growth", 1, -0.15))}>Growth</Highlight> para el canal tradicional</>}]} />
       {/* los tres verbos del foco */}
       {words.map((w, i) => {
         const on = ap(frame, cues[i], 14);
         return (
-          <div key={w} style={{position: "absolute", left: 96, top: 300 + i * 150, ...rise(frame, c(8.0) + i * 4, 30)}}>
+          <div key={w} style={{position: "absolute", left: 96, top: 300 + i * 150, ...rise(frame, c(t("Su")) + i * 4, 30)}}>
             <div style={{position: "absolute", left: -6, right: -14, bottom: 14, height: 30, background: C.yellow, transformOrigin: "left center", scale: `${on} 1`}} />
             <div style={{position: "relative", ...h1(118), color: on > 0.3 ? C.black : "#C9C4D8"}}>{w}</div>
           </div>
@@ -56,7 +56,7 @@ export const S2Contexto: React.FC<{start: number; duration: number}> = ({start, 
       </svg>
       <div style={{position: "absolute", left: GX - 54, top: 786, ...body(26), color: C.ink60, opacity: ap(frame, 30, 16)}}>Clientes del canal tradicional</div>
       <div style={{position: "absolute", left: 1500, top: 782, width: 350, textAlign: "center", ...rise(frame, dnAt + 8, 24)}}>
-        <div style={{...h1(40), lineHeight: 1.05}}>Distribución Numérica de Bavaria</div>
+        <div style={{...h1(44), lineHeight: 1.05}}>Distribución Numérica</div>
       </div>
     </Scene>
   );

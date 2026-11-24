@@ -36,7 +36,7 @@
     "render": "remotion render Lumina Renders/lumina_Final.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p --crf=18 ${REMOTION_BROWSER:+--browser-executable=$REMOTION_BROWSER}",
     "previews": "node scripts/previews.mjs",
     "captions": "node scripts/make_captions.mjs",
-    "audio": "python3 scripts/make_audio.py 128.4"
+    "audio": "python3 scripts/make_audio.py 113.9"
   },
   "allowScripts": {
     "esbuild": false

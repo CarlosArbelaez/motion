@@ -1,319 +1,340 @@
 [
  {
-  "start": 1.5,
-  "end": 2.1,
+  "start": 0.8,
+  "end": 1.5,
   "lines": [
    "Lúmina."
   ]
  },
  {
-  "start": 2.14,
-  "end": 5.77,
+  "start": 1.54,
+  "end": 4.39,
   "lines": [
    "Transformamos oportunidades",
    "en crecimiento."
   ]
  },
  {
-  "start": 5.9,
-  "end": 9.45,
+  "start": 4.43,
+  "end": 7.5,
   "lines": [
    "Lúmina es un proyecto de Growth",
    "para el canal tradicional."
   ]
  },
  {
-  "start": 9.5,
-  "end": 13.54,
+  "start": 7.54,
+  "end": 10.83,
   "lines": [
    "Su foco: adquirir,",
    "activar y retener clientes"
   ]
  },
  {
-  "start": 13.58,
-  "end": 16.58,
+  "start": 10.87,
+  "end": 12.91,
   "lines": [
-   "para impulsar la Distribución",
-   "Numérica de Bavaria."
+   "para impulsar la Distribución Numérica."
   ]
  },
  {
-  "start": 16.62,
-  "end": 18.14,
+  "start": 12.95,
+  "end": 14.28,
   "lines": [
    "El reto es claro:"
   ]
  },
  {
-  "start": 18.18,
-  "end": 21.26,
+  "start": 14.32,
+  "end": 16.87,
   "lines": [
    "que cada cliente nuevo",
    "haga su primera compra"
   ]
  },
  {
-  "start": 21.3,
-  "end": 23.1,
+  "start": 16.91,
+  "end": 18.8,
   "lines": [
-   "que compre de forma recurrente"
+   "que reciba su pedido a satisfacción"
   ]
  },
  {
-  "start": 23.14,
-  "end": 24.65,
+  "start": 18.84,
+  "end": 20.5,
+  "lines": [
+   "que compre de manera recurrente"
+  ]
+ },
+ {
+  "start": 20.54,
+  "end": 21.91,
   "lines": [
    "y que no se fugue."
   ]
  },
  {
-  "start": 24.7,
-  "end": 27.29,
+  "start": 21.95,
+  "end": 24.2,
   "lines": [
    "Por eso trabajamos en dos frentes."
   ]
  },
  {
-  "start": 27.34,
-  "end": 30.1,
+  "start": 24.24,
+  "end": 26.69,
   "lines": [
    "En adquisición,",
    "identificamos oportunidades"
   ]
  },
  {
-  "start": 30.14,
-  "end": 34.33,
+  "start": 26.73,
+  "end": 30.43,
   "lines": [
    "y gestionamos la creación de nuevos",
    "clientes a través de Onboard."
   ]
  },
  {
-  "start": 34.38,
-  "end": 37.14,
+  "start": 30.47,
+  "end": 32.83,
   "lines": [
    "Uno o dos días después,",
    "cargamos promociones"
   ]
  },
  {
-  "start": 37.18,
-  "end": 39.25,
+  "start": 32.87,
+  "end": 34.65,
   "lines": [
    "para incentivar la primera compra."
   ]
  },
  {
-  "start": 39.29,
-  "end": 43.06,
+  "start": 34.69,
+  "end": 36.09,
+  "lines": [
+   "Hacemos seguimiento logístico"
+  ]
+ },
+ {
+  "start": 36.13,
+  "end": 38.3,
+  "lines": [
+   "para que su pedido",
+   "llegue a satisfacción."
+  ]
+ },
+ {
+  "start": 38.34,
+  "end": 41.46,
   "lines": [
    "Y aseguramos una visita de",
    "seguimiento al mes siguiente."
   ]
  },
  {
-  "start": 43.1,
-  "end": 45.9,
+  "start": 41.5,
+  "end": 44.02,
   "lines": [
    "En retención, un algoritmo",
    "identifica cambios"
   ]
  },
  {
-  "start": 45.94,
-  "end": 48.58,
+  "start": 44.06,
+  "end": 46.32,
   "lines": [
    "en el comportamiento de",
    "compra de los clientes."
   ]
  },
  {
-  "start": 48.62,
-  "end": 52.58,
+  "start": 46.36,
+  "end": 49.87,
   "lines": [
    "Con esa señal, habilitamos",
    "estrategias comerciales diferenciales"
   ]
  },
  {
-  "start": 52.62,
-  "end": 55.3,
+  "start": 49.91,
+  "end": 52.17,
   "lines": [
    "como promociones cargadas mediante GPO"
   ]
  },
  {
-  "start": 55.34,
-  "end": 58.33,
+  "start": 52.21,
+  "end": 54.76,
   "lines": [
    "para prevenir la fuga",
    "y promover la recompra."
   ]
  },
  {
-  "start": 58.54,
-  "end": 60.58,
+  "start": 54.8,
+  "end": 56.65,
   "lines": [
    "En total, son cinco actividades"
   ]
  },
  {
-  "start": 60.62,
-  "end": 64.38,
+  "start": 56.69,
+  "end": 59.98,
   "lines": [
    "que cubren el 360 de nuestro",
    "universo de clientes:"
   ]
  },
  {
-  "start": 64.42,
-  "end": 66.42,
+  "start": 60.02,
+  "end": 61.91,
   "lines": [
    "promociones para clientes nuevos"
   ]
  },
  {
-  "start": 66.46,
-  "end": 68.06,
+  "start": 61.95,
+  "end": 63.23,
   "lines": [
    "visita de seguimiento"
   ]
  },
  {
-  "start": 68.1,
-  "end": 71.22,
+  "start": 63.27,
+  "end": 65.91,
   "lines": [
    "tareas comerciales para los",
    "representantes de ventas"
   ]
  },
  {
-  "start": 71.26,
-  "end": 72.54,
+  "start": 65.95,
+  "end": 67.01,
   "lines": [
    "promociones churn"
   ]
  },
  {
-  "start": 72.58,
-  "end": 76.57,
+  "start": 67.05,
+  "end": 70.43,
   "lines": [
    "y comunicaciones personalizadas",
    "dentro de la aplicación BEES."
   ]
  },
  {
-  "start": 76.78,
-  "end": 80.49,
+  "start": 70.47,
+  "end": 73.5,
   "lines": [
    "Nuestro diferencial:",
    "visibilidad y seguimiento."
   ]
  },
  {
-  "start": 80.54,
-  "end": 82.9,
+  "start": 73.54,
+  "end": 75.54,
   "lines": [
    "Un dashboard que se actualiza a diario"
   ]
  },
  {
-  "start": 82.94,
-  "end": 86.62,
+  "start": 75.58,
+  "end": 78.83,
   "lines": [
    "y reúne creación, activación, retención"
   ]
  },
  {
-  "start": 86.66,
-  "end": 89.22,
+  "start": 78.87,
+  "end": 81.17,
   "lines": [
    "comportamiento de compra, ejecución"
   ]
  },
  {
-  "start": 89.26,
-  "end": 91.3,
+  "start": 81.21,
+  "end": 82.87,
   "lines": [
    "logística y servicio."
   ]
  },
  {
-  "start": 91.34,
-  "end": 94.5,
+  "start": 82.91,
+  "end": 85.65,
   "lines": [
    "Esta visibilidad permite",
    "identificar rápidamente"
   ]
  },
  {
-  "start": 94.54,
-  "end": 96.62,
+  "start": 85.69,
+  "end": 87.46,
   "lines": [
    "dónde hay problemas o stoppers"
   ]
  },
  {
-  "start": 96.66,
-  "end": 99.54,
+  "start": 87.5,
+  "end": 90.13,
   "lines": [
    "hacer seguimiento a la",
    "gestión de la fuerza de ventas"
   ]
  },
  {
-  "start": 99.58,
-  "end": 102.3,
+  "start": 90.17,
+  "end": 92.57,
   "lines": [
    "detectar lo que impide la",
    "activación de un cliente"
   ]
  },
  {
-  "start": 102.34,
-  "end": 106.18,
+  "start": 92.61,
+  "end": 95.87,
   "lines": [
    "y encontrar oportunidades de",
    "mejora en la operación logística."
   ]
  },
  {
-  "start": 106.22,
-  "end": 109.81,
+  "start": 95.91,
+  "end": 98.65,
   "lines": [
    "Todo, con información",
    "actualizada para tomar decisiones"
   ]
  },
  {
-  "start": 109.85,
-  "end": 113.7,
+  "start": 98.69,
+  "end": 102.02,
   "lines": [
    "y trazabilidad de los resultados",
    "de adquisición y retención."
   ]
  },
  {
-  "start": 113.74,
-  "end": 117.62,
+  "start": 102.06,
+  "end": 105.5,
   "lines": [
    "En Lúmina conectamos datos,",
    "estrategia y ejecución"
   ]
  },
  {
-  "start": 117.66,
-  "end": 120.18,
+  "start": 105.54,
+  "end": 107.72,
   "lines": [
    "para impulsar el",
    "crecimiento del negocio."
   ]
  },
  {
-  "start": 120.22,
-  "end": 124.57,
+  "start": 107.76,
+  "end": 111.45,
   "lines": [
    "Activación, más retención,",
    "igual a crecimiento."

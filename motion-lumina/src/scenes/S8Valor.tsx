@@ -2,7 +2,7 @@ import React from "react";
 import {Easing, Img, interpolate, staticFile, useCurrentFrame} from "remotion";
 import {PhaseTitle} from "../components/motion";
 import {Highlight, Scene} from "../components/ui";
-import {ap, beesRadius, body, C, f, h1} from "../theme";
+import {ap, beesRadius, body, C, f, h1, t} from "../theme";
 
 // Captura real del dashboard (public/assets/dashboard.png, 861 × 653 px).
 const IW = 861;
@@ -27,7 +27,7 @@ export const S8Valor: React.FC<{start: number; duration: number}> = ({start, dur
   const c = (s: number) => f(s) - start;
   const cl = {extrapolateLeft: "clamp", extrapolateRight: "clamp"} as const;
   const ease = Easing.bezier(0.16, 1, 0.3, 1);
-  const cues = [c(91.3), c(95.16), c(98.08), c(100.96), c(104.72), c(108.4)];
+  const cues = [c(t("identificar")), c(t("hacer")), c(t("detectar")), c(t("encontrar")), c(t("Todo")), c(t("trazabilidad"))];
   const active = cues.reduce((acc, q, i) => (frame >= q ? i : acc), 0);
   const fx = (k: number) => interpolate(frame, cues.flatMap((q) => [q - 2, q + 18]), focus.flatMap((fo, i) => [focus[Math.max(0, i - 1)][k], fo[k]]), {...cl, easing: ease}) * SC;
   const [x, y, w, h] = [fx(0), fx(1), fx(2), fx(3)];
