@@ -8,3 +8,11 @@ out
 
 .env
 .env.*
+
+# Repo publico: datos internos de AB InBev y fuentes con licencia NO se suben
+input/*
+!input/.gitkeep
+data/*
+!data/.gitkeep
+review/
+output/
