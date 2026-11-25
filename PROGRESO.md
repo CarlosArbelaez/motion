@@ -23,7 +23,10 @@
 ## Decisiones aprobadas
 - El video habla como **el equipo de BrewAI** (no en primera persona). Carlos es AI Service Owner.
 - Logo del cierre: BrewAI (versión clara para fondo oscuro, tomada del deck de Pareto; PNG 571×145, pedir SVG o PNG más grande).
-- Título candidato: "Brew AI 2026 Rewind" o "Brew AI: Pulso 2026" (por elegir).
+- Título: **"Brew AI: Pulso 2026"**.
+- Difusión solo en canales internos (no redes públicas): las cifras en dinero se pueden mostrar.
+- Regla de cifras: como finales solo las que tengan certeza (líneas base y alcance reales); los impactos de los To-Be son estimados del equipo y se rotulan así.
+- Ranking por impacto en el negocio (v2 propuesto: Pareto, HE, Prometeo, Pagos MX, ATR; pendiente de GO).
 - Aún no hay cifras de ahorro real; Carlos verá si las consigue. Mientras tanto se trabaja con cifras de alcance y diseño.
 
 ## Cambios pedidos
