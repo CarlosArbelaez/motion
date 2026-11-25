@@ -51,16 +51,3 @@ export const Franja: React.FC<{ fondo: Token; children: React.ReactNode; style?:
     </div>
   );
 };
-
-// Escalera de puestos: 5 casillas, la actual rellena.
-export const Escalera: React.FC<{ puesto: number; color: string; tinta: string }> = ({ puesto, color, tinta }) => {
-  const L = useLayout();
-  const lado = 64 * L.u;
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 12 * L.u }}>
-      {[1, 2, 3, 4, 5].map((n) => (
-        <div key={n} style={{ width: n === puesto ? lado * 2.4 : lado, height: lado, boxSizing: "border-box", border: `${4 * L.u}px solid ${n === puesto ? color : tinta}`, backgroundColor: n === puesto ? color : "transparent" }} />
-      ))}
-    </div>
-  );
-};

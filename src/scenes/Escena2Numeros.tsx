@@ -20,7 +20,7 @@ const Contador: React.FC<{ valor: number }> = ({ valor }) => {
         scale: interpolate(frame, [0, 14], [1.25, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida, output: "perceptual-scale" }),
       }}
     >
-      <Fit text={String(actual).padStart(String(valor).length, "0")} medir={String(valor)} width={L.width * 0.98} max={900 * L.u} color={c("colors-status-brand-base")} align="center" style={{ lineHeight: 0.8 }} />
+      <Fit text={String(actual).padStart(String(valor).length, "0")} medir={String(valor)} width={L.width * 0.98} max={900 * L.u} color={c("colors-status-brand-base")} align="center" style={{ lineHeight: 0.8, fontVariantNumeric: "tabular-nums" }} />
     </div>
   );
 };

@@ -17,7 +17,7 @@ export const Fit: React.FC<{
   const t = text.toUpperCase();
   const { fontSize } = fitText({ text: (medir ?? text).toUpperCase(), withinWidth: width, fontFamily: titular.fontFamily, fontWeight: titular.fontWeight, letterSpacing: TRACK });
   return (
-    <div style={{ ...titular, fontSize: Math.min(fontSize, max), letterSpacing: TRACK, lineHeight: 0.84, color, whiteSpace: "nowrap", textAlign: align, fontVariantNumeric: "tabular-nums", ...style }}>
+    <div style={{ ...titular, fontSize: Math.min(fontSize, max), letterSpacing: TRACK, lineHeight: 0.84, color, whiteSpace: "nowrap", textAlign: align, ...style }}>
       {t}
     </div>
   );
