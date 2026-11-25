@@ -1,8 +1,8 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 2 — Dirección de arte: ENTREGADA, pendiente de GO.** Style frames en `review/stills/` y hoja `review/fase2-style-frames.png` (locales). Se regeneran con `scripts/stills.sh`.
-Fases 0 y 1 aprobadas con GO (25-nov-2026). Guion aprobado: `guion.md` v1 y `data/guion.json` (fuente de texto de las escenas; locales).
+**Fase 2 — Dirección de arte v2: ENTREGADA, pendiente de GO.** Carlos rechazó la v1; la v2 usa un lenguaje brutalista (tipografía enorme en mayúsculas, reglas duras, franjas a sangre, bandas de texto en contorno en las zonas no seguras, línea de pulso). Frames en `review/stills/` y hoja `review/fase2-style-frames-v2.png`; la v1 quedó en `review/stills/v1/`. Se regeneran con `scripts/stills.sh`.
+Fases 0 y 1 aprobadas con GO (25-nov-2026).
 
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
@@ -39,3 +39,5 @@ Fases 0 y 1 aprobadas con GO (25-nov-2026). Guion aprobado: `guion.md` v1 y `dat
 - Fuentes disponibles: Avantt SemiBold (no Bold) y Satoshi Regular (no Medium). Se usan esas mientras Carlos no pase otros pesos.
 - Render en esta sesión: Remotion no puede descargar su navegador; se usa `--browser-executable` con el Chromium preinstalado (ver `scripts/stills.sh`).
 - El código fuente no lleva cifras ni textos internos: todo sale de `data/guion.json`. Para compilar en una sesión nueva hay que restaurar `data/guion.json`, `public/fonts/` y `public/logo-brewai.png` (no versionados).
+- Pedido de Carlos para la Fase 4: animación fluida tipo Wrapped con buenas prácticas de Remotion; debe verse como motion graphic profesional.
+- La referencia de kittl.com no se pudo abrir (dominio bloqueado en este entorno).
