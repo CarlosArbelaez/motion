@@ -1,10 +1,9 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 4 — Animación, Bloque C (#1, gracias, cierre): ENTREGADO, pendiente de GO.** Vistas previas: `review/bloqueC-v1.mp4` y el video completo `review/completo-v1.mp4` (540×960, 60 s, con voz y subtítulos, sin música). Bloques A y B aprobados con GO.
-Siguiente: Fase 5 (música dubstep enérgica pero profesional, mezcla, efectos de sonido, checklist de revisión).
-Composición principal `Pulso` en `src/Pulso.tsx`; tiempos desde `data/tiempos.json`; vista previa con `scripts/preview.sh <salida> [desde-hasta]`.
-Fases 0 a 3 aprobadas con GO (voz: Yohan Melguizo).
+**Rehaciendo guion tras comentarios de Carlos al video completo (v1 de 60 s en `review/completo-v1.mp4`).** `guion.md` v3 (90 s) ENTREGADO, pendiente de GO. Con el GO: regenerar voz (Yohan) de las tarjetas del top, la #1 y la sección de áreas; actualizar `data/guion.json`; rehacer escenas.
+Comentarios de Carlos: (1) no se distinguen las secciones; (2) el resumen no se diferencia del top 5; (3) no queda claro de qué trata cada iniciativa ni su impacto: usar problema / solución / impacto; (4) los agradecimientos deben ser un recopilado de todas las áreas con las que se trabajó, para comunicar que BrewAI trabaja con cualquier dependencia.
+Decisiones de Carlos (25-nov): video de ~90 s con las 5 iniciativas; solo áreas de negocio (sin equipos de TI); cifras de impacto esperado según la tabla del guion v3.
 
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
