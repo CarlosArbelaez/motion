@@ -1,7 +1,7 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 3 — Voz: muestras ENTREGADAS, pendiente de que Carlos elija voz.** Muestras en `review/voces/` (locales). Flujo de ElevenLabs: `tTcr7a6SRAXB40J1gK7M`. Modelo: eleven_v4. Carlos pidió voz dinámica y juvenil, tipo Spotify; segunda tanda: Valeria (`22VndfJPBU7AZORAZZTT`), Orozco (`MFczlrjgpEos5t8Rwlto`), Yohan Melguizo (`M67yD2NH1lnnCUDjlTGP`). Primera tanda descartada: Herduin (`1uVtI2cicnbE8Ur3YzmS`), Milena (`UZPkivpygDffhcwKJsx6`), Daniela (`ajOR9IDAaubDK5qtLUqQ`).
+**Fase 3 — Voz: audios por escena ENTREGADOS, pendiente de GO.** Voz elegida por Carlos: **Yohan Melguizo** (`M67yD2NH1lnnCUDjlTGP`), modelo eleven_v4, flujo `tTcr7a6SRAXB40J1gK7M`. 12 audios en `public/voz/` (originales en `public/voz/original/`; locales). `scripts/voz.sh` los acelera 10 % e iguala volumen; `scripts/tiempos.py` calcula `data/tiempos.json` y `review/subtitulos.srt`. Escucha completa: `review/voz-completa-60s.mp3`.
 Fases 0, 1 y 2 (arte v2 brutalista) aprobadas con GO.
 
 ## Hecho
@@ -41,3 +41,5 @@ Fases 0, 1 y 2 (arte v2 brutalista) aprobadas con GO.
 - El código fuente no lleva cifras ni textos internos: todo sale de `data/guion.json`. Para compilar en una sesión nueva hay que restaurar `data/guion.json`, `public/fonts/` y `public/logo-brewai.png` (no versionados).
 - Pedido de Carlos para la Fase 4: animación fluida tipo Wrapped con buenas prácticas de Remotion; debe verse como motion graphic profesional.
 - La referencia de kittl.com no se pudo abrir (dominio bloqueado en este entorno).
+- Música (Fase 5): Carlos quiere dubstep muy enérgico sin perder el tono profesional. El conector de ElevenLabs de esta sesión no genera música; evaluar el generador de música de Magnific o una pista que pase Carlos.
+- Ajustes de voz: en la #1 se cortó la última frase del audio para caber en 60 s ("4 países" y la línea descriptiva quedan en pantalla); en la #2 la voz dice "High End Agentic Hub".

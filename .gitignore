@@ -23,3 +23,7 @@ guion*.md
 # Fuentes con licencia y logo: no se suben
 public/fonts/
 public/logo-brewai.png
+
+# Audios de voz (contienen cifras internas)
+public/voz/
+public/musica/
