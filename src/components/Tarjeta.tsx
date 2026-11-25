@@ -63,24 +63,40 @@ export const BloqueTexto: React.FC<{ rotulo: string; texto: string; color: strin
   );
 };
 
-// Franja a sangre con el impacto esperado: el bloque que más pesa de la tarjeta.
-export const BloqueImpacto: React.FC<{ rotulo: string; cifra: string; texto: string; fondo: Token; tinta: Token; desde: number }> = ({ rotulo, cifra, texto, fondo, tinta, desde }) => {
+export type Barra = { titulo: string; de: string; a: string; resto: number };
+
+// Franja a sangre con el impacto esperado: cifra, frase y una barra que pasa de "hoy" a "con IA".
+export const BloqueImpacto: React.FC<{ rotulo: string; cifra: string; texto: string; barra: Barra; fondo: Token; tinta: Token; desde: number }> = ({ rotulo, cifra, texto, barra, fondo, tinta, desde }) => {
   const L = useLayout();
   const frame = useCurrentFrame();
   const p = interpolate(frame, [desde - 6, desde + 8], [100, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida });
+  // La barra arranca llena (hoy) y se vacía hasta lo que queda con IA.
+  const ancho = interpolate(frame, [desde + 16, desde + 46], [100, barra.resto], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida });
+  const llegada = interpolate(frame, [desde + 30, desde + 38], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const color = c(tinta);
   return (
     <div style={{ clipPath: `inset(0 ${p * 1.2 - 20}% 0 -20%)`, visibility: p >= 100 ? "hidden" : "visible" }}>
-      <Franja fondo={fondo} style={{ paddingTop: 22 * L.u, paddingBottom: 20 * L.u }}>
-        <div style={{ ...apoyo, fontSize: L.px(40), lineHeight: 1, textTransform: "uppercase", letterSpacing: "0.04em", color: c(tinta) }}>{rotulo}</div>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 24 * L.u, marginTop: 10 * L.u }}>
+      <Franja fondo={fondo} style={{ paddingTop: 20 * L.u, paddingBottom: 18 * L.u }}>
+        <div style={{ ...apoyo, fontSize: L.px(40), lineHeight: 1, textTransform: "uppercase", letterSpacing: "0.04em", color }}>{rotulo}</div>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 22 * L.u, marginTop: 8 * L.u }}>
           <Sube desde={desde} dur={14}>
             <div style={{ scale: interpolate(frame, [desde, desde + 16], [1.25, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida, output: "perceptual-scale" }), transformOrigin: "left bottom" }}>
-              <Fit text={cifra} width={L.contentW * 0.62} max={190 * L.u} color={c(tinta)} />
+              <Fit text={cifra} width={L.contentW * 0.6} max={170 * L.u} color={color} />
             </div>
           </Sube>
-          <Sube desde={desde + 8} dur={12} style={{ flex: 1, paddingBottom: 10 * L.u }}>
-            <div style={{ ...titular, fontSize: L.px(44), lineHeight: 1, letterSpacing: "-0.01em", textTransform: "uppercase", color: c(tinta) }}>{texto}</div>
+          <Sube desde={desde + 8} dur={12} style={{ flex: 1, paddingBottom: 8 * L.u }}>
+            <div style={{ ...titular, fontSize: L.px(42), lineHeight: 1, letterSpacing: "-0.01em", textTransform: "uppercase", color }}>{texto}</div>
           </Sube>
+        </div>
+        <div style={{ marginTop: 14 * L.u, height: 30 * L.u, boxSizing: "border-box", border: `${4 * L.u}px solid ${color}`, position: "relative", opacity: interpolate(frame, [desde + 10, desde + 16], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+          <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: `${ancho}%`, backgroundColor: color }} />
+        </div>
+        <div style={{ ...apoyo, display: "flex", justifyContent: "space-between", fontSize: L.px(40), lineHeight: 1, color, marginTop: 10 * L.u, opacity: interpolate(frame, [desde + 10, desde + 16], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+          <span>{barra.titulo}</span>
+          <span>
+            {barra.de}
+            <span style={{ opacity: llegada }}> → {barra.a}</span>
+          </span>
         </div>
       </Franja>
     </div>

@@ -80,9 +80,9 @@ export const Escena3Top: React.FC<{ item: ItemTop; duracion?: number; momentos?:
         </div>
       </div>
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", paddingTop: 14 * L.u, paddingBottom: 10 * L.u }}>
-        <BloqueCifra rotulo={r.problema} cifra={item.problemaCifra} texto={item.problema} color={tinta} apoyoColor={gris} desde={problemaEn - 4} max={170 * L.u} />
+        <BloqueCifra rotulo={r.problema} cifra={item.problemaCifra} texto={item.problema} color={tinta} apoyoColor={gris} desde={problemaEn - 4} max={135 * L.u} />
         <BloqueTexto rotulo={r.solucion} texto={item.solucion} color={tinta} apoyoColor={gris} desde={solucionEn - 4} />
-        <BloqueImpacto rotulo={r.impacto} cifra={item.impactoCifra} texto={item.impacto} fondo="colors-status-brand-base" tinta="colors-text-black-static" desde={impactoEn - 4} />
+        <BloqueImpacto rotulo={r.impacto} cifra={item.impactoCifra} texto={item.impacto} barra={item.barra} fondo="colors-status-brand-base" tinta="colors-text-black-static" desde={impactoEn - 4} />
       </div>
     </Stage>
   );

@@ -24,7 +24,7 @@ def a_procesado(t, sil):
     return (t - quitado) / TEMPO
 
 def partir(texto, modo):
-    # "tarjeta": puesto | nombre | problema | "Solución:" | solución | "Impacto esperado:" | impacto
+    # "tarjeta": puesto | nombre | problema | "Solución:" | solución | con IA
     patron = r"(?<=[.:])\s+" if modo in ("todo", "tarjeta") else r"(?<=\.)\s+"
     return [f.strip() for f in re.split(patron, texto) if f.strip()]
 
@@ -33,7 +33,9 @@ def inicios(audio, segs, total):
     orig = f"{R}/public/voz/original/{audio}.mp3"
     sil = [s for s in silencios(orig) if s[0] > 0.2 and s[1] < dur(orig) - 0.15]
     n = len(segs) - 1
-    if len(sil) >= n:
+    largas = [z for z in sil if z[1] - z[0] >= 0.2]  # las pausas de coma son más cortas
+    cand = largas if len(largas) >= n else sil
+    if len(cand) >= n:
         # Se elige el conjunto ordenado de pausas reales que mejor calza con las fronteras
         # esperadas por longitud del texto (las pausas largas pesan a favor).
         import itertools
@@ -43,7 +45,7 @@ def inicios(audio, segs, total):
             esperados.append(d0 * acc / sum(len(x) for x in segs))
         def costo(combo):
             return sum((((z[0] + z[1]) / 2 - e) ** 2) - 1.5 * (z[1] - z[0]) for z, e in zip(combo, esperados))
-        cortes = min(itertools.combinations(sil, n), key=costo)
+        cortes = min(itertools.combinations(cand, n), key=costo)
         return [0.0] + [a_procesado(f, sil) for _, f in cortes], True
     pesos, acc, out = [len(s) for s in segs], 0, []
     for p in pesos:
@@ -99,8 +101,8 @@ for sid, tipo, sec, audio, texto, modo, pre, post in plan:
     segs = partir(texto, modo)
     ini_s, ok = inicios(audio, segs, d)
     if modo == "tarjeta":  # une cada rótulo con su frase: quedan puesto, nombre, problema, solución, impacto
-        assert len(segs) == 7, (sid, segs)
-        segs = segs[:3] + [f"{segs[3]} {segs[4]}", f"{segs[5]} {segs[6]}"]
+        assert len(segs) == 6, (sid, segs)  # puesto | nombre | problema | "Solución:" | solución | con IA
+        segs = segs[:3] + [f"{segs[3]} {segs[4]}", segs[5]]
         ini_s = ini_s[:4] + [ini_s[5]]
     if not ok: sin_pausas.append(sid)
     voz_ini = round((t + pre) * FPS)

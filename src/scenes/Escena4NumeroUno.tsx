@@ -99,14 +99,14 @@ export const Escena4NumeroUno: React.FC<{ duracion?: number; momentos?: number[]
           </div>
         </div>
         <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", paddingTop: 10 * L.u, paddingBottom: 10 * L.u }}>
-          <BloqueCifra rotulo={r.problema} cifra={n.problemaCifra} texto={n.problema} nota={n.nota} color={negro} apoyoColor={negro} desde={problemaEn + 24} max={210 * L.u} contador />
+          <BloqueCifra rotulo={r.problema} cifra={n.problemaCifra} texto={n.problema} nota={n.nota} color={negro} apoyoColor={negro} desde={problemaEn + 24} max={165 * L.u} contador />
           <div style={{ position: "relative" }}>
             <BloqueTexto rotulo={r.solucion} texto={n.solucion} color={negro} apoyoColor={negro} desde={solucionEn - 4} />
             <div style={{ position: "absolute", right: 0, bottom: -18 * L.u }}>
               <Sello texto={n.secundario} desde={solucionEn + 50} />
             </div>
           </div>
-          <BloqueImpacto rotulo={r.impacto} cifra={n.impactoCifra} texto={n.impacto} fondo="colors-text-black-static" tinta="colors-status-brand-base" desde={impactoEn - 4} />
+          <BloqueImpacto rotulo={r.impacto} cifra={n.impactoCifra} texto={n.impacto} barra={n.barra} fondo="colors-text-black-static" tinta="colors-status-brand-base" desde={impactoEn - 4} />
         </div>
       </Stage>
       {telon ? <Telon hasta={nombreEn - 14} texto={`#${n.puesto}`} /> : null}
