@@ -1,8 +1,8 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 2 — Dirección de arte v2: ENTREGADA, pendiente de GO.** Carlos rechazó la v1; la v2 usa un lenguaje brutalista (tipografía enorme en mayúsculas, reglas duras, franjas a sangre, bandas de texto en contorno en las zonas no seguras, línea de pulso). Frames en `review/stills/` y hoja `review/fase2-style-frames-v2.png`; la v1 quedó en `review/stills/v1/`. Se regeneran con `scripts/stills.sh`.
-Fases 0 y 1 aprobadas con GO (25-nov-2026).
+**Fase 3 — Voz: muestras ENTREGADAS, pendiente de que Carlos elija voz.** Muestras en `review/voces/` (locales). Flujo de ElevenLabs: `tTcr7a6SRAXB40J1gK7M`. Modelo: eleven_v4. Voces probadas: Herduin (`1uVtI2cicnbE8Ur3YzmS`), Milena (`UZPkivpygDffhcwKJsx6`), Daniela (`ajOR9IDAaubDK5qtLUqQ`).
+Fases 0, 1 y 2 (arte v2 brutalista) aprobadas con GO.
 
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
