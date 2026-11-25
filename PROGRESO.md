@@ -1,7 +1,8 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 0 — Preparación e inventario de datos: ENTREGADA, pendiente de GO** (11 iniciativas inventariadas).
+**Fase 1 — Guion: ENTREGADA, pendiente de GO.** `guion.md` v1 (local, no versionado: contiene cifras internas).
+Fase 0 aprobada con GO el 25-nov-2026 (ranking v2 por impacto en el negocio).
 
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.

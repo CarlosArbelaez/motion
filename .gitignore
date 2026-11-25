@@ -16,3 +16,6 @@ data/*
 !data/.gitkeep
 review/
 output/
+
+# Contiene cifras internas
+guion*.md
