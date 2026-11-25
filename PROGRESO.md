@@ -11,14 +11,16 @@
 
 ## Pendiente para cerrar la Fase 0
 - [x] Fuente de datos: links de artefactos de claude.ai (sí se pueden leer). Cargado: Pareto Promos (https://claude.ai/artifact/KrHRsejG8vNxSojEwV2jKo).
-- [ ] Links de los artefactos de las demás iniciativas.
+- [ ] Documentos To-Be e iniciativas del año: Carlos los adjuntó en el chat el 25-nov pero NO llegaron a la sesión. Pedidos de nuevo (links de artefactos o Google Drive).
 - [x] Fuentes: Avantt SemiBold y Satoshi Regular + tokens del sistema de diseño, tomados del deck de Pareto. Falta Satoshi Medium (opcional).
 - [ ] Opcional: íconos de AB InBev en `input/icons/` y logo de BrewTech en `input/`.
 - [ ] Extraer `data/iniciativas.json`, cifras del año, ranking y vacíos de datos.
 - [ ] Pregunta de control: ¿hay cifras que no se puedan mostrar en redes públicas?
 
 ## Decisiones aprobadas
-- (ninguna todavía)
+- El video habla como **el equipo de BrewAI** (no en primera persona). Carlos es AI Service Owner.
+- Logo del cierre: BrewAI (versión clara para fondo oscuro, tomada del deck de Pareto; PNG 571×145, pedir SVG o PNG más grande).
+- Aún no hay cifras de ahorro real; Carlos verá si las consigue. Mientras tanto se trabaja con cifras de alcance y diseño.
 
 ## Cambios pedidos
 - (ninguno todavía)
