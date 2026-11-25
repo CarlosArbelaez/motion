@@ -11,7 +11,8 @@
 
 ## Pendiente para cerrar la Fase 0
 - [x] Fuente de datos: links de artefactos de claude.ai (sí se pueden leer). Cargado: Pareto Promos (https://claude.ai/artifact/KrHRsejG8vNxSojEwV2jKo).
-- [ ] Documentos To-Be e iniciativas del año: Carlos los adjuntó en el chat el 25-nov pero NO llegaron a la sesión. Pedidos de nuevo (links de artefactos o Google Drive).
+- [x] Primer lote recibido como adjuntos (25-nov): Prometeo, OTC Invoice Reconciliation, Bloqueos/Desbloqueos (Master Data Control LITE), Gestión de Cambios ServiceNow, ATR Open Items. Copiados a `input/tobe/` (no versionados).
+- [ ] Segundo lote de documentos (Carlos los envía enseguida).
 - [x] Fuentes: Avantt SemiBold y Satoshi Regular + tokens del sistema de diseño, tomados del deck de Pareto. Falta Satoshi Medium (opcional).
 - [ ] Opcional: íconos de AB InBev en `input/icons/` y logo de BrewTech en `input/`.
 - [ ] Extraer `data/iniciativas.json`, cifras del año, ranking y vacíos de datos.
@@ -20,6 +21,7 @@
 ## Decisiones aprobadas
 - El video habla como **el equipo de BrewAI** (no en primera persona). Carlos es AI Service Owner.
 - Logo del cierre: BrewAI (versión clara para fondo oscuro, tomada del deck de Pareto; PNG 571×145, pedir SVG o PNG más grande).
+- Título candidato: "Brew AI 2026 Rewind" o "Brew AI: Pulso 2026" (por elegir).
 - Aún no hay cifras de ahorro real; Carlos verá si las consigue. Mientras tanto se trabaja con cifras de alcance y diseño.
 
 ## Cambios pedidos
