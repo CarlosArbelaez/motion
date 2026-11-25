@@ -11,6 +11,8 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 
 **Ronda de comentarios 3 de Carlos (sobre `completo-v4.mp4`):** (1) problemas de legibilidad y textos montados → tarjetas rehechas (todo apilado, columnas separadas, rótulos en Avantt, más aire, cintas más pequeñas, subtítulos sin trozos huérfanos); (2) el cierre de áreas debe decir que resolvemos cualquier reto de cualquier equipo, pero con IA → "Cualquier equipo. Cualquier reto. Con IA, lo resolvemos." Vista previa: `review/completo-v5.mp4` (98,5 s). Pendiente de GO.
 
+**Ilustraciones (25-nov):** Carlos adjuntó un zip de 25 doodles SVG ("Free Doodle Illustrations", de terceros; licencia por confirmar). Copiados a `input/ilustraciones/` (no versionados). Se usan 4, una por cortinilla de sección, recoloreadas a la paleta con `scripts/ilustraciones.py` (salida en `public/ilustraciones/`, no versionada): 01 persona en laptop, 02 ajedrez, 03 persona con chatbot, 04 persona caminando. Vista previa: `review/completo-v6.mp4`. Pendiente de GO.
+
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
 - Carpetas creadas: `input/`, `input/fonts/`, `input/icons/`, `data/`, `review/stills/`, `output/`.

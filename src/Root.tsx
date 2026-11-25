@@ -9,6 +9,7 @@ import { Escena3Top } from "./scenes/Escena3Top";
 import { Escena4NumeroUno } from "./scenes/Escena4NumeroUno";
 import { Escena5Areas } from "./scenes/Escena5Areas";
 import { EscenaCortina } from "./scenes/EscenaCortina";
+import { EscenaRanking } from "./scenes/EscenaRanking";
 import { Escena6Cierre } from "./scenes/Escena6Cierre";
 import { HojaEstilo } from "./scenes/HojaEstilo";
 
@@ -29,6 +30,7 @@ const G3 = fijo(Escena3Top, 330);
 const G4 = fijo(Escena4NumeroUno, 460);
 const G5 = fijo(Escena5Areas, 170);
 const GC = fijo(EscenaCortina, 25);
+const GR = fijo(EscenaRanking, 100);
 const G6 = fijo(Escena6Cierre, 150);
 
 export const RemotionRoot: React.FC = () => {
@@ -42,6 +44,9 @@ export const RemotionRoot: React.FC = () => {
       <Still id="Frame4-NumeroUno" component={G4} {...V} />
       <Still id="Frame5-Areas" component={G5} {...V} />
       <Still id="Frame0-Cortina" component={GC} defaultProps={{ seccion: 1 }} {...V} />
+      <Still id="Frame0-Cortina3" component={GC} defaultProps={{ seccion: 3 }} {...V} />
+      <Still id="Frame0-Cortina4" component={GC} defaultProps={{ seccion: 4 }} {...V} />
+      <Still id="Frame0-Ranking" component={GR} {...V} />
       <Still id="Frame6-Cierre" component={G6} {...V} />
       <Still id="Frame3-Guias" component={G3} defaultProps={{ item: guion.top[2], guias: true }} {...V} />
       <Still id="HojaEstilo" component={HojaEstilo} width={1920} height={1080} />

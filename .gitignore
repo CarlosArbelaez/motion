@@ -27,3 +27,6 @@ public/logo-brewai.png
 # Audios de voz (contienen cifras internas)
 public/voz/
 public/musica/
+
+# Ilustraciones de terceros (licencia por confirmar)
+public/ilustraciones/
