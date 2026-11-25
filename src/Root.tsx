@@ -39,8 +39,8 @@ export const RemotionRoot: React.FC = () => {
   return (
     <>
       <MotionProGallery />
-      <Composition id="Pulso" component={Pulso} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: true }} {...V} />
-      <Composition id="Pulso-review" component={filmstripOf(Pulso)} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: false }} {...V} />
+      <Composition id="Pulso" component={Pulso} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: true, conMusica: true }} {...V} />
+      <Composition id="Pulso-review" component={filmstripOf(Pulso)} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: false, conMusica: false }} {...V} />
       <Still id="Frame1-Gancho" component={G1} {...V} />
       <Still id="Frame2-Numeros" component={G2} defaultProps={{ indice: 1 }} {...V} />
       <Still id="Frame3-Top" component={G3} defaultProps={{ item: guion.top[2] }} {...V} />

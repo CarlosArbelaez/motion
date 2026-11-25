@@ -61,3 +61,9 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 - Menos texto por cuadro: cada tarjeta muestra un bloque a la vez (Problema, Solución, Con IA); áreas en dos tiempos.
 - Motion-pro: BounceIn en la cifra de impacto, StaggerFrom en las áreas, revisión con tiras de fotogramas, lista SOUND_CUES en `src/sonido.ts`. Auditor: nota A.
 - Entregado `review/completo-v8.mp4`. Pendiente: GO para Fase 5 (música y sonido).
+
+## Fase 5 · música y sonido (25 nov 2026)
+- Música: pista dubstep a 140 BPM compuesta por código (`scripts/musica.py` → `public/musica/pulso.wav`), con secciones alineadas a los cortes. Magnific no pudo generarla (plan gratuito sin usos de música). Reemplazable por otra pista con el mismo nombre de archivo.
+- Efectos: 25 sonidos sintéticos (`node scripts/motion-make-sfx.mjs` → `public/sfx/`), colocados en cortes, cambios de bloque, cifra de impacto y firma (`src/sonido.ts`).
+- Mezcla: la música baja mientras habla la voz (≈10 dB por debajo) y sube en silencios y cortes.
+- Entregado `review/completo-v9.mp4`. Pendiente: GO para Fase 6 (render final).

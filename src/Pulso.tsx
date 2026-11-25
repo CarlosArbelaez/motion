@@ -14,6 +14,8 @@ import { EscenaRanking } from "./scenes/EscenaRanking";
 import { Escena4NumeroUno } from "./scenes/Escena4NumeroUno";
 import { Escena5Areas } from "./scenes/Escena5Areas";
 import { Escena6Cierre } from "./scenes/Escena6Cierre";
+import { Sfx } from "./motion";
+import { SOUND_CUES, volumenMusica } from "./sonido";
 
 export const TOTAL = tiempos.total;
 export const FPS = tiempos.fps;
@@ -57,7 +59,7 @@ const corteDe = (antes: Tiempo, e: Tiempo, i: number): Omit<Corte, "en"> => {
   return { color, tipo, sentido: i % 2 === 0 ? 1 : -1 };
 };
 
-export const Pulso: React.FC<{ conVoz?: boolean }> = ({ conVoz = true }) => {
+export const Pulso: React.FC<{ conVoz?: boolean; conMusica?: boolean }> = ({ conVoz = true, conMusica = true }) => {
   const cues: Cue[] = tiempos.escenas.flatMap((e) => e.subtitulos.map((s) => ({ ...s, sobreAmarillo: e.tipo === "numeroUno" })));
   const cortes: Corte[] = tiempos.escenas.slice(1).map((e, i) => ({ en: e.desde, ...corteDe(tiempos.escenas[i], e, i) }));
   return (
@@ -78,6 +80,8 @@ export const Pulso: React.FC<{ conVoz?: boolean }> = ({ conVoz = true }) => {
               </Sequence>
             ))
         : null}
+      {conMusica ? <Audio src={staticFile("musica/pulso.wav")} volume={(f) => volumenMusica(f, conVoz)} /> : null}
+      {conMusica ? SOUND_CUES.map((c) => <Sfx key={`${c.frame}-${c.src}`} src={c.src} at={c.frame} lead={c.lead} volume={c.volumen} />) : null}
     </AbsoluteFill>
   );
 };

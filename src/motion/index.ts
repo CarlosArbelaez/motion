@@ -11,3 +11,4 @@ export * from "./data";
 export * from "./physics";
 export * from "./media";
 export * from "./review";
+export * from "./texture";
