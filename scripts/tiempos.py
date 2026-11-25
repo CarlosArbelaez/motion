@@ -16,15 +16,15 @@ plan = [
     ("numeros0", "02a-iniciativas", g["numeros"]["items"][0]["voz"], 0.15, 0.20),
     ("numeros1", "02b-agentes", g["numeros"]["items"][1]["voz"], 0.15, 0.15),
     ("numeros2", "02c-paises", g["numeros"]["items"][2]["voz"], 0.15, 0.20),
-    ("ranking", "03-ranking", g["ranking"]["voz"], 0.15, 0.15),
-    ("top0", "03a-top5", g["top"][0]["voz"], 0.15, 0.10),
-    ("top1", "03b-top4", g["top"][1]["voz"], 0.15, 0.10),
-    ("top2", "03c-top3", g["top"][2]["voz"], 0.15, 0.10),
-    ("top3", "03d-top2", g["top"][3]["voz"], 0.15, 0.10),
+    ("ranking", "03-ranking", g["ranking"]["voz"], 0.15, 0.10),
+    ("top0", "03a-top5", g["top"][0]["voz"], 0.12, 0.10),
+    ("top1", "03b-top4", g["top"][1]["voz"], 0.12, 0.10),
+    ("top2", "03c-top3", g["top"][2]["voz"], 0.12, 0.10),
+    ("top3", "03d-top2", g["top"][3]["voz"], 0.12, 0.10),
     ("ademas", "03e-ademas", g["ademas"]["voz"], 0.15, 0.30),
     ("numeroUno", "04-numero-uno", g["numeroUno"]["vozCorta"], 0.70, 0.40),
-    ("gracias", "05-gracias", g["gracias"]["voz"], 0.10, 0.10),
-    ("cierre", "06-cierre", g["cierre"]["voz"], 0.10, None),
+    ("gracias", "05-gracias", g["gracias"]["voz"], 0.10, 0.05),
+    ("cierre", "06-cierre", g["cierre"]["voz"], 0.05, None),
 ]
 escenas, t = [], 0
 for i, (sid, audio, texto, pre, post) in enumerate(plan):
