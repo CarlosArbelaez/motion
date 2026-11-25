@@ -33,7 +33,7 @@ export const Escena6Cierre: React.FC<{ fraseEn?: number; firmaEn?: number; guias
   return (
     <Stage bg="colors-background-base" cabecera={cabeceraDe(4)} ticker={k.anio} guias={guias}>
       <Anio texto={k.anio} />
-      <LineaPulso desde={10} />
+      <LineaPulso desde={18} />
       {k.fraseLineas.map((l, i) => (
         <Sube key={l} desde={fraseEn + i * 7} dur={14}>
           <Fit text={l} width={L.contentW} max={150 * L.u} color={tinta} />

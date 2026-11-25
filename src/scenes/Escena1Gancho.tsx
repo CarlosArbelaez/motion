@@ -42,7 +42,7 @@ export const Escena1Gancho: React.FC<{ guias?: boolean }> = ({ guias }) => {
   const L = useLayout();
   const { titulo, gancho, cabecera, etiquetas } = guion;
   return (
-    <Stage bg="colors-background-base" cabecera={[guion.cierre.firma, cabecera.resumen]} cabeceraEntra={14} ticker={titulo.anio} guias={guias}>
+    <Stage bg="colors-background-base" cabecera={[guion.cierre.firma, cabecera.resumen]} cabeceraEntra={18} ticker={titulo.anio} guias={guias}>
       <div style={{ height: 44 * L.u }} />
       <Barre desde={20} dur={10} style={{ alignSelf: "flex-start" }}>
         <Etiqueta texto={etiquetas.marca} fondo="colors-text-primary" tinta="colors-text-black-static" size={52} />
@@ -50,7 +50,7 @@ export const Escena1Gancho: React.FC<{ guias?: boolean }> = ({ guias }) => {
       <Sube desde={22} dur={16} style={{ marginTop: 28 * L.u }}>
         <Fit text={titulo.nombre} width={L.contentW} max={400 * L.u} color={c("colors-text-primary")} />
       </Sube>
-      <LineaPulso desde={12} />
+      <LineaPulso desde={18} />
       <Anio />
       <Sube desde={46} dur={14} style={{ marginTop: 44 * L.u }}>
         <div style={{ ...apoyo, fontSize: L.px(50), lineHeight: 1.15, color: c("colors-text-primary") }}>{gancho.sub}</div>

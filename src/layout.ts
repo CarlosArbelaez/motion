@@ -9,7 +9,7 @@ export const useLayout = () => {
   const safe = vertical
     ? { top: 250 * u, bottom: 350 * u, left: 72 * u, right: 72 * u }
     : { top: 90 * u, bottom: 90 * u, left: 120 * u, right: 120 * u };
-  const subtituloAlto = 170 * u;
+  const subtituloAlto = 142 * u; // dos líneas de subtítulo a 44 px
   return {
     width,
     height,

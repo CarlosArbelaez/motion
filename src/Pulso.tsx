@@ -34,11 +34,11 @@ const escena = (e: Tiempo): React.ReactNode => {
     case "ranking":
       return <EscenaRanking />;
     case "top":
-      return <Escena3Top item={guion.top[n]} duracion={e.duracion} momentos={e.momentos} />;
+      return <Escena3Top item={guion.top[n]} momentos={e.momentos} />;
     case "ademas":
       return <EscenaAdemas />;
     case "numeroUno":
-      return <Escena4NumeroUno duracion={e.duracion} momentos={e.momentos} telon />;
+      return <Escena4NumeroUno momentos={e.momentos} telon />;
     case "areas":
       return <Escena5Areas momentos={e.momentos} />;
     case "cierre":

@@ -9,6 +9,8 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 
 **Ronda de comentarios 2 de Carlos (sobre `completo-v2.mp4`):** (1) no se entiende el impacto esperado que genera la IA → hecho con su GO: bloque "Con IA · esperado" con barra hoy → con IA y voz "Con IA, esperamos…" (`review/completo-v4.mp4`, 97,5 s); (2) voz un punto más baja → hecho (-17,5 LUFS); (3) tiene un zip de ilustraciones SVG → pendiente de que lo adjunte; (4) transiciones aburridas, referencia misterhorse.com (dominio bloqueado aquí) → hecho: 5 tipos de corte en `src/components/Cortes.tsx` (estela, persianas, columnas, diagonal, obturador). Vista previa: `review/completo-v3.mp4`.
 
+**Ronda de comentarios 3 de Carlos (sobre `completo-v4.mp4`):** (1) problemas de legibilidad y textos montados → tarjetas rehechas (todo apilado, columnas separadas, rótulos en Avantt, más aire, cintas más pequeñas, subtítulos sin trozos huérfanos); (2) el cierre de áreas debe decir que resolvemos cualquier reto de cualquier equipo, pero con IA → "Cualquier equipo. Cualquier reto. Con IA, lo resolvemos." Vista previa: `review/completo-v5.mp4` (98,5 s). Pendiente de GO.
+
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
 - Carpetas creadas: `input/`, `input/fonts/`, `input/icons/`, `data/`, `review/stills/`, `output/`.

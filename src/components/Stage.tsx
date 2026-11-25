@@ -68,8 +68,8 @@ export const Stage: React.FC<{
     <AbsoluteFill style={{ backgroundColor: c(bg), overflow: "hidden" }}>
       {L.vertical ? (
         <>
-          <Cinta text={ticker} color={contorno} top={(L.safe.top - 210 * L.u) / 2} size={210 * L.u} sentido={-1} />
-          <Cinta text={ticker} color={contorno} bottom={(L.safe.bottom - 290 * L.u) / 2} size={290 * L.u} sentido={1} />
+          <Cinta text={ticker} color={contorno} top={24 * L.u} size={160 * L.u} sentido={-1} />
+          <Cinta text={ticker} color={contorno} bottom={40 * L.u} size={230 * L.u} sentido={1} />
         </>
       ) : null}
       <Cabecera izq={cabecera[0]} der={cabecera[1]} tinta={c(tinta)} entra={cabeceraEntra} />
