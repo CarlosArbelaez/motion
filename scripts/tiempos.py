@@ -6,7 +6,8 @@ toman de las pausas reales de la voz, no de una estimación."""
 import json, subprocess, os, re
 R = os.path.join(os.path.dirname(__file__), "..")
 FPS = 30
-TEMPO = float(os.environ.get("TEMPO", "1.18"))
+TEMPO = float(os.environ.get("TEMPO", "1.08"))
+PAUSA = 0.32  # las pausas largas de la voz se dejan en este tope (igual que scripts/voz.sh)
 g = json.load(open(f"{R}/data/guion.json"))
 
 def dur(path):
@@ -20,11 +21,15 @@ def silencios(path):
 
 def a_procesado(t, sil):
     """Tiempo del audio original -> tiempo del audio procesado (pausas recortadas + tempo)."""
-    quitado = sum(max(0, min(f, t) - i - 0.22) for i, f in sil if i < t and f - i > 0.22)
+    quitado = sum(max(0, min(f, t) - i - PAUSA) for i, f in sil if i < t and f - i > PAUSA)
     return (t - quitado) / TEMPO
 
 def partir(texto, modo):
-    # "tarjeta": puesto | nombre | problema | "Solución:" | solución | con IA
+    # "tarjeta": puesto | nombre | problema | solución | resultado (el puesto y el nombre comparten frase)
+    if modo == "tarjeta":
+        frases = [f.strip() for f in re.split(r"(?<=\.)\s+", texto) if f.strip()]
+        puesto, nombre = frases[0].split(": ", 1)
+        return [puesto + ":", nombre] + frases[1:]
     patron = r"(?<=[.:])\s+" if modo in ("todo", "tarjeta") else r"(?<=\.)\s+"
     return [f.strip() for f in re.split(patron, texto) if f.strip()]
 
@@ -59,13 +64,12 @@ plan = [
     ("numeros1", "numeros", 1, "02b-agentes", g["numeros"]["items"][1]["voz"], "puntos", 0.15, 0.2),
     ("numeros2", "numeros", 1, "02c-paises", g["numeros"]["items"][2]["voz"], "puntos", 0.15, 0.35),
     ("ranking", "ranking", 2, "03-ranking", g["ranking"]["voz"], "puntos", 0.2, 0.2),
-    ("top0", "top", 2, "03a-top5", g["top"][0]["voz"], "tarjeta", 0.15, 0.3),
-    ("top1", "top", 2, "03b-top4", g["top"][1]["voz"], "tarjeta", 0.15, 0.3),
-    ("top2", "top", 2, "03c-top3", g["top"][2]["voz"], "tarjeta", 0.15, 0.3),
-    ("top3", "top", 2, "03d-top2", g["top"][3]["voz"], "tarjeta", 0.15, 0.3),
+    ("top0", "top", 2, "03a-top5", g["top"][0]["voz"], "tarjeta", 0.15, 0.5),
+    ("top1", "top", 2, "03b-top4", g["top"][1]["voz"], "tarjeta", 0.15, 0.5),
+    ("top2", "top", 2, "03c-top3", g["top"][2]["voz"], "tarjeta", 0.15, 0.5),
+    ("top3", "top", 2, "03d-top2", g["top"][3]["voz"], "tarjeta", 0.15, 0.5),
     ("numeroUno", "numeroUno", 2, "04-numero-uno", g["numeroUno"]["voz"], "tarjeta", 0.6, 0.5),
-    ("cortina3", "cortina", 3, None, None, None, 1.0, 0),
-    ("areas", "areas", 3, "05-areas", g["areas"]["voz"], "todo", 0.15, 0.5),
+    ("areas", "areas", 3, "05-areas", g["areas"]["voz"], "todo", 0.3, 0.6),
     ("cierre", "cierre", 4, "06-cierre", g["cierre"]["voz"], "todo", 0.15, 1.3),
 ]
 
@@ -97,10 +101,7 @@ for sid, tipo, sec, audio, texto, modo, pre, post in plan:
     d = dur(f"{R}/public/voz/{audio}.mp3")
     segs = partir(texto, modo)
     ini_s, ok = inicios(audio, segs, d)
-    if modo == "tarjeta":  # une cada rótulo con su frase: quedan puesto, nombre, problema, solución, impacto
-        assert len(segs) == 6, (sid, segs)  # puesto | nombre | problema | "Solución:" | solución | con IA
-        segs = segs[:3] + [f"{segs[3]} {segs[4]}", segs[5]]
-        ini_s = ini_s[:4] + [ini_s[5]]
+    if modo == "tarjeta": assert len(segs) == 5, (sid, segs)
     if not ok: sin_pausas.append(sid)
     voz_ini = round((t + pre) * FPS)
     fin = round((t + pre + d + post) * FPS)

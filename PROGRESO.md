@@ -67,3 +67,8 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 - Efectos: 25 sonidos sintéticos (`node scripts/motion-make-sfx.mjs` → `public/sfx/`), colocados en cortes, cambios de bloque, cifra de impacto y firma (`src/sonido.ts`).
 - Mezcla: la música baja mientras habla la voz (≈10 dB por debajo) y sube en silencios y cortes.
 - Entregado `review/completo-v9.mp4`. Pendiente: GO para Fase 6 (render final).
+
+## Ronda v10 (25 nov 2026)
+- Fuera la cortinilla 3 (solo queda la del ranking).
+- Voz de las tarjetas regrabada con problema/reto → solución → resultado; ritmo más pausado (tempo 1,08). Total 115,4 s.
+- Música regenerada para la nueva duración. Entregado `review/completo-v10.mp4`. Pendiente: GO para Fase 6.

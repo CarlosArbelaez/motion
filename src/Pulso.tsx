@@ -55,7 +55,7 @@ const VARIADOS: TipoCorte[] = ["persianas", "diagonal", "columnas", "obturador"]
 const corteDe = (antes: Tiempo, e: Tiempo, i: number): Omit<Corte, "en"> => {
   const tocaAmarillo = AMARILLAS.includes(antes.tipo) || AMARILLAS.includes(e.tipo);
   const color: Token = tocaAmarillo || (antes.tipo === "numeros" && e.tipo === "numeros") ? "colors-text-black-static" : "colors-status-brand-base";
-  const tipo: TipoCorte = e.tipo === "cortina" || e.tipo === "ranking" ? "estela" : VARIADOS[i % VARIADOS.length];
+  const tipo: TipoCorte = e.seccion !== antes.seccion ? "estela" : VARIADOS[i % VARIADOS.length];
   return { color, tipo, sentido: i % 2 === 0 ? 1 : -1 };
 };
 
