@@ -11,12 +11,13 @@ export const Fit: React.FC<{
   max: number;
   color: string;
   align?: "left" | "right" | "center";
+  medir?: string; // texto con el que se calcula el tamaño (p. ej. el valor final de un contador)
   style?: React.CSSProperties;
-}> = ({ text, width, max, color, align = "left", style }) => {
+}> = ({ text, width, max, color, align = "left", medir, style }) => {
   const t = text.toUpperCase();
-  const { fontSize } = fitText({ text: t, withinWidth: width, fontFamily: titular.fontFamily, fontWeight: titular.fontWeight, letterSpacing: TRACK });
+  const { fontSize } = fitText({ text: (medir ?? text).toUpperCase(), withinWidth: width, fontFamily: titular.fontFamily, fontWeight: titular.fontWeight, letterSpacing: TRACK });
   return (
-    <div style={{ ...titular, fontSize: Math.min(fontSize, max), letterSpacing: TRACK, lineHeight: 0.84, color, whiteSpace: "nowrap", textAlign: align, ...style }}>
+    <div style={{ ...titular, fontSize: Math.min(fontSize, max), letterSpacing: TRACK, lineHeight: 0.84, color, whiteSpace: "nowrap", textAlign: align, fontVariantNumeric: "tabular-nums", ...style }}>
       {t}
     </div>
   );

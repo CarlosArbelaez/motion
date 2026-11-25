@@ -1,6 +1,7 @@
 import "./fonts";
 import React from "react";
-import { Still } from "remotion";
+import { Still, Composition, Freeze } from "remotion";
+import { Pulso, TOTAL, FPS } from "./Pulso";
 import { guion } from "./guion";
 import { Escena1Gancho } from "./scenes/Escena1Gancho";
 import { Escena2Numeros } from "./scenes/Escena2Numeros";
@@ -12,11 +13,24 @@ import { HojaEstilo } from "./scenes/HojaEstilo";
 
 const V = { width: 1080, height: 1920 };
 
+// Los style frames congelan cada escena en su fotograma más representativo.
+const fijo = <P extends object>(C: React.FC<P>, frame: number): React.FC<P> => {
+  const F: React.FC<P> = (props) => (
+    <Freeze frame={frame}>
+      <C {...props} />
+    </Freeze>
+  );
+  return F;
+};
+const G1 = fijo(Escena1Gancho, 90);
+const G2 = fijo(Escena2Numeros, 60);
+
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      <Still id="Frame1-Gancho" component={Escena1Gancho} {...V} />
-      <Still id="Frame2-Numeros" component={Escena2Numeros} defaultProps={{ indice: 1 }} {...V} />
+      <Composition id="Pulso" component={Pulso} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: true }} {...V} />
+      <Still id="Frame1-Gancho" component={G1} {...V} />
+      <Still id="Frame2-Numeros" component={G2} defaultProps={{ indice: 1 }} {...V} />
       <Still id="Frame3-Top" component={Escena3Top} defaultProps={{ item: guion.top[2] }} {...V} />
       <Still id="Frame3b-Top2" component={Escena3Top} defaultProps={{ item: guion.top[3] }} {...V} />
       <Still id="Frame4-NumeroUno" component={Escena4NumeroUno} {...V} />

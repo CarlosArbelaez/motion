@@ -11,7 +11,7 @@ export const Escena5Gracias: React.FC<{ guias?: boolean }> = ({ guias }) => {
   const tinta = c("colors-text-primary");
   const regla = 4 * L.u;
   return (
-    <Stage bg="colors-background-primary" cabecera={[guion.cabecera.marca, `${g.equipos.length} ${guion.cabecera.equipos}`]} ticker={g.palabra} subtitulo={g.voz} guias={guias}>
+    <Stage bg="colors-background-primary" cabecera={[guion.cabecera.marca, `${g.equipos.length} ${guion.cabecera.equipos}`]} ticker={g.palabra} guias={guias}>
       <Fit text={g.palabra} width={L.contentW} max={300 * L.u} color={c("colors-status-brand-base")} style={{ marginTop: 44 * L.u }} />
       <div style={{ ...apoyo, fontSize: L.px(52), lineHeight: 1.12, color: tinta, marginTop: 26 * L.u }}>{g.frase}</div>
       {/* Tabla de equipos: retícula visible */}

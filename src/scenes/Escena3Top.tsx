@@ -12,7 +12,7 @@ export const Escena3Top: React.FC<{ item: ItemTop; guias?: boolean }> = ({ item,
   const tinta = c("colors-text-primary");
   const regla = 4 * L.u;
   return (
-    <Stage bg="colors-background-base" cabecera={[guion.cabecera.top, `#${item.puesto}`]} ticker={`#${item.puesto}`} subtitulo={item.voz.split(": ")[1]} guias={guias}>
+    <Stage bg="colors-background-base" cabecera={[guion.cabecera.top, `#${item.puesto}`]} ticker={`#${item.puesto}`} guias={guias}>
       {/* Zona del puesto: numeral gigante recortado por el borde derecho */}
       <div style={{ height: 420 * L.u, position: "relative", flexShrink: 0 }}>
         <div style={{ position: "absolute", left: 0, top: 36 * L.u }}>

@@ -1,8 +1,9 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 3 — Voz: audios por escena ENTREGADOS, pendiente de GO.** Voz elegida por Carlos: **Yohan Melguizo** (`M67yD2NH1lnnCUDjlTGP`), modelo eleven_v4, flujo `tTcr7a6SRAXB40J1gK7M`. 12 audios en `public/voz/` (originales en `public/voz/original/`; locales). 13 audios (se añadió `03-ranking`: entrada "Este es el top cinco, por impacto en el negocio", pedida por Carlos porque nada decía que era un ranking; los del top se regeneraron sin "Número"). `scripts/voz.sh` los acelera 12 % e iguala volumen; `scripts/tiempos.py` calcula `data/tiempos.json` y `review/subtitulos.srt`. Escucha completa: `review/voz-completa-60s-v2.mp3`. Falta diseñar la escena de entrada del ranking (Fase 4, Bloque B).
-Fases 0, 1 y 2 (arte v2 brutalista) aprobadas con GO.
+**Fase 4 — Animación, Bloque A (gancho y cifras): ENTREGADO, pendiente de GO.** Vista previa: `review/bloqueA-v1.mp4` (540×960, con voz y subtítulos). Composición principal `Pulso` en `src/Pulso.tsx`; tiempos desde `data/tiempos.json`. Vista previa: `scripts/preview.sh <salida> [desde-hasta]`.
+Pendiente: Bloque B (entrada del ranking, #5 a #2, "y además") y Bloque C (#1, gracias, cierre): esas escenas aún están estáticas o vacías.
+Fases 0 a 3 aprobadas con GO (voz: Yohan Melguizo).
 
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.

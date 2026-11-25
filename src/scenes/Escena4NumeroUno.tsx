@@ -12,7 +12,7 @@ export const Escena4NumeroUno: React.FC<{ guias?: boolean }> = ({ guias }) => {
   const negro = c("colors-text-black-static");
   const anchoNombre = L.contentW - 300 * L.u;
   return (
-    <Stage bg="colors-status-brand-base" tinta="colors-text-black-static" cabecera={[guion.cabecera.numeroUno, `#${n.puesto}`]} ticker={`#${n.puesto}`} subtitulo={n.voz.split(". ")[1] + "."} guias={guias}>
+    <Stage bg="colors-status-brand-base" tinta="colors-text-black-static" cabecera={[guion.cabecera.numeroUno, `#${n.puesto}`]} ticker={`#${n.puesto}`} guias={guias}>
       <div style={{ height: 470 * L.u, position: "relative", flexShrink: 0 }}>
         <div style={{ ...titular, position: "absolute", right: -L.safe.right * 0.4, top: 24 * L.u, fontSize: 560 * L.u, lineHeight: 0.84, letterSpacing: "-0.05em", color: negro }}>{n.puesto}</div>
         <div style={{ position: "absolute", left: 0, top: 40 * L.u }}>

@@ -12,7 +12,7 @@ export const Escena6Cierre: React.FC<{ guias?: boolean }> = ({ guias }) => {
   const k = guion.cierre;
   const tinta = c("colors-text-primary");
   return (
-    <Stage bg="colors-background-base" cabecera={[guion.cabecera.marca, guion.cabecera.cierre]} ticker={k.anio} subtitulo={k.voz.split(". ")[0] + "."} guias={guias}>
+    <Stage bg="colors-background-base" cabecera={[guion.cabecera.marca, guion.cabecera.cierre]} ticker={k.anio} guias={guias}>
       <Fit text={k.anio} width={L.contentW} max={520 * L.u} color={c("colors-status-brand-base")} style={{ marginTop: 40 * L.u }} />
       <Pulso color="colors-status-brand-base" alto={130 * L.u} />
       {k.fraseLineas.map((l) => (
