@@ -1,8 +1,8 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 4 — Animación, Bloque B (entrada del ranking, #5 a #2, "y además"): ENTREGADO, pendiente de GO.** Vista previa: `review/bloqueB-v1.mp4` (540×960, con voz y subtítulos). Bloque A aprobado con GO (`review/bloqueA-v1.mp4`).
-Pendiente: Bloque C (#1, gracias, cierre): esas escenas aún están estáticas.
+**Fase 4 — Animación, Bloque C (#1, gracias, cierre): ENTREGADO, pendiente de GO.** Vistas previas: `review/bloqueC-v1.mp4` y el video completo `review/completo-v1.mp4` (540×960, 60 s, con voz y subtítulos, sin música). Bloques A y B aprobados con GO.
+Siguiente: Fase 5 (música dubstep enérgica pero profesional, mezcla, efectos de sonido, checklist de revisión).
 Composición principal `Pulso` en `src/Pulso.tsx`; tiempos desde `data/tiempos.json`; vista previa con `scripts/preview.sh <salida> [desde-hasta]`.
 Fases 0 a 3 aprobadas con GO (voz: Yohan Melguizo).
 

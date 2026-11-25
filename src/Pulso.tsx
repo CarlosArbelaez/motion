@@ -29,9 +29,10 @@ const escena = (e: Tiempo): React.ReactNode => {
   // En el top, el nombre y la cifra entran cuando la voz los dice (2.ª y 3.ª frase).
   if (id.startsWith("top"))
     return <Escena3Top item={guion.top[Number(id.slice(-1))]} duracion={e.duracion} nombreEn={Math.max(10, e.subtitulos[1].desde - e.desde - 6)} cifraEn={e.subtitulos[2].desde - e.desde - 4} />;
-  if (id === "numeroUno") return <Escena4NumeroUno />;
+  // La #1: telón negro hasta que la voz dice el nombre; la cifra cuenta cuando la voz llega al dato.
+  if (id === "numeroUno") return <Escena4NumeroUno duracion={e.duracion} nombreEn={e.subtitulos[1].desde - e.desde - 4} cifraEn={e.subtitulos[2].desde - e.desde + 30} />;
   if (id === "gracias") return <Escena5Gracias />;
-  if (id === "cierre") return <Escena6Cierre />;
+  if (id === "cierre") return <Escena6Cierre fraseEn={e.subtitulos[1].desde - e.desde - 4} firmaEn={e.subtitulos[2].desde - e.desde - 4} />;
   return null;
 };
 

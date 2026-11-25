@@ -25,6 +25,9 @@ const fijo = <P extends object>(C: React.FC<P>, frame: number): React.FC<P> => {
 const G1 = fijo(Escena1Gancho, 90);
 const G2 = fijo(Escena2Numeros, 60);
 const G3 = fijo(Escena3Top, 140);
+const G4 = fijo(Escena4NumeroUno, 240);
+const G5 = fijo(Escena5Gracias, 120);
+const G6 = fijo(Escena6Cierre, 150);
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -34,9 +37,9 @@ export const RemotionRoot: React.FC = () => {
       <Still id="Frame2-Numeros" component={G2} defaultProps={{ indice: 1 }} {...V} />
       <Still id="Frame3-Top" component={G3} defaultProps={{ item: guion.top[2] }} {...V} />
       <Still id="Frame3b-Top2" component={G3} defaultProps={{ item: guion.top[3] }} {...V} />
-      <Still id="Frame4-NumeroUno" component={Escena4NumeroUno} {...V} />
-      <Still id="Frame5-Gracias" component={Escena5Gracias} {...V} />
-      <Still id="Frame6-Cierre" component={Escena6Cierre} {...V} />
+      <Still id="Frame4-NumeroUno" component={G4} {...V} />
+      <Still id="Frame5-Gracias" component={G5} {...V} />
+      <Still id="Frame6-Cierre" component={G6} {...V} />
       <Still id="Frame3-Guias" component={G3} defaultProps={{ item: guion.top[2], guias: true }} {...V} />
       <Still id="HojaEstilo" component={HojaEstilo} width={1920} height={1080} />
     </>
