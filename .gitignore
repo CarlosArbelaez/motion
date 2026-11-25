@@ -19,3 +19,7 @@ output/
 
 # Contiene cifras internas
 guion*.md
+
+# Fuentes con licencia y logo: no se suben
+public/fonts/
+public/logo-brewai.png

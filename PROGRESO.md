@@ -1,8 +1,8 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 1 — Guion: ENTREGADA, pendiente de GO.** `guion.md` v1 (local, no versionado: contiene cifras internas).
-Fase 0 aprobada con GO el 25-nov-2026 (ranking v2 por impacto en el negocio).
+**Fase 2 — Dirección de arte: ENTREGADA, pendiente de GO.** Style frames en `review/stills/` y hoja `review/fase2-style-frames.png` (locales). Se regeneran con `scripts/stills.sh`.
+Fases 0 y 1 aprobadas con GO (25-nov-2026). Guion aprobado: `guion.md` v1 y `data/guion.json` (fuente de texto de las escenas; locales).
 
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
@@ -36,3 +36,6 @@ Fase 0 aprobada con GO el 25-nov-2026 (ranking v2 por impacto en el negocio).
 ## Notas importantes
 - **El repo de GitHub es público.** `input/`, `data/`, `review/` y `output/` están en `.gitignore`: datos internos, fuentes y videos NO se suben. Como el contenedor es efímero, en una sesión nueva hay que volver a leer los artefactos (los links quedan aquí).
 - Pareto Promos es una propuesta To-Be (MVP sin construir): no tiene impacto realizado, solo cifras de alcance y estimación.
+- Fuentes disponibles: Avantt SemiBold (no Bold) y Satoshi Regular (no Medium). Se usan esas mientras Carlos no pase otros pesos.
+- Render en esta sesión: Remotion no puede descargar su navegador; se usa `--browser-executable` con el Chromium preinstalado (ver `scripts/stills.sh`).
+- El código fuente no lleva cifras ni textos internos: todo sale de `data/guion.json`. Para compilar en una sesión nueva hay que restaurar `data/guion.json`, `public/fonts/` y `public/logo-brewai.png` (no versionados).
