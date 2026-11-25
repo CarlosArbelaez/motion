@@ -6,7 +6,7 @@ import { Pulso } from "../components/Piezas";
 import { Sube, Barre } from "../components/Anim";
 import { useLayout } from "../layout";
 import { c, apoyo } from "../theme";
-import { guion } from "../guion";
+import { guion, cabeceraDe } from "../guion";
 import { salida } from "../motion";
 
 // Mismo gesto del "2026" inicial: el año entra enorme y se asienta.
@@ -31,7 +31,7 @@ export const Escena6Cierre: React.FC<{ fraseEn?: number; firmaEn?: number; guias
   const k = guion.cierre;
   const tinta = c("colors-text-primary");
   return (
-    <Stage bg="colors-background-base" cabecera={[guion.cabecera.marca, guion.cabecera.cierre]} ticker={k.anio} guias={guias}>
+    <Stage bg="colors-background-base" cabecera={cabeceraDe(4)} ticker={k.anio} guias={guias}>
       <Anio texto={k.anio} />
       <LineaPulso desde={10} />
       {k.fraseLineas.map((l, i) => (

@@ -7,15 +7,17 @@ import { salida } from "../motion";
 // Cinta de texto en contorno que corre por las zonas no seguras (arriba y abajo).
 const Cinta: React.FC<{ text: string; color: string; top?: number; bottom?: number; size: number; sentido: 1 | -1 }> = ({ text, color, top, bottom, size, sentido }) => {
   const frame = useCurrentFrame();
-  const paso = size * 0.02;
+  // La tira tiene dos mitades iguales: al desplazarla en bucle sobre el 50 % nunca se acaba.
+  const x = (frame * 0.045) % 50;
+  const mitad = Array.from({ length: 10 }, () => text).join(" · ") + " · ";
   return (
     <div
       style={{
         position: "absolute",
         top,
         bottom,
-        left: -size * 3,
-        whiteSpace: "nowrap",
+        left: 0,
+        whiteSpace: "pre",
         ...titular,
         fontSize: size,
         lineHeight: 1,
@@ -23,10 +25,10 @@ const Cinta: React.FC<{ text: string; color: string; top?: number; bottom?: numb
         textTransform: "uppercase",
         color: "transparent",
         WebkitTextStroke: `${Math.max(2, size * 0.012)}px ${color}`,
-        translate: `${sentido * frame * paso}px 0px`,
+        translate: `${sentido === -1 ? -x : -50 + x}% 0px`,
       }}
     >
-      {Array.from({ length: 12 }, () => text).join(" · ")}
+      {mitad + mitad}
     </div>
   );
 };
@@ -52,15 +54,16 @@ const Cabecera: React.FC<{ izq: string; der: string; tinta: string; entra?: numb
 export const Stage: React.FC<{
   bg: Token;
   tinta?: Token;
+  contorno?: Token; // color de las cintas en contorno
   cabecera: [string, string];
   cabeceraEntra?: number;
   ticker: string;
   guias?: boolean;
   children: React.ReactNode;
-}> = ({ bg, tinta = "colors-text-primary", cabecera, cabeceraEntra, ticker, guias, children }) => {
+}> = ({ bg, tinta = "colors-text-primary", contorno: contornoProp, cabecera, cabeceraEntra, ticker, guias, children }) => {
   const L = useLayout();
   const sobreAmarillo = bg === "colors-status-brand-base";
-  const contorno = sobreAmarillo ? c("colors-status-brand-base-light") : c("colors-background-secondary");
+  const contorno = contornoProp ? c(contornoProp) : sobreAmarillo ? c("colors-status-brand-base-light") : c("colors-background-secondary");
   return (
     <AbsoluteFill style={{ backgroundColor: c(bg), overflow: "hidden" }}>
       {L.vertical ? (

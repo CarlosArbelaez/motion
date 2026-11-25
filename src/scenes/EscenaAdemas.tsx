@@ -4,7 +4,7 @@ import { Fit } from "../components/Fit";
 import { Sube } from "../components/Anim";
 import { useLayout } from "../layout";
 import { c, titular } from "../theme";
-import { guion } from "../guion";
+import { guion, cabeceraDe } from "../guion";
 
 // Ráfaga: los seis nombres entran uno tras otro y quedan apilados en una lista con reglas.
 export const EscenaAdemas: React.FC<{ guias?: boolean }> = ({ guias }) => {
@@ -13,7 +13,7 @@ export const EscenaAdemas: React.FC<{ guias?: boolean }> = ({ guias }) => {
   const tinta = c("colors-text-primary");
   const regla = 4 * L.u;
   return (
-    <Stage bg="colors-background-primary" cabecera={[guion.cabecera.marca, `+${a.nombres.length}`]} ticker={`+${a.nombres.length}`} guias={guias}>
+    <Stage bg="colors-background-primary" cabecera={cabeceraDe(2)} ticker={`+${a.nombres.length}`} guias={guias}>
       <Sube desde={2} dur={12} style={{ marginTop: 40 * L.u, marginBottom: 30 * L.u }}>
         <Fit text={a.titulo} width={L.contentW} max={190 * L.u} color={c("colors-status-brand-base")} />
       </Sube>

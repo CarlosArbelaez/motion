@@ -1,32 +1,34 @@
 import "./fonts";
 import React from "react";
-import { Still, Composition, Freeze } from "remotion";
+import { Still, Composition, Sequence } from "remotion";
 import { Pulso, TOTAL, FPS } from "./Pulso";
 import { guion } from "./guion";
 import { Escena1Gancho } from "./scenes/Escena1Gancho";
 import { Escena2Numeros } from "./scenes/Escena2Numeros";
 import { Escena3Top } from "./scenes/Escena3Top";
 import { Escena4NumeroUno } from "./scenes/Escena4NumeroUno";
-import { Escena5Gracias } from "./scenes/Escena5Gracias";
+import { Escena5Areas } from "./scenes/Escena5Areas";
+import { EscenaCortina } from "./scenes/EscenaCortina";
 import { Escena6Cierre } from "./scenes/Escena6Cierre";
 import { HojaEstilo } from "./scenes/HojaEstilo";
 
 const V = { width: 1080, height: 1920 };
 
-// Los style frames congelan cada escena en su fotograma más representativo.
+// Los style frames muestran cada escena en su fotograma más representativo.
 const fijo = <P extends object>(C: React.FC<P>, frame: number): React.FC<P> => {
   const F: React.FC<P> = (props) => (
-    <Freeze frame={frame}>
+    <Sequence from={-frame}>
       <C {...props} />
-    </Freeze>
+    </Sequence>
   );
   return F;
 };
 const G1 = fijo(Escena1Gancho, 90);
 const G2 = fijo(Escena2Numeros, 60);
-const G3 = fijo(Escena3Top, 140);
-const G4 = fijo(Escena4NumeroUno, 240);
-const G5 = fijo(Escena5Gracias, 120);
+const G3 = fijo(Escena3Top, 330);
+const G4 = fijo(Escena4NumeroUno, 460);
+const G5 = fijo(Escena5Areas, 170);
+const GC = fijo(EscenaCortina, 25);
 const G6 = fijo(Escena6Cierre, 150);
 
 export const RemotionRoot: React.FC = () => {
@@ -38,7 +40,8 @@ export const RemotionRoot: React.FC = () => {
       <Still id="Frame3-Top" component={G3} defaultProps={{ item: guion.top[2] }} {...V} />
       <Still id="Frame3b-Top2" component={G3} defaultProps={{ item: guion.top[3] }} {...V} />
       <Still id="Frame4-NumeroUno" component={G4} {...V} />
-      <Still id="Frame5-Gracias" component={G5} {...V} />
+      <Still id="Frame5-Areas" component={G5} {...V} />
+      <Still id="Frame0-Cortina" component={GC} defaultProps={{ seccion: 1 }} {...V} />
       <Still id="Frame6-Cierre" component={G6} {...V} />
       <Still id="Frame3-Guias" component={G3} defaultProps={{ item: guion.top[2], guias: true }} {...V} />
       <Still id="HojaEstilo" component={HojaEstilo} width={1920} height={1080} />
