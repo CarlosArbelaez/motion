@@ -1,7 +1,7 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 0 — Preparación e inventario de datos: EN CURSO** (1 iniciativa cargada; faltan los links de las demás).
+**Fase 0 — Preparación e inventario de datos: ENTREGADA, pendiente de GO** (11 iniciativas inventariadas).
 
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
@@ -12,7 +12,9 @@
 ## Pendiente para cerrar la Fase 0
 - [x] Fuente de datos: links de artefactos de claude.ai (sí se pueden leer). Cargado: Pareto Promos (https://claude.ai/artifact/KrHRsejG8vNxSojEwV2jKo).
 - [x] Primer lote recibido como adjuntos (25-nov): Prometeo, OTC Invoice Reconciliation, Bloqueos/Desbloqueos (Master Data Control LITE), Gestión de Cambios ServiceNow, ATR Open Items. Copiados a `input/tobe/` (no versionados).
-- [ ] Segundo lote de documentos (Carlos los envía enseguida).
+- [x] Lotes 2 y 3 recibidos: ATR TO-BE v3, Mix MACO, Spare Management II, Pagos MX (md + pptx), HE (md + pdf), Pareto v1.2, Contracts Management. Total: 11 iniciativas.
+- [x] `data/iniciativas.json` con las 11 iniciativas, cifras del año y ranking propuesto. Resumen para revisar: `review/fase0-inventario.md`.
+- [ ] Esperando GO de Carlos para la Fase 1 (y respuestas: título, cifras sensibles, ranking).
 - [x] Fuentes: Avantt SemiBold y Satoshi Regular + tokens del sistema de diseño, tomados del deck de Pareto. Falta Satoshi Medium (opcional).
 - [ ] Opcional: íconos de AB InBev en `input/icons/` y logo de BrewTech en `input/`.
 - [ ] Extraer `data/iniciativas.json`, cifras del año, ranking y vacíos de datos.
