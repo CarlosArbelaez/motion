@@ -1,6 +1,6 @@
 import React from "react";
 import { useCurrentFrame, interpolate } from "remotion";
-import { salida } from "../motion";
+import { salida } from "../curvas";
 import { useLayout } from "../layout";
 
 // Revela el contenido con máscara: sube desde abajo dentro de su propia caja.

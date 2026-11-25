@@ -6,7 +6,7 @@ import { Sube } from "../components/Anim";
 import { useLayout } from "../layout";
 import { c, titular } from "../theme";
 import { guion, cabeceraDe } from "../guion";
-import { salida } from "../motion";
+import { salida, suave } from "../curvas";
 
 // Contador de áreas.
 const Cuenta: React.FC<{ valor: number; unidad: string }> = ({ valor, unidad }) => {
@@ -40,7 +40,7 @@ const Area: React.FC<{ nombre: string; desde: number }> = ({ nombre, desde }) =>
         border: `${4 * L.u}px solid ${tinta}`,
         padding: `${18 * L.u}px ${20 * L.u}px ${14 * L.u}px`,
         whiteSpace: "nowrap",
-        opacity: interpolate(frame, [desde, desde + 4], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+        opacity: interpolate(frame, [desde, desde + 4], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: suave }),
         translate: interpolate(frame, [desde, desde + 10], ["0px 26px", "0px 0px"], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida }),
       }}
     >

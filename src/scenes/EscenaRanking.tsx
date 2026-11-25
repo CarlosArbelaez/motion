@@ -5,7 +5,7 @@ import { Sube } from "../components/Anim";
 import { useLayout } from "../layout";
 import { c, titular } from "../theme";
 import { guion } from "../guion";
-import { salida } from "../motion";
+import { salida, suave } from "../curvas";
 
 // Cinco casillas que se llenan una a una: anuncian la cuenta regresiva.
 const Casillas: React.FC<{ desde: number }> = ({ desde }) => {
@@ -25,7 +25,7 @@ const Casillas: React.FC<{ desde: number }> = ({ desde }) => {
               translate: interpolate(frame, [desde + i * 5, desde + i * 5 + 10], ["0% 101%", "0% 0%"], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida }),
             }}
           />
-          <div style={{ ...titular, position: "relative", fontSize: L.px(64), lineHeight: 1, color: c("colors-status-brand-base"), opacity: interpolate(frame, [desde + i * 5 + 4, desde + i * 5 + 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>{n}</div>
+          <div style={{ ...titular, position: "relative", fontSize: L.px(64), lineHeight: 1, color: c("colors-status-brand-base"), opacity: interpolate(frame, [desde + i * 5 + 4, desde + i * 5 + 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: suave }) }}>{n}</div>
         </div>
       ))}
     </div>

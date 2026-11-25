@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
 import { c, apoyo } from "../theme";
 import { useLayout } from "../layout";
-import { salida } from "../motion";
+import { salida, suave } from "../curvas";
 
 export type Cue = { texto: string; desde: number; hasta: number; sobreAmarillo?: boolean };
 
@@ -26,7 +26,7 @@ export const Subtitulos: React.FC<{ cues: Cue[] }> = ({ cues }) => {
             padding: `${12 * L.u}px ${24 * L.u}px`,
             textWrap: "balance",
             translate: interpolate(frame, [cue.desde, cue.desde + 5], ["0px 14px", "0px 0px"], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida }),
-            opacity: interpolate(frame, [cue.desde, cue.desde + 3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+            opacity: interpolate(frame, [cue.desde, cue.desde + 3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: suave }),
           }}
         >
           {cue.texto}

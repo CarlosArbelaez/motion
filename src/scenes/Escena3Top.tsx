@@ -2,12 +2,11 @@ import React from "react";
 import { useCurrentFrame, interpolate } from "remotion";
 import { Stage } from "../components/Stage";
 import { Fit } from "../components/Fit";
-import { Sube } from "../components/Anim";
 import { BloqueCifra, BloqueTexto, BloqueImpacto } from "../components/Tarjeta";
 import { useLayout } from "../layout";
 import { c, titular, acentoPorPuesto } from "../theme";
 import { guion, ItemTop, cabeceraDe } from "../guion";
-import { salida } from "../motion";
+import { salida } from "../curvas";
 
 // Numeral del puesto: entra desde la derecha. Vive en su propia columna, no pisa el nombre ni la cabecera.
 const Numeral: React.FC<{ puesto: number; color: string }> = ({ puesto, color }) => {
@@ -41,9 +40,9 @@ export const Escena3Top: React.FC<{ item: ItemTop; momentos?: number[]; guias?: 
   return (
     <Stage bg="colors-background-base" cabecera={cabeceraDe(2)} ticker={`#${item.puesto}`} guias={guias}>
       <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", paddingTop: 24 * L.u, flexShrink: 0 }}>
-        <Sube desde={Math.max(8, nombreEn - 6)} dur={16} style={{ width: anchoNombre, paddingBottom: 6 * L.u }}>
-          <Fit text={item.nombre} width={anchoNombre} max={118 * L.u} color={tinta} />
-        </Sube>
+        <div style={{ width: anchoNombre, paddingBottom: 6 * L.u }}>
+          <Fit text={item.nombre} width={anchoNombre} max={118 * L.u} color={tinta} cascada={Math.max(8, nombreEn - 6)} />
+        </div>
         <Numeral puesto={item.puesto} color={acento} />
       </div>
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", paddingTop: 40 * L.u, paddingBottom: 36 * L.u }}>

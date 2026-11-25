@@ -2,6 +2,7 @@ import "./fonts";
 import React from "react";
 import { Still, Composition, Sequence } from "remotion";
 import { Pulso, TOTAL, FPS } from "./Pulso";
+import { MotionProGallery } from "./motion/Gallery";
 import { guion } from "./guion";
 import { Escena1Gancho } from "./scenes/Escena1Gancho";
 import { Escena2Numeros } from "./scenes/Escena2Numeros";
@@ -36,6 +37,7 @@ const G6 = fijo(Escena6Cierre, 150);
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <MotionProGallery />
       <Composition id="Pulso" component={Pulso} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: true }} {...V} />
       <Still id="Frame1-Gancho" component={G1} {...V} />
       <Still id="Frame2-Numeros" component={G2} defaultProps={{ indice: 1 }} {...V} />

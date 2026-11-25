@@ -1,11 +1,11 @@
 import React from "react";
-import { AbsoluteFill, Img, staticFile, useCurrentFrame, interpolate } from "remotion";
+import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
 import { Fit } from "../components/Fit";
 import { Sube } from "../components/Anim";
 import { useLayout } from "../layout";
 import { c, titular } from "../theme";
 import { guion } from "../guion";
-import { salida } from "../motion";
+import { salida } from "../curvas";
 
 // Barra de secciones: marca en cuál vamos.
 export const Secciones: React.FC<{ actual: number; desde: number }> = ({ actual, desde }) => {
@@ -33,28 +33,7 @@ export const Secciones: React.FC<{ actual: number; desde: number }> = ({ actual,
   );
 };
 
-// Ilustración de la sección: entra desde la derecha con un pequeño giro y queda quieta.
-const Ilustracion: React.FC<{ id: string }> = ({ id }) => {
-  const L = useLayout();
-  const frame = useCurrentFrame();
-  const lado = 720 * L.u; // el dibujo ocupa cerca de la mitad del lienzo del SVG
-  return (
-    <Img
-      src={staticFile(`ilustraciones/${id}.svg`)}
-      style={{
-        position: "absolute",
-        right: -200 * L.u,
-        top: -200 * L.u,
-        width: lado,
-        height: lado,
-        translate: interpolate(frame, [2, 16], [`${300 * L.u}px 0px`, "0px 0px"], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida }),
-        rotate: interpolate(frame, [2, 16], ["10deg", "0deg"], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida }),
-      }}
-    />
-  );
-};
-
-// Cortinilla de sección: número enorme, título e ilustración, a pantalla completa en amarillo.
+// Cortinilla de sección: número enorme y título, a pantalla completa en amarillo.
 export const EscenaCortina: React.FC<{ seccion: number; children?: React.ReactNode; guias?: boolean }> = ({ seccion, children, guias }) => {
   const L = useLayout();
   const s = guion.secciones[seccion - 1];
@@ -64,14 +43,9 @@ export const EscenaCortina: React.FC<{ seccion: number; children?: React.ReactNo
       <div style={{ position: "absolute", top: L.safe.top, left: L.safe.left, width: L.contentW, height: L.contentH, display: "flex", flexDirection: "column" }}>
         <Secciones actual={seccion} desde={4} />
         <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative" }}>
-          <div style={{ position: "relative", height: 520 * L.u * 0.82 + 60 * L.u }}>
-            <Ilustracion id={s.id} />
-            <div style={{ position: "absolute", left: 0, bottom: 0 }}>
-              <Sube desde={0} dur={12}>
-                <div style={{ ...titular, fontSize: 420 * L.u, lineHeight: 0.82, letterSpacing: "-0.05em", color: negro }}>{s.numero}</div>
-              </Sube>
-            </div>
-          </div>
+          <Sube desde={0} dur={12}>
+            <div style={{ ...titular, fontSize: 520 * L.u, lineHeight: 0.82, letterSpacing: "-0.05em", color: negro }}>{s.numero}</div>
+          </Sube>
           <Sube desde={4} dur={12} style={{ marginTop: 30 * L.u }}>
             <Fit text={s.titulo} width={L.contentW} max={170 * L.u} color={negro} />
           </Sube>

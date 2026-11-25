@@ -2,12 +2,11 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
 import { Stage } from "../components/Stage";
 import { Fit } from "../components/Fit";
-import { Sube } from "../components/Anim";
 import { BloqueCifra, BloqueTexto, BloqueImpacto } from "../components/Tarjeta";
 import { useLayout } from "../layout";
 import { c, titular } from "../theme";
 import { guion, cabeceraDe } from "../guion";
-import { salida, entradaSalida } from "../motion";
+import { salida, entradaSalida, suave } from "../curvas";
 
 // Pausa dramática: pantalla negra con solo el puesto, que crece despacio; luego se levanta como un telón.
 const Telon: React.FC<{ hasta: number; texto: string }> = ({ hasta, texto }) => {
@@ -30,8 +29,8 @@ const Telon: React.FC<{ hasta: number; texto: string }> = ({ hasta, texto }) => 
           lineHeight: 0.8,
           letterSpacing: "-0.05em",
           color: c("colors-status-brand-base"),
-          scale: interpolate(frame, [0, hasta], [0.82, 1.08], { extrapolateLeft: "clamp", extrapolateRight: "clamp", output: "perceptual-scale" }),
-          opacity: interpolate(frame, [6, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+          scale: interpolate(frame, [0, hasta], [0.82, 1.08], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: suave, output: "perceptual-scale" }),
+          opacity: interpolate(frame, [6, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: suave }),
         }}
       >
         {texto}
@@ -72,9 +71,9 @@ export const Escena4NumeroUno: React.FC<{ momentos?: number[]; telon?: boolean; 
     <>
       <Stage bg="colors-status-brand-base" tinta="colors-text-black-static" cabecera={cabeceraDe(2)} ticker={`#${n.puesto}`} guias={guias}>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", paddingTop: 24 * L.u, flexShrink: 0 }}>
-          <Sube desde={nombreEn} dur={14} style={{ width: anchoNombre, paddingBottom: 6 * L.u }}>
-            <Fit text={n.nombre} width={anchoNombre} max={118 * L.u} color={negro} />
-          </Sube>
+          <div style={{ width: anchoNombre, paddingBottom: 6 * L.u }}>
+            <Fit text={n.nombre} width={anchoNombre} max={118 * L.u} color={negro} cascada={nombreEn} />
+          </div>
           <Numeral puesto={n.puesto} desde={nombreEn - 4} />
         </div>
         <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", paddingTop: 40 * L.u, paddingBottom: 36 * L.u }}>

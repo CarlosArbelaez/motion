@@ -7,7 +7,7 @@ import { Sube } from "../components/Anim";
 import { useLayout } from "../layout";
 import { c, titular, apoyo } from "../theme";
 import { guion, cabeceraDe } from "../guion";
-import { salida } from "../motion";
+import { salida } from "../curvas";
 
 // Contador: sube hasta el valor con desaceleración; el tamaño se calcula con el valor final.
 const Contador: React.FC<{ valor: number }> = ({ valor }) => {

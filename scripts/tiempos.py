@@ -55,7 +55,6 @@ def inicios(audio, segs, total):
 # (id, tipo, sección, audio, texto, modo, entrada antes de la voz, salida después) · sin audio: duración fija
 plan = [
     ("gancho", "gancho", 0, "01-gancho", g["gancho"]["voz"], "puntos", 0.15, 0.15),
-    ("cortina1", "cortina", 1, None, None, None, 1.0, 0),
     ("numeros0", "numeros", 1, "02a-iniciativas", g["numeros"]["items"][0]["voz"], "puntos", 0.15, 0.25),
     ("numeros1", "numeros", 1, "02b-agentes", g["numeros"]["items"][1]["voz"], "puntos", 0.15, 0.2),
     ("numeros2", "numeros", 1, "02c-paises", g["numeros"]["items"][2]["voz"], "puntos", 0.15, 0.35),
@@ -68,8 +67,7 @@ plan = [
     ("numeroUno", "numeroUno", 2, "04-numero-uno", g["numeroUno"]["voz"], "tarjeta", 0.6, 0.5),
     ("cortina3", "cortina", 3, None, None, None, 1.0, 0),
     ("areas", "areas", 3, "05-areas", g["areas"]["voz"], "todo", 0.15, 0.5),
-    ("cortina4", "cortina", 4, None, None, None, 1.0, 0),
-    ("cierre", "cierre", 4, "06-cierre", g["cierre"]["voz"], "todo", 0.15, 0.7),
+    ("cierre", "cierre", 4, "06-cierre", g["cierre"]["voz"], "todo", 0.15, 1.3),
 ]
 
 def cues_de(segs, ini_f, fin_f, modo):

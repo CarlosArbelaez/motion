@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
 import { c, Token } from "../theme";
-import { salida, entradaSalida } from "../motion";
+import { salida, entradaSalida } from "../curvas";
 
 export type TipoCorte = "estela" | "persianas" | "columnas" | "diagonal" | "obturador";
 export type Corte = { en: number; color: Token; tipo: TipoCorte; sentido: 1 | -1 };

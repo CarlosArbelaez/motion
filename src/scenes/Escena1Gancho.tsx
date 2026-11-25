@@ -7,7 +7,7 @@ import { Sube, Barre } from "../components/Anim";
 import { useLayout } from "../layout";
 import { c, apoyo } from "../theme";
 import { guion } from "../guion";
-import { salida } from "../motion";
+import { salida } from "../curvas";
 
 // El año: visible y enorme desde el primer fotograma; luego se asienta en su sitio.
 const Anio: React.FC = () => {

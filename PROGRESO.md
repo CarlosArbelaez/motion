@@ -13,6 +13,8 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 
 **Ilustraciones (25-nov):** Carlos adjuntó un zip de 25 doodles SVG ("Free Doodle Illustrations", de terceros; licencia por confirmar). Copiados a `input/ilustraciones/` (no versionados). Se usan 4, una por cortinilla de sección, recoloreadas a la paleta con `scripts/ilustraciones.py` (salida en `public/ilustraciones/`, no versionada): 01 persona en laptop, 02 ajedrez, 03 persona con chatbot, 04 persona caminando. Vista previa: `review/completo-v6.mp4`. Pendiente de GO.
 
+**Ronda de comentarios 4 de Carlos (sobre `completo-v6.mp4`):** (1) las ilustraciones no aportan → quitadas; (2) eliminar la cortinilla 01 → hecho; (3) la cortinilla 04 no cumple función y el cierre debe mejorar → cortinilla quitada y cierre rehecho en dos tiempos (promesa y firma con logo); (4) usar la skill motion-pro → librería instalada en `src/motion/` (presets, texto, transiciones, galería `MotionPro` en Studio) y auditor en `scripts/motion-audit.mjs`; nota de movimiento de C a A. Aplicado: curvas de la librería (`src/curvas.ts`), nombres en cascada de letras, destello al revelar el impacto, deriva lenta por escena, salida del contenido antes de cada corte, firma con TrackingIn y Marquee. No hay assets de Mister Horse en este entorno (los sonidos se resuelven en la Fase 5). Vista previa: `review/completo-v7.mp4` (97,1 s). Pendiente de GO.
+
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
 - Carpetas creadas: `input/`, `input/fonts/`, `input/icons/`, `data/`, `review/stills/`, `output/`.

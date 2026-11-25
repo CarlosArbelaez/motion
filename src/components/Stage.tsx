@@ -1,8 +1,9 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate } from "remotion";
+import { Drift } from "../motion";
 import { c, Token, apoyo, titular } from "../theme";
 import { useLayout } from "../layout";
-import { salida } from "../motion";
+import { salida, escape } from "../curvas";
 
 // Cinta de texto en contorno que corre por las zonas no seguras (arriba y abajo).
 const Cinta: React.FC<{ text: string; color: string; top?: number; bottom?: number; size: number; sentido: 1 | -1 }> = ({ text, color, top, bottom, size, sentido }) => {
@@ -51,6 +52,31 @@ const Cabecera: React.FC<{ izq: string; der: string; tinta: string; entra?: numb
   );
 };
 
+// Zona de contenido: deriva muy lenta durante toda la escena y salida hacia arriba justo antes del corte.
+const Contenido: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const L = useLayout();
+  const frame = useCurrentFrame();
+  const { durationInFrames } = useVideoConfig();
+  const fin = [durationInFrames - 9, durationInFrames];
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: L.safe.top + 72 * L.u,
+        left: L.safe.left,
+        width: L.contentW,
+        height: L.contentH - 72 * L.u,
+        translate: interpolate(frame, fin, ["0px 0px", `0px ${-70 * L.u}px`], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: escape }),
+        opacity: interpolate(frame, fin, [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: escape }),
+      }}
+    >
+      <Drift to={1.025} style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", transformOrigin: "50% 40%" }}>
+        {children}
+      </Drift>
+    </div>
+  );
+};
+
 export const Stage: React.FC<{
   bg: Token;
   tinta?: Token;
@@ -73,7 +99,7 @@ export const Stage: React.FC<{
         </>
       ) : null}
       <Cabecera izq={cabecera[0]} der={cabecera[1]} tinta={c(tinta)} entra={cabeceraEntra} />
-      <div style={{ position: "absolute", top: L.safe.top + 72 * L.u, left: L.safe.left, width: L.contentW, height: L.contentH - 72 * L.u, display: "flex", flexDirection: "column" }}>{children}</div>
+      <Contenido>{children}</Contenido>
       {guias ? (
         <>
           <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: L.safe.top, backgroundColor: "rgba(255,0,80,0.4)" }} />
