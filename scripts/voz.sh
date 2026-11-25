@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Procesa los audios originales de ElevenLabs (public/voz/original) -> public/voz
-# - acelera 10 % sin cambiar el tono (ritmo más dinámico y cabe en 60 s)
+# - acelera 12 % sin cambiar el tono (ritmo más dinámico y cabe en 60 s)
 # - iguala el volumen
 # - en la #1 corta la última frase (el dato queda en pantalla)
 set -euo pipefail
 cd "$(dirname "$0")/../public/voz"
-TEMPO="${TEMPO:-1.10}"
+TEMPO="${TEMPO:-1.12}"
 for f in original/0*.mp3; do
   n=$(basename "$f")
   PRE=""

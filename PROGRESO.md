@@ -1,7 +1,7 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 3 — Voz: audios por escena ENTREGADOS, pendiente de GO.** Voz elegida por Carlos: **Yohan Melguizo** (`M67yD2NH1lnnCUDjlTGP`), modelo eleven_v4, flujo `tTcr7a6SRAXB40J1gK7M`. 12 audios en `public/voz/` (originales en `public/voz/original/`; locales). `scripts/voz.sh` los acelera 10 % e iguala volumen; `scripts/tiempos.py` calcula `data/tiempos.json` y `review/subtitulos.srt`. Escucha completa: `review/voz-completa-60s.mp3`.
+**Fase 3 — Voz: audios por escena ENTREGADOS, pendiente de GO.** Voz elegida por Carlos: **Yohan Melguizo** (`M67yD2NH1lnnCUDjlTGP`), modelo eleven_v4, flujo `tTcr7a6SRAXB40J1gK7M`. 12 audios en `public/voz/` (originales en `public/voz/original/`; locales). 13 audios (se añadió `03-ranking`: entrada "Este es el top cinco, por impacto en el negocio", pedida por Carlos porque nada decía que era un ranking; los del top se regeneraron sin "Número"). `scripts/voz.sh` los acelera 12 % e iguala volumen; `scripts/tiempos.py` calcula `data/tiempos.json` y `review/subtitulos.srt`. Escucha completa: `review/voz-completa-60s-v2.mp3`. Falta diseñar la escena de entrada del ranking (Fase 4, Bloque B).
 Fases 0, 1 y 2 (arte v2 brutalista) aprobadas con GO.
 
 ## Hecho
