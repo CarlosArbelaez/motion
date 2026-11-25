@@ -72,3 +72,9 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 - Fuera la cortinilla 3 (solo queda la del ranking).
 - Voz de las tarjetas regrabada con problema/reto → solución → resultado; ritmo más pausado (tempo 1,08). Total 115,4 s.
 - Música regenerada para la nueva duración. Entregado `review/completo-v10.mp4`. Pendiente: GO para Fase 6.
+
+## Fase 6 · entrega final (25 nov 2026)
+- `output/BrewTech_2026_vertical_v1.mp4` (1080×1920, 30 fps, H.264, 115,4 s, 19,5 MB, −14,8 LUFS).
+- `output/BrewTech_2026_vertical_v1_sin_voz.mp4` (música y efectos, subtítulos en pantalla).
+- `output/BrewTech_2026_miniatura.png` y `output/BrewTech_2026_vertical_v1.srt`.
+- Pendiente opcional: Fase 7 (versión 16:9).

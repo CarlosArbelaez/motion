@@ -59,7 +59,7 @@ const corteDe = (antes: Tiempo, e: Tiempo, i: number): Omit<Corte, "en"> => {
   return { color, tipo, sentido: i % 2 === 0 ? 1 : -1 };
 };
 
-export const Pulso: React.FC<{ conVoz?: boolean; conMusica?: boolean }> = ({ conVoz = true, conMusica = true }) => {
+export const Pulso: React.FC<{ conVoz?: boolean; conMusica?: boolean; conSubtitulos?: boolean }> = ({ conVoz = true, conMusica = true, conSubtitulos = true }) => {
   const cues: Cue[] = tiempos.escenas.flatMap((e) => e.subtitulos.map((s) => ({ ...s, sobreAmarillo: e.tipo === "numeroUno" })));
   const cortes: Corte[] = tiempos.escenas.slice(1).map((e, i) => ({ en: e.desde, ...corteDe(tiempos.escenas[i], e, i) }));
   return (
@@ -70,7 +70,7 @@ export const Pulso: React.FC<{ conVoz?: boolean; conMusica?: boolean }> = ({ con
         </Sequence>
       ))}
       <Cortes cortes={cortes} />
-      <Subtitulos cues={cues} />
+      {conSubtitulos ? <Subtitulos cues={cues} /> : null}
       {conVoz
         ? tiempos.escenas
             .filter((e) => e.audio)
