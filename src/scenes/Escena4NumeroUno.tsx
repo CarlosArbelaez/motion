@@ -2,7 +2,8 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
 import { Stage } from "../components/Stage";
 import { Fit } from "../components/Fit";
-import { BloqueCifra, BloqueTexto, BloqueImpacto } from "../components/Tarjeta";
+import { BloqueCifra, BloqueTexto, BloqueImpacto, Turno } from "../components/Tarjeta";
+import { Pasos } from "./Escena3Top";
 import { useLayout } from "../layout";
 import { c, titular } from "../theme";
 import { guion, cabeceraDe } from "../guion";
@@ -76,10 +77,17 @@ export const Escena4NumeroUno: React.FC<{ momentos?: number[]; telon?: boolean; 
           </div>
           <Numeral puesto={n.puesto} desde={nombreEn - 4} />
         </div>
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", paddingTop: 40 * L.u, paddingBottom: 36 * L.u }}>
-          <BloqueCifra rotulo={`${r.problema} · ${n.nota}`} cifra={n.problemaCifra} texto={n.problema} color={negro} rotuloColor={negro} desde={problemaEn + 24} max={104 * L.u} contador />
-          <BloqueTexto rotulo={`${r.solucion} · ${n.secundario}`} texto={n.solucion} color={negro} rotuloColor={negro} desde={solucionEn - 4} />
-          <BloqueImpacto rotulo={r.impacto} cifra={n.impactoCifra} texto={n.impacto} barra={n.barra} fondo="colors-text-black-static" tinta="colors-status-brand-base" desde={impactoEn - 4} />
+        <Pasos momentos={[problemaEn + 20, solucionEn, impactoEn]} color={negro} apagado={c("colors-status-brand-base-light")} />
+        <div style={{ flex: 1, position: "relative", marginTop: 56 * L.u }}>
+          <Turno hasta={solucionEn - 8}>
+            <BloqueCifra rotulo={`${r.problema} · ${n.nota}`} cifra={n.problemaCifra} texto={n.problema} color={negro} rotuloColor={negro} desde={problemaEn + 24} contador />
+          </Turno>
+          <Turno hasta={impactoEn - 11}>
+            <BloqueTexto rotulo={`${r.solucion} · ${n.secundario}`} texto={n.solucion} color={negro} rotuloColor={negro} desde={solucionEn - 3} />
+          </Turno>
+          <Turno>
+            <BloqueImpacto rotulo={r.impacto} cifra={n.impactoCifra} texto={n.impacto} barra={n.barra} fondo="colors-text-black-static" tinta="colors-status-brand-base" desde={impactoEn - 4} />
+          </Turno>
         </div>
       </Stage>
       {telon ? <Telon hasta={nombreEn - 14} texto={`#${n.puesto}`} /> : null}

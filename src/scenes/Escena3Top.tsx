@@ -2,7 +2,7 @@ import React from "react";
 import { useCurrentFrame, interpolate } from "remotion";
 import { Stage } from "../components/Stage";
 import { Fit } from "../components/Fit";
-import { BloqueCifra, BloqueTexto, BloqueImpacto } from "../components/Tarjeta";
+import { BloqueCifra, BloqueTexto, BloqueImpacto, Turno } from "../components/Tarjeta";
 import { useLayout } from "../layout";
 import { c, titular, acentoPorPuesto } from "../theme";
 import { guion, ItemTop, cabeceraDe } from "../guion";
@@ -28,6 +28,21 @@ const Numeral: React.FC<{ puesto: number; color: string }> = ({ puesto, color })
   );
 };
 
+// Tres pasos que marcan en cuál va la tarjeta: problema, solución, con IA.
+export const Pasos: React.FC<{ momentos: number[]; color: string; apagado: string }> = ({ momentos, color, apagado }) => {
+  const L = useLayout();
+  const frame = useCurrentFrame();
+  return (
+    <div style={{ display: "flex", gap: 12 * L.u, marginTop: 30 * L.u }}>
+      {momentos.map((m, i) => (
+        <div key={i} style={{ flex: 1, height: 12 * L.u, backgroundColor: apagado, position: "relative", overflow: "hidden" }}>
+          <div style={{ position: "absolute", inset: 0, backgroundColor: color, transformOrigin: "left center", scale: `${interpolate(frame, [m - 4, m + 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: salida })} 1` }} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 // momentos: fotogramas (dentro de la escena) en que la voz dice puesto, nombre, problema, solución e impacto.
 export const Escena3Top: React.FC<{ item: ItemTop; momentos?: number[]; guias?: boolean }> = ({ item, momentos = [4, 24, 60, 160, 230], guias }) => {
   const L = useLayout();
@@ -45,10 +60,18 @@ export const Escena3Top: React.FC<{ item: ItemTop; momentos?: number[]; guias?: 
         </div>
         <Numeral puesto={item.puesto} color={acento} />
       </div>
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", paddingTop: 40 * L.u, paddingBottom: 36 * L.u }}>
-        <BloqueCifra rotulo={r.problema} cifra={item.problemaCifra} texto={item.problema} color={tinta} rotuloColor={gris} desde={problemaEn - 4} max={104 * L.u} />
-        <BloqueTexto rotulo={r.solucion} texto={item.solucion} color={tinta} rotuloColor={gris} desde={solucionEn - 4} />
-        <BloqueImpacto rotulo={r.impacto} cifra={item.impactoCifra} texto={item.impacto} barra={item.barra} fondo="colors-status-brand-base" tinta="colors-text-black-static" desde={impactoEn - 4} />
+      <Pasos momentos={[problemaEn, solucionEn, impactoEn]} color={acento} apagado={c("colors-background-secondary")} />
+      {/* Un bloque a la vez: cada uno sale cuando la voz pasa al siguiente */}
+      <div style={{ flex: 1, position: "relative", marginTop: 56 * L.u }}>
+        <Turno hasta={solucionEn - 8}>
+          <BloqueCifra rotulo={r.problema} cifra={item.problemaCifra} texto={item.problema} color={tinta} rotuloColor={gris} desde={problemaEn - 4} />
+        </Turno>
+        <Turno hasta={impactoEn - 11}>
+          <BloqueTexto rotulo={r.solucion} texto={item.solucion} color={tinta} rotuloColor={gris} desde={solucionEn - 3} />
+        </Turno>
+        <Turno>
+          <BloqueImpacto rotulo={r.impacto} cifra={item.impactoCifra} texto={item.impacto} barra={item.barra} fondo="colors-status-brand-base" tinta="colors-text-black-static" desde={impactoEn - 4} />
+        </Turno>
       </div>
     </Stage>
   );

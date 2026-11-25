@@ -63,7 +63,6 @@ plan = [
     ("top1", "top", 2, "03b-top4", g["top"][1]["voz"], "tarjeta", 0.15, 0.3),
     ("top2", "top", 2, "03c-top3", g["top"][2]["voz"], "tarjeta", 0.15, 0.3),
     ("top3", "top", 2, "03d-top2", g["top"][3]["voz"], "tarjeta", 0.15, 0.3),
-    ("ademas", "ademas", 2, "03e-ademas", g["ademas"]["voz"], "puntos", 0.15, 0.45),
     ("numeroUno", "numeroUno", 2, "04-numero-uno", g["numeroUno"]["voz"], "tarjeta", 0.6, 0.5),
     ("cortina3", "cortina", 3, None, None, None, 1.0, 0),
     ("areas", "areas", 3, "05-areas", g["areas"]["voz"], "todo", 0.15, 0.5),

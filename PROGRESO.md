@@ -55,3 +55,9 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 - Música (Fase 5): Carlos quiere dubstep muy enérgico sin perder el tono profesional. El conector de ElevenLabs de esta sesión no genera música; evaluar el generador de música de Magnific o una pista que pase Carlos.
 - Ajustes de voz: en la #1 se cortó la última frase del audio para caber en 60 s ("4 países" y la línea descriptiva quedan en pantalla); en la #2 la voz dice "High End Agentic Hub".
 - **Contexto de BrewAI (dicho por Carlos, 25-nov):** BrewAI es un equipo multidisciplinario de IA que combina Tech y Data; todo el trabajo es interno de BrewAI, con ayuda de los equipos dueños de cada proceso (OTC, HE, ATR, etc.). No se agradece a equipos de TI o tecnología externos ni se dice que otros construyen la solución. En "Gracias" solo van equipos dueños de proceso: se quitó "Tecnología" (entró Value Creation, dueño del proceso de contratos) y la voz dice "equipos dueños de cada proceso".
+
+## Ronda v8 (25 nov 2026)
+- Fuera la escena "y además": solo las iniciativas del ranking. Total 94,7 s.
+- Menos texto por cuadro: cada tarjeta muestra un bloque a la vez (Problema, Solución, Con IA); áreas en dos tiempos.
+- Motion-pro: BounceIn en la cifra de impacto, StaggerFrom en las áreas, revisión con tiras de fotogramas, lista SOUND_CUES en `src/sonido.ts`. Auditor: nota A.
+- Entregado `review/completo-v8.mp4`. Pendiente: GO para Fase 5 (música y sonido).

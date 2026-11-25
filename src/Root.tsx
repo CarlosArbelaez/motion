@@ -3,6 +3,7 @@ import React from "react";
 import { Still, Composition, Sequence } from "remotion";
 import { Pulso, TOTAL, FPS } from "./Pulso";
 import { MotionProGallery } from "./motion/Gallery";
+import { filmstripOf } from "./motion";
 import { guion } from "./guion";
 import { Escena1Gancho } from "./scenes/Escena1Gancho";
 import { Escena2Numeros } from "./scenes/Escena2Numeros";
@@ -39,6 +40,7 @@ export const RemotionRoot: React.FC = () => {
     <>
       <MotionProGallery />
       <Composition id="Pulso" component={Pulso} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: true }} {...V} />
+      <Composition id="Pulso-review" component={filmstripOf(Pulso)} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: false }} {...V} />
       <Still id="Frame1-Gancho" component={G1} {...V} />
       <Still id="Frame2-Numeros" component={G2} defaultProps={{ indice: 1 }} {...V} />
       <Still id="Frame3-Top" component={G3} defaultProps={{ item: guion.top[2] }} {...V} />

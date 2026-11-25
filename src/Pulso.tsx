@@ -11,7 +11,6 @@ import { Escena2Numeros } from "./scenes/Escena2Numeros";
 import { Escena3Top } from "./scenes/Escena3Top";
 import { EscenaCortina } from "./scenes/EscenaCortina";
 import { EscenaRanking } from "./scenes/EscenaRanking";
-import { EscenaAdemas } from "./scenes/EscenaAdemas";
 import { Escena4NumeroUno } from "./scenes/Escena4NumeroUno";
 import { Escena5Areas } from "./scenes/Escena5Areas";
 import { Escena6Cierre } from "./scenes/Escena6Cierre";
@@ -35,8 +34,6 @@ const escena = (e: Tiempo): React.ReactNode => {
       return <EscenaRanking />;
     case "top":
       return <Escena3Top item={guion.top[n]} momentos={e.momentos} />;
-    case "ademas":
-      return <EscenaAdemas />;
     case "numeroUno":
       return <Escena4NumeroUno momentos={e.momentos} telon />;
     case "areas":

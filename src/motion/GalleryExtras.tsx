@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Composition } from "remotion";
 import {
+  blend, BounceIn, EASE_X, StaggerFrom, useInertia, useProgress,
   BarChart, CameraPan, CardStack, Confetti, DrawPath, Highlight, LineChart, Marquee, MorphShape, Odometer, Parallax,
   ParallaxLayer, ProgressBar, RingProgress, ScrambleText, Tilt3D, WaveText,
 } from "./index";
@@ -72,6 +73,47 @@ const Data: React.FC = () => (
   </AbsoluteFill>
 );
 
+const Box: React.FC<{ size?: number; color?: string }> = ({ size = 110, color = "linear-gradient(135deg,#ffd400,#ff5a36)" }) => (
+  <div style={{ width: size, height: size, borderRadius: size * 0.2, background: color }} />
+);
+const InertiaDemo: React.FC = () => {
+  const x = useInertia({ delay: 0.3, velocity: 600, timeConstant: 400 });
+  return <div style={{ translate: `${x - 240}px 0px` }}><Box /></div>;
+};
+const BlendDemo: React.FC = () => {
+  const p = useProgress(0.2, 2.5, (t) => t);
+  const color = blend([0, 0.5, 1], ["#2b59ff", "#ffd400", "#ff5a36"])(p);
+  const shadow = blend([0, 1], ["0px 0px 0px rgba(0,0,0,0)", "0px 30px 60px rgba(0,0,0,0.6)"])(p);
+  return <div style={{ width: 300, height: 150, borderRadius: 24, background: color, boxShadow: shadow }} />;
+};
+const SteppedDemo: React.FC = () => {
+  const p = useProgress(0.2, 2, EASE_X.stepped(8));
+  return <div style={{ translate: `${p * 400 - 200}px 0px`, rotate: `${p * 360}deg` }}><Box /></div>;
+};
+
+const Physics: React.FC = () => (
+  <AbsoluteFill style={{ ...grid(3, 2), fontSize: 30 }}>
+    <Cell label="BounceIn bounce 0 / 0.35 / 0.65">
+      <div style={{ display: "flex", gap: 40 }}>
+        <BounceIn bounce={0} delay={0.2}><Box /></BounceIn>
+        <BounceIn bounce={0.35} delay={0.2}><Box /></BounceIn>
+        <BounceIn bounce={0.65} delay={0.2}><Box /></BounceIn>
+      </div>
+    </Cell>
+    <Cell label='BounceIn mode="up"'><BounceIn mode="up" bounce={0.5} delay={0.3} style={{ fontSize: 60 }}>¡Hola!</BounceIn></Cell>
+    <Cell label="useInertia"><InertiaDemo /></Cell>
+    <Cell label='StaggerFrom from="center" grid'>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 56px)", gap: 14 }}>
+        <StaggerFrom preset="pop" from="center" grid={[5, 4]} gap={2} exit={false}>
+          {Array.from({ length: 20 }).map((_, i) => <Box key={i} size={56} />)}
+        </StaggerFrom>
+      </div>
+    </Cell>
+    <Cell label="blend (color + sombra)"><BlendDemo /></Cell>
+    <Cell label="EASE_X.stepped(8)"><SteppedDemo /></Cell>
+  </AbsoluteFill>
+);
+
 /** Composiciones de la segunda tanda. Se renderizan dentro de <MotionProGallery />. */
 export const ExtraCompositions: React.FC = () => (
   <>
@@ -79,5 +121,6 @@ export const ExtraCompositions: React.FC = () => (
     <Composition id="MP-Shapes" component={Shapes} durationInFrames={150} fps={30} width={1920} height={1080} />
     <Composition id="MP-Layout" component={Layout} durationInFrames={120} fps={30} width={1920} height={1080} />
     <Composition id="MP-Data" component={Data} durationInFrames={90} fps={30} width={1920} height={1080} />
+    <Composition id="MP-Physics" component={Physics} durationInFrames={105} fps={30} width={1920} height={1080} />
   </>
 );

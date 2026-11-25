@@ -8,4 +8,6 @@ export * from "./social";
 export * from "./shapes";
 export * from "./layout";
 export * from "./data";
+export * from "./physics";
 export * from "./media";
+export * from "./review";
