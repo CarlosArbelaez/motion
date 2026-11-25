@@ -1,7 +1,7 @@
 # PROGRESO — "Mi 2026 en BrewTech" (video estilo Wrapped)
 
 ## Fase actual
-**Fase 3 — Voz: muestras ENTREGADAS, pendiente de que Carlos elija voz.** Muestras en `review/voces/` (locales). Flujo de ElevenLabs: `tTcr7a6SRAXB40J1gK7M`. Modelo: eleven_v4. Voces probadas: Herduin (`1uVtI2cicnbE8Ur3YzmS`), Milena (`UZPkivpygDffhcwKJsx6`), Daniela (`ajOR9IDAaubDK5qtLUqQ`).
+**Fase 3 — Voz: muestras ENTREGADAS, pendiente de que Carlos elija voz.** Muestras en `review/voces/` (locales). Flujo de ElevenLabs: `tTcr7a6SRAXB40J1gK7M`. Modelo: eleven_v4. Carlos pidió voz dinámica y juvenil, tipo Spotify; segunda tanda: Valeria (`22VndfJPBU7AZORAZZTT`), Orozco (`MFczlrjgpEos5t8Rwlto`), Yohan Melguizo (`M67yD2NH1lnnCUDjlTGP`). Primera tanda descartada: Herduin (`1uVtI2cicnbE8Ur3YzmS`), Milena (`UZPkivpygDffhcwKJsx6`), Daniela (`ajOR9IDAaubDK5qtLUqQ`).
 Fases 0, 1 y 2 (arte v2 brutalista) aprobadas con GO.
 
 ## Hecho
