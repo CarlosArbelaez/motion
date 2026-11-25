@@ -7,6 +7,8 @@ Duración real: 95,7 s (Carlos aprobó ~90 s). La voz de Yohan es lenta: se acel
 Siguiente tras el GO: Fase 5 (música dubstep enérgica pero profesional, mezcla, efectos, checklist).
 Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `data/tiempos.json` (`scripts/tiempos.py`); vista previa con `scripts/preview.sh <salida> [desde-hasta]`.
 
+**Ronda de comentarios 2 de Carlos (sobre `completo-v2.mp4`):** (1) no se entiende el impacto esperado que genera la IA → pendiente de su decisión sobre cómo expresarlo (propuesta: comparación antes / con IA en lenguaje llano); (2) voz un punto más baja → hecho (-17,5 LUFS); (3) tiene un zip de ilustraciones SVG → pendiente de que lo adjunte; (4) transiciones aburridas, referencia misterhorse.com (dominio bloqueado aquí) → hecho: 5 tipos de corte en `src/components/Cortes.tsx` (estela, persianas, columnas, diagonal, obturador). Vista previa: `review/completo-v3.mp4`.
+
 ## Hecho
 - No existía un proyecto de video previo en el repo (solo README y skills de Remotion). Se creó un proyecto **Remotion 4.0.547 + TypeScript** en la raíz.
 - Carpetas creadas: `input/`, `input/fonts/`, `input/icons/`, `data/`, `review/stills/`, `output/`.

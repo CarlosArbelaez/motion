@@ -5,7 +5,7 @@ import tiempos from "../data/tiempos.json";
 import { guion } from "./guion";
 import { Token } from "./theme";
 import { Subtitulos, Cue } from "./components/Subtitulos";
-import { Cortes, Corte } from "./components/Cortes";
+import { Cortes, Corte, TipoCorte } from "./components/Cortes";
 import { Escena1Gancho } from "./scenes/Escena1Gancho";
 import { Escena2Numeros } from "./scenes/Escena2Numeros";
 import { Escena3Top } from "./scenes/Escena3Top";
@@ -50,11 +50,14 @@ const escena = (e: Tiempo): React.ReactNode => {
 
 const AMARILLAS = ["cortina", "ranking", "numeroUno"];
 
-// Corte de bloque al entrar a cada escena: amarillo, salvo que una de las dos escenas ya sea amarilla.
+// Corte al entrar a cada escena. Color: amarillo, salvo que una de las dos escenas ya sea amarilla.
+// Tipo: "estela" al cambiar de sección; dentro de una sección se alternan los demás.
+const VARIADOS: TipoCorte[] = ["persianas", "diagonal", "columnas", "obturador"];
 const corteDe = (antes: Tiempo, e: Tiempo, i: number): Omit<Corte, "en"> => {
   const tocaAmarillo = AMARILLAS.includes(antes.tipo) || AMARILLAS.includes(e.tipo);
   const color: Token = tocaAmarillo || (antes.tipo === "numeros" && e.tipo === "numeros") ? "colors-text-black-static" : "colors-status-brand-base";
-  return { color, eje: i % 2 === 0 ? "y" : "x", sentido: i % 4 < 2 ? 1 : -1 };
+  const tipo: TipoCorte = e.tipo === "cortina" || e.tipo === "ranking" ? "estela" : VARIADOS[i % VARIADOS.length];
+  return { color, tipo, sentido: i % 2 === 0 ? 1 : -1 };
 };
 
 export const Pulso: React.FC<{ conVoz?: boolean }> = ({ conVoz = true }) => {
