@@ -9,12 +9,12 @@ const CW = 224;
 const CG = 22;
 const cx = (i: number) => MX + i * (CW + CG);
 const PHASES = [
-  { n: "1", h: "Solicitud", d: "Captura única; decide la regla escrita.", state: "Solicitud" },
+  { n: "1", h: "Solicitud", d: "Captura única; el líder aprueba y la regla decide.", state: "Solicitud" },
   { n: "2", h: "Negociación", d: "Legal negocia como hoy, con rastro.", state: "En negociación" },
-  { n: "3", h: "Aprobación y firma", d: "Se aprueba en Ariba; la plataforma lo refleja.", state: "Firmado" },
+  { n: "3", h: "Aprobación y firma", d: "Se aprueba en Ariba, según la DAG.", state: "Firmado" },
   { n: "4", h: "Ficha y Ariba", d: "Datos clave validados por una persona.", state: "Vigente" },
-  { n: "5", h: "Control diario", d: "Cruce diario con Ariba y el Budget.", state: "Vigente" },
-  { n: "6", h: "Alertas", d: "En la plataforma y por correo, con escalamiento.", state: "Vigente · en alerta" },
+  { n: "5", h: "Control diario", d: "Cruce diario con Ariba y el PxQ.", state: "Vigente" },
+  { n: "6", h: "Alertas", d: "Una alerta con respuesta y escalamiento.", state: "Vigente · en alerta" },
   { n: "7", h: "Decisión", d: "El owner decide, su líder aprueba y Procurement confirma.", state: "En renovación" },
 ];
 const BLOCKS = [
@@ -29,7 +29,8 @@ BLOCKS.forEach((b) => {
   for (let k = 0; k < n; k++) ARRIVE.push(b.start + (k * (b.end - b.start - 0.5)) / n);
 });
 const CALLOUTS = [
-  { b: 0, t: "Una sola captura", at: cue(ID, "una sola captura") },
+  { b: 0, t: "Una sola captura", at: cue(ID, "una sola vez") },
+  { b: 0, t: "Su líder la aprueba", at: cue(ID, "su líder la aprueba") },
   { b: 0, t: "La regla escrita decide", at: cue(ID, "la regla escrita") },
   { b: 1, t: "El dato nace al firmar", at: cue(ID, "nacen") },
   { b: 1, t: "Lo valida una persona", at: cue(ID, "los valida") },
@@ -57,8 +58,8 @@ export const S05: React.FC = () => {
     <Shell
       id={ID}
       chapter={2}
-      title="El nuevo ciclo: 3 bloques, 7 fases y un cierre"
-      foot="El To-Be tiene 37 tarjetas y 7 compuertas, cada una con salidas SÍ, NO y excepción"
+      title="El nuevo ciclo: 7 fases, igual en los tres escenarios"
+      foot="Todo se consume desde BrewDat: SAP Ariba, el PxQ y el histórico del proceso · el To-Be tiene 37 tarjetas y 7 compuertas"
     >
       {/* Retorno al inicio */}
       <svg style={{ position: "absolute", left: 0, top: 0 }} width={1920} height={1080}>

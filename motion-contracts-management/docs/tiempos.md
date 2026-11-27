@@ -1,20 +1,21 @@
 # Tiempos por escena
 
-Duración total: 4:50 (8719 frames a 30 fps)
+Duración total: 6:23 (11494 frames a 30 fps)
 
 | Escena | Título | Inicio | Fin | Duración |
 |---|---|---|---|---|
-| 01 | Apertura | 0:00 | 0:13 | 13.1 s |
-| 02 | Punto de partida | 0:13 | 0:29 | 16.4 s |
-| 03 | Alertas y riesgo | 0:29 | 0:45 | 15.8 s |
-| 04 | El orden de la propuesta | 0:45 | 0:59 | 14.4 s |
-| 05 | El nuevo ciclo | 0:59 | 1:24 | 24.6 s |
-| 06 | La plataforma | 1:24 | 1:46 | 22.0 s |
-| 07 | La alerta que exige respuesta | 1:46 | 2:06 | 20.0 s |
-| 08 | Tres dueños | 2:06 | 2:20 | 13.7 s |
-| 09 | IA con control | 2:20 | 2:36 | 16.6 s |
-| 10 | Qué haremos | 2:36 | 3:04 | 27.8 s |
-| 11 | Cómo lo haremos | 3:04 | 3:28 | 23.7 s |
-| 12 | Cuándo y con quién | 3:28 | 3:54 | 26.6 s |
-| 13 | Metas e indicadores | 3:54 | 4:25 | 30.5 s |
-| 14 | Lo que necesitamos | 4:25 | 4:50 | 25.4 s |
+| 01 | Apertura | 0:00 | 0:11 | 11.2 s |
+| 02 | Punto de partida | 0:11 | 0:27 | 16.4 s |
+| 03 | Alertas y riesgo | 0:27 | 0:43 | 15.8 s |
+| 04 | El orden de la propuesta | 0:43 | 0:57 | 14.4 s |
+| 05 | El nuevo ciclo | 0:57 | 1:28 | 30.6 s |
+| 06 | La alerta que exige respuesta | 1:28 | 1:46 | 18.1 s |
+| 07 | Tres dueños | 1:46 | 2:00 | 13.7 s |
+| 08 | Tres formas de construirlo | 2:00 | 2:36 | 36.6 s |
+| 09 | Escenario Completo | 2:36 | 2:59 | 22.5 s |
+| 10 | Escenarios Lite | 2:59 | 3:29 | 30.2 s |
+| 11 | Comparación | 3:29 | 3:57 | 28.0 s |
+| 12 | MVP y olas siguientes | 3:57 | 4:29 | 32.5 s |
+| 13 | Tiempos y costos | 4:29 | 5:15 | 45.7 s |
+| 14 | Metas | 5:15 | 5:45 | 29.8 s |
+| 15 | Lo que necesitamos de negocio | 5:45 | 6:23 | 37.7 s |

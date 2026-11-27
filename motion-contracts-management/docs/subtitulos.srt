@@ -1,408 +1,516 @@
 1
-00:00:00,320 --> 00:00:02,960
-Contracts Management Finance Tech.
+00:00:00,320 --> 00:00:02,320
+Contract Management Tech.
 
 2
-00:00:02,960 --> 00:00:07,360
+00:00:02,320 --> 00:00:06,640
 Hoy, el ciclo de vida de un contrato de tecnología no se cierra.
 
 3
-00:00:07,360 --> 00:00:09,760
-Proponemos cerrarlo, con una plataforma
+00:00:06,640 --> 00:00:11,140
+Proponemos un proceso que lo cierra, y tres formas de construirlo.
 
 4
-00:00:09,760 --> 00:00:13,060
-donde todo se consulta en un solo lugar.
-
-5
-00:00:13,453 --> 00:00:16,733
+00:00:11,520 --> 00:00:14,800
 Hoy, cerca de doscientos veinte servicios y ciento
 
-6
-00:00:16,733 --> 00:00:20,013
+5
+00:00:14,800 --> 00:00:18,080
 setenta contratos se siguen con dos archivos de Excel,
 
-7
-00:00:20,013 --> 00:00:22,653
+6
+00:00:18,080 --> 00:00:20,720
 un correo automático y dos personas.
 
-8
-00:00:22,653 --> 00:00:24,973
+7
+00:00:20,720 --> 00:00:23,040
 El mismo dato se teclea tres veces.
 
-9
-00:00:24,973 --> 00:00:29,473
+8
+00:00:23,040 --> 00:00:27,540
 Por eso, el dashboard y las alertas pueden mostrar fechas distintas.
 
-10
-00:00:29,853 --> 00:00:33,013
+9
+00:00:27,920 --> 00:00:31,080
 Cada vencimiento genera hasta veintiséis correos,
 
-11
-00:00:33,013 --> 00:00:35,453
+10
+00:00:31,080 --> 00:00:33,520
 que no se pueden responder ni cerrar.
 
-12
-00:00:35,453 --> 00:00:38,333
+11
+00:00:33,520 --> 00:00:36,400
 Ninguna decisión de renovación queda registrada.
 
-13
-00:00:38,333 --> 00:00:41,613
+12
+00:00:36,400 --> 00:00:39,680
 Hay contratos fuera de Ariba, el repositorio oficial.
 
-14
-00:00:41,613 --> 00:00:45,313
+13
+00:00:39,680 --> 00:00:43,380
 Y nadie responde por el proceso de punta a punta.
 
-15
-00:00:45,687 --> 00:00:47,607
+14
+00:00:43,753 --> 00:00:45,673
 La propuesta sigue un orden.
 
-16
-00:00:47,607 --> 00:00:49,687
+15
+00:00:45,673 --> 00:00:47,753
 Primero, ordenar el proceso.
 
-17
-00:00:49,687 --> 00:00:52,407
+16
+00:00:47,753 --> 00:00:50,473
 Después, automatizar lo repetitivo.
 
-18
-00:00:52,407 --> 00:00:55,207
+17
+00:00:50,473 --> 00:00:53,273
 Y solo al final, inteligencia artificial.
 
-19
-00:00:55,207 --> 00:00:59,707
+18
+00:00:53,273 --> 00:00:57,773
 Porque automatizar un proceso roto solo hace más rápido el error.
 
-20
-00:01:00,087 --> 00:01:02,567
-Así recorre un contrato el nuevo ciclo.
+19
+00:00:58,153 --> 00:01:02,633
+Así recorre un contrato el nuevo ciclo, igual en los tres escenarios.
 
-21
-00:01:02,567 --> 00:01:04,087
+20
+00:01:02,633 --> 00:01:04,153
 Primero se formaliza:
 
+21
+00:01:04,153 --> 00:01:08,153
+el área registra la necesidad una sola vez, su líder la aprueba,
+
 22
-00:01:04,087 --> 00:01:08,407
-con una sola captura, y la regla escrita decide si requiere contrato.
+00:01:08,153 --> 00:01:11,113
+y la regla escrita decide si requiere contrato.
 
 23
-00:01:08,407 --> 00:01:09,847
+00:01:11,113 --> 00:01:12,553
 Luego se registra:
 
 24
-00:01:09,847 --> 00:01:11,927
-los datos clave nacen al firmar,
+00:01:12,553 --> 00:01:16,193
+los datos clave nacen al firmar, los valida una persona,
 
 25
-00:01:11,927 --> 00:01:15,567
-los valida una persona, y se cruzan cada día con Ariba.
+00:01:16,193 --> 00:01:19,433
+y cada día se cruzan con Ariba y con el PxQ.
 
 26
-00:01:15,567 --> 00:01:17,207
+00:01:19,433 --> 00:01:21,153
 Y después se vigila:
 
 27
-00:01:17,207 --> 00:01:20,767
+00:01:21,153 --> 00:01:24,833
 con una alerta que exige respuesta y una decisión registrada.
 
 28
-00:01:20,767 --> 00:01:24,347
+00:01:24,833 --> 00:01:28,413
 Si el servicio continúa, el ciclo vuelve al inicio.
 
 29
-00:01:24,720 --> 00:01:26,920
-Todo vive en un solo lugar:
-
-30
-00:01:26,920 --> 00:01:29,040
-la plataforma que diseñaremos.
-
-31
-00:01:29,040 --> 00:01:31,920
-Un registro único de servicios y contratos.
-
-32
-00:01:31,920 --> 00:01:34,400
-Un dashboard, con descarga del reporte.
-
-33
-00:01:34,400 --> 00:01:36,400
-Las alertas de cada persona.
-
-34
-00:01:36,400 --> 00:01:38,040
-Y el histórico de aprobaciones:
-
-35
-00:01:38,040 --> 00:01:40,640
-quién aprobó qué, cuándo y por qué.
-
-36
-00:01:40,640 --> 00:01:42,320
-Ariba no se reemplaza:
-
-37
-00:01:42,320 --> 00:01:46,340
-sigue siendo la fuente oficial, y ahí se sigue aprobando.
-
-38
-00:01:46,720 --> 00:01:48,760
+00:01:28,787 --> 00:01:30,867
 La alerta cambia por completo.
 
-39
-00:01:48,760 --> 00:01:51,920
+30
+00:01:30,867 --> 00:01:33,987
 En lugar de veintiséis correos, una sola alerta,
 
-40
-00:01:51,920 --> 00:01:56,040
-en la plataforma y por correo, para el dueño del servicio y su líder.
+31
+00:01:33,987 --> 00:01:36,227
+para el dueño del servicio y su líder.
 
-41
-00:01:56,040 --> 00:01:59,880
+32
+00:01:36,227 --> 00:01:39,947
 Si no hay respuesta, escala a los sesenta y a los treinta días.
 
-42
-00:01:59,880 --> 00:02:02,040
+33
+00:01:39,947 --> 00:01:42,027
 Y siempre termina en una decisión:
 
-43
-00:02:02,040 --> 00:02:06,340
+34
+00:01:42,027 --> 00:01:46,487
 el dueño decide, su líder aprueba, y Procurement confirma.
 
-44
-00:02:06,720 --> 00:02:09,200
+35
+00:01:46,887 --> 00:01:49,367
 Tres dueños responden por el proceso.
 
-45
-00:02:09,200 --> 00:02:12,400
+36
+00:01:49,367 --> 00:01:52,567
 El dueño del servicio y su líder, por cada contrato.
 
-46
-00:02:12,400 --> 00:02:15,600
+37
+00:01:52,567 --> 00:01:55,767
 Procurement, por la cobertura contractual y por Ariba.
 
-47
-00:02:15,600 --> 00:02:20,020
+38
+00:01:55,767 --> 00:02:00,187
 Y Value Creation, por el seguimiento y la calidad del dato.
 
+39
+00:02:00,553 --> 00:02:02,073
+El proceso es el mismo.
+
+40
+00:02:02,073 --> 00:02:05,833
+Lo que cambia es cómo se construye, y hay tres formas.
+
+41
+00:02:05,833 --> 00:02:07,353
+El escenario Completo:
+
+42
+00:02:07,353 --> 00:02:09,993
+una plataforma propia, con inteligencia artificial,
+
+43
+00:02:09,993 --> 00:02:12,953
+donde todo se consulta en una sola pantalla.
+
+44
+00:02:12,953 --> 00:02:15,913
+Lite A: sin plataforma propia, con herramientas
+
+45
+00:02:15,913 --> 00:02:20,233
+que la compañía ya tiene, y conectado a SAP Ariba por API.
+
+46
+00:02:20,233 --> 00:02:21,593
+Y Lite B:
+
+47
+00:02:21,593 --> 00:02:24,313
+las mismas herramientas, pero sin esa conexión.
+
 48
-00:02:20,387 --> 00:02:24,627
-La inteligencia artificial llega después, y con límites claros.
+00:02:24,313 --> 00:02:26,633
+Los datos de Ariba se leen desde BrewDat,
 
 49
-00:02:24,627 --> 00:02:28,867
-Lee el contrato y propone sus datos clave, cada uno con su cita.
+00:02:26,633 --> 00:02:29,273
+y Procurement escribe en Ariba a mano.
 
 50
-00:02:28,867 --> 00:02:31,267
-Una persona valida todas las fichas.
+00:02:29,273 --> 00:02:34,393
+Lite A solo es posible si SAP Ariba tiene una API que lea y escriba.
 
 51
-00:02:31,267 --> 00:02:36,487
-La inteligencia artificial no decide, no aprueba, ni confirma ahorros.
+00:02:34,393 --> 00:02:36,733
+Si no, queda Lite B.
 
 52
-00:02:36,953 --> 00:02:38,393
-Esto es lo que haremos:
+00:02:37,120 --> 00:02:40,520
+En el Completo, todo vive en una sola plataforma.
 
 53
-00:02:38,393 --> 00:02:41,113
-siete entregas, sobre la misma plataforma.
+00:02:40,520 --> 00:02:42,840
+El registro de servicios y contratos.
 
 54
-00:02:41,113 --> 00:02:44,233
-Las primeras cuatro forman el producto mínimo viable,
+00:02:42,840 --> 00:02:45,360
+El dashboard, con descarga del reporte.
 
 55
-00:02:44,233 --> 00:02:45,833
-sin inteligencia artificial.
+00:02:45,360 --> 00:02:47,240
+Las alertas de cada persona.
 
 56
-00:02:45,833 --> 00:02:47,033
-Los cimientos.
+00:02:47,240 --> 00:02:48,920
+Y el histórico de aprobaciones:
 
 57
-00:02:47,033 --> 00:02:49,273
-El registro único y el dashboard.
+00:02:48,920 --> 00:02:51,520
+quién aprobó qué, cuándo y por qué.
 
 58
-00:02:49,273 --> 00:02:50,313
-Las alertas.
+00:02:51,520 --> 00:02:54,000
+Además, la inteligencia artificial lee cada
 
 59
-00:02:50,313 --> 00:02:53,273
-Y la decisión, con el histórico de aprobaciones.
+00:02:54,000 --> 00:02:56,960
+contrato y propone sus datos, con su cita.
 
 60
-00:02:53,273 --> 00:02:57,073
-La quinta entrega trae el alta de solicitudes con la regla escrita.
+00:02:56,960 --> 00:02:59,220
+Una persona valida todo.
 
 61
-00:02:57,073 --> 00:02:59,713
-Y las dos últimas, la inteligencia artificial:
+00:02:59,587 --> 00:03:02,347
+En el Lite no se construye una plataforma:
 
 62
-00:02:59,713 --> 00:03:00,953
-la ficha del contrato,
+00:03:02,347 --> 00:03:05,347
+se conectan herramientas que la compañía ya usa.
 
 63
-00:03:00,953 --> 00:03:04,413
-con un piloto de veinte contratos, y la consulta.
+00:03:05,347 --> 00:03:08,547
+Una aplicación en Power Apps, que se abre desde Teams.
 
 64
-00:03:04,787 --> 00:03:06,067
-Así lo haremos.
+00:03:08,547 --> 00:03:11,507
+Power Automate, para las reglas y los avisos.
 
 65
-00:03:06,067 --> 00:03:08,667
-Cada entrega resuelve un dolor completo,
+00:03:11,507 --> 00:03:14,707
+Las alertas llegan como tarjeta en Teams y por correo.
 
 66
-00:03:08,667 --> 00:03:12,227
-y solo arranca cuando la anterior cumple sus criterios de salida.
+00:03:14,707 --> 00:03:18,227
+El dashboard es el reporte de Power BI que ya existe.
 
 67
-00:03:12,227 --> 00:03:14,787
-Para el producto mínimo viable son cinco.
+00:03:18,227 --> 00:03:21,827
+Y las consultas se hacen con Genie o Insights Copilot.
 
 68
-00:03:14,787 --> 00:03:16,627
-Los dos Excel retirados.
+00:03:21,827 --> 00:03:24,787
+No hay inteligencia artificial que lea los contratos:
 
 69
-00:03:16,627 --> 00:03:19,747
-El dashboard y las alertas leyendo el mismo registro.
+00:03:24,787 --> 00:03:29,447
+una persona captura los datos de cada contrato, y otra los valida.
 
 70
-00:03:19,747 --> 00:03:23,027
-Todos los contratos vigentes con su PDF en Ariba.
+00:03:29,820 --> 00:03:32,460
+Los tres resuelven los mismos dolores.
 
 71
-00:03:23,027 --> 00:03:25,747
-La primera alerta cerrada con una decisión.
+00:03:32,460 --> 00:03:36,060
+Cambian el tiempo, el costo y el trabajo manual que queda.
 
 72
-00:03:25,747 --> 00:03:28,087
-Y los tres dueños operando.
+00:03:36,060 --> 00:03:38,300
+El Completo tarda y cuesta más.
 
 73
-00:03:28,453 --> 00:03:30,133
-Cuándo, y con quién.
+00:03:38,300 --> 00:03:40,460
+A cambio, deja todo en un solo lugar
 
 74
-00:03:30,133 --> 00:03:33,573
-Arrancamos el veintitrés de noviembre, y hay dos escenarios.
+00:03:40,460 --> 00:03:42,700
+y quita la lectura manual de contratos.
 
 75
-00:03:33,573 --> 00:03:36,613
-Con dos personas dedicadas, el producto mínimo viable
+00:03:42,700 --> 00:03:45,180
+El Lite sale antes y cuesta menos.
 
 76
-00:03:36,613 --> 00:03:39,773
-estaría listo hacia el diez de mayo de dos mil veintisiete,
+00:03:45,180 --> 00:03:47,340
+A cambio, reparte la información entre varias
 
 77
-00:03:39,773 --> 00:03:42,693
-y la propuesta completa, hacia el veinte de septiembre.
+00:03:47,340 --> 00:03:49,820
+herramientas y deja más trabajo manual.
 
 78
-00:03:42,693 --> 00:03:45,533
-Con cuatro personas dedicadas, el producto mínimo
+00:03:49,820 --> 00:03:52,660
+En pasos automáticos, los tres quedan cerca:
 
 79
-00:03:45,533 --> 00:03:47,853
-viable llegaría hacia el primero de marzo,
+00:03:52,660 --> 00:03:55,100
+entre el sesenta y el sesenta y cinco por ciento,
 
 80
-00:03:47,853 --> 00:03:50,733
-y la propuesta completa, hacia el diecisiete de mayo.
+00:03:55,100 --> 00:03:57,440
+frente al doce por ciento de hoy.
 
 81
-00:03:50,733 --> 00:03:54,713
-Es una estimación preliminar, por validar con el líder técnico.
+00:03:57,820 --> 00:04:02,220
+El alcance inicial, el producto mínimo viable, es igual en los tres.
 
 82
-00:03:55,087 --> 00:03:56,487
-Estas son las metas.
+00:04:02,220 --> 00:04:05,020
+Un solo registro, y adiós a los dos Excel.
 
 83
-00:03:56,487 --> 00:03:59,367
-De tres capturas del mismo dato, a una.
+00:04:05,020 --> 00:04:06,140
+El dashboard.
 
 84
-00:03:59,367 --> 00:04:02,447
-De veintiséis correos, a una sola alerta.
+00:04:06,140 --> 00:04:08,140
+Una alerta que exige respuesta.
 
 85
-00:04:02,447 --> 00:04:05,727
-Todos los contratos vigentes con su PDF en Ariba.
+00:04:08,140 --> 00:04:12,140
+Cada solicitud y cada renovación, aprobada por una persona.
 
 86
-00:04:05,727 --> 00:04:07,607
-Al menos el noventa y cinco por ciento
+00:04:12,140 --> 00:04:15,180
+Y el cruce diario con SAP Ariba y el PxQ.
 
 87
-00:04:07,607 --> 00:04:09,967
-de las alertas con decisión a tiempo.
+00:04:15,180 --> 00:04:17,100
+Después vienen más olas.
 
 88
-00:04:09,967 --> 00:04:14,047
-Y todas las aprobaciones y decisiones, en un solo histórico.
+00:04:17,100 --> 00:04:20,220
+En los tres, el alta de solicitudes con la regla escrita.
 
 89
-00:04:14,047 --> 00:04:15,887
-El impacto de la inteligencia artificial
+00:04:20,220 --> 00:04:22,860
+En el Completo, además, la inteligencia artificial
 
 90
-00:04:15,887 --> 00:04:18,367
-llega después del producto mínimo viable:
+00:04:22,860 --> 00:04:25,260
+que lee contratos y responde consultas.
 
 91
-00:04:18,367 --> 00:04:22,727
-reducir el tiempo de lectura, captura y validación de cada contrato.
+00:04:25,260 --> 00:04:27,260
+Y en el Lite, la consulta en lenguaje
 
 92
-00:04:22,727 --> 00:04:25,187
-Su meta se fija con un piloto.
+00:04:27,260 --> 00:04:29,920
+natural y la revisión de consolidación.
 
 93
-00:04:25,553 --> 00:04:28,753
-Para arrancar, necesitamos seis definiciones.
+00:04:30,287 --> 00:04:32,527
+Cuánto tarda, y cuánto cuesta.
 
 94
-00:04:28,753 --> 00:04:30,673
-El visto bueno de la propuesta.
+00:04:32,527 --> 00:04:36,607
+Los tres arrancan el siete de diciembre, con dos personas dedicadas.
 
 95
-00:04:30,673 --> 00:04:31,953
-Elegir el escenario:
+00:04:36,607 --> 00:04:37,727
+El Completo:
 
 96
-00:04:31,953 --> 00:04:33,633
-dos o cuatro personas.
+00:04:37,727 --> 00:04:40,607
+producto mínimo viable en la semana dieciséis.
 
 97
-00:04:33,633 --> 00:04:36,033
-Cerrar las reglas de negocio pendientes.
+00:04:40,607 --> 00:04:44,327
+Todo el alcance, en treinta y tres semanas, hacia el veintitrés de julio,
 
 98
-00:04:36,033 --> 00:04:37,873
-Aprobar los tres dueños.
+00:04:44,327 --> 00:04:47,487
+por noventa y un mil trescientos ochenta y cinco dólares.
 
 99
-00:04:37,873 --> 00:04:40,593
-Nombrar un responsable para cada dependencia.
+00:04:47,487 --> 00:04:51,087
+Lite A: producto mínimo viable en la semana trece.
 
 100
-00:04:40,593 --> 00:04:43,073
-Y validar el nombre de la plataforma.
+00:04:51,087 --> 00:04:54,527
+Todo el alcance, en veintidós semanas, hacia el siete de mayo,
 
 101
-00:04:43,073 --> 00:04:44,993
-Con su visto bueno, la primera entrega
+00:04:54,527 --> 00:04:57,487
+por sesenta mil novecientos veintitrés dólares.
 
 102
-00:04:44,993 --> 00:04:47,573
-arranca el veintitrés de noviembre.
+00:04:57,487 --> 00:05:01,047
+Lite B: producto mínimo viable en la semana doce.
+
+103
+00:05:01,047 --> 00:05:04,367
+Todo el alcance, en veinte semanas, hacia el veintitrés de abril,
+
+104
+00:05:04,367 --> 00:05:07,727
+por cincuenta y cinco mil trescientos ochenta y cinco dólares.
+
+105
+00:05:07,727 --> 00:05:09,447
+Son estimaciones preliminares.
+
+106
+00:05:09,447 --> 00:05:11,647
+La del Completo es del líder técnico.
+
+107
+00:05:11,647 --> 00:05:15,587
+Las del Lite son de consultoría, y falta validarlas con él.
+
+108
+00:05:15,953 --> 00:05:19,073
+Con cualquiera de los tres, estas son las metas.
+
+109
+00:05:19,073 --> 00:05:21,873
+De tres capturas del mismo dato, a una.
+
+110
+00:05:21,873 --> 00:05:24,833
+De veintiséis correos, a una sola alerta.
+
+111
+00:05:24,833 --> 00:05:28,993
+De dos personas imprescindibles para mantener la base, a ninguna.
+
+112
+00:05:28,993 --> 00:05:32,353
+Todos los contratos vigentes con su PDF en Ariba.
+
+113
+00:05:32,353 --> 00:05:34,993
+Ningún contrato vencido sin decisión.
+
+114
+00:05:34,993 --> 00:05:39,073
+Y un solo histórico con todas las aprobaciones y decisiones.
+
+115
+00:05:39,073 --> 00:05:42,353
+Los ahorros en horas y en dinero se medirán desde el arranque,
+
+116
+00:05:42,353 --> 00:05:45,333
+porque hoy no existe una línea base.
+
+117
+00:05:45,720 --> 00:05:47,640
+Para arrancar el siete de diciembre,
+
+118
+00:05:47,640 --> 00:05:50,040
+necesitamos dos decisiones de negocio.
+
+119
+00:05:50,040 --> 00:05:53,560
+Primera: su visto bueno al proceso y a las estimaciones.
+
+120
+00:05:53,560 --> 00:05:55,720
+Segunda: elegir el escenario.
+
+121
+00:05:55,720 --> 00:05:57,160
+Completo, o Lite.
+
+122
+00:05:57,160 --> 00:05:59,800
+Y para sostenerlas, cuatro definiciones.
+
+123
+00:05:59,800 --> 00:06:04,360
+Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos.
+
+124
+00:06:04,360 --> 00:06:05,880
+Los datos en BrewDat:
+
+125
+00:06:05,880 --> 00:06:09,640
+las tablas de Ariba, el PxQ y los contratos originales.
+
+126
+00:06:09,640 --> 00:06:11,560
+Las reglas de negocio pendientes.
+
+127
+00:06:11,560 --> 00:06:15,000
+Y la validación de la estimación del Lite con el líder técnico.
+
+128
+00:06:15,000 --> 00:06:16,760
+Ustedes eligen el escenario.
+
+129
+00:06:16,760 --> 00:06:20,060
+Nosotros arrancamos el siete de diciembre.
 

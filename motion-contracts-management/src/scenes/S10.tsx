@@ -2,88 +2,67 @@ import React from "react";
 import { C, FONT, R } from "../theme";
 import { Rise } from "../lib/anim";
 import { cue } from "../lib/timing";
-import { MX, Shell } from "../components/ui";
+import { Card, MX, Shell } from "../components/ui";
+import { Flag } from "../components/Flag";
 
 const ID = "s10";
-const CW = 224;
-const CG = 22;
-const cx = (i: number) => MX + i * (CW + CG);
-const TOP = 372;
-const CH = 330;
-const VERSIONS = [
-  { v: "v0.1.0", h: "Cimientos", d: "Gobierno, reglas, permisos por rol y carga de los ~220 servicios.", at: cue(ID, "Los cimientos") },
-  { v: "v0.2.0", h: "Registro y dashboard", d: "Registro único y dashboard con descarga. Se retiran los 2 Excel.", at: cue(ID, "El registro único") },
-  { v: "v0.3.0", h: "Alertas", d: "En la plataforma y por correo, con respuesta y escalamiento.", at: cue(ID, "Las alertas") },
-  { v: "v1.0.0", h: "Decisión e histórico", d: "Decisión de renovación, histórico de aprobaciones y cruce con Ariba.", at: cue(ID, "Y la decisión") },
-  { v: "v1.1.0", h: "Alta con la regla", d: "Formulario único: la regla escrita decide si va contrato.", at: cue(ID, "La quinta") },
-  { v: "v1.2.0", h: "Ficha con IA", d: "La IA lee el PDF y propone; una persona valida. Piloto de 20 contratos.", at: cue(ID, "la ficha del contrato") },
-  { v: "v1.3.0", h: "Consulta con IA", d: "Consulta con cita, resumen de renovación y servicios similares.", at: cue(ID, "y la consulta") },
+// Herramientas que la compañía ya tiene (se nombran por pedido de negocio; sin logotipos).
+const TOOLS = [
+  { at: cue(ID, "Una aplicación"), name: "Power Apps", role: "La app de contratos, abierta desde Teams" },
+  { at: cue(ID, "Power Automate"), name: "Power Automate", role: "Reglas, avisos y escalamientos" },
+  { at: cue(ID, "Las alertas"), name: "Teams y correo", role: "Las alertas, como tarjeta con botones" },
+  { at: cue(ID, "El dashboard"), name: "Power BI", role: "El dashboard: el reporte que ya existe" },
+  { at: cue(ID, "Y las consultas"), name: "Genie o Insights Copilot", role: "Consultas en lenguaje natural sobre la ficha" },
 ];
-const GROUPS = [
-  { from: 0, to: 3, label: "MVP · sin IA", bg: C.yellow, fg: C.ink, at: cue(ID, "producto mínimo") - 0.3 },
-  { from: 4, to: 4, label: "Sin IA", bg: C.blueSoft, fg: C.ink, at: cue(ID, "La quinta") - 0.2 },
-  { from: 5, to: 6, label: "Con IA", bg: C.purple, fg: C.white, at: cue(ID, "Y las dos últimas") - 0.2 },
-];
+const TW = 316;
+const TG = 30;
 
-export const S10: React.FC = () => (
-  <Shell
-    id={ID}
-    chapter={4}
-    title="Qué haremos: siete entregas sobre la misma plataforma"
-    foot="Estado: propuesta para aprobación · cada entrega lleva su número de versión"
-  >
-    {GROUPS.map((g) => (
-      <Rise key={g.label} at={g.at} y={14} style={{ position: "absolute", left: cx(g.from), top: TOP - 72 }}>
-        <div
-          style={{
-            width: cx(g.to) + CW - cx(g.from),
-            height: 56,
-            borderRadius: R.ctl,
-            background: g.bg,
-            color: g.fg,
-            fontFamily: FONT.head,
-            fontWeight: 600,
-            fontSize: 28,
-            display: "flex",
-            alignItems: "center",
-            padding: "0 20px",
-            boxSizing: "border-box",
-          }}
-        >
-          {g.label}
-        </div>
-      </Rise>
-    ))}
-    {VERSIONS.map((x, i) => (
-      <Rise key={x.v} at={x.at - 0.1} y={26} style={{ position: "absolute", left: cx(i), top: TOP }}>
-        <div
-          style={{
-            width: CW,
-            height: CH,
-            borderRadius: R.card,
-            background: C.white,
-            border: `2px solid ${i === 3 ? C.ink : C.line}`,
-            boxSizing: "border-box",
-            padding: "18px 18px",
-          }}
-        >
-          <div style={{ fontSize: 22, fontWeight: 500, color: C.mute, fontVariantNumeric: "tabular-nums" }}>
-            Entrega {i + 1} · {x.v}
+export const S10: React.FC = () => {
+  const manual = cue(ID, "No hay inteligencia") - 0.1;
+  return (
+    <Shell
+      id={ID}
+      chapter={3}
+      title="Lite: herramientas que la compañía ya usa, sin plataforma propia"
+      foot="Se asume que no requieren licencias adicionales (por confirmar) · el registro vive en listas de Microsoft en SharePoint"
+    >
+      {TOOLS.map((x, i) => (
+        <Rise key={x.name} at={x.at - 0.1} y={26} style={{ position: "absolute", left: MX + i * (TW + TG), top: 300 }}>
+          <div style={{ width: TW, height: 196, background: C.white, border: `2px solid ${C.line}`, borderRadius: R.card, boxSizing: "border-box", padding: "20px 22px" }}>
+            <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 32, lineHeight: 1.08, letterSpacing: -0.4, height: 72 }}>{x.name}</div>
+            <div style={{ fontSize: 24, color: C.text, lineHeight: 1.22, marginTop: 8 }}>{x.role}</div>
           </div>
-          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 29, lineHeight: 1.08, marginTop: 6, height: 66, letterSpacing: -0.3 }}>{x.h}</div>
-          <div style={{ fontSize: 23, lineHeight: 1.24, color: C.text, marginTop: 8 }}>{x.d}</div>
-          {i === 3 ? (
-            <div style={{ position: "absolute", left: 18, bottom: 16, fontSize: 20, fontWeight: 700, background: C.ink, color: C.white, borderRadius: R.full, padding: "5px 14px" }}>
-              MVP completo
-            </div>
-          ) : null}
+        </Rise>
+      ))}
+      <Rise at={cue(ID, "se conectan")} y={16} style={{ position: "absolute", left: MX, top: 520, width: 1700 }}>
+        <div style={{ background: C.ink, color: C.white, borderRadius: R.card, padding: "18px 28px", display: "flex", alignItems: "baseline", gap: 18 }}>
+          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 34 }}>BrewDat</div>
+          <div style={{ fontSize: 26, color: "rgba(255,255,255,0.84)" }}>De aquí se consume todo: los datos de SAP Ariba, el PxQ y el histórico del proceso.</div>
         </div>
       </Rise>
-    ))}
-    <Rise at={cue(ID, "Las primeras cuatro") - 0.1} y={16} style={{ position: "absolute", left: MX, top: TOP + CH + 40, width: 1700 }}>
-      <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 40, letterSpacing: -0.6, lineHeight: 1.1 }}>
-        El alcance inicial es el MVP: cuatro entregas que cierran el seguimiento, sin IA.
-      </div>
-    </Rise>
-  </Shell>
-);
+      <Rise at={manual} y={22} style={{ position: "absolute", left: MX, top: 628 }}>
+        <Card style={{ width: 835, height: 216, padding: "24px 28px", borderColor: C.ink }}>
+          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 36, letterSpacing: -0.5 }}>Sin IA que lea los contratos</div>
+          <div style={{ fontSize: 27, color: C.text, marginTop: 10, lineHeight: 1.26 }}>
+            Una persona captura los datos de cada contrato y otra los valida: unas 170 fichas en el arranque.
+          </div>
+        </Card>
+      </Rise>
+      <Rise at={cue(ID, "y otra los valida") + 0.6} y={22} style={{ position: "absolute", left: MX + 865, top: 628 }}>
+        <Card style={{ width: 835, height: 216, padding: "22px 28px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 27, lineHeight: 1.24 }}>
+            <b style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 32 }}>Lite A</b>
+            <span style={{ background: C.yellow, borderRadius: 8, padding: "4px 7px", display: "flex" }}>
+              <Flag size={22} />
+            </span>
+            <span style={{ color: C.text }}>Ariba se lee y se escribe por API.</span>
+          </div>
+          <div style={{ borderTop: `2px solid ${C.line}`, marginTop: 16, paddingTop: 16, fontSize: 27, lineHeight: 1.24 }}>
+            <b style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 32 }}>Lite B</b>
+            <span style={{ color: C.text }}> Ariba se lee desde BrewDat y Procurement escribe a mano.</span>
+          </div>
+        </Card>
+      </Rise>
+    </Shell>
+  );
+};

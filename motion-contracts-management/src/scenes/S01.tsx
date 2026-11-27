@@ -6,8 +6,8 @@ import { cue, sceneSeconds } from "../lib/timing";
 import { MX, Pill } from "../components/ui";
 
 const ID = "s01";
-const TITLE = ["Contracts", "Management", "Finance Tech"];
-const PROMISES = ["Un solo registro", "Alertas que exigen respuesta", "Histórico de cada aprobación y decisión"];
+const TITLE = ["Contract", "Management", "Tech"];
+const PROMISES = ["Un mismo proceso", "Tres formas de construirlo", "Negocio elige el escenario"];
 const NODES: { x: number; y: number; name: string; sub: string; side: "top" | "bottom" | "left" | "right" }[] = [
   { x: 1350, y: 310, name: "Solicitud", sub: "regla escrita", side: "top" },
   { x: 1550, y: 310, name: "Negociación", sub: "Legal", side: "top" },
@@ -23,8 +23,8 @@ const RING = "M1090,500 A190,190 0 0 1 1280,310 L1620,310 A190,190 0 0 1 1620,69
 const Ring: React.FC = () => {
   const t = useSec();
   const open = prog(t, cue(ID, "el ciclo de vida") - 0.3, 2.2) * 0.9; // se dibuja, pero no cierra
-  const close = prog(t, cue(ID, "cerrarlo"), 0.9) * 0.1; // la propuesta lo cierra
-  const closed = prog(t, cue(ID, "cerrarlo") + 0.7, 0.4);
+  const close = prog(t, cue(ID, "lo cierra"), 0.9) * 0.1; // la propuesta lo cierra
+  const closed = prog(t, cue(ID, "lo cierra") + 0.7, 0.4);
   return (
     <AbsoluteFill>
       <svg width={1920} height={1080}>
@@ -40,7 +40,7 @@ const Ring: React.FC = () => {
       </svg>
       {NODES.map((n, i) => {
         const isLast = i === NODES.length - 1;
-        const at = isLast ? cue(ID, "cerrarlo") + 0.7 : cue(ID, "el ciclo de vida") + i * 0.3;
+        const at = isLast ? cue(ID, "lo cierra") + 0.7 : cue(ID, "el ciclo de vida") + i * 0.3;
         const pos: React.CSSProperties =
           n.side === "top"
             ? { left: n.x - 150, top: n.y - 92, width: 300, textAlign: "center" }
@@ -57,12 +57,12 @@ const Ring: React.FC = () => {
         );
       })}
       <div style={{ position: "absolute", left: 1300, top: 452, width: 320, textAlign: "center", fontFamily: FONT.head, fontWeight: 600, fontSize: 40, lineHeight: 1.1 }}>
-        <div style={{ opacity: prog(t, cue(ID, "no se cierra") - 0.2, 0.4) * (1 - prog(t, cue(ID, "cerrarlo"), 0.3)), position: "absolute", width: "100%" }}>
+        <div style={{ opacity: prog(t, cue(ID, "no se cierra") - 0.2, 0.4) * (1 - prog(t, cue(ID, "lo cierra"), 0.3)), position: "absolute", width: "100%" }}>
           Hoy el ciclo
           <br />
           no se cierra
         </div>
-        <div style={{ opacity: prog(t, cue(ID, "cerrarlo") + 0.4, 0.4), position: "absolute", width: "100%" }}>
+        <div style={{ opacity: prog(t, cue(ID, "lo cierra") + 0.4, 0.4), position: "absolute", width: "100%" }}>
           El ciclo
           <br />
           se cierra
@@ -75,12 +75,12 @@ const Ring: React.FC = () => {
 export const S01: React.FC = () => {
   const t = useSec();
   const fadeOut = 1 - prog(t, sceneSeconds(ID) - 0.35, 0.35);
-  const at = [0.25, cue(ID, "Management") - 0.1, cue(ID, "Finance") - 0.1];
+  const at = [0.25, cue(ID, "Management") - 0.1, cue(ID, "Tech") - 0.1];
   return (
     <AbsoluteFill style={{ background: C.yellow, fontFamily: FONT.body, color: C.ink }}>
       <AbsoluteFill style={{ opacity: fadeOut }}>
         <Rise at={0.1} y={0} style={{ position: "absolute", left: MX, top: 84, fontSize: 28, fontWeight: 500 }}>
-          Procurement · Value Creation · Tecnología MAZ
+          Tecnología MAZ · Finance Tech · BrewAI
         </Rise>
         <div style={{ position: "absolute", left: MX, top: 230 }}>
           {TITLE.map((l, i) => (
@@ -91,7 +91,7 @@ export const S01: React.FC = () => {
         </div>
         <div style={{ position: "absolute", left: MX, top: 700, width: 940, display: "flex", flexWrap: "wrap", gap: 14 }}>
           {PROMISES.map((p, i) => (
-            <Rise key={p} at={cue(ID, ["con una plataforma", "todo se consulta", "un solo lugar"][i])} y={16}>
+            <Rise key={p} at={[cue(ID, "Proponemos un proceso"), cue(ID, "tres formas"), cue(ID, "construirlo") + 0.5][i]} y={16}>
               <Pill size={30} bg={C.ink} color={C.white}>
                 {p}
               </Pill>
@@ -99,7 +99,7 @@ export const S01: React.FC = () => {
           ))}
         </div>
         <Rise at={0.6} y={0} style={{ position: "absolute", left: MX, top: 866, fontSize: 24, color: "rgba(20,22,26,0.75)" }}>
-          Propuesta To-Be v4.0 · para Vo.Bo. del negocio
+          Propuesta To-Be v5.1 · para Vo.Bo. del negocio
         </Rise>
         <Ring />
       </AbsoluteFill>

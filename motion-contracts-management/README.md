@@ -1,6 +1,6 @@
-# Motion · Contracts Management Finance Tech
+# Motion · Contract Management Tech
 
-Motion graphic ejecutivo (1920 × 1080, 30 fps, 4:50) de la propuesta To-Be v4.0, hecho con [Remotion](https://www.remotion.dev).
+Motion graphic ejecutivo (1920 × 1080, 30 fps, 6:23) de la propuesta To-Be v5.1, hecho con [Remotion](https://www.remotion.dev).
 
 - **Video final:** `Renders/contracts-management_Final.mp4` (H.264 + AAC)
 - **Guion y storyboard:** `docs/guion_y_storyboard.md`
@@ -34,11 +34,12 @@ REMOTION_BROWSER=/ruta/a/chrome-headless-shell npx remotion render ContractsMana
 
 | Qué | Dónde |
 |---|---|
-| Textos y cifras en pantalla | `src/scenes/S01.tsx` … `S14.tsx` (constantes al inicio de cada archivo) |
+| Textos y cifras en pantalla | `src/scenes/S01.tsx` … `S15.tsx` (constantes al inicio de cada archivo) |
 | Guion de locución | `src/data/script.json` |
 | Tiempos de la voz (por palabra) | `src/data/timing.json` (generado) |
 | Colores y tipografías | `src/theme.ts` · fuentes en `public/assets/fonts/` |
 | Pausas entre escenas y cierre | `LEAD`, `TAIL`, `END_HOLD` en `src/lib/timing.ts` |
+| Nombre propuesto de la plataforma | `PLATFORM_NAME` en `src/scenes/S09.tsx` |
 | Mezcla de música y efectos | `src/Video.tsx` |
 | Voz, música y efectos | `public/assets/voice/`, `public/assets/audio/` |
 
@@ -51,7 +52,7 @@ frase. Si se regenera la voz, la animación y los subtítulos se reacomodan solo
    `public/assets/voice/sNN.mp3` (aquí se usó ElevenLabs, voz "Herduin", español de Colombia).
 2. **Tiempos:** transcribir con tiempos por palabra y ejecutar `python3 scripts/build_timing.py <respuesta.json>`
    (sin argumento reutiliza `docs/transcripcion_palabras.json`).
-3. **Música y efectos** (síntesis propia, sin samples externos): `python3 scripts/synth_audio.py 290`.
+3. **Música y efectos** (síntesis propia, sin samples externos): `python3 scripts/synth_audio.py 384`.
 4. **Documentos derivados:** `npx tsx scripts/export_docs.ts`.
 
 ## Notas

@@ -8,7 +8,7 @@ export const W = 1920;
 export const H = 1080;
 export const MX = 110; // margen lateral seguro
 
-const CHAPTERS = ["1 · Hoy", "2 · La propuesta", "3 · IA con control", "4 · MVP y plan", "5 · Decisiones"];
+const CHAPTERS = ["1 · Hoy", "2 · El proceso", "3 · Tres escenarios", "4 · Plan y costos", "5 · Decisiones"];
 
 /** Marco común: fondo, navegación por capítulos, título y nota al pie. Zona inferior reservada a subtítulos. */
 export const Shell: React.FC<{
@@ -41,7 +41,7 @@ export const Shell: React.FC<{
         ))}
       </div>
       <div style={{ position: "absolute", right: MX, top: 62, fontSize: 22, color: C.mute }}>
-        Contracts Management · Finance Tech
+        Contract Management Tech
       </div>
       <AbsoluteFill style={{ opacity: fade }}>
         <Rise at={0.1} y={18} style={{ position: "absolute", left: MX, top: 128, width: 1700 }}>

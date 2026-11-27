@@ -1,77 +1,87 @@
 import React from "react";
 import { C, FONT, R } from "../theme";
-import { prog, Rise, useSec } from "../lib/anim";
+import { Rise, useSec } from "../lib/anim";
 import { cue } from "../lib/timing";
-import { Card, Check, MX, Shell } from "../components/ui";
+import { MX, Shell } from "../components/ui";
+import { Flag } from "../components/Flag";
 
 const ID = "s11";
-// Criterios de salida del MVP (verificables; no dependen de una opinión).
-const CRITERIA = [
-  { at: cue(ID, "Los dos Excel"), t: "Los 2 Excel retirados", s: "tras un período en paralelo que cuadre" },
-  { at: cue(ID, "El dashboard y las alertas"), t: "Dashboard y alertas leen el mismo registro", s: "" },
-  { at: cue(ID, "Todos los contratos"), t: "100 % de los vigentes con PDF en Ariba", s: "" },
-  { at: cue(ID, "La primera alerta"), t: "Primera alerta cerrada con una decisión", s: "visible en el histórico" },
-  { at: cue(ID, "Y los tres dueños"), t: "Los tres dueños operando", s: "modelo de gobierno aprobado" },
+// Comparación lado a lado (sección 5 de la propuesta v5.1). El video no recomienda ninguno.
+const ROWS: { at: number; label: string; cells: [string, string, string]; flag?: boolean }[] = [
+  { at: 0.9, label: "Dónde trabaja la gente", cells: ["Una plataforma web propia", "App en Teams, correo y Power BI", "App en Teams, correo y Power BI"] },
+  { at: 1.3, label: "Lectura del contrato", cells: ["La IA propone; una persona valida", "Una persona captura; otra valida", "Una persona captura; otra valida"] },
+  { at: 1.7, label: "Consulta de cláusulas", cells: ["Asistente con cita al contrato", "Genie o Insights Copilot, sobre la ficha", "Genie o Insights Copilot, sobre la ficha"] },
+  { at: cue(ID, "Cambian el tiempo"), label: "Leer y escribir en SAP Ariba", cells: ["Lee de BrewDat; escribe a mano", "Lee y escribe por API", "Lee de BrewDat; escribe a mano"], flag: true },
+  { at: cue(ID, "el trabajo manual"), label: "Trabajo manual que queda", cells: ["Validar lo que propone la IA; escribir en Ariba", "Capturar y validar cada ficha", "Lo de Lite A, más escribir en Ariba"] },
+  { at: cue(ID, "El Completo tarda"), label: "Riesgo principal", cells: ["Más tiempo, costo y dependencias", "La API puede no existir o no escribir", "Más pasos manuales y puntos de error"] },
+  { at: cue(ID, "En pasos automáticos"), label: "Pasos automáticos (hoy: 12 %)", cells: ["62 % · 58 de 93", "65 % · 60 de 93", "60 % · 56 de 93"] },
 ];
-const CW = 316;
-const CG = 30;
+const LW = 400;
+const CW = 420;
+const CG = 13;
+const colX = (i: number) => MX + LW + CG + i * (CW + CG);
+const TOP = 292;
+const RH = 72;
 
 export const S11: React.FC = () => {
   const t = useSec();
-  const a1 = cue(ID, "Cada entrega");
-  const a2 = cue(ID, "y solo arranca");
-  const gate = prog(t, a2 + 0.5, 0.5);
+  const completo = t >= cue(ID, "El Completo tarda") - 0.2 && t < cue(ID, "El Lite sale") - 0.2;
+  const lite = t >= cue(ID, "El Lite sale") - 0.2 && t < cue(ID, "En pasos automáticos") - 0.2;
+  const on = [completo, lite, lite];
   return (
-    <Shell
-      id={ID}
-      chapter={4}
-      title="Cómo lo haremos: cada entrega cierra un dolor antes de abrir la siguiente"
-      foot="Mientras llega lo demás: la ficha de cada contrato se captura a mano al firmar, una sola vez, y Value Creation registra los servicios nuevos"
-    >
-      {/* La regla de avance */}
-      <Rise at={a1 - 0.1} y={20} style={{ position: "absolute", left: MX, top: 300 }}>
-        <Card style={{ width: 470, height: 150, padding: "22px 28px", borderColor: C.ink }}>
-          <div style={{ fontSize: 23, fontWeight: 500, color: C.mute }}>Una entrega</div>
-          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 34, lineHeight: 1.1, marginTop: 6, letterSpacing: -0.4 }}>Resuelve un dolor completo</div>
-        </Card>
-      </Rise>
-      <svg style={{ position: "absolute", left: 0, top: 0 }} width={1920} height={1080}>
-        <line x1={MX + 482} y1={375} x2={MX + 482 + 210 * prog(t, a2, 0.5)} y2={375} stroke={C.ink} strokeWidth={4} strokeLinecap="round" />
-        <line x1={MX + 800} y1={375} x2={MX + 800 + 196 * prog(t, a2 + 0.8, 0.5)} y2={375} stroke={C.ink} strokeWidth={4} strokeLinecap="round" />
-        <path d={`M${MX + 984} 363 L${MX + 998} 375 L${MX + 984} 387`} fill="none" stroke={C.ink} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" opacity={prog(t, a2 + 1.2, 0.2)} />
-      </svg>
-      <div style={{ position: "absolute", left: MX + 700, top: 327, opacity: gate, translate: `0px ${10 * (1 - gate)}px` }}>
-        <Check size={96} />
-      </div>
-      <Rise at={a2 + 0.5} y={8} style={{ position: "absolute", left: MX + 600, top: 432, width: 296, textAlign: "center", fontSize: 25, fontWeight: 700, lineHeight: 1.15 }}>
-        Cumple sus criterios de salida
-      </Rise>
-      <Rise at={a2 + 1.0} y={20} style={{ position: "absolute", left: MX + 1010, top: 300 }}>
-        <Card style={{ width: 470, height: 150, padding: "22px 28px" }}>
-          <div style={{ fontSize: 23, fontWeight: 500, color: C.mute }}>Solo entonces</div>
-          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 34, lineHeight: 1.1, marginTop: 6, letterSpacing: -0.4 }}>Arranca la siguiente entrega</div>
-        </Card>
-      </Rise>
-
-      {/* Criterios de salida del MVP */}
-      <Rise at={cue(ID, "Para el producto") - 0.1} y={14} style={{ position: "absolute", left: MX, top: 520 }}>
-        <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 36, letterSpacing: -0.5 }}>Los cinco criterios de salida del MVP</div>
-      </Rise>
-      {CRITERIA.map((c, i) => {
-        const done = prog(t, c.at + 0.5, 0.3);
-        return (
-          <Rise key={c.t} at={c.at - 0.1} y={24} style={{ position: "absolute", left: MX + i * (CW + CG), top: 586 }}>
-            <div style={{ width: CW, height: 250, background: C.white, border: `2px solid ${C.line}`, borderRadius: R.card, boxSizing: "border-box", padding: "18px 22px", position: "relative" }}>
-              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 50, lineHeight: 1 }}>{i + 1}</div>
-              <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 28, lineHeight: 1.12, marginTop: 12, letterSpacing: -0.3 }}>{c.t}</div>
-              {c.s ? <div style={{ fontSize: 22, color: C.text, marginTop: 8, lineHeight: 1.2 }}>{c.s}</div> : null}
-              <div style={{ position: "absolute", right: 18, top: 18, opacity: done }}>
-                <Check size={38} />
+    <Shell id={ID} chapter={3} title="Los tres resuelven los mismos dolores; cambia el tiempo, el costo y el trabajo manual">
+      {["Completo", "Lite A", "Lite B"].map((h, i) => (
+        <Rise key={h} at={0.5 + i * 0.1} y={12} style={{ position: "absolute", left: colX(i), top: TOP }}>
+          <div
+            style={{
+              width: CW,
+              height: 54,
+              borderRadius: R.ctl,
+              background: on[i] ? C.ink : C.panel,
+              color: on[i] ? C.white : C.ink,
+              fontFamily: FONT.head,
+              fontWeight: 600,
+              fontSize: 30,
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              padding: "0 18px",
+              boxSizing: "border-box",
+            }}
+          >
+            {h}
+            {i === 1 ? (
+              <span style={{ background: C.yellow, borderRadius: 7, padding: "3px 6px", display: "flex" }}>
+                <Flag size={20} />
+              </span>
+            ) : null}
+          </div>
+        </Rise>
+      ))}
+      {ROWS.map((r, ri) => (
+        <Rise key={r.label} at={r.at} y={14} style={{ position: "absolute", left: MX, top: TOP + 62 + ri * RH, width: 1700 }}>
+          <div style={{ height: RH, borderBottom: `2px solid ${C.line}`, display: "flex", alignItems: "center", boxSizing: "border-box" }}>
+            <div style={{ width: LW + CG, fontSize: 25, fontWeight: 700, lineHeight: 1.15, paddingRight: 16, boxSizing: "border-box" }}>{r.label}</div>
+            {r.cells.map((c, i) => (
+              <div
+                key={i}
+                style={{
+                  width: CW + CG,
+                  fontSize: ri === ROWS.length - 1 ? 27 : 24,
+                  fontWeight: ri === ROWS.length - 1 ? 700 : 400,
+                  color: ri === ROWS.length - 1 ? C.ink : C.text,
+                  lineHeight: 1.18,
+                  padding: "0 18px",
+                  boxSizing: "border-box",
+                  fontVariantNumeric: "tabular-nums",
+                }}
+              >
+                {c}
               </div>
-            </div>
-          </Rise>
-        );
-      })}
+            ))}
+          </div>
+        </Rise>
+      ))}
     </Shell>
   );
 };

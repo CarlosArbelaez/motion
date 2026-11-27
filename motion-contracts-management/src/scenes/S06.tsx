@@ -1,269 +1,158 @@
 import React from "react";
-import { C, FONT, R } from "../theme";
+import { C, FONT } from "../theme";
 import { prog, Rise, useSec } from "../lib/anim";
 import { cue } from "../lib/timing";
-import { Card, MX, Pill, Shell } from "../components/ui";
+import { ArrowRight, Card, Check, ContractIcon, Envelope, MX, Pill, Shell } from "../components/ui";
 
 const ID = "s06";
-// Representación conceptual de la plataforma, armada con los patrones del sistema de diseño
-// (barra de aplicación, navegación lateral, tabla, badges). Sin datos inventados: los textos de
-// ejemplo se muestran como barras y solo se escriben módulos y estados documentados.
-const NAV = ["Registro", "Dashboard", "Alertas", "Decisiones", "Histórico", "Reglas"];
-const VIEWS = [
-  { nav: 0, at: 0, title: "Registro de servicios y contratos" },
-  { nav: 1, at: cue(ID, "Un dashboard") - 0.2, title: "Dashboard general" },
-  { nav: 2, at: cue(ID, "Las alertas") - 0.2, title: "Mis alertas" },
-  { nav: 4, at: cue(ID, "el histórico") - 0.2, title: "Histórico de aprobaciones" },
+const CARD_AT = cue(ID, "una sola alerta");
+const LX0 = 900;
+const LX1 = 1780;
+const LY = 404;
+const mx = (d: number) => LX0 + ((90 - d) / 90) * (LX1 - LX0);
+const MILES = [
+  { d: 90, at: CARD_AT + 0.5, h: "90 días", s: "Alerta al owner y a su líder" },
+  { d: 60, at: cue(ID, "sesenta"), h: "60 días", s: "Copia a los Líderes de Procurement y Value Creation" },
+  { d: 30, at: cue(ID, "treinta"), h: "30 días", s: "Escala a los Managers" },
+  { d: 0, at: cue(ID, "treinta") + 0.5, h: "Vencimiento", s: "" },
 ];
-const FX = MX;
-const FY = 286;
-const FW = 1200;
-const FH = 566;
-const NAVW = 236;
-const BAR = 62;
-
-const Bar: React.FC<{ w: number; h?: number; dark?: boolean }> = ({ w, h = 14, dark }) => (
-  <div style={{ width: w, height: h, borderRadius: h / 2, background: dark ? "#c9cdd4" : C.line }} />
-);
-const Badge: React.FC<{ bg: string; children: React.ReactNode }> = ({ bg, children }) => (
-  <span style={{ background: bg, color: C.ink, fontSize: 19, fontWeight: 500, padding: "5px 14px", borderRadius: R.full, whiteSpace: "nowrap" }}>{children}</span>
-);
-const row: React.CSSProperties = { display: "flex", alignItems: "center", borderBottom: `2px solid ${C.line}`, height: 68 };
-const th: React.CSSProperties = { fontSize: 19, fontWeight: 500, color: C.mute };
-
-const Registro: React.FC = () => {
-  const rows: [number, string, string][] = [
-    [250, "Vigente", C.greenSoft],
-    [190, "En renovación", C.blueSoft],
-    [280, "Vigente", C.greenSoft],
-    [220, "Sin contrato", C.panel],
-    [240, "Vencido sin decisión", C.coralSoft],
-  ];
-  return (
-    <div>
-      <div style={{ ...row, height: 44 }}>
-        <div style={{ ...th, width: 340 }}>Servicio</div>
-        <div style={{ ...th, width: 260 }}>Estado</div>
-        <div style={{ ...th, width: 160 }}>Vence</div>
-        <div style={th}>Owner</div>
-      </div>
-      {rows.map(([w, st, bg], i) => (
-        <div key={i} style={row}>
-          <div style={{ width: 340 }}>
-            <Bar w={w} dark />
-          </div>
-          <div style={{ width: 260 }}>
-            <Badge bg={bg}>{st}</Badge>
-          </div>
-          <div style={{ width: 160 }}>
-            <Bar w={96} />
-          </div>
-          <Bar w={120} />
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const Dashboard: React.FC<{ hl: number }> = ({ hl }) => {
-  const kpis = ["Vencen en 90 días", "Alertas abiertas", "Vigentes con PDF en Ariba", "Calidad del dato"];
-  const bars = [46, 70, 38, 92, 60, 110, 74, 52, 88, 64, 40, 78];
-  return (
-    <div>
-      <div style={{ display: "flex", gap: 14 }}>
-        {kpis.map((k) => (
-          <div key={k} style={{ flex: 1, border: `2px solid ${C.line}`, borderRadius: R.card, padding: "14px 16px", height: 128, boxSizing: "border-box" }}>
-            <div style={{ fontSize: 19, fontWeight: 500, color: C.mute, lineHeight: 1.15, height: 54 }}>{k}</div>
-            <Bar w={84} h={24} dark />
-          </div>
-        ))}
-      </div>
-      <div style={{ border: `2px solid ${C.line}`, borderRadius: R.card, marginTop: 14, padding: "14px 18px", height: 236, boxSizing: "border-box" }}>
-        <div style={{ fontSize: 19, fontWeight: 500, color: C.mute }}>Vencimientos por período</div>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 16, height: 160, marginTop: 14, borderBottom: `2px solid ${C.line}` }}>
-          {bars.map((b, i) => (
-            <div key={i} style={{ flex: 1, height: b, background: "#c9cdd4", borderRadius: "4px 4px 0 0" }} />
-          ))}
-        </div>
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          right: 0,
-          top: -62,
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-          fontSize: 21,
-          fontWeight: 500,
-          padding: "9px 18px",
-          borderRadius: R.ctl,
-          border: `2px solid ${C.ink}`,
-          background: hl > 0.5 ? C.ink : C.white,
-          color: hl > 0.5 ? C.white : C.ink,
-        }}
-      >
-        <svg width={20} height={20} viewBox="0 0 20 20">
-          <path d="M10 2 V13 M5 9 L10 14 L15 9 M3 18 H17" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        Descargar reporte
-      </div>
-    </div>
-  );
-};
-
-const Alertas: React.FC = () => {
-  const items: [string, string][] = [
-    ["Faltan 90 días", C.blueSoft],
-    ["Faltan 60 días", C.coralSoft],
-    ["Respondida", C.greenSoft],
-  ];
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-      {items.map(([b, bg], i) => (
-        <div key={b} style={{ border: `2px solid ${C.line}`, borderRadius: R.card, height: 116, display: "flex", alignItems: "center", padding: "0 22px", gap: 20, boxSizing: "border-box" }}>
-          <svg width={34} height={34} viewBox="0 0 34 34">
-            <path d="M17 4 C11 4 8 9 8 15 V21 L5 25 H29 L26 21 V15 C26 9 23 4 17 4 Z M13 28 C14 31 20 31 21 28" fill="none" stroke={C.ink} strokeWidth={2.6} strokeLinejoin="round" strokeLinecap="round" />
-          </svg>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 24, fontWeight: 700 }}>Contrato por vencer</div>
-            <div style={{ marginTop: 10 }}>
-              <Bar w={220 + i * 40} />
-            </div>
-          </div>
-          <Badge bg={bg}>{b}</Badge>
-          {i < 2 ? (
-            <div style={{ fontSize: 21, fontWeight: 500, padding: "9px 18px", borderRadius: R.ctl, border: `2px solid ${C.ink}` }}>Responder</div>
-          ) : (
-            <div style={{ width: 132 }} />
-          )}
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const Historico: React.FC<{ hl: number }> = ({ hl }) => {
-  const rows: [string, string][] = [
-    ["Aprobación de la DAG", "Leída de Ariba"],
-    ["Validación de la ficha", "En la plataforma"],
-    ["Decisión de renovación", "En la plataforma"],
-  ];
-  const head: React.CSSProperties = { ...th, color: hl > 0.5 ? C.ink : C.mute, fontWeight: hl > 0.5 ? 700 : 500 };
-  return (
-    <div>
-      <div style={{ ...row, height: 44 }}>
-        <div style={{ ...th, width: 430 }}>Qué</div>
-        <div style={{ ...head, width: 170 }}>Quién aprobó</div>
-        <div style={{ ...head, width: 130 }}>Cuándo</div>
-        <div style={head}>Por qué</div>
-      </div>
-      {rows.map(([q, src], i) => (
-        <div key={q} style={{ ...row, height: 112 }}>
-          <div style={{ width: 430 }}>
-            <div style={{ fontSize: 24, fontWeight: 700 }}>{q}</div>
-            <div style={{ fontSize: 19, color: C.mute, marginTop: 2 }}>{src}</div>
-          </div>
-          <div style={{ width: 170 }}>
-            <Bar w={110} dark />
-          </div>
-          <div style={{ width: 130 }}>
-            <Bar w={84} />
-          </div>
-          <Bar w={130 - i * 14} />
-        </div>
-      ))}
-    </div>
-  );
-};
+const WEEKS = [83, 76, 69, 53, 46, 39, 23, 16, 9];
+const CHAIN = [
+  { t: "El owner decide", at: cue(ID, "el dueño decide") },
+  { t: "Su líder aprueba", at: cue(ID, "su líder aprueba") },
+  { t: "Procurement confirma", at: cue(ID, "Procurement confirma") },
+];
+// Posiciones pseudoaleatorias (deterministas) de los 26 correos que se funden en una tarjeta.
+const MAILS = Array.from({ length: 26 }).map((_, i) => ({
+  x: MX + 30 + ((i * 97) % 560),
+  y: 320 + ((i * 59) % 400),
+}));
 
 export const S06: React.FC = () => {
   const t = useSec();
-  let v = 0;
-  VIEWS.forEach((x, i) => {
-    if (t >= x.at) v = i;
-  });
-  const ariba = cue(ID, "Ariba no se reemplaza") - 0.2;
-  const op = (i: number) => (i === v ? prog(t, VIEWS[i].at, 0.35) : 0);
+  const merge = prog(t, CARD_AT - 0.5, 0.7);
+  const weekAt = cue(ID, "Si no hay") - 1.0;
+  const decAt = cue(ID, "Y siempre termina");
   return (
     <Shell
       id={ID}
       chapter={2}
-      title="Todo en un solo lugar: la plataforma que diseñaremos"
-      foot="Representación conceptual · el nombre de la plataforma se valida con negocio"
+      title="De ~26 correos sin cierre a una alerta que exige respuesta"
+      foot="En el Completo llega a la plataforma y por correo; en el Lite, como tarjeta en Teams y por correo · preaviso de 90 días por defecto"
     >
-      <Rise at={0.3} y={30} dur={0.7} style={{ position: "absolute", left: FX, top: FY }}>
-        <div style={{ width: FW, height: FH, background: C.white, border: `2px solid ${C.line}`, borderRadius: R.panel, overflow: "hidden", boxSizing: "border-box" }}>
-          {/* Barra de aplicación */}
-          <div style={{ height: BAR, borderBottom: `2px solid ${C.line}`, display: "flex", alignItems: "center", padding: "0 22px", gap: 14, boxSizing: "border-box" }}>
-            <div style={{ width: 28, height: 28, borderRadius: 7, background: C.ink }} />
-            <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 25, flex: 1 }}>Gestión de contratos</div>
-            <span style={{ fontSize: 19, color: C.mute }}>Rol: service owner</span>
-            <div style={{ width: 34, height: 34, borderRadius: 17, background: C.line }} />
+      {MAILS.map((m, i) => {
+        const p = prog(t, cue(ID, "En lugar") - 0.3 + i * 0.03, 0.3);
+        return (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              left: m.x + (MX + 300 - m.x) * merge,
+              top: m.y + (520 - m.y) * merge,
+              opacity: p * (1 - merge),
+            }}
+          >
+            <Envelope size={44} />
           </div>
-          <div style={{ display: "flex", height: FH - BAR }}>
-            {/* Navegación lateral */}
-            <div style={{ width: NAVW, borderRight: `2px solid ${C.line}`, padding: "16px 14px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 4 }}>
-              {NAV.map((n, i) => {
-                const on = VIEWS[v].nav === i;
-                return (
-                  <div
-                    key={n}
-                    style={{
-                      fontSize: 23,
-                      fontWeight: on ? 700 : 500,
-                      color: on ? C.ink : C.text,
-                      background: on ? C.yellow : "transparent",
-                      borderRadius: R.ctl,
-                      padding: "11px 16px",
-                    }}
-                  >
-                    {n}
-                  </div>
-                );
-              })}
+        );
+      })}
+
+      {/* Tarjeta de alerta (representación conceptual) */}
+      <Rise at={CARD_AT - 0.15} y={0} dur={0.6} style={{ position: "absolute", left: MX, top: 304 }}>
+        <Card style={{ width: 640, height: 452, overflow: "hidden", borderColor: C.ink, borderWidth: 3 }}>
+          <div style={{ background: C.ink, color: C.white, padding: "14px 26px", fontSize: 24, fontWeight: 700, display: "flex", justifyContent: "space-between" }}>
+            <span>Alerta de vencimiento</span>
+            <span style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>Una sola alerta</span>
+          </div>
+          <div style={{ padding: "24px 26px" }}>
+            <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
+              <ContractIcon size={70} />
+              <div>
+                <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 38, lineHeight: 1.1 }}>Contrato por vencer</div>
+                <div style={{ fontSize: 26, color: C.text, marginTop: 6 }}>Para: owner del servicio y su líder</div>
+              </div>
             </div>
-            {/* Contenido */}
-            <div style={{ flex: 1, padding: "20px 28px", position: "relative" }}>
-              {VIEWS.map((x, i) => (
-                <div key={x.title} style={{ position: "absolute", left: 28, right: 28, top: 20, opacity: op(i) }}>
-                  <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 31, marginBottom: 16, height: 42 }}>{x.title}</div>
-                  <div style={{ position: "relative" }}>
-                    {i === 0 ? <Registro /> : null}
-                    {i === 1 ? <Dashboard hl={prog(t, cue(ID, "con descarga"), 0.3)} /> : null}
-                    {i === 2 ? <Alertas /> : null}
-                    {i === 3 ? <Historico hl={prog(t, cue(ID, "quién aprobó"), 0.3)} /> : null}
-                  </div>
-                </div>
-              ))}
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 26 }}>
+              <div style={{ background: C.yellow, border: `2px solid ${C.ink}`, borderRadius: 10, padding: "11px 20px", fontSize: 27, fontWeight: 700 }}>Revisar renovación</div>
+              <div style={{ display: "flex", gap: 12 }}>
+                <div style={{ flex: 1, border: `2px solid ${C.ink}`, borderRadius: 12, padding: "11px 20px", fontSize: 27, fontWeight: 700 }}>Corregir datos</div>
+                <div style={{ flex: 1, border: `2px solid ${C.ink}`, borderRadius: 12, padding: "11px 20px", fontSize: 27, fontWeight: 700 }}>No soy el owner</div>
+              </div>
+            </div>
+            <div style={{ fontSize: 23, color: C.text, marginTop: 18, lineHeight: 1.25 }}>
+              Cualquier botón cuenta como respuesta y detiene los recordatorios.
             </div>
           </div>
-        </div>
+        </Card>
       </Rise>
 
-      {/* Acceso y fuente oficial */}
-      <Rise at={0.9} y={20} style={{ position: "absolute", left: 1350, top: FY }}>
-        <Card style={{ width: 460, height: 168, padding: "22px 26px" }}>
-          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 30, lineHeight: 1.12 }}>Se entra con el usuario corporativo</div>
-          <div style={{ fontSize: 25, color: C.text, marginTop: 8, lineHeight: 1.22 }}>Cada persona ve solo lo que le corresponde por su rol.</div>
-        </Card>
-      </Rise>
-      <svg style={{ position: "absolute", left: 0, top: 0, opacity: prog(t, ariba + 0.2, 0.4) }} width={1920} height={1080}>
-        <path d="M1316 640 H1344 M1324 630 L1314 640 L1324 650 M1336 630 L1346 640 L1336 650" fill="none" stroke={C.ink} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" />
+      {/* Escalamiento */}
+      <svg style={{ position: "absolute", left: 0, top: 0 }} width={1920} height={1080}>
+        <line x1={LX0} y1={LY} x2={LX0 + (LX1 - LX0) * prog(t, CARD_AT + 0.3, 1.0)} y2={LY} stroke={C.line} strokeWidth={5} strokeLinecap="round" />
+        {WEEKS.map((d, i) => (
+          <circle key={d} cx={mx(d)} cy={LY} r={8 * prog(t, weekAt + i * 0.1, 0.3)} fill={C.white} stroke={C.blue} strokeWidth={4} />
+        ))}
+        {MILES.map((m) => (
+          <circle key={m.d} cx={mx(m.d)} cy={LY} r={17 * prog(t, m.at, 0.4)} fill={m.d === 0 ? C.ink : C.white} stroke={C.ink} strokeWidth={4} />
+        ))}
       </svg>
-      <Rise at={ariba} y={20} style={{ position: "absolute", left: 1350, top: FY + 192 }}>
-        <Card style={{ width: 460, height: 374, padding: "24px 26px", borderColor: C.ink }}>
-          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 42, letterSpacing: -0.8 }}>SAP Ariba</div>
-          <div style={{ fontSize: 27, color: C.text, marginTop: 8, lineHeight: 1.24 }}>No se reemplaza: sigue siendo la fuente oficial de los contratos y de sus aprobaciones.</div>
-          <div style={{ fontSize: 25, color: C.text, marginTop: 14, paddingTop: 14, borderTop: `2px solid ${C.line}`, lineHeight: 1.24 }}>
-            La plataforma lo refleja y verifica que cada contrato vigente tenga su PDF ahí.
-          </div>
-          <Rise at={cue(ID, "ahí se sigue")} y={10} style={{ marginTop: 14 }}>
-            <Pill size={23} bg={C.ink} color={C.white}>
-              Ahí se sigue aprobando
-            </Pill>
+      <Rise at={weekAt} y={8} style={{ position: "absolute", left: mx(83) - 6, top: LY - 70, fontSize: 25, color: C.blue, fontWeight: 700 }}>
+        Recordatorio semanal, solo hasta que respondan
+      </Rise>
+      {MILES.map((m, i) => (
+        <Rise
+          key={m.d}
+          at={m.at}
+          y={10}
+          style={{
+            position: "absolute",
+            left: i === 3 ? mx(m.d) - 250 : mx(m.d) - 20,
+            top: LY + 32,
+            width: 270,
+            textAlign: i === 3 ? "right" : "left",
+          }}
+        >
+          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 30 }}>{m.h}</div>
+          <div style={{ fontSize: 23, color: C.text, lineHeight: 1.2, marginTop: 2 }}>{m.s}</div>
+        </Rise>
+      ))}
+
+      {/* Desenlace */}
+      <Rise at={decAt} y={16} style={{ position: "absolute", left: LX0 - 20, top: 588, width: 930 }}>
+        <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 36, letterSpacing: -0.4 }}>Toda alerta termina en una decisión registrada</div>
+      </Rise>
+      {CHAIN.map((c, i) => (
+        <React.Fragment key={c.t}>
+          <Rise at={c.at - 0.1} y={16} style={{ position: "absolute", left: LX0 - 20 + i * 316, top: 652 }}>
+            <div
+              style={{
+                width: 280,
+                height: 86,
+                borderRadius: 12,
+                background: C.white,
+                border: `3px solid ${C.ink}`,
+                boxSizing: "border-box",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 25,
+                fontWeight: 700,
+                textAlign: "center",
+                lineHeight: 1.1,
+                padding: "0 16px",
+              }}
+            >
+              {c.t}
+            </div>
           </Rise>
-        </Card>
+          {i < 2 ? <ArrowRight x={LX0 - 20 + i * 316 + 284} y={695} w={28} at={CHAIN[i + 1].at - 0.2} color={C.ink} /> : null}
+        </React.Fragment>
+      ))}
+      <Rise at={CHAIN[2].at + 0.5} y={10} style={{ position: "absolute", left: LX0 - 20, top: 762, display: "flex", gap: 14, alignItems: "center" }}>
+        <Check size={46} />
+        <Pill size={25} bg={C.greenSoft} color={C.greenText}>
+          Renovar · Renegociar · Consolidar · Terminar
+        </Pill>
       </Rise>
     </Shell>
   );

@@ -17,6 +17,7 @@ import { S11 } from "./scenes/S11";
 import { S12 } from "./scenes/S12";
 import { S13 } from "./scenes/S13";
 import { S14 } from "./scenes/S14";
+import { S15 } from "./scenes/S15";
 
 export const SCENE_COMPONENTS: Record<string, React.FC> = {
   s01: S01,
@@ -33,6 +34,7 @@ export const SCENE_COMPONENTS: Record<string, React.FC> = {
   s12: S12,
   s13: S13,
   s14: S14,
+  s15: S15,
 };
 
 // Efectos (síntesis propia): [escena, segundo dentro de la escena, archivo, volumen]. Atados a la locución con cue().
@@ -42,8 +44,8 @@ const at = (id: string, phrases: string[], file: string, vol: number, offset = 0
 const mailStart = cue("s03", "Cada vencimiento") + 0.3;
 const mailEnd = cue("s03", "veintiséis") + 0.9;
 const SFX: Sfx[] = [
-  ...at("s01", ["con una plataforma", "todo se consulta", "un solo lugar"], "pop", 0.16),
-  ...at("s01", ["cerrarlo"], "chime", 0.2, 0.7),
+  ...at("s01", ["Proponemos un proceso", "tres formas"], "pop", 0.16),
+  ...at("s01", ["lo cierra"], "chime", 0.2, 0.7),
   ...at("s02", ["doscientos veinte", "ciento setenta", "dos archivos", "un correo", "dos personas"], "pop", 0.13, -0.15),
   ...at("s02", ["el mismo dato"], "tick", 0.3, 0.3),
   ...at("s02", ["tres veces"], "tick", 0.3, -0.2),
@@ -54,23 +56,26 @@ const SFX: Sfx[] = [
   ...at("s04", ["Primero", "Después", "Y solo al final"], "pop", 0.18, -0.1),
   ...ARRIVE.map((a): Sfx => ["s05", a, "tick", 0.3]),
   ...at("s05", ["vuelve"], "chime", 0.2, 0.9),
-  ...at("s06", ["Un dashboard", "Las alertas", "el histórico"], "tick", 0.3, -0.2),
-  ...at("s06", ["Ariba no se reemplaza"], "pop", 0.18, -0.2),
-  ...at("s07", ["una sola alerta"], "pop", 0.2, -0.1),
-  ...at("s07", ["sesenta", "treinta"], "ding", 0.1),
-  ...at("s07", ["el dueño decide", "su líder aprueba", "Procurement confirma"], "pop", 0.15, -0.1),
-  ...at("s07", ["Procurement confirma"], "chime", 0.18, 0.5),
-  ...at("s08", ["El dueño del servicio", "Procurement", "Value Creation"], "pop", 0.18, -0.1),
-  ...at("s09", ["Lee el contrato", "propone", "Una persona"], "pop", 0.14, -0.1),
-  ...at("s09", ["no decide", "no aprueba", "ni confirma"], "thud", 0.14, -0.1),
-  ...at("s10", ["Los cimientos", "El registro único", "Las alertas", "Y la decisión", "La quinta", "la ficha del contrato", "y la consulta"], "pop", 0.15, -0.1),
-  ...at("s11", ["Los dos Excel", "El dashboard y las alertas", "Todos los contratos", "La primera alerta", "Y los tres dueños"], "tick", 0.3),
-  ...at("s11", ["Y los tres dueños"], "chime", 0.16, 0.8),
-  ...at("s12", ["Con dos personas", "Con cuatro personas"], "pop", 0.18, -0.1),
-  ...at("s12", ["diez de mayo", "veinte de septiembre", "primero de marzo", "diecisiete de mayo"], "ding", 0.1),
-  ...at("s13", ["De tres", "De veintiséis", "Todos los contratos", "Al menos", "Y todas", "El impacto"], "pop", 0.15, -0.15),
-  ...at("s14", ["El visto bueno", "Elegir el escenario", "Cerrar las reglas", "Aprobar los tres", "Nombrar un responsable", "Y validar"], "pop", 0.18, -0.15),
-  ...at("s14", ["Con su visto bueno"], "chime", 0.24, 1.1),
+  ...at("s06", ["una sola alerta"], "pop", 0.2, -0.1),
+  ...at("s06", ["sesenta", "treinta"], "ding", 0.1),
+  ...at("s06", ["el dueño decide", "su líder aprueba", "Procurement confirma"], "pop", 0.15, -0.1),
+  ...at("s06", ["Procurement confirma"], "chime", 0.18, 0.5),
+  ...at("s07", ["El dueño del servicio", "Procurement", "Value Creation"], "pop", 0.18, -0.1),
+  ...at("s08", ["El escenario Completo", "Lite A", "Y Lite B"], "pop", 0.18, -0.15),
+  ...at("s08", ["Lite A solo es posible"], "thud", 0.18, -0.1),
+  ...at("s09", ["El dashboard", "Las alertas", "el histórico"], "tick", 0.3, -0.2),
+  ...at("s09", ["Además"], "pop", 0.18, -0.2),
+  ...at("s10", ["Una aplicación", "Power Automate", "Las alertas", "El dashboard", "Y las consultas"], "pop", 0.15, -0.1),
+  ...at("s10", ["No hay inteligencia"], "thud", 0.16, -0.1),
+  ...at("s11", ["El Completo tarda", "El Lite sale", "En pasos automáticos"], "tick", 0.3, -0.2),
+  ...at("s12", ["Un solo registro", "El dashboard", "Una alerta", "Cada solicitud", "Y el cruce"], "tick", 0.3, -0.1),
+  ...at("s12", ["En los tres", "En el Completo", "Y en el Lite"], "pop", 0.16, -0.1),
+  ...at("s13", ["El Completo", "Lite A", "Lite B"], "pop", 0.18, -0.1),
+  ...at("s13", ["noventa y un mil", "sesenta mil", "cincuenta y cinco mil"], "ding", 0.1),
+  ...at("s14", ["De tres", "De veintiséis", "De dos personas", "Todos los contratos", "Ningún contrato", "Y un solo histórico"], "pop", 0.15, -0.15),
+  ...at("s15", ["Primera", "Segunda"], "thud", 0.2, -0.15),
+  ...at("s15", ["Confirmar", "Los datos en BrewDat", "Las reglas", "Y la validación"], "pop", 0.16, -0.15),
+  ...at("s15", ["Ustedes eligen"], "chime", 0.24, 1.1),
 ];
 
 const Music: React.FC = () => {

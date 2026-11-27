@@ -9,7 +9,7 @@
     {
       "id": "s01",
       "title": "Apertura",
-      "vo": "Contracts Management Finance Tech. Hoy, el ciclo de vida de un contrato de tecnología no se cierra. Proponemos cerrarlo, con una plataforma donde todo se consulta en un solo lugar."
+      "vo": "Contract Management Tech. Hoy, el ciclo de vida de un contrato de tecnología no se cierra. Proponemos un proceso que lo cierra, y tres formas de construirlo."
     },
     {
       "id": "s02",
@@ -29,53 +29,58 @@
     {
       "id": "s05",
       "title": "El nuevo ciclo",
-      "vo": "Así recorre un contrato el nuevo ciclo. Primero se formaliza: con una sola captura, y la regla escrita decide si requiere contrato. Luego se registra: los datos clave nacen al firmar, los valida una persona, y se cruzan cada día con Ariba. Y después se vigila: con una alerta que exige respuesta y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio."
+      "vo": "Así recorre un contrato el nuevo ciclo, igual en los tres escenarios. Primero se formaliza: el área registra la necesidad una sola vez, su líder la aprueba, y la regla escrita decide si requiere contrato. Luego se registra: los datos clave nacen al firmar, los valida una persona, y cada día se cruzan con Ariba y con el PxQ. Y después se vigila: con una alerta que exige respuesta y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio."
     },
     {
       "id": "s06",
-      "title": "La plataforma",
-      "vo": "Todo vive en un solo lugar: la plataforma que diseñaremos. Un registro único de servicios y contratos. Un dashboard, con descarga del reporte. Las alertas de cada persona. Y el histórico de aprobaciones: quién aprobó qué, cuándo y por qué. Ariba no se reemplaza: sigue siendo la fuente oficial, y ahí se sigue aprobando."
+      "title": "La alerta que exige respuesta",
+      "vo": "La alerta cambia por completo. En lugar de veintiséis correos, una sola alerta, para el dueño del servicio y su líder. Si no hay respuesta, escala a los sesenta y a los treinta días. Y siempre termina en una decisión: el dueño decide, su líder aprueba, y Procurement confirma."
     },
     {
       "id": "s07",
-      "title": "La alerta que exige respuesta",
-      "vo": "La alerta cambia por completo. En lugar de veintiséis correos, una sola alerta, en la plataforma y por correo, para el dueño del servicio y su líder. Si no hay respuesta, escala a los sesenta y a los treinta días. Y siempre termina en una decisión: el dueño decide, su líder aprueba, y Procurement confirma."
-    },
-    {
-      "id": "s08",
       "title": "Tres dueños",
       "vo": "Tres dueños responden por el proceso. El dueño del servicio y su líder, por cada contrato. Procurement, por la cobertura contractual y por Ariba. Y Value Creation, por el seguimiento y la calidad del dato."
     },
     {
+      "id": "s08",
+      "title": "Tres formas de construirlo",
+      "vo": "El proceso es el mismo. Lo que cambia es cómo se construye, y hay tres formas. El escenario Completo: una plataforma propia, con inteligencia artificial, donde todo se consulta en una sola pantalla. Lite A: sin plataforma propia, con herramientas que la compañía ya tiene, y conectado a SAP Ariba por API. Y Lite B: las mismas herramientas, pero sin esa conexión. Los datos de Ariba se leen desde BrewDat, y Procurement escribe en Ariba a mano. Lite A solo es posible si SAP Ariba tiene una API que lea y escriba. Si no, queda Lite B."
+    },
+    {
       "id": "s09",
-      "title": "IA con control",
-      "vo": "La inteligencia artificial llega después, y con límites claros. Lee el contrato y propone sus datos clave, cada uno con su cita. Una persona valida todas las fichas. La inteligencia artificial no decide, no aprueba, ni confirma ahorros."
+      "title": "Escenario Completo",
+      "vo": "En el Completo, todo vive en una sola plataforma. El registro de servicios y contratos. El dashboard, con descarga del reporte. Las alertas de cada persona. Y el histórico de aprobaciones: quién aprobó qué, cuándo y por qué. Además, la inteligencia artificial lee cada contrato y propone sus datos, con su cita. Una persona valida todo."
     },
     {
       "id": "s10",
-      "title": "Qué haremos",
-      "vo": "Esto es lo que haremos: siete entregas, sobre la misma plataforma. Las primeras cuatro forman el producto mínimo viable, sin inteligencia artificial. Los cimientos. El registro único y el dashboard. Las alertas. Y la decisión, con el histórico de aprobaciones. La quinta entrega trae el alta de solicitudes con la regla escrita. Y las dos últimas, la inteligencia artificial: la ficha del contrato, con un piloto de veinte contratos, y la consulta."
+      "title": "Escenarios Lite",
+      "vo": "En el Lite no se construye una plataforma: se conectan herramientas que la compañía ya usa. Una aplicación en Power Apps, que se abre desde Teams. Power Automate, para las reglas y los avisos. Las alertas llegan como tarjeta en Teams y por correo. El dashboard es el reporte de Power BI que ya existe. Y las consultas se hacen con Genie o Insights Copilot. No hay inteligencia artificial que lea los contratos: una persona captura los datos de cada contrato, y otra los valida."
     },
     {
       "id": "s11",
-      "title": "Cómo lo haremos",
-      "vo": "Así lo haremos. Cada entrega resuelve un dolor completo, y solo arranca cuando la anterior cumple sus criterios de salida. Para el producto mínimo viable son cinco. Los dos Excel retirados. El dashboard y las alertas leyendo el mismo registro. Todos los contratos vigentes con su PDF en Ariba. La primera alerta cerrada con una decisión. Y los tres dueños operando."
+      "title": "Comparación",
+      "vo": "Los tres resuelven los mismos dolores. Cambian el tiempo, el costo y el trabajo manual que queda. El Completo tarda y cuesta más. A cambio, deja todo en un solo lugar y quita la lectura manual de contratos. El Lite sale antes y cuesta menos. A cambio, reparte la información entre varias herramientas y deja más trabajo manual. En pasos automáticos, los tres quedan cerca: entre el sesenta y el sesenta y cinco por ciento, frente al doce por ciento de hoy."
     },
     {
       "id": "s12",
-      "title": "Cuándo y con quién",
-      "vo": "Cuándo, y con quién. Arrancamos el veintitrés de noviembre, y hay dos escenarios. Con dos personas dedicadas, el producto mínimo viable estaría listo hacia el diez de mayo de dos mil veintisiete, y la propuesta completa, hacia el veinte de septiembre. Con cuatro personas dedicadas, el producto mínimo viable llegaría hacia el primero de marzo, y la propuesta completa, hacia el diecisiete de mayo. Es una estimación preliminar, por validar con el líder técnico."
+      "title": "MVP y olas siguientes",
+      "vo": "El alcance inicial, el producto mínimo viable, es igual en los tres. Un solo registro, y adiós a los dos Excel. El dashboard. Una alerta que exige respuesta. Cada solicitud y cada renovación, aprobada por una persona. Y el cruce diario con SAP Ariba y el PxQ. Después vienen más olas. En los tres, el alta de solicitudes con la regla escrita. En el Completo, además, la inteligencia artificial que lee contratos y responde consultas. Y en el Lite, la consulta en lenguaje natural y la revisión de consolidación."
     },
     {
       "id": "s13",
-      "title": "Metas e indicadores",
-      "vo": "Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. Todos los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión a tiempo. Y todas las aprobaciones y decisiones, en un solo histórico. El impacto de la inteligencia artificial llega después del producto mínimo viable: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto."
+      "title": "Tiempos y costos",
+      "vo": "Cuánto tarda, y cuánto cuesta. Los tres arrancan el siete de diciembre, con dos personas dedicadas. El Completo: producto mínimo viable en la semana dieciséis. Todo el alcance, en treinta y tres semanas, hacia el veintitrés de julio, por noventa y un mil trescientos ochenta y cinco dólares. Lite A: producto mínimo viable en la semana trece. Todo el alcance, en veintidós semanas, hacia el siete de mayo, por sesenta mil novecientos veintitrés dólares. Lite B: producto mínimo viable en la semana doce. Todo el alcance, en veinte semanas, hacia el veintitrés de abril, por cincuenta y cinco mil trescientos ochenta y cinco dólares. Son estimaciones preliminares. La del Completo es del líder técnico. Las del Lite son de consultoría, y falta validarlas con él."
     },
     {
       "id": "s14",
-      "title": "Lo que necesitamos",
-      "vo": "Para arrancar, necesitamos seis definiciones. El visto bueno de la propuesta. Elegir el escenario: dos o cuatro personas. Cerrar las reglas de negocio pendientes. Aprobar los tres dueños. Nombrar un responsable para cada dependencia. Y validar el nombre de la plataforma. Con su visto bueno, la primera entrega arranca el veintitrés de noviembre."
+      "title": "Metas",
+      "vo": "Con cualquiera de los tres, estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. De dos personas imprescindibles para mantener la base, a ninguna. Todos los contratos vigentes con su PDF en Ariba. Ningún contrato vencido sin decisión. Y un solo histórico con todas las aprobaciones y decisiones. Los ahorros en horas y en dinero se medirán desde el arranque, porque hoy no existe una línea base."
+    },
+    {
+      "id": "s15",
+      "title": "Lo que necesitamos de negocio",
+      "vo": "Para arrancar el siete de diciembre, necesitamos dos decisiones de negocio. Primera: su visto bueno al proceso y a las estimaciones. Segunda: elegir el escenario. Completo, o Lite. Y para sostenerlas, cuatro definiciones. Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos. Los datos en BrewDat: las tablas de Ariba, el PxQ y los contratos originales. Las reglas de negocio pendientes. Y la validación de la estimación del Lite con el líder técnico. Ustedes eligen el escenario. Nosotros arrancamos el siete de diciembre."
     }
   ],
-  "version": "To-Be v4.0"
+  "version": "To-Be v5.1"
 }

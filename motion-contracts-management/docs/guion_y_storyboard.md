@@ -1,132 +1,132 @@
-# Contracts Management Finance Tech — Guion y storyboard (To-Be v4.0)
+# Contract Management Tech — Guion y storyboard (To-Be v5.1)
 
-**Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · 4:50 · español (voz de Colombia) con subtítulos.
-**Audiencia:** stakeholders ejecutivos de la sesión de Vo.Bo. del 19-nov-2026.
-**Estado de la iniciativa que comunica:** propuesta To-Be v4.0 para aprobación (no es un piloto ni una solución operativa).
-**Estado de la pieza:** versión final, con locución, subtítulos sincronizados, música y efectos.
+**Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · español (voz de Colombia) con subtítulos.
+**Duración total: 6:23 (11494 frames a 30 fps)**
+**Audiencia:** negocio, para el Vo.Bo. de la propuesta y la elección del escenario.
+**Estado de la iniciativa que comunica:** propuesta To-Be v5.1 para aprobación (no es un piloto ni una solución operativa).
 
 ## Mensaje central
 
-Hoy el ciclo de vida de un contrato de tecnología no se cierra. La propuesta lo cierra y lo reúne en un solo lugar:
-la plataforma que diseñaremos, con un solo registro, alertas que exigen respuesta y un histórico de cada aprobación
-y decisión. Ariba sigue siendo la fuente oficial. Primero se ordena, después se automatiza y solo al final entra la IA,
-que propone mientras las personas validan y deciden.
+Hoy el ciclo de vida de un contrato de tecnología no se cierra. La propuesta lo cierra con un proceso de 7 fases que
+es el mismo en tres formas de construirlo: Completo (plataforma propia con IA), Lite A (herramientas de la compañía
+con API de SAP Ariba) y Lite B (las mismas herramientas, sin API). El video no recomienda ninguno: muestra qué cambia
+en tiempo, costo y trabajo manual, y pide a negocio su Vo.Bo. y la elección del escenario.
 
 ## Decisiones editoriales acordadas
 
-- Se dice **"respuesta"**, no "acuse".
-- La plataforma se llama **"la plataforma que diseñaremos"**; no se usa el nombre provisional.
-- **Sin arquitectura técnica**: es tema del Tech Lead. El video muestra qué encuentra cada persona.
-- El plan se explica en tres escenas: **qué, cómo, y cuándo y con quién**. En la voz se dice "entregas"; el número de
-  versión va en pantalla.
-- Los dos escenarios (2 y 4 personas) se muestran con **solo los hitos** y como **estimación preliminar**; esfuerzo y
-  costos quedan para la presentación.
-- Duración objetivo: **hasta 5 minutos**.
+- Los **tres escenarios se presentan por igual**; decide negocio.
+- Se **muestran los costos** y los tiempos, siempre como estimación preliminar.
+- La duración no es restricción: prima que la información esté completa.
+- El cierre pide **Vo.Bo. al proceso y a las estimaciones** y **elegir el escenario**; después, cuatro definiciones.
+- Se **nombran las herramientas** del Lite (sin logotipos).
+- Lite A depende de que SAP Ariba tenga una API que lea y escriba; si no, queda Lite B. **HighQ** va como definición pendiente.
+- Nombre de la plataforma del Completo: **«BrewContracts», propuesto y marcado «por validar»**. Solo aparece en pantalla
+  (constante `PLATFORM_NAME` en `src/scenes/S09.tsx`); la voz dice «la plataforma», así el nombre se cambia sin regrabar.
+- Se dice **«respuesta»**, no «acuse». **PxQ** se dice tal cual.
+- Después del MVP se habla de **«olas»**, como en la propuesta.
 - Identidad: **sistema de diseño de AB InBev** (Avantt, Satoshi y sus roles de color).
 
 ## Estructura
 
 | Capítulo en pantalla | Escenas |
 |---|---|
-| 1 · Hoy | 2, 3 |
-| 2 · La propuesta | 4, 5, 6, 7, 8 |
-| 3 · IA con control | 9 |
-| 4 · MVP y plan | 10, 11, 12, 13 |
-| 5 · Decisiones | 14 |
+| Apertura | 1 |
+| 1 · Hoy | 2–3 |
+| 2 · El proceso | 4–7 |
+| 3 · Tres escenarios | 8–11 |
+| 4 · Plan y costos | 12–14 |
+| 5 · Decisiones | 15 |
 
-Los tiempos por escena están en `tiempos.md` y los subtítulos en `subtitulos.srt` (ambos se regeneran con
-`npx tsx scripts/export_docs.ts`).
+## Escenas
 
----
+### 1. Apertura
 
-## Escena 1 · Apertura
+**Locución:** Contract Management Tech. Hoy, el ciclo de vida de un contrato de tecnología no se cierra. Proponemos un proceso que lo cierra, y tres formas de construirlo.
 
-- **Locución:** Contracts Management Finance Tech. Hoy, el ciclo de vida de un contrato de tecnología no se cierra. Proponemos cerrarlo, con una plataforma donde todo se consulta en un solo lugar.
-- **En pantalla:** título · "Hoy el ciclo no se cierra" → "El ciclo se cierra" · Un solo registro · Alertas que exigen respuesta · Histórico de cada aprobación y decisión.
-- **Movimiento:** el anillo de 7 fases se dibuja y se detiene antes de "Decisión"; al decir "cerrarlo" se completa.
+**En pantalla:** Portada amarilla: título, el ciclo que se cierra y tres rótulos (un mismo proceso · tres formas de construirlo · negocio elige el escenario).
 
-## Escena 2 · Punto de partida
+### 2. Punto de partida
 
-- **Locución:** Hoy, cerca de doscientos veinte servicios y ciento setenta contratos se siguen con dos archivos de Excel, un correo automático y dos personas. El mismo dato se teclea tres veces. Por eso, el dashboard y las alertas pueden mostrar fechas distintas.
-- **En pantalla:** ~220 · ~170 · 2 Excel · 1 correo · 2 personas · "El mismo dato se teclea 3 veces" · fecha A ≠ fecha B.
-- **Movimiento:** el contrato recorre Ariba y los dos Excel dejando las marcas 1-2-3; al final las dos fechas se separan.
+**Locución:** Hoy, cerca de doscientos veinte servicios y ciento setenta contratos se siguen con dos archivos de Excel, un correo automático y dos personas. El mismo dato se teclea tres veces. Por eso, el dashboard y las alertas pueden mostrar fechas distintas.
 
-## Escena 3 · Alertas y riesgo
+**En pantalla:** Cifras declaradas del punto de partida: ~220 servicios, ~170 contratos, 2 Excel, 1 correo, 2 personas; el dato se captura 3 veces.
 
-- **Locución:** Cada vencimiento genera hasta veintiséis correos, que no se pueden responder ni cerrar. Ninguna decisión de renovación queda registrada. Hay contratos fuera de Ariba, el repositorio oficial. Y nadie responde por el proceso de punta a punta.
-- **En pantalla:** contador hasta ~26 · Sin respuesta / Sin cierre · «Urgente: vencido» · 0 decisiones registradas · Contratos fuera de Ariba · Proceso sin dueño.
-- **Movimiento:** los sobres caen sobre la línea de tiempo y siguen llegando después del vencimiento; abajo aparecen las tres consecuencias.
+### 3. Alertas y riesgo
 
-## Escena 4 · El orden de la propuesta
+**Locución:** Cada vencimiento genera hasta veintiséis correos, que no se pueden responder ni cerrar. Ninguna decisión de renovación queda registrada. Hay contratos fuera de Ariba, el repositorio oficial. Y nadie responde por el proceso de punta a punta.
 
-- **Locución:** La propuesta sigue un orden. Primero, ordenar el proceso. Después, automatizar lo repetitivo. Y solo al final, inteligencia artificial. Porque automatizar un proceso roto solo hace más rápido el error.
-- **En pantalla:** 1 Ordenar (10 cambios de proceso) · 2 Automatizar (8 automatizaciones en la plataforma) · 3 Usar IA (5 agentes).
-- **Movimiento:** tres peldaños que suben, cada uno con su color (tinta, amarillo, morado = IA).
+**En pantalla:** Hasta ~26 correos por contrato sin respuesta ni cierre; decisiones sin registro; contratos fuera de Ariba; proceso sin dueño.
 
-## Escena 5 · El nuevo ciclo
+### 4. El orden de la propuesta
 
-- **Locución:** Así recorre un contrato el nuevo ciclo. Primero se formaliza: con una sola captura, y la regla escrita decide si requiere contrato. Luego se registra: los datos clave nacen al firmar, los valida una persona, y se cruzan cada día con Ariba. Y después se vigila: con una alerta que exige respuesta y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio.
-- **En pantalla:** 3 bloques · 7 fases · estado del contrato · "Si el servicio continúa, vuelve a la Fase 1".
-- **Movimiento:** el contrato avanza por el riel; la fase activa se enciende, cambia su estado y deja una etiqueta por mejora; la flecha de retorno cierra el ciclo.
+**Locución:** La propuesta sigue un orden. Primero, ordenar el proceso. Después, automatizar lo repetitivo. Y solo al final, inteligencia artificial. Porque automatizar un proceso roto solo hace más rápido el error.
 
-## Escena 6 · La plataforma (nueva)
+**En pantalla:** Tres pasos en orden: ordenar, automatizar y, al final, IA (la IA solo aplica al escenario Completo).
 
-- **Locución:** Todo vive en un solo lugar: la plataforma que diseñaremos. Un registro único de servicios y contratos. Un dashboard, con descarga del reporte. Las alertas de cada persona. Y el histórico de aprobaciones: quién aprobó qué, cuándo y por qué. Ariba no se reemplaza: sigue siendo la fuente oficial, y ahí se sigue aprobando.
-- **En pantalla:** una aplicación con navegación (Registro, Dashboard, Alertas, Decisiones, Histórico, Reglas) · "Se entra con el usuario corporativo" · tarjeta de SAP Ariba como fuente oficial.
-- **Movimiento:** la navegación salta de módulo con la voz y el contenido cambia: tabla del registro, dashboard con "Descargar reporte", bandeja de alertas e histórico; al final entra Ariba, conectada a la plataforma.
-- **Nota:** representación conceptual. Los datos de ejemplo se muestran como barras; solo se escriben módulos y estados documentados.
+### 5. El nuevo ciclo
 
-## Escena 7 · La alerta que exige respuesta
+**Locución:** Así recorre un contrato el nuevo ciclo, igual en los tres escenarios. Primero se formaliza: el área registra la necesidad una sola vez, su líder la aprueba, y la regla escrita decide si requiere contrato. Luego se registra: los datos clave nacen al firmar, los valida una persona, y cada día se cruzan con Ariba y con el PxQ. Y después se vigila: con una alerta que exige respuesta y una decisión registrada. Si el servicio continúa, el ciclo vuelve al inicio.
 
-- **Locución:** La alerta cambia por completo. En lugar de veintiséis correos, una sola alerta, en la plataforma y por correo, para el dueño del servicio y su líder. Si no hay respuesta, escala a los sesenta y a los treinta días. Y siempre termina en una decisión: el dueño decide, su líder aprueba, y Procurement confirma.
-- **En pantalla:** alerta con tres botones · 90 / 60 / 30 días · owner decide → líder aprueba → Procurement confirma.
-- **Movimiento:** los 26 sobres se funden en una alerta; se dibuja el escalamiento y se completa la cadena de decisión.
+**En pantalla:** Las 7 fases en 3 bloques, iguales en los tres escenarios; un contrato las recorre. Rótulos: una sola captura, su líder la aprueba, la regla escrita decide, el dato nace al firmar, lo valida una persona, alerta que exige respuesta, decisión registrada.
 
-## Escena 8 · Tres dueños
+### 6. La alerta que exige respuesta
 
-- **Locución:** Tres dueños responden por el proceso. El dueño del servicio y su líder, por cada contrato. Procurement, por la cobertura contractual y por Ariba. Y Value Creation, por el seguimiento y la calidad del dato.
-- **Movimiento:** la casilla "nadie" se llena y se ramifica hacia tres tarjetas.
+**Locución:** La alerta cambia por completo. En lugar de veintiséis correos, una sola alerta, para el dueño del servicio y su líder. Si no hay respuesta, escala a los sesenta y a los treinta días. Y siempre termina en una decisión: el dueño decide, su líder aprueba, y Procurement confirma.
 
-## Escena 9 · IA con control
+**En pantalla:** Una sola alerta con botones de respuesta; escalamiento a 60 y 30 días; el dueño decide, su líder aprueba y Procurement confirma.
 
-- **Locución:** La inteligencia artificial llega después, y con límites claros. Lee el contrato y propone sus datos clave, cada uno con su cita. Una persona valida todas las fichas. La inteligencia artificial no decide, no aprueba, ni confirma ahorros.
-- **En pantalla:** Contrato → la IA propone la ficha (con «cita») → una persona valida → registro · cuatro límites.
+### 7. Tres dueños
 
-## Escena 10 · Qué haremos
+**Locución:** Tres dueños responden por el proceso. El dueño del servicio y su líder, por cada contrato. Procurement, por la cobertura contractual y por Ariba. Y Value Creation, por el seguimiento y la calidad del dato.
 
-- **Locución:** Esto es lo que haremos: siete entregas, sobre la misma plataforma. Las primeras cuatro forman el producto mínimo viable, sin inteligencia artificial. Los cimientos. El registro único y el dashboard. Las alertas. Y la decisión, con el histórico de aprobaciones. La quinta entrega trae el alta de solicitudes con la regla escrita. Y las dos últimas, la inteligencia artificial: la ficha del contrato, con un piloto de veinte contratos, y la consulta.
-- **En pantalla:** siete entregas en fila, cada una con su número de versión: 1 a 4 (v0.1.0 a v1.0.0, MVP sin IA) · 5 (v1.1.0, sin IA) · 6 y 7 (v1.2.0 y v1.3.0, con IA).
-- **Movimiento:** cada entrega entra al nombrarse, bajo la franja de su grupo.
+**En pantalla:** Los tres dueños del proceso y de qué responde cada uno.
 
-## Escena 11 · Cómo lo haremos (nueva)
+### 8. Tres formas de construirlo
 
-- **Locución:** Así lo haremos. Cada entrega resuelve un dolor completo, y solo arranca cuando la anterior cumple sus criterios de salida. Para el producto mínimo viable son cinco. Los dos Excel retirados. El dashboard y las alertas leyendo el mismo registro. Todos los contratos vigentes con su PDF en Ariba. La primera alerta cerrada con una decisión. Y los tres dueños operando.
-- **En pantalla:** "Una entrega resuelve un dolor completo" → compuerta "Cumple sus criterios de salida" → "Arranca la siguiente entrega" · los cinco criterios de salida del MVP. Al pie: cómo se cubre lo que aún no llega.
-- **Movimiento:** la compuerta se abre con la voz; cada criterio entra y se marca como cumplido.
+**Locución:** El proceso es el mismo. Lo que cambia es cómo se construye, y hay tres formas. El escenario Completo: una plataforma propia, con inteligencia artificial, donde todo se consulta en una sola pantalla. Lite A: sin plataforma propia, con herramientas que la compañía ya tiene, y conectado a SAP Ariba por API. Y Lite B: las mismas herramientas, pero sin esa conexión. Los datos de Ariba se leen desde BrewDat, y Procurement escribe en Ariba a mano. Lite A solo es posible si SAP Ariba tiene una API que lea y escriba. Si no, queda Lite B.
 
-## Escena 12 · Cuándo y con quién (nueva)
+**En pantalla:** Tres columnas: Completo, Lite A (con bandera de supuesto) y Lite B. Franja final: definición pendiente sobre la API de SAP Ariba.
 
-- **Locución:** Cuándo, y con quién. Arrancamos el veintitrés de noviembre, y hay dos escenarios. Con dos personas dedicadas, el producto mínimo viable estaría listo hacia el diez de mayo de dos mil veintisiete, y la propuesta completa, hacia el veinte de septiembre. Con cuatro personas dedicadas, el producto mínimo viable llegaría hacia el primero de marzo, y la propuesta completa, hacia el diecisiete de mayo. Es una estimación preliminar, por validar con el líder técnico.
-- **En pantalla:** dos líneas de tiempo paralelas desde el 23-nov-2026 sobre un eje de meses: 2 personas (MVP ~24 semanas, ~10-may-2027; To-Be completo ~43 semanas, ~20-sep-2027) y 4 personas (MVP ~14 semanas, ~1-mar-2027; To-Be completo ~25 semanas, ~17-may-2027). Sello "Estimación preliminar · por validar con el Tech Lead".
-- **Movimiento:** cada barra crece a escala real y los hitos se marcan al decir su fecha.
-- **Fuera, por decisión editorial:** semanas-persona, esfuerzo adicional por coordinación y costos (van en la presentación); duración de cada entrega (solo hitos).
+### 9. Escenario Completo
 
-## Escena 13 · Metas e indicadores
+**Locución:** En el Completo, todo vive en una sola plataforma. El registro de servicios y contratos. El dashboard, con descarga del reporte. Las alertas de cada persona. Y el histórico de aprobaciones: quién aprobó qué, cuándo y por qué. Además, la inteligencia artificial lee cada contrato y propone sus datos, con su cita. Una persona valida todo.
 
-- **Locución:** Estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. Todos los contratos vigentes con su PDF en Ariba. Al menos el noventa y cinco por ciento de las alertas con decisión a tiempo. Y todas las aprobaciones y decisiones, en un solo histórico. El impacto de la inteligencia artificial llega después del producto mínimo viable: reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto.
-- **En pantalla:** cinco metas "hoy → meta" y la tarjeta "El impacto de la IA · después del MVP". Al pie: 12 % → 63 % de pasos no humanos.
+**En pantalla:** Representación conceptual de la plataforma del Completo (registro, dashboard, alertas, histórico). Nombre propuesto «BrewContracts», marcado «por validar». Tarjeta de IA.
 
-## Escena 14 · Lo que necesitamos
+### 10. Escenarios Lite
 
-- **Locución:** Para arrancar, necesitamos seis definiciones. El visto bueno de la propuesta. Elegir el escenario: dos o cuatro personas. Cerrar las reglas de negocio pendientes. Aprobar los tres dueños. Nombrar un responsable para cada dependencia. Y validar el nombre de la plataforma. Con su visto bueno, la primera entrega arranca el veintitrés de noviembre.
-- **En pantalla:** seis tarjetas numeradas · "Con el Vo.Bo., la primera entrega arranca el 23 de noviembre".
-- **Movimiento:** vuelve el fondo amarillo de la apertura; el anillo se cierra con un visto bueno.
+**Locución:** En el Lite no se construye una plataforma: se conectan herramientas que la compañía ya usa. Una aplicación en Power Apps, que se abre desde Teams. Power Automate, para las reglas y los avisos. Las alertas llegan como tarjeta en Teams y por correo. El dashboard es el reporte de Power BI que ya existe. Y las consultas se hacen con Genie o Insights Copilot. No hay inteligencia artificial que lea los contratos: una persona captura los datos de cada contrato, y otra los valida.
 
----
+**En pantalla:** Cinco herramientas con su papel: Power Apps, Power Automate, Teams y correo, Power BI, Genie o Insights Copilot; franja de BrewDat; sin IA que lea contratos (~170 fichas a mano); diferencia Lite A / Lite B.
 
-## Audio
+### 11. Comparación
 
-- **Voz:** ElevenLabs, voz "Herduin" (español de Colombia), modelo `eleven_v4`. Una toma por escena, normalizada a −16 LUFS.
-- **Música y efectos:** originales, sintetizados con `scripts/synth_audio.py` (sin samples ni pistas externas).
-- **Mezcla:** la música baja bajo la voz y sube en el cierre; los efectos están atados a las palabras de la locución.
-- **Subtítulos:** tiempos por palabra tomados de la transcripción de la voz real; máximo dos líneas, en franja propia.
+**Locución:** Los tres resuelven los mismos dolores. Cambian el tiempo, el costo y el trabajo manual que queda. El Completo tarda y cuesta más. A cambio, deja todo en un solo lugar y quita la lectura manual de contratos. El Lite sale antes y cuesta menos. A cambio, reparte la información entre varias herramientas y deja más trabajo manual. En pasos automáticos, los tres quedan cerca: entre el sesenta y el sesenta y cinco por ciento, frente al doce por ciento de hoy.
+
+**En pantalla:** Tabla comparativa de siete filas: dónde se trabaja, lectura del contrato, consulta de cláusulas, SAP Ariba, trabajo manual, riesgo principal y pasos automáticos (62 %, 65 %, 60 %; hoy 12 %).
+
+### 12. MVP y olas siguientes
+
+**Locución:** El alcance inicial, el producto mínimo viable, es igual en los tres. Un solo registro, y adiós a los dos Excel. El dashboard. Una alerta que exige respuesta. Cada solicitud y cada renovación, aprobada por una persona. Y el cruce diario con SAP Ariba y el PxQ. Después vienen más olas. En los tres, el alta de solicitudes con la regla escrita. En el Completo, además, la inteligencia artificial que lee contratos y responde consultas. Y en el Lite, la consulta en lenguaje natural y la revisión de consolidación.
+
+**En pantalla:** MVP igual en los tres (5 puntos; semana 16, 13 o 12) y olas posteriores: alta con la regla de la DAG en los tres; 3 olas más en el Completo; 2 olas más en el Lite. Al pie, lo que queda fuera de la cotización.
+
+### 13. Tiempos y costos
+
+**Locución:** Cuánto tarda, y cuánto cuesta. Los tres arrancan el siete de diciembre, con dos personas dedicadas. El Completo: producto mínimo viable en la semana dieciséis. Todo el alcance, en treinta y tres semanas, hacia el veintitrés de julio, por noventa y un mil trescientos ochenta y cinco dólares. Lite A: producto mínimo viable en la semana trece. Todo el alcance, en veintidós semanas, hacia el siete de mayo, por sesenta mil novecientos veintitrés dólares. Lite B: producto mínimo viable en la semana doce. Todo el alcance, en veinte semanas, hacia el veintitrés de abril, por cincuenta y cinco mil trescientos ochenta y cinco dólares. Son estimaciones preliminares. La del Completo es del líder técnico. Las del Lite son de consultoría, y falta validarlas con él.
+
+**En pantalla:** Tres barras desde el 7-dic-2026 con MVP, contingencia y resto; semanas, fecha de cierre y costo total de cada escenario; costo y fecha del MVP. Rótulo de estimación preliminar y exclusiones del costo.
+
+### 14. Metas
+
+**Locución:** Con cualquiera de los tres, estas son las metas. De tres capturas del mismo dato, a una. De veintiséis correos, a una sola alerta. De dos personas imprescindibles para mantener la base, a ninguna. Todos los contratos vigentes con su PDF en Ariba. Ningún contrato vencido sin decisión. Y un solo histórico con todas las aprobaciones y decisiones. Los ahorros en horas y en dinero se medirán desde el arranque, porque hoy no existe una línea base.
+
+**En pantalla:** Seis metas: 3→1, ~26→1, 2→0, 100 % con PDF en Ariba, 0 vencidos sin decisión, 1 histórico. Los ahorros se medirán desde el arranque (no hay línea base).
+
+### 15. Lo que necesitamos de negocio
+
+**Locución:** Para arrancar el siete de diciembre, necesitamos dos decisiones de negocio. Primera: su visto bueno al proceso y a las estimaciones. Segunda: elegir el escenario. Completo, o Lite. Y para sostenerlas, cuatro definiciones. Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos. Los datos en BrewDat: las tablas de Ariba, el PxQ y los contratos originales. Las reglas de negocio pendientes. Y la validación de la estimación del Lite con el líder técnico. Ustedes eligen el escenario. Nosotros arrancamos el siete de diciembre.
+
+**En pantalla:** Cierre amarillo: dos decisiones (Vo.Bo. al proceso y a las estimaciones; elegir el escenario) y cuatro definiciones (SAP Ariba y HighQ, datos en BrewDat, reglas de negocio, estimación del Lite).
+
+Tiempos exactos por escena: `docs/tiempos.md`. Subtítulos: `docs/subtitulos.srt`.

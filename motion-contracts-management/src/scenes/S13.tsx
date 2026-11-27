@@ -1,56 +1,144 @@
 import React from "react";
 import { C, FONT, R } from "../theme";
-import { Rise } from "../lib/anim";
+import { lin, prog, Rise, useSec } from "../lib/anim";
 import { cue } from "../lib/timing";
-import { MX, Shell } from "../components/ui";
+import { MX, Pill, Shell } from "../components/ui";
+import { Flag } from "../components/Flag";
 
 const ID = "s13";
-// Todas son METAS del To-Be v4.0 (resultados que se buscan), no resultados medidos.
-const TILES = [
-  { at: cue(ID, "De tres"), from: "3", to: "1", label: "capturas manuales del mismo dato" },
-  { at: cue(ID, "De veintiséis"), from: "~26", to: "1", label: "avisos por contrato: de correos sin cierre a una alerta que exige respuesta" },
-  { at: cue(ID, "Todos los contratos"), from: "Sin medir", to: "100 %", label: "de los contratos vigentes con su PDF en Ariba" },
-  { at: cue(ID, "Al menos"), from: "No se mide", to: "≥ 95 %", label: "de las alertas con decisión antes del preaviso" },
-  { at: cue(ID, "Y todas"), from: "No existe", to: "100 %", label: "de las aprobaciones y decisiones consultables en un solo histórico" },
+// Sección 6 de la propuesta v5.1. Semanas laborales corridas desde el lunes 7-dic-2026,
+// 2 AI Developers Specialist. Estimaciones preliminares.
+const X0 = 430;
+const PXW = 26; // píxeles por semana
+const wx = (w: number) => X0 + w * PXW;
+const MONTHS: [string, number][] = [
+  ["ene 2027", 3.57],
+  ["feb", 8],
+  ["mar", 12],
+  ["abr", 16.43],
+  ["may", 20.71],
+  ["jun", 25.14],
+  ["jul", 29.43],
 ];
-const TW = 546;
-const TH = 252;
-const pos = (i: number) => ({ left: MX + (i % 3) * (TW + 31), top: 296 + Math.floor(i / 3) * (TH + 26) });
-const badge: React.CSSProperties = { position: "absolute", right: 22, top: 20, fontSize: 20, fontWeight: 500, padding: "4px 14px", borderRadius: R.full };
+type Row = { y: number; name: string; sub: string; flag?: boolean; at: number; mvp: number; c1: number; post: number; c2: number; mvpAt: number; totAt: number; costAt: number; mvpTxt: string; totTxt: string; cost: string };
+const ROWS: Row[] = [
+  {
+    y: 350,
+    name: "Completo",
+    sub: "Plataforma propia, con IA",
+    at: cue(ID, "El Completo"),
+    mvp: 16, c1: 3, post: 11, c2: 3,
+    mvpAt: cue(ID, "semana dieciséis"), totAt: cue(ID, "treinta y tres semanas"), costAt: cue(ID, "noventa y un mil"),
+    mvpTxt: "MVP: semana 16 · 26-mar-2027 · USD 44.308",
+    totTxt: "33 semanas · hasta el 23-jul-2027",
+    cost: "USD 91.385",
+  },
+  {
+    y: 510,
+    name: "Lite A",
+    sub: "Con API de SAP Ariba",
+    flag: true,
+    at: cue(ID, "Lite A"),
+    mvp: 13, c1: 2, post: 5, c2: 2,
+    mvpAt: cue(ID, "semana trece"), totAt: cue(ID, "veintidós semanas"), costAt: cue(ID, "sesenta mil"),
+    mvpTxt: "MVP: semana 13 · 5-mar-2027 · USD 36.000",
+    totTxt: "22 semanas · hasta el 7-may-2027",
+    cost: "USD 60.923",
+  },
+  {
+    y: 670,
+    name: "Lite B",
+    sub: "Sin API de SAP Ariba",
+    at: cue(ID, "Lite B"),
+    mvp: 12, c1: 2, post: 4, c2: 2,
+    mvpAt: cue(ID, "semana doce"), totAt: cue(ID, "veinte semanas"), costAt: cue(ID, "cincuenta y cinco mil"),
+    mvpTxt: "MVP: semana 12 · 26-feb-2027 · USD 33.231",
+    totTxt: "20 semanas · hasta el 23-abr-2027",
+    cost: "USD 55.385",
+  },
+];
+const BH = 50;
+const sw = (c: string) => <span style={{ width: 22, height: 22, borderRadius: 5, background: c, border: c === C.line ? `2px solid ${C.faint}` : undefined, boxSizing: "border-box" }} />;
 
-export const S13: React.FC = () => (
-  <Shell
-    id={ID}
-    chapter={4}
-    title="Metas del To-Be: control medible desde el arranque"
-    foot="Metas del To-Be v4.0 · además, los pasos que ya no hace una persona pasan de 12 % a 63 % (4 de 34 hoy; 57 de 91) · lo que hoy no se mide se medirá desde el arranque"
-  >
-    {TILES.map((x, i) => {
-      const small = x.from.length > 4;
-      return (
-        <Rise key={x.label} at={x.at - 0.15} y={26} style={{ position: "absolute", ...pos(i) }}>
-          <div style={{ width: TW, height: TH, background: C.white, border: `2px solid ${C.line}`, borderRadius: R.card, boxSizing: "border-box", padding: "20px 28px", position: "relative" }}>
-            <div style={{ ...badge, background: C.panel, color: C.ink }}>Meta</div>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 16, fontFamily: FONT.head, fontWeight: 700, letterSpacing: -2, marginTop: 30, height: 86 }}>
-              <span style={{ fontSize: small ? 34 : 62, fontWeight: 600, color: C.mute, letterSpacing: small ? -0.5 : -2 }}>{x.from}</span>
-              <svg width={54} height={30} viewBox="0 0 54 30" style={{ alignSelf: "flex-end", marginBottom: 20, flexShrink: 0 }}>
-                <path d="M3 15 H48 M36 4 L49 15 L36 26" fill="none" stroke={C.mute} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <span style={{ fontSize: 78 }}>{x.to}</span>
-            </div>
-            <div style={{ fontSize: 25, color: C.text, lineHeight: 1.22, marginTop: 10 }}>{x.label}</div>
+export const S13: React.FC = () => {
+  const t = useSec();
+  const startAt = cue(ID, "Los tres arrancan") - 0.1;
+  return (
+    <Shell
+      id={ID}
+      chapter={4}
+      title="Cuánto tarda y cuánto cuesta cada escenario"
+      foot="USD 6.000 por persona al mes · el costo del MVP no incluye contingencia · sin consultas a BrewDat, API de Ariba, nube, licencias, modelos de IA, impuestos ni soporte"
+    >
+      <svg style={{ position: "absolute", left: 0, top: 0, opacity: prog(t, startAt, 0.5) }} width={1920} height={1080}>
+        {MONTHS.map(([m, w]) => (
+          <line key={m} x1={wx(w)} y1={316} x2={wx(w)} y2={790} stroke={C.line} strokeWidth={2} />
+        ))}
+        <line x1={X0} y1={290} x2={X0} y2={790} stroke={C.ink} strokeWidth={4} />
+      </svg>
+      <div style={{ opacity: prog(t, startAt, 0.5) }}>
+        {MONTHS.map(([m, w]) => (
+          <div key={m} style={{ position: "absolute", left: wx(w) + 8, top: 288, fontSize: 20, fontWeight: 500, color: C.mute }}>
+            {m}
           </div>
-        </Rise>
-      );
-    })}
-    <Rise at={cue(ID, "El impacto") - 0.15} y={26} style={{ position: "absolute", ...pos(5) }}>
-      <div style={{ width: TW, height: TH, background: C.purple, color: C.white, borderRadius: R.card, boxSizing: "border-box", padding: "22px 28px", position: "relative" }}>
-        <div style={{ ...badge, background: "rgba(255,255,255,0.18)", color: C.white }}>Después del MVP</div>
-        <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 38, lineHeight: 1.1, marginTop: 40, letterSpacing: -0.5 }}>El impacto de la IA</div>
-        <div style={{ fontSize: 25, lineHeight: 1.24, marginTop: 10, color: "rgba(255,255,255,0.9)" }}>
-          Reducir el tiempo de lectura, captura y validación de cada contrato. Su meta se fija con un piloto de 20 contratos.
-        </div>
+        ))}
       </div>
-    </Rise>
-  </Shell>
-);
+      <Rise at={startAt} y={10} style={{ position: "absolute", left: MX, top: 262, width: X0 - MX - 16, textAlign: "right" }}>
+        <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 27, lineHeight: 1.05 }}>7 de diciembre</div>
+        <div style={{ fontSize: 21, color: C.text }}>inicio · 2 personas dedicadas</div>
+      </Rise>
+      <Rise at={startAt + 0.4} y={8} style={{ position: "absolute", left: 1320, top: 250, display: "flex", gap: 16, alignItems: "center", fontSize: 20, color: C.text }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>{sw(C.ink)} Hasta el MVP</span>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>{sw(C.yellow)} Después</span>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>{sw(C.line)} Contingencia</span>
+      </Rise>
+
+      {ROWS.map((r) => {
+        const total = r.mvp + r.c1 + r.post + r.c2;
+        const grow = lin(t, r.at, 1.4) * total;
+        const seg = (from: number, len: number) => Math.max(0, Math.min(len, grow - from)) * PXW;
+        const mvpP = prog(t, r.mvpAt - 0.1, 0.4);
+        const totP = prog(t, r.totAt - 0.1, 0.4);
+        const costP = prog(t, r.costAt - 0.1, 0.4);
+        return (
+          <React.Fragment key={r.name}>
+            <Rise at={r.at - 0.1} y={14} style={{ position: "absolute", left: MX, top: r.y - 6, width: X0 - MX - 16, textAlign: "right" }}>
+              <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 10 }}>
+                {r.flag ? (
+                  <span style={{ background: C.yellow, borderRadius: 7, padding: "4px 6px", display: "flex" }}>
+                    <Flag size={20} />
+                  </span>
+                ) : null}
+                <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 44, lineHeight: 1, letterSpacing: -1 }}>{r.name}</div>
+              </div>
+              <div style={{ fontSize: 21, color: C.text, marginTop: 4 }}>{r.sub}</div>
+            </Rise>
+            <div style={{ position: "absolute", left: X0 + 2, top: r.y, height: BH, display: "flex" }}>
+              <div style={{ width: seg(0, r.mvp), height: BH, background: C.ink, borderRadius: `${R.ctl}px 0 0 ${R.ctl}px` }} />
+              <div style={{ width: seg(r.mvp, r.c1), height: BH, background: C.line }} />
+              <div style={{ width: seg(r.mvp + r.c1, r.post), height: BH, background: C.yellow }} />
+              <div style={{ width: seg(r.mvp + r.c1 + r.post, r.c2), height: BH, background: C.line, borderRadius: `0 ${R.ctl}px ${R.ctl}px 0` }} />
+            </div>
+            <div style={{ position: "absolute", left: X0 + 16, top: r.y + 11, fontSize: 22, fontWeight: 700, color: C.white, opacity: prog(t, r.at + 0.5, 0.4) }}>MVP</div>
+            <div style={{ position: "absolute", left: wx(r.mvp) - 1, top: r.y - 8, width: 3, height: BH + 16, background: C.ink, opacity: mvpP }} />
+            <div style={{ position: "absolute", left: X0 + 4, top: r.y + BH + 12, fontSize: 23, color: C.text, opacity: mvpP, translate: `0px ${8 * (1 - mvpP)}px`, fontVariantNumeric: "tabular-nums" }}>
+              {r.mvpTxt}
+            </div>
+            <div style={{ position: "absolute", left: 1330, top: r.y - 8, width: 480, opacity: totP, translate: `0px ${8 * (1 - totP)}px` }}>
+              <div style={{ fontSize: 24, fontWeight: 500, color: C.text, fontVariantNumeric: "tabular-nums" }}>{r.totTxt}</div>
+            </div>
+            <div style={{ position: "absolute", left: 1330, top: r.y + 24, width: 480, opacity: costP, translate: `0px ${8 * (1 - costP)}px` }}>
+              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 54, letterSpacing: -1.5, lineHeight: 1.05, fontVariantNumeric: "tabular-nums" }}>{r.cost}</div>
+            </div>
+          </React.Fragment>
+        );
+      })}
+
+      <Rise at={cue(ID, "Son estimaciones") - 0.1} y={12} style={{ position: "absolute", left: X0, top: 806 }}>
+        <Pill size={24} bg={C.ink} color={C.white}>
+          Estimaciones preliminares · Completo: Tech Lead · Lite: consultoría, por validar con el Tech Lead
+        </Pill>
+      </Rise>
+    </Shell>
+  );
+};
