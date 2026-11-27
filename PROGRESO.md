@@ -78,3 +78,11 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 - `output/BrewTech_2026_vertical_v1_sin_voz.mp4` (música y efectos, subtítulos en pantalla).
 - `output/BrewTech_2026_miniatura.png` y `output/BrewTech_2026_vertical_v1.srt`.
 - Pendiente opcional: Fase 7 (versión 16:9).
+
+## Brew AI Pulse 2026 · pills por pillar (27 nov 2026)
+- Cambio de encargo: ya no hay Top 5. Son pills verticales, una por pillar, con las iniciativas al aire. El video del Top 5 queda archivado como referencia.
+- Cada pill: cortinilla de entrada (solo cambia el pillar), y por iniciativa nombre + qué es, problema, solución con IA e impacto (dinero y proceso); cortinilla de cierre.
+- Reglas: cifras en dinero del Excel de cifras, redondeadas, sin periodo y sin sumar entre iniciativas; fuera lo que no tenga ninguna cifra de impacto; Contact Model en una sola pill; logo BrewAI con su degradado (única excepción).
+- Fuente de contenido: `output/BrewAI_Pulse_2026_recopilacion_v4.xlsx` (9 pills, 31 iniciativas; 13 documentadas).
+- Código: `src/pulse/` (escenas y composición), `scripts/pulse.py <id>` (voz y tiempos), `scripts/musica.py <tiempos> <salida>`.
+- Pill piloto entregada: Marketing & Revenue (`review/pulse-marketing-revenue-v1.mp4`, 65,6 s). Pendiente: aprobación del formato.

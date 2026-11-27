@@ -10,7 +10,11 @@ BPM = 140
 BEAT = 60 / BPM
 BAR = BEAT * 4
 RAIZ = os.path.join(os.path.dirname(__file__), "..")
-T = json.load(open(os.path.join(RAIZ, "data/tiempos.json")))
+import sys
+# Uso: musica.py [tiempos.json] [salida.wav]  (por defecto, el video Pulso 2026)
+ENTRADA = sys.argv[1] if len(sys.argv) > 1 else os.path.join(RAIZ, "data/tiempos.json")
+SALIDA = sys.argv[2] if len(sys.argv) > 2 else os.path.join(RAIZ, "public/musica/pulso.wav")
+T = json.load(open(ENTRADA))
 FPS = T["fps"]
 TOTAL = T["total"] / FPS
 rng = np.random.default_rng(2026)
@@ -139,7 +143,8 @@ def seccion(dur, tipo, variante=0):
     return b[: int(dur * SR)]
 
 # Plan: tipo de música por escena (las contiguas del mismo bloque se unen en una sección)
-BLOQUE = {"gancho": "intro", "numeros": "intro", "ranking": "subida", "top": "drop", "numeroUno": "uno", "cortina": "puente", "areas": "puente", "cierre": "cierre"}
+BLOQUE = {"gancho": "intro", "numeros": "intro", "ranking": "subida", "top": "drop", "numeroUno": "uno", "cortina": "puente", "areas": "puente", "cierre": "cierre",
+          "pillIntro": "subida", "pillIni": "drop", "pillCierre": "cierre"}
 secciones = []
 for e in T["escenas"]:
     tipo = BLOQUE[e["tipo"]]; ini = e["desde"] / FPS; fin = (e["desde"] + e["duracion"]) / FPS
@@ -154,6 +159,6 @@ mezcla = mezcla[: int(TOTAL * SR)]
 cola = int(2.2 * SR); mezcla[-cola:] *= np.linspace(1, 0, cola) ** 1.5
 mezcla = np.tanh(mezcla * 1.1); mezcla *= 0.89 / np.abs(mezcla).max()
 os.makedirs(os.path.join(RAIZ, "public/musica"), exist_ok=True)
-with wave.open(os.path.join(RAIZ, "public/musica/pulso.wav"), "wb") as w:
+with wave.open(SALIDA, "wb") as w:
     w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mezcla * 32767).astype("<i2").tobytes())
-print(f"public/musica/pulso.wav  {TOTAL:.2f} s")
+print(f"{os.path.relpath(SALIDA, RAIZ)}  {TOTAL:.2f} s")
