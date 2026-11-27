@@ -367,150 +367,146 @@ Y en el Lite, la consulta en lenguaje
 natural y la revisión de consolidación.
 
 93
-00:04:30,287 --> 00:04:32,527
+00:04:30,287 --> 00:04:32,687
 Cuánto tarda, y cuánto cuesta.
 
 94
-00:04:32,527 --> 00:04:36,607
+00:04:32,687 --> 00:04:36,847
 Los tres arrancan el siete de diciembre, con dos personas dedicadas.
 
 95
-00:04:36,607 --> 00:04:37,727
+00:04:36,847 --> 00:04:37,807
 El Completo:
 
 96
-00:04:37,727 --> 00:04:40,607
+00:04:37,807 --> 00:04:40,927
 producto mínimo viable en la semana dieciséis.
 
 97
-00:04:40,607 --> 00:04:44,327
+00:04:40,927 --> 00:04:44,767
 Todo el alcance, en treinta y tres semanas, hacia el veintitrés de julio,
 
 98
-00:04:44,327 --> 00:04:47,487
+00:04:44,767 --> 00:04:47,967
 por noventa y un mil trescientos ochenta y cinco dólares.
 
 99
-00:04:47,487 --> 00:04:51,087
+00:04:47,967 --> 00:04:51,567
 Lite A: producto mínimo viable en la semana trece.
 
 100
-00:04:51,087 --> 00:04:54,527
+00:04:51,567 --> 00:04:55,087
 Todo el alcance, en veintidós semanas, hacia el siete de mayo,
 
 101
-00:04:54,527 --> 00:04:57,487
+00:04:55,087 --> 00:04:58,127
 por sesenta mil novecientos veintitrés dólares.
 
 102
-00:04:57,487 --> 00:05:01,047
+00:04:58,127 --> 00:05:01,647
 Lite B: producto mínimo viable en la semana doce.
 
 103
-00:05:01,047 --> 00:05:04,367
+00:05:01,647 --> 00:05:05,087
 Todo el alcance, en veinte semanas, hacia el veintitrés de abril,
 
 104
-00:05:04,367 --> 00:05:07,727
+00:05:05,087 --> 00:05:08,527
 por cincuenta y cinco mil trescientos ochenta y cinco dólares.
 
 105
-00:05:07,727 --> 00:05:09,447
-Son estimaciones preliminares.
+00:05:08,527 --> 00:05:11,727
+Las tres estimaciones están validadas con el líder técnico.
 
 106
-00:05:09,447 --> 00:05:11,647
-La del Completo es del líder técnico.
+00:05:11,727 --> 00:05:14,527
+Estos costos son únicamente de nuestro trabajo:
 
 107
-00:05:11,647 --> 00:05:15,587
-Las del Lite son de consultoría, y falta validarlas con él.
+00:05:14,527 --> 00:05:17,747
+no contemplan los costos de consultas en BrewDat.
 
 108
-00:05:15,953 --> 00:05:19,073
+00:05:18,120 --> 00:05:21,240
 Con cualquiera de los tres, estas son las metas.
 
 109
-00:05:19,073 --> 00:05:21,873
+00:05:21,240 --> 00:05:24,040
 De tres capturas del mismo dato, a una.
 
 110
-00:05:21,873 --> 00:05:24,833
+00:05:24,040 --> 00:05:27,000
 De veintiséis correos, a una sola alerta.
 
 111
-00:05:24,833 --> 00:05:28,993
+00:05:27,000 --> 00:05:31,160
 De dos personas imprescindibles para mantener la base, a ninguna.
 
 112
-00:05:28,993 --> 00:05:32,353
+00:05:31,160 --> 00:05:34,520
 Todos los contratos vigentes con su PDF en Ariba.
 
 113
-00:05:32,353 --> 00:05:34,993
+00:05:34,520 --> 00:05:37,160
 Ningún contrato vencido sin decisión.
 
 114
-00:05:34,993 --> 00:05:39,073
+00:05:37,160 --> 00:05:41,240
 Y un solo histórico con todas las aprobaciones y decisiones.
 
 115
-00:05:39,073 --> 00:05:42,353
+00:05:41,240 --> 00:05:44,520
 Los ahorros en horas y en dinero se medirán desde el arranque,
 
 116
-00:05:42,353 --> 00:05:45,333
+00:05:44,520 --> 00:05:47,500
 porque hoy no existe una línea base.
 
 117
-00:05:45,720 --> 00:05:47,640
+00:05:47,887 --> 00:05:49,687
 Para arrancar el siete de diciembre,
 
 118
-00:05:47,640 --> 00:05:50,040
+00:05:49,687 --> 00:05:52,207
 necesitamos dos decisiones de negocio.
 
 119
-00:05:50,040 --> 00:05:53,560
+00:05:52,207 --> 00:05:55,647
 Primera: su visto bueno al proceso y a las estimaciones.
 
 120
-00:05:53,560 --> 00:05:55,720
+00:05:55,647 --> 00:05:57,727
 Segunda: elegir el escenario.
 
 121
-00:05:55,720 --> 00:05:57,160
+00:05:57,727 --> 00:05:59,167
 Completo, o Lite.
 
 122
-00:05:57,160 --> 00:05:59,800
-Y para sostenerlas, cuatro definiciones.
+00:05:59,167 --> 00:06:01,727
+Y para sostenerlas, tres definiciones.
 
 123
-00:05:59,800 --> 00:06:04,360
+00:06:01,727 --> 00:06:06,287
 Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos.
 
 124
-00:06:04,360 --> 00:06:05,880
+00:06:06,287 --> 00:06:07,727
 Los datos en BrewDat:
 
 125
-00:06:05,880 --> 00:06:09,640
+00:06:07,727 --> 00:06:11,354
 las tablas de Ariba, el PxQ y los contratos originales.
 
 126
-00:06:09,640 --> 00:06:11,560
-Las reglas de negocio pendientes.
+00:06:11,354 --> 00:06:13,327
+Y las reglas de negocio pendientes.
 
 127
-00:06:11,560 --> 00:06:15,000
-Y la validación de la estimación del Lite con el líder técnico.
-
-128
-00:06:15,000 --> 00:06:16,760
+00:06:13,327 --> 00:06:15,127
 Ustedes eligen el escenario.
 
-129
-00:06:16,760 --> 00:06:20,060
+128
+00:06:15,127 --> 00:06:18,387
 Nosotros arrancamos el siete de diciembre.
 

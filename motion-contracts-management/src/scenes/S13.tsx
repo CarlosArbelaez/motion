@@ -8,7 +8,7 @@ import { Counter } from "../motion";
 
 const ID = "s13";
 // Sección 6 de la propuesta v5.1. Semanas laborales corridas desde el lunes 7-dic-2026,
-// 2 AI Developers Specialist. Estimaciones preliminares.
+// 2 AI Developers Specialist. Estimaciones validadas con el Tech Lead; cubren solo el trabajo del equipo.
 const X0 = 430;
 const PXW = 26; // píxeles por semana
 const wx = (w: number) => X0 + w * PXW;
@@ -69,7 +69,7 @@ export const S13: React.FC = () => {
       id={ID}
       chapter={4}
       title="Cuánto tarda y cuánto cuesta cada escenario"
-      foot="USD 6.000 por persona al mes · el costo del MVP no incluye contingencia · sin consultas a BrewDat, API de Ariba, nube, licencias, modelos de IA, impuestos ni soporte"
+      foot="USD 6.000 por persona al mes · el costo del MVP no incluye contingencia · tampoco incluyen API de Ariba, nube, licencias, modelos de IA, impuestos ni soporte"
     >
       <svg style={{ position: "absolute", left: 0, top: 0, opacity: prog(t, startAt, 0.5) }} width={1920} height={1080}>
         {MONTHS.map(([m, w]) => (
@@ -137,11 +137,18 @@ export const S13: React.FC = () => {
         );
       })}
 
-      <Rise at={cue(ID, "Son estimaciones") - 0.1} y={12} style={{ position: "absolute", left: X0, top: 806 }}>
-        <Pill size={24} bg={C.ink} color={C.white}>
-          Estimaciones preliminares · Completo: Tech Lead · Lite: consultoría, por validar con el Tech Lead
-        </Pill>
-      </Rise>
+      <div style={{ position: "absolute", left: X0, top: 806, display: "flex", gap: 14 }}>
+        <Rise at={cue(ID, "Las tres estimaciones") - 0.1} y={12}>
+          <Pill size={24} bg={C.white} color={C.ink} border={C.ink}>
+            Estimaciones validadas con el Tech Lead
+          </Pill>
+        </Rise>
+        <Rise at={cue(ID, "Estos costos") - 0.1} y={12}>
+          <Pill size={24} bg={C.ink} color={C.white}>
+            Solo nuestro trabajo · no incluyen los costos de consultas en BrewDat
+          </Pill>
+        </Rise>
+      </div>
     </Shell>
   );
 };

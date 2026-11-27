@@ -9,14 +9,13 @@ import { DrawUnderline } from "../motion";
 const ID = "s15";
 // Lo más importante para avanzar: el Vo.Bo. (proceso y estimaciones) y la elección del escenario.
 const KEY = [
-  { at: cue(ID, "Primera"), h: "Vo.Bo. al proceso y a las estimaciones", d: "Las 7 fases, las reglas de la DAG 2026, los tres dueños, y los tiempos y costos de cada escenario." },
+  { at: cue(ID, "Primera"), h: "Vo.Bo. al proceso y a las estimaciones", d: "Las 7 fases, las reglas de la DAG 2026, los tres dueños, y los tiempos y costos de cada escenario, ya validados con el Tech Lead." },
   { at: cue(ID, "Segunda"), h: "Elegir el escenario", d: "Completo o Lite. Si es Lite, A o B según se confirme la API de SAP Ariba." },
 ];
 const DEFS = [
   { at: cue(ID, "Confirmar"), h: "SAP Ariba y HighQ", d: "Si hay API y qué permite; si HighQ guarda contratos." },
   { at: cue(ID, "Los datos en BrewDat"), h: "Datos en BrewDat", d: "Tablas de Ariba, PxQ y PDF originales, con un área responsable." },
-  { at: cue(ID, "Las reglas"), h: "Reglas de negocio", d: "Política de preaviso, commodities y herramienta de firma." },
-  { at: cue(ID, "Y la validación"), h: "Estimación del Lite", d: "El Tech Lead la valida antes de comprometer fechas." },
+  { at: cue(ID, "Y las reglas"), h: "Reglas de negocio", d: "Política de preaviso, commodities y herramienta de firma." },
 ];
 
 export const S15: React.FC = () => {
@@ -46,11 +45,11 @@ export const S15: React.FC = () => {
           </Rise>
         ))}
         <Rise exit={false} at={cue(ID, "Y para sostenerlas") - 0.1} y={10} style={{ position: "absolute", left: MX, top: 470 }}>
-          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 34, letterSpacing: -0.4 }}>Y cuatro definiciones para sostenerlas</div>
+          <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 34, letterSpacing: -0.4 }}>Y tres definiciones para sostenerlas</div>
         </Rise>
         {DEFS.map((d, i) => (
-          <Rise exit={false} key={d.h} at={d.at - 0.15} y={26} style={{ position: "absolute", left: MX + i * 432.5, top: 524 }}>
-            <div style={{ width: 402.5, height: 196, background: C.white, borderRadius: R.panel, boxSizing: "border-box", padding: "20px 24px" }}>
+          <Rise exit={false} key={d.h} at={d.at - 0.15} y={26} style={{ position: "absolute", left: MX + i * 576.67, top: 524 }}>
+            <div style={{ width: 546.67, height: 176, background: C.white, borderRadius: R.panel, boxSizing: "border-box", padding: "20px 24px" }}>
               <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 31, lineHeight: 1.1, letterSpacing: -0.4 }}>{d.h}</div>
               <div style={{ fontSize: 24, lineHeight: 1.24, marginTop: 8, color: C.text }}>{d.d}</div>
             </div>

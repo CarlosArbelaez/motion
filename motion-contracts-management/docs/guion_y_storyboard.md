@@ -1,7 +1,7 @@
 # Contract Management Tech — Guion y storyboard (To-Be v5.1)
 
 **Pieza:** motion graphic ejecutivo · 1920 × 1080 · 30 fps · español (voz de Colombia) con subtítulos.
-**Duración total: 6:23 (11494 frames a 30 fps)**
+**Duración total: 6:21 (11444 frames a 30 fps)**
 **Audiencia:** negocio, para el Vo.Bo. de la propuesta y la elección del escenario.
 **Estado de la iniciativa que comunica:** propuesta To-Be v5.1 para aprobación (no es un piloto ni una solución operativa).
 
@@ -15,9 +15,9 @@ en tiempo, costo y trabajo manual, y pide a negocio su Vo.Bo. y la elección del
 ## Decisiones editoriales acordadas
 
 - Los **tres escenarios se presentan por igual**; decide negocio.
-- Se **muestran los costos** y los tiempos, siempre como estimación preliminar.
+- Se **muestran los costos** y los tiempos. Las tres estimaciones están **validadas con el Tech Lead** (dato confirmado por el equipo después de la v5.1). Los costos cubren **solo el trabajo del equipo**: no incluyen los costos de consultas en BrewDat.
 - La duración no es restricción: prima que la información esté completa.
-- El cierre pide **Vo.Bo. al proceso y a las estimaciones** y **elegir el escenario**; después, cuatro definiciones.
+- El cierre pide **Vo.Bo. al proceso y a las estimaciones** y **elegir el escenario**; después, tres definiciones.
 - Se **nombran las herramientas** del Lite (sin logotipos).
 - Lite A depende de que SAP Ariba tenga una API que lea y escriba; si no, queda Lite B. **HighQ** va como definición pendiente.
 - Nombre de la plataforma del Completo: **«BrewContracts», propuesto y marcado «por validar»**. Solo aparece en pantalla
@@ -113,9 +113,9 @@ en tiempo, costo y trabajo manual, y pide a negocio su Vo.Bo. y la elección del
 
 ### 13. Tiempos y costos
 
-**Locución:** Cuánto tarda, y cuánto cuesta. Los tres arrancan el siete de diciembre, con dos personas dedicadas. El Completo: producto mínimo viable en la semana dieciséis. Todo el alcance, en treinta y tres semanas, hacia el veintitrés de julio, por noventa y un mil trescientos ochenta y cinco dólares. Lite A: producto mínimo viable en la semana trece. Todo el alcance, en veintidós semanas, hacia el siete de mayo, por sesenta mil novecientos veintitrés dólares. Lite B: producto mínimo viable en la semana doce. Todo el alcance, en veinte semanas, hacia el veintitrés de abril, por cincuenta y cinco mil trescientos ochenta y cinco dólares. Son estimaciones preliminares. La del Completo es del líder técnico. Las del Lite son de consultoría, y falta validarlas con él.
+**Locución:** Cuánto tarda, y cuánto cuesta. Los tres arrancan el siete de diciembre, con dos personas dedicadas. El Completo: producto mínimo viable en la semana dieciséis. Todo el alcance, en treinta y tres semanas, hacia el veintitrés de julio, por noventa y un mil trescientos ochenta y cinco dólares. Lite A: producto mínimo viable en la semana trece. Todo el alcance, en veintidós semanas, hacia el siete de mayo, por sesenta mil novecientos veintitrés dólares. Lite B: producto mínimo viable en la semana doce. Todo el alcance, en veinte semanas, hacia el veintitrés de abril, por cincuenta y cinco mil trescientos ochenta y cinco dólares. Las tres estimaciones están validadas con el líder técnico. Estos costos son únicamente de nuestro trabajo: no contemplan los costos de consultas en BrewDat.
 
-**En pantalla:** Tres barras desde el 7-dic-2026 con MVP, contingencia y resto; semanas, fecha de cierre y costo total de cada escenario; costo y fecha del MVP. Rótulo de estimación preliminar y exclusiones del costo.
+**En pantalla:** Tres barras desde el 7-dic-2026 con MVP, contingencia y resto; semanas, fecha de cierre y costo total de cada escenario; costo y fecha del MVP. Rótulos: estimaciones validadas con el Tech Lead; solo cubren el trabajo del equipo y no incluyen los costos de consultas en BrewDat.
 
 ### 14. Metas
 
@@ -125,8 +125,8 @@ en tiempo, costo y trabajo manual, y pide a negocio su Vo.Bo. y la elección del
 
 ### 15. Lo que necesitamos de negocio
 
-**Locución:** Para arrancar el siete de diciembre, necesitamos dos decisiones de negocio. Primera: su visto bueno al proceso y a las estimaciones. Segunda: elegir el escenario. Completo, o Lite. Y para sostenerlas, cuatro definiciones. Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos. Los datos en BrewDat: las tablas de Ariba, el PxQ y los contratos originales. Las reglas de negocio pendientes. Y la validación de la estimación del Lite con el líder técnico. Ustedes eligen el escenario. Nosotros arrancamos el siete de diciembre.
+**Locución:** Para arrancar el siete de diciembre, necesitamos dos decisiones de negocio. Primera: su visto bueno al proceso y a las estimaciones. Segunda: elegir el escenario. Completo, o Lite. Y para sostenerlas, tres definiciones. Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos. Los datos en BrewDat: las tablas de Ariba, el PxQ y los contratos originales. Y las reglas de negocio pendientes. Ustedes eligen el escenario. Nosotros arrancamos el siete de diciembre.
 
-**En pantalla:** Cierre amarillo: dos decisiones (Vo.Bo. al proceso y a las estimaciones; elegir el escenario) y cuatro definiciones (SAP Ariba y HighQ, datos en BrewDat, reglas de negocio, estimación del Lite).
+**En pantalla:** Cierre amarillo: dos decisiones (Vo.Bo. al proceso y a las estimaciones; elegir el escenario) y tres definiciones (SAP Ariba y HighQ, datos en BrewDat, reglas de negocio).
 
 Tiempos exactos por escena: `docs/tiempos.md`. Subtítulos: `docs/subtitulos.srt`.

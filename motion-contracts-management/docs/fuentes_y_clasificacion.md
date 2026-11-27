@@ -26,17 +26,19 @@ ningún escenario y el video tampoco.
 | 11 | Pasos automáticos: hoy 4 de 34 (12 %); Completo 58 de 93 (62 %); Lite A 60 de 93 (65 %); Lite B 56 de 93 (60 %) | Característica del diseño, no resultado medido |
 | 12 | MVP igual en los tres; 3 olas más en el Completo y 2 en el Lite; fuera de la cotización: PxQ–A360, aprobar la DAG en la solución, HighQ y herramienta de firma | Alcance propuesto |
 | 13 | Inicio 7-dic-2026 con 2 personas dedicadas | **Condición**: sujeta al Vo.Bo. |
-| 13 | Completo: 33 semanas, 23-jul-2027, USD 91.385; MVP semana 16, 26-mar-2027, USD 44.308 | **Estimación** preliminar (Tech Lead) |
-| 13 | Lite A: 22 semanas, 7-may-2027, USD 60.923; MVP semana 13, 5-mar-2027, USD 36.000 · Lite B: 20 semanas, 23-abr-2027, USD 55.385; MVP semana 12, 26-feb-2027, USD 33.231 | **Estimación** preliminar (consultoría, por validar con el Tech Lead) |
+| 13 | Completo: 33 semanas, 23-jul-2027, USD 91.385; MVP semana 16, 26-mar-2027, USD 44.308 | **Estimación** validada con el Tech Lead |
+| 13 | Lite A: 22 semanas, 7-may-2027, USD 60.923; MVP semana 13, 5-mar-2027, USD 36.000 · Lite B: 20 semanas, 23-abr-2027, USD 55.385; MVP semana 12, 26-feb-2027, USD 33.231 | **Estimación** validada con el Tech Lead (confirmado por el equipo después de la v5.1) |
 | 13 | USD 6.000 por persona al mes; el costo no incluye consultas a BrewDat, API de Ariba, nube, licencias, modelos de IA, impuestos ni soporte; el del MVP no incluye contingencia | Supuestos de la estimación |
 | 14 | 3→1 · ~26→1 · 2→0 · 100 % con PDF en Ariba · 0 vencidos sin decisión · 1 histórico | **Metas** |
 | 14 | No se prometen ahorros: no hay línea base | Declaración de las fuentes |
-| 15 | Vo.Bo. al proceso y a las estimaciones; elegir escenario; SAP Ariba y HighQ; datos en BrewDat; reglas de negocio; validar la estimación del Lite | Decisiones solicitadas |
+| 15 | Vo.Bo. al proceso y a las estimaciones; elegir escenario; SAP Ariba y HighQ; datos en BrewDat; reglas de negocio | Decisiones solicitadas |
 
 No hay **resultados medidos** en las fuentes y el video no presenta ninguno.
 
 ## Lo que no viene de las fuentes
 
+- **Estimaciones validadas con el Tech Lead** y **costos solo del trabajo del equipo (sin consultas en BrewDat)**:
+  confirmado por el responsable de la iniciativa después de la v5.1; la propuesta aún las describía como preliminares.
 - **«BrewContracts»**: nombre propuesto por el equipo del video para la plataforma del Completo; aparece marcado
   «Nombre propuesto · por validar».
 - **«Respuesta»** en lugar de «acuse» (término de las fuentes), por claridad.

@@ -1,6 +1,6 @@
 # Tiempos por escena
 
-Duración total: 6:23 (11494 frames a 30 fps)
+Duración total: 6:21 (11444 frames a 30 fps)
 
 | Escena | Título | Inicio | Fin | Duración |
 |---|---|---|---|---|
@@ -16,6 +16,6 @@ Duración total: 6:23 (11494 frames a 30 fps)
 | 10 | Escenarios Lite | 2:59 | 3:29 | 30.2 s |
 | 11 | Comparación | 3:29 | 3:57 | 28.0 s |
 | 12 | MVP y olas siguientes | 3:57 | 4:29 | 32.5 s |
-| 13 | Tiempos y costos | 4:29 | 5:15 | 45.7 s |
-| 14 | Metas | 5:15 | 5:45 | 29.8 s |
-| 15 | Lo que necesitamos de negocio | 5:45 | 6:23 | 37.7 s |
+| 13 | Tiempos y costos | 4:29 | 5:17 | 47.8 s |
+| 14 | Metas | 5:17 | 5:47 | 29.8 s |
+| 15 | Lo que necesitamos de negocio | 5:47 | 6:21 | 33.9 s |

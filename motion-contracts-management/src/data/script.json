@@ -69,7 +69,7 @@
     {
       "id": "s13",
       "title": "Tiempos y costos",
-      "vo": "Cuánto tarda, y cuánto cuesta. Los tres arrancan el siete de diciembre, con dos personas dedicadas. El Completo: producto mínimo viable en la semana dieciséis. Todo el alcance, en treinta y tres semanas, hacia el veintitrés de julio, por noventa y un mil trescientos ochenta y cinco dólares. Lite A: producto mínimo viable en la semana trece. Todo el alcance, en veintidós semanas, hacia el siete de mayo, por sesenta mil novecientos veintitrés dólares. Lite B: producto mínimo viable en la semana doce. Todo el alcance, en veinte semanas, hacia el veintitrés de abril, por cincuenta y cinco mil trescientos ochenta y cinco dólares. Son estimaciones preliminares. La del Completo es del líder técnico. Las del Lite son de consultoría, y falta validarlas con él."
+      "vo": "Cuánto tarda, y cuánto cuesta. Los tres arrancan el siete de diciembre, con dos personas dedicadas. El Completo: producto mínimo viable en la semana dieciséis. Todo el alcance, en treinta y tres semanas, hacia el veintitrés de julio, por noventa y un mil trescientos ochenta y cinco dólares. Lite A: producto mínimo viable en la semana trece. Todo el alcance, en veintidós semanas, hacia el siete de mayo, por sesenta mil novecientos veintitrés dólares. Lite B: producto mínimo viable en la semana doce. Todo el alcance, en veinte semanas, hacia el veintitrés de abril, por cincuenta y cinco mil trescientos ochenta y cinco dólares. Las tres estimaciones están validadas con el líder técnico. Estos costos son únicamente de nuestro trabajo: no contemplan los costos de consultas en BrewDat."
     },
     {
       "id": "s14",
@@ -79,7 +79,7 @@
     {
       "id": "s15",
       "title": "Lo que necesitamos de negocio",
-      "vo": "Para arrancar el siete de diciembre, necesitamos dos decisiones de negocio. Primera: su visto bueno al proceso y a las estimaciones. Segunda: elegir el escenario. Completo, o Lite. Y para sostenerlas, cuatro definiciones. Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos. Los datos en BrewDat: las tablas de Ariba, el PxQ y los contratos originales. Las reglas de negocio pendientes. Y la validación de la estimación del Lite con el líder técnico. Ustedes eligen el escenario. Nosotros arrancamos el siete de diciembre."
+      "vo": "Para arrancar el siete de diciembre, necesitamos dos decisiones de negocio. Primera: su visto bueno al proceso y a las estimaciones. Segunda: elegir el escenario. Completo, o Lite. Y para sostenerlas, tres definiciones. Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos. Los datos en BrewDat: las tablas de Ariba, el PxQ y los contratos originales. Y las reglas de negocio pendientes. Ustedes eligen el escenario. Nosotros arrancamos el siete de diciembre."
     }
   ],
   "version": "To-Be v5.1"

@@ -76,7 +76,7 @@ const SFX: Sfx[] = [
   ...at("s13", ["noventa y un mil", "sesenta mil", "cincuenta y cinco mil"], "ding", 0.1),
   ...at("s14", ["De tres", "De veintiséis", "De dos personas", "Todos los contratos", "Ningún contrato", "Y un solo histórico"], "pop", 0.15, -0.15),
   ...at("s15", ["Primera", "Segunda"], "thud", 0.2, -0.15),
-  ...at("s15", ["Confirmar", "Los datos en BrewDat", "Las reglas", "Y la validación"], "pop", 0.16, -0.15),
+  ...at("s15", ["Confirmar", "Los datos en BrewDat", "Y las reglas"], "pop", 0.16, -0.15),
   ...at("s15", ["Ustedes eligen"], "chime", 0.24, 1.1),
 ];
 
