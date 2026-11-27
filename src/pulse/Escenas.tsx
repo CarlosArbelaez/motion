@@ -111,7 +111,8 @@ export const PillIniciativa: React.FC<{ guion: GuionPill; indice: number; moment
           <BloqueCifra rotulo={r.problema} cifra={it.problemaCifra} texto={it.problema} color={tinta} rotuloColor={gris} desde={problemaEn - 4} />
         </Turno>
         <Turno hasta={impactoEn - 11}>
-          <BloqueTexto rotulo={r.solucion} texto={it.solucion} color={tinta} rotuloColor={gris} desde={solucionEn - 3} />
+          {/* Las frases largas bajan de tamaño para no invadir la franja de subtítulos */}
+          <BloqueTexto rotulo={r.solucion} texto={it.solucion} color={tinta} rotuloColor={gris} desde={solucionEn - 3} size={it.solucion.length > 50 ? 100 : 124} />
         </Turno>
         <Turno>
           <BloqueImpacto rotulo={r.impacto} it={it} desde={impactoEn - 4} />

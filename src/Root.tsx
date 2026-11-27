@@ -5,6 +5,7 @@ import { Pulso, TOTAL, FPS } from "./Pulso";
 import { MotionProGallery } from "./motion/Gallery";
 import { filmstripOf } from "./motion";
 import { Pill, FPS_PILL, totalDe } from "./pulse/Pill";
+import { PILL_IDS } from "./pulse/datos";
 import { guion } from "./guion";
 import { Escena1Gancho } from "./scenes/Escena1Gancho";
 import { Escena2Numeros } from "./scenes/Escena2Numeros";
@@ -42,8 +43,12 @@ export const RemotionRoot: React.FC = () => {
       <MotionProGallery />
       <Composition id="Pulso" component={Pulso} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: true, conMusica: true }} {...V} />
       {/* Brew AI Pulse 2026: una composición por pill */}
-      <Composition id="Pulse-MarketingRevenue" component={Pill} durationInFrames={totalDe("marketing-revenue")} fps={FPS_PILL} defaultProps={{ id: "marketing-revenue", conVoz: true, conMusica: true, conSubtitulos: true }} {...V} />
-      <Composition id="Pulse-MarketingRevenue-review" component={filmstripOf(Pill)} durationInFrames={totalDe("marketing-revenue")} fps={FPS_PILL} defaultProps={{ id: "marketing-revenue", conVoz: false, conMusica: false, conSubtitulos: true }} {...V} />
+      {PILL_IDS.map((id) => (
+        <Composition key={id} id={`Pulse-${id}`} component={Pill} durationInFrames={totalDe(id)} fps={FPS_PILL} defaultProps={{ id, conVoz: true, conMusica: true, conSubtitulos: true }} {...V} />
+      ))}
+      {PILL_IDS.map((id) => (
+        <Composition key={id} id={`Pulse-${id}-review`} component={filmstripOf(Pill)} durationInFrames={totalDe(id)} fps={FPS_PILL} defaultProps={{ id, conVoz: false, conMusica: false, conSubtitulos: true }} {...V} />
+      ))}
       <Composition id="Pulso-review" component={filmstripOf(Pulso)} durationInFrames={TOTAL} fps={FPS} defaultProps={{ conVoz: false, conMusica: false }} {...V} />
       <Still id="Frame1-Gancho" component={G1} {...V} />
       <Still id="Frame2-Numeros" component={G2} defaultProps={{ indice: 1 }} {...V} />

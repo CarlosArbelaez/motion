@@ -56,13 +56,13 @@ export const BloqueCifra: React.FC<{ rotulo: string; cifra: string; texto: strin
 };
 
 // Solución: una frase grande, sola en pantalla.
-export const BloqueTexto: React.FC<{ rotulo: string; texto: string; color: string; rotuloColor: string; desde: number }> = ({ rotulo, texto, color, rotuloColor, desde }) => {
+export const BloqueTexto: React.FC<{ rotulo: string; texto: string; color: string; rotuloColor: string; desde: number; size?: number }> = ({ rotulo, texto, color, rotuloColor, desde, size = 124 }) => {
   const L = useLayout();
   return (
     <div>
       <Rotulo texto={rotulo} color={rotuloColor} desde={desde - 4} />
       <Sube desde={desde} dur={16} style={{ marginTop: 44 * L.u }}>
-        <div style={{ ...titular, fontSize: L.px(124), lineHeight: 1, letterSpacing: "-0.02em", color, textWrap: "balance" }}>{texto}</div>
+        <div style={{ ...titular, fontSize: L.px(size), lineHeight: 1, letterSpacing: "-0.02em", color, textWrap: "balance" }}>{texto}</div>
       </Sube>
     </div>
   );
