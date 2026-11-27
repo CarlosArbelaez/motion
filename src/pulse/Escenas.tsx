@@ -74,7 +74,7 @@ const BloqueImpacto: React.FC<{ rotulo: string; it: Iniciativa; desde: number }>
             <div style={{ ...apoyo, fontSize: L.px(60), lineHeight: 1.1, color: negro }}>{it.impacto}</div>
           </Sube>
         ) : null}
-        <div style={{ marginTop: 34 * L.u, borderTop: `${5 * L.u}px solid ${negro}` }}>
+        <div style={{ marginTop: 34 * L.u, borderTop: it.extras.length ? `${5 * L.u}px solid ${negro}` : undefined }}>
           {it.extras.map((x, i) => (
             <Sube key={x} desde={desde + 20 + i * 9} dur={14} style={{ marginTop: 26 * L.u }}>
               <div style={{ ...titular, fontSize: L.px(66), lineHeight: 1.04, letterSpacing: "-0.015em", color: negro, textWrap: "balance" }}>{x}</div>

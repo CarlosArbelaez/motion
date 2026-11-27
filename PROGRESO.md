@@ -86,3 +86,4 @@ Composición `Pulso` en `src/Pulso.tsx`; tiempos y momentos de cada frase en `da
 - Fuente de contenido: `output/BrewAI_Pulse_2026_recopilacion_v4.xlsx` (9 pills, 31 iniciativas; 13 documentadas).
 - Código: `src/pulse/` (escenas y composición), `scripts/pulse.py <id>` (voz y tiempos), `scripts/musica.py <tiempos> <salida>`.
 - Pill piloto entregada: Marketing & Revenue (`review/pulse-marketing-revenue-v1.mp4`, 65,6 s). Pendiente: aprobación del formato.
+- 27 nov: formato de la pill piloto aprobado. Datos listos para Commercial & Martech y Finance (`data/pulse/`). BLOQUEO: se agotó la cuota de ElevenLabs (quedan 158 créditos). Voz ya descargada: intros de ambas y Label Hub. Faltan 5 clips: CCI Synapse, Modeloramas, ATR Intercompany, Tokens, Tornaguías (≈1.375 créditos por toma).
