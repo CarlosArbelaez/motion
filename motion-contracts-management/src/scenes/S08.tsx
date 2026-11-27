@@ -4,6 +4,7 @@ import { Rise } from "../lib/anim";
 import { cue } from "../lib/timing";
 import { MX, Shell } from "../components/ui";
 import { Flag } from "../components/Flag";
+import { Highlight } from "../motion";
 
 const ID = "s08";
 const SCENARIOS = [
@@ -61,7 +62,10 @@ export const S08: React.FC = () => (
         </div>
         <div>
           <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 34, letterSpacing: -0.4, lineHeight: 1.1 }}>
-            Definición pendiente: ¿SAP Ariba tiene una API que lea y escriba?
+            <Highlight color={C.yellow} delay={cue(ID, "Lite A solo es posible") + 0.45} duration={0.5}>
+              <span style={{ color: C.ink }}>Definición pendiente</span>
+            </Highlight>{" "}
+            ¿SAP Ariba tiene una API que lea y escriba?
           </div>
           <div style={{ fontSize: 25, color: "rgba(255,255,255,0.82)", marginTop: 4 }}>De eso depende Lite A. Si no existe, queda Lite B.</div>
         </div>

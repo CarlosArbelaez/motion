@@ -7,6 +7,7 @@ import { S01 } from "./scenes/S01";
 import { S02 } from "./scenes/S02";
 import { S03 } from "./scenes/S03";
 import { S04 } from "./scenes/S04";
+import { EASE, Sfx } from "./motion";
 import { ARRIVE, S05 } from "./scenes/S05";
 import { S06 } from "./scenes/S06";
 import { S07 } from "./scenes/S07";
@@ -93,6 +94,18 @@ const Music: React.FC = () => {
   return <Audio src={staticFile("assets/audio/music.mp3")} volume={volume} />;
 };
 
+// Cambio de capítulo: una cortina amarilla de marca cubre el corte y descubre la escena nueva.
+// No altera los tiempos de las escenas (la locución sigue anclada).
+const CHAPTER_STARTS = ["s02", "s04", "s08", "s12", "s15"];
+const WIPE = 11; // frames por mitad
+const ChapterWipe: React.FC<{ at: number }> = ({ at }) => {
+  const frame = useCurrentFrame();
+  const cover = interpolate(frame, [at - WIPE, at], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: EASE.inOutExpo });
+  const reveal = interpolate(frame, [at + 1, at + 1 + WIPE], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: EASE.inOutExpo });
+  if (cover <= 0 || reveal >= 1) return null;
+  return <AbsoluteFill style={{ background: "#f5e003", clipPath: `inset(0% ${(1 - cover) * 100}% 0% ${reveal * 100}%)` }} />;
+};
+
 export const ContractsVideo: React.FC<{ showCaptions: boolean }> = ({ showCaptions }) => {
   const { fps } = useVideoConfig();
   return (
@@ -112,15 +125,25 @@ export const ContractsVideo: React.FC<{ showCaptions: boolean }> = ({ showCaptio
           </Sequence>
         );
       })}
-      {SCENES.slice(1).map((s) => (
-        <Sequence key={`w-${s.id}`} name="Transición" from={Math.max(0, sceneStartFrame(s.id) - 6)} durationInFrames={30} layout="none">
-          <Audio src={staticFile("assets/audio/whoosh.wav")} volume={0.16} />
-        </Sequence>
-      ))}
+      {SCENES.slice(1).map((s) => {
+        const chapter = CHAPTER_STARTS.includes(s.id);
+        return (
+          <Sfx
+            key={`w-${s.id}`}
+            src={chapter ? "sfx/transition-deep.wav" : "sfx/slide-soft.wav"}
+            at={sceneStartFrame(s.id)}
+            lead={chapter ? 8 : 3}
+            volume={chapter ? 0.3 : 0.14}
+          />
+        );
+      })}
       {SFX.filter(([id]) => SCENE_COMPONENTS[id]).map(([id, sec, file, vol], i) => (
         <Sequence key={i} name={`sfx ${file}`} from={sceneStartFrame(id) + Math.round(sec * fps)} durationInFrames={50} layout="none">
           <Audio src={staticFile(`assets/audio/${file}.wav`)} volume={vol} />
         </Sequence>
+      ))}
+      {CHAPTER_STARTS.map((id) => (
+        <ChapterWipe key={id} at={sceneStartFrame(id)} />
       ))}
       <Music />
     </AbsoluteFill>

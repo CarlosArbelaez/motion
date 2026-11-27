@@ -1,7 +1,8 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { C, FONT, R } from "../theme";
-import { prog, Rise, useSec } from "../lib/anim";
+import { MaskRise, prog, Rise, useSec } from "../lib/anim";
+import { Drift } from "../motion";
 import { captionsOf, sceneSeconds } from "../lib/timing";
 
 export const W = 1920;
@@ -20,7 +21,7 @@ export const Shell: React.FC<{
 }> = ({ id, chapter, title, foot, children }) => {
   const t = useSec();
   const total = sceneSeconds(id);
-  const fade = Math.min(prog(t, 0, 0.45), 1 - prog(t, total - 0.35, 0.35));
+  const fade = Math.min(prog(t, 0, 0.3), 1 - prog(t, total - 0.2, 0.2));
   return (
     <AbsoluteFill style={{ background: C.bg, fontFamily: FONT.body, color: C.ink }}>
       <div style={{ position: "absolute", left: MX, top: 54, display: "flex", gap: 10, alignItems: "center" }}>
@@ -44,12 +45,14 @@ export const Shell: React.FC<{
         Contract Management Tech
       </div>
       <AbsoluteFill style={{ opacity: fade }}>
-        <Rise at={0.1} y={18} style={{ position: "absolute", left: MX, top: 128, width: 1700 }}>
+        <MaskRise at={0.08} style={{ position: "absolute", left: MX, top: 128, width: 1700 }}>
           <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 60, lineHeight: 1.1, letterSpacing: -1.2 }}>
             {title}
           </div>
-        </Rise>
-        {children}
+        </MaskRise>
+        <Drift to={1.012} style={{ position: "absolute", inset: 0, transformOrigin: `${MX}px 45%` }}>
+          {children}
+        </Drift>
         {foot ? (
           <Rise at={0.8} y={0} style={{ position: "absolute", left: MX, top: 876, width: 1700 }}>
             <div style={{ fontSize: 22, color: C.mute }}>{foot}</div>

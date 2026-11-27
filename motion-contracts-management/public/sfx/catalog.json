@@ -1,0 +1,177 @@
+[
+  {
+    "name": "whoosh-short",
+    "type": "sfx",
+    "category": "swoosh",
+    "seconds": 0.4,
+    "src": "sfx/whoosh-short.wav"
+  },
+  {
+    "name": "whoosh-long",
+    "type": "sfx",
+    "category": "swoosh",
+    "seconds": 0.8,
+    "src": "sfx/whoosh-long.wav"
+  },
+  {
+    "name": "whoosh-airy",
+    "type": "sfx",
+    "category": "swoosh",
+    "seconds": 0.55,
+    "src": "sfx/whoosh-airy.wav"
+  },
+  {
+    "name": "swish-fast",
+    "type": "sfx",
+    "category": "transition",
+    "seconds": 0.22,
+    "src": "sfx/swish-fast.wav"
+  },
+  {
+    "name": "whip",
+    "type": "sfx",
+    "category": "transition",
+    "seconds": 0.3,
+    "src": "sfx/whip.wav"
+  },
+  {
+    "name": "transition-deep",
+    "type": "sfx",
+    "category": "transition",
+    "seconds": 0.7,
+    "src": "sfx/transition-deep.wav"
+  },
+  {
+    "name": "slide-soft",
+    "type": "sfx",
+    "category": "slide",
+    "seconds": 0.35,
+    "src": "sfx/slide-soft.wav"
+  },
+  {
+    "name": "slide-paper",
+    "type": "sfx",
+    "category": "slide",
+    "seconds": 0.3,
+    "src": "sfx/slide-paper.wav"
+  },
+  {
+    "name": "pop",
+    "type": "sfx",
+    "category": "pop",
+    "seconds": 0.14,
+    "src": "sfx/pop.wav"
+  },
+  {
+    "name": "pop-soft",
+    "type": "sfx",
+    "category": "pop",
+    "seconds": 0.16,
+    "src": "sfx/pop-soft.wav"
+  },
+  {
+    "name": "pop-bubble",
+    "type": "sfx",
+    "category": "pop",
+    "seconds": 0.13,
+    "src": "sfx/pop-bubble.wav"
+  },
+  {
+    "name": "click",
+    "type": "sfx",
+    "category": "click",
+    "seconds": 0.03,
+    "src": "sfx/click.wav"
+  },
+  {
+    "name": "tap",
+    "type": "sfx",
+    "category": "click",
+    "seconds": 0.07,
+    "src": "sfx/tap.wav"
+  },
+  {
+    "name": "key",
+    "type": "sfx",
+    "category": "click",
+    "seconds": 0.05,
+    "src": "sfx/key.wav"
+  },
+  {
+    "name": "ui-beep",
+    "type": "sfx",
+    "category": "ui",
+    "seconds": 0.1,
+    "src": "sfx/ui-beep.wav"
+  },
+  {
+    "name": "ui-confirm",
+    "type": "sfx",
+    "category": "ui",
+    "seconds": 0.24,
+    "src": "sfx/ui-confirm.wav"
+  },
+  {
+    "name": "boom",
+    "type": "sfx",
+    "category": "boom",
+    "seconds": 1.5,
+    "src": "sfx/boom.wav"
+  },
+  {
+    "name": "hit",
+    "type": "sfx",
+    "category": "boom",
+    "seconds": 0.6,
+    "src": "sfx/hit.wav"
+  },
+  {
+    "name": "bass-drop",
+    "type": "sfx",
+    "category": "bass",
+    "seconds": 0.9,
+    "src": "sfx/bass-drop.wav"
+  },
+  {
+    "name": "riser",
+    "type": "sfx",
+    "category": "approach",
+    "seconds": 1.5,
+    "src": "sfx/riser.wav"
+  },
+  {
+    "name": "riser-short",
+    "type": "sfx",
+    "category": "approach",
+    "seconds": 0.7,
+    "src": "sfx/riser-short.wav"
+  },
+  {
+    "name": "glitch",
+    "type": "sfx",
+    "category": "glitch",
+    "seconds": 0.4,
+    "src": "sfx/glitch.wav"
+  },
+  {
+    "name": "glitch-short",
+    "type": "sfx",
+    "category": "glitch",
+    "seconds": 0.15,
+    "src": "sfx/glitch-short.wav"
+  },
+  {
+    "name": "shimmer",
+    "type": "sfx",
+    "category": "glitter",
+    "seconds": 1,
+    "src": "sfx/shimmer.wav"
+  },
+  {
+    "name": "ding",
+    "type": "sfx",
+    "category": "glitter",
+    "seconds": 0.9,
+    "src": "sfx/ding.wav"
+  }
+]

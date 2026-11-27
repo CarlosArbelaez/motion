@@ -14,9 +14,11 @@
     "@remotion/google-fonts": "4.0.543",
     "@remotion/media": "4.0.543",
     "@remotion/transitions": "4.0.543",
+    "motion": "^14.14.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "remotion": "4.0.543"
+    "remotion": "4.0.543",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.543",

@@ -4,6 +4,7 @@ import { lin, prog, Rise, useSec } from "../lib/anim";
 import { cue } from "../lib/timing";
 import { MX, Pill, Shell } from "../components/ui";
 import { Flag } from "../components/Flag";
+import { Counter } from "../motion";
 
 const ID = "s13";
 // Sección 6 de la propuesta v5.1. Semanas laborales corridas desde el lunes 7-dic-2026,
@@ -20,7 +21,7 @@ const MONTHS: [string, number][] = [
   ["jun", 25.14],
   ["jul", 29.43],
 ];
-type Row = { y: number; name: string; sub: string; flag?: boolean; at: number; mvp: number; c1: number; post: number; c2: number; mvpAt: number; totAt: number; costAt: number; mvpTxt: string; totTxt: string; cost: string };
+type Row = { y: number; name: string; sub: string; flag?: boolean; at: number; mvp: number; c1: number; post: number; c2: number; mvpAt: number; totAt: number; costAt: number; mvpTxt: string; totTxt: string; cost: number };
 const ROWS: Row[] = [
   {
     y: 350,
@@ -31,7 +32,7 @@ const ROWS: Row[] = [
     mvpAt: cue(ID, "semana dieciséis"), totAt: cue(ID, "treinta y tres semanas"), costAt: cue(ID, "noventa y un mil"),
     mvpTxt: "MVP: semana 16 · 26-mar-2027 · USD 44.308",
     totTxt: "33 semanas · hasta el 23-jul-2027",
-    cost: "USD 91.385",
+    cost: 91385,
   },
   {
     y: 510,
@@ -43,7 +44,7 @@ const ROWS: Row[] = [
     mvpAt: cue(ID, "semana trece"), totAt: cue(ID, "veintidós semanas"), costAt: cue(ID, "sesenta mil"),
     mvpTxt: "MVP: semana 13 · 5-mar-2027 · USD 36.000",
     totTxt: "22 semanas · hasta el 7-may-2027",
-    cost: "USD 60.923",
+    cost: 60923,
   },
   {
     y: 670,
@@ -54,7 +55,7 @@ const ROWS: Row[] = [
     mvpAt: cue(ID, "semana doce"), totAt: cue(ID, "veinte semanas"), costAt: cue(ID, "cincuenta y cinco mil"),
     mvpTxt: "MVP: semana 12 · 26-feb-2027 · USD 33.231",
     totTxt: "20 semanas · hasta el 23-abr-2027",
-    cost: "USD 55.385",
+    cost: 55385,
   },
 ];
 const BH = 50;
@@ -128,7 +129,9 @@ export const S13: React.FC = () => {
               <div style={{ fontSize: 24, fontWeight: 500, color: C.text, fontVariantNumeric: "tabular-nums" }}>{r.totTxt}</div>
             </div>
             <div style={{ position: "absolute", left: 1330, top: r.y + 24, width: 480, opacity: costP, translate: `0px ${8 * (1 - costP)}px` }}>
-              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 54, letterSpacing: -1.5, lineHeight: 1.05, fontVariantNumeric: "tabular-nums" }}>{r.cost}</div>
+              <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 54, letterSpacing: -1.5, lineHeight: 1.05, fontVariantNumeric: "tabular-nums" }}>
+                <Counter to={r.cost} prefix="USD " delay={r.costAt - 0.1} duration={1.3} locale="de-DE" />
+              </div>
             </div>
           </React.Fragment>
         );
