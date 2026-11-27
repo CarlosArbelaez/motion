@@ -411,102 +411,98 @@ Lite B: producto mínimo viable en la semana doce.
 Todo el alcance, en veinte semanas, hacia el veintitrés de abril,
 
 104
-00:05:05,087 --> 00:05:08,527
+00:05:05,087 --> 00:05:08,877
 por cincuenta y cinco mil trescientos ochenta y cinco dólares.
 
 105
-00:05:08,527 --> 00:05:11,727
-Las tres estimaciones están validadas con el líder técnico.
-
-106
-00:05:11,727 --> 00:05:14,527
+00:05:08,877 --> 00:05:11,677
 Estos costos son únicamente de nuestro trabajo:
 
-107
-00:05:14,527 --> 00:05:17,747
+106
+00:05:11,677 --> 00:05:14,897
 no contemplan los costos de consultas en BrewDat.
 
-108
-00:05:18,120 --> 00:05:21,240
+107
+00:05:15,287 --> 00:05:18,407
 Con cualquiera de los tres, estas son las metas.
 
-109
-00:05:21,240 --> 00:05:24,040
+108
+00:05:18,407 --> 00:05:21,207
 De tres capturas del mismo dato, a una.
 
-110
-00:05:24,040 --> 00:05:27,000
+109
+00:05:21,207 --> 00:05:24,167
 De veintiséis correos, a una sola alerta.
 
-111
-00:05:27,000 --> 00:05:31,160
+110
+00:05:24,167 --> 00:05:28,327
 De dos personas imprescindibles para mantener la base, a ninguna.
 
-112
-00:05:31,160 --> 00:05:34,520
+111
+00:05:28,327 --> 00:05:31,687
 Todos los contratos vigentes con su PDF en Ariba.
 
-113
-00:05:34,520 --> 00:05:37,160
+112
+00:05:31,687 --> 00:05:34,327
 Ningún contrato vencido sin decisión.
 
-114
-00:05:37,160 --> 00:05:41,240
+113
+00:05:34,327 --> 00:05:38,407
 Y un solo histórico con todas las aprobaciones y decisiones.
 
-115
-00:05:41,240 --> 00:05:44,520
+114
+00:05:38,407 --> 00:05:41,687
 Los ahorros en horas y en dinero se medirán desde el arranque,
 
-116
-00:05:44,520 --> 00:05:47,500
+115
+00:05:41,687 --> 00:05:44,667
 porque hoy no existe una línea base.
 
-117
-00:05:47,887 --> 00:05:49,687
+116
+00:05:45,053 --> 00:05:46,853
 Para arrancar el siete de diciembre,
 
-118
-00:05:49,687 --> 00:05:52,207
+117
+00:05:46,853 --> 00:05:49,373
 necesitamos dos decisiones de negocio.
 
-119
-00:05:52,207 --> 00:05:55,647
+118
+00:05:49,373 --> 00:05:52,813
 Primera: su visto bueno al proceso y a las estimaciones.
 
-120
-00:05:55,647 --> 00:05:57,727
+119
+00:05:52,813 --> 00:05:54,893
 Segunda: elegir el escenario.
 
-121
-00:05:57,727 --> 00:05:59,167
+120
+00:05:54,893 --> 00:05:56,333
 Completo, o Lite.
 
-122
-00:05:59,167 --> 00:06:01,727
+121
+00:05:56,333 --> 00:05:58,893
 Y para sostenerlas, tres definiciones.
 
-123
-00:06:01,727 --> 00:06:06,287
+122
+00:05:58,893 --> 00:06:03,453
 Confirmar si SAP Ariba tiene una API, y si HighQ guarda contratos.
 
-124
-00:06:06,287 --> 00:06:07,727
+123
+00:06:03,453 --> 00:06:04,893
 Los datos en BrewDat:
 
-125
-00:06:07,727 --> 00:06:11,354
+124
+00:06:04,893 --> 00:06:08,520
 las tablas de Ariba, el PxQ y los contratos originales.
 
-126
-00:06:11,354 --> 00:06:13,327
+125
+00:06:08,520 --> 00:06:10,493
 Y las reglas de negocio pendientes.
 
-127
-00:06:13,327 --> 00:06:15,127
+126
+00:06:10,493 --> 00:06:12,293
 Ustedes eligen el escenario.
 
-128
-00:06:15,127 --> 00:06:18,387
+127
+00:06:12,293 --> 00:06:15,553
 Nosotros arrancamos el siete de diciembre.
 

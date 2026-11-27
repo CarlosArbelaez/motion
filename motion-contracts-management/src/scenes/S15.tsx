@@ -9,7 +9,7 @@ import { DrawUnderline } from "../motion";
 const ID = "s15";
 // Lo más importante para avanzar: el Vo.Bo. (proceso y estimaciones) y la elección del escenario.
 const KEY = [
-  { at: cue(ID, "Primera"), h: "Vo.Bo. al proceso y a las estimaciones", d: "Las 7 fases, las reglas de la DAG 2026, los tres dueños, y los tiempos y costos de cada escenario, ya validados con el Tech Lead." },
+  { at: cue(ID, "Primera"), h: "Vo.Bo. al proceso y a las estimaciones", d: "Las 7 fases, las reglas de la DAG 2026, los tres dueños, y los tiempos y costos de cada escenario." },
   { at: cue(ID, "Segunda"), h: "Elegir el escenario", d: "Completo o Lite. Si es Lite, A o B según se confirme la API de SAP Ariba." },
 ];
 const DEFS = [

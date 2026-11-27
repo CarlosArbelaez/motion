@@ -8,7 +8,7 @@ import { Counter } from "../motion";
 
 const ID = "s13";
 // Sección 6 de la propuesta v5.1. Semanas laborales corridas desde el lunes 7-dic-2026,
-// 2 AI Developers Specialist. Estimaciones validadas con el Tech Lead; cubren solo el trabajo del equipo.
+// 2 AI Developers Specialist. Los costos cubren solo el trabajo del equipo.
 const X0 = 430;
 const PXW = 26; // píxeles por semana
 const wx = (w: number) => X0 + w * PXW;
@@ -138,11 +138,6 @@ export const S13: React.FC = () => {
       })}
 
       <div style={{ position: "absolute", left: X0, top: 806, display: "flex", gap: 14 }}>
-        <Rise at={cue(ID, "Las tres estimaciones") - 0.1} y={12}>
-          <Pill size={24} bg={C.white} color={C.ink} border={C.ink}>
-            Estimaciones validadas con el Tech Lead
-          </Pill>
-        </Rise>
         <Rise at={cue(ID, "Estos costos") - 0.1} y={12}>
           <Pill size={24} bg={C.ink} color={C.white}>
             Solo nuestro trabajo · no incluyen los costos de consultas en BrewDat
