@@ -48,7 +48,7 @@ export const S10: React.FC = () => {
           </div>
         </Card>
       </Rise>
-      <Rise at={cue(ID, "y otra los valida") + 0.6} y={22} style={{ position: "absolute", left: MX + 865, top: 628 }}>
+      <Rise at={cue(ID, "una persona captura") + 0.3} y={22} style={{ position: "absolute", left: MX + 865, top: 628 }}>
         <Card style={{ width: 835, height: 216, padding: "22px 28px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 27, lineHeight: 1.24 }}>
             <b style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 32 }}>Lite A</b>
