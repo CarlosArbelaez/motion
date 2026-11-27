@@ -34,7 +34,7 @@ const SCENARIOS = [
 export const S08: React.FC = () => (
   <Shell id={ID} chapter={3} title="Un mismo proceso, tres formas de construirlo">
     {SCENARIOS.map((s, i) => (
-      <Rise key={s.name} at={s.at - 0.15} y={34} style={{ position: "absolute", left: MX + i * 580, top: 286 }}>
+      <Rise key={s.name} at={cue(ID, "tres formas") - 0.1 + i * 0.12} y={34} style={{ position: "absolute", left: MX + i * 580, top: 286 }}>
         <div style={{ width: 540, height: 430, background: C.white, border: `2px solid ${C.line}`, borderRadius: R.card, boxSizing: "border-box", padding: "28px 32px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 56, letterSpacing: -1.5, lineHeight: 1 }}>{s.name}</div>
@@ -44,6 +44,7 @@ export const S08: React.FC = () => (
               </div>
             ) : null}
           </div>
+          <Rise at={s.at - 0.15} y={10} exit={false}>
           <div style={{ fontSize: 26, fontWeight: 500, color: C.ink, marginTop: 10, lineHeight: 1.2, height: 64 }}>{s.sub}</div>
           <div style={{ borderTop: `2px solid ${C.line}`, marginTop: 14, paddingTop: 16, display: "flex", flexDirection: "column", gap: 12 }}>
             {s.items.map((it) => (
@@ -52,6 +53,7 @@ export const S08: React.FC = () => (
               </div>
             ))}
           </div>
+          </Rise>
         </div>
       </Rise>
     ))}

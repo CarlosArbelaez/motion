@@ -3,6 +3,16 @@ import { C, FONT, R } from "../theme";
 import { lin, prog, Rise, useSec } from "../lib/anim";
 import { cue } from "../lib/timing";
 import { Check, ContractIcon, MX, Pill, Shell } from "../components/ui";
+import { blend, EASE } from "../motion";
+import { interpolate } from "remotion";
+
+const CL = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+/** Cambio suave 0→1 alrededor de `at` (para estados que antes cambiaban de golpe). */
+const soft = (t: number, at: number, dur = 0.35) => interpolate(t, [at, at + dur], [0, 1], { ...CL, easing: EASE.inOut });
+const cardBg = blend([0, 1], [C.white, C.yellow]);
+const cardLine = blend([0, 1], [C.line, C.ink]);
+const headBg = blend([0, 1], [C.panel, C.ink]);
+const headFg = blend([0, 1], [C.text, C.white]);
 
 const ID = "s05";
 const CW = 224;
@@ -19,7 +29,7 @@ const PHASES = [
 ];
 const BLOCKS = [
   { name: "Bloque 1 · Formalizar", from: 0, to: 2, start: cue(ID, "formaliza"), end: cue(ID, "Luego") },
-  { name: "Bloque 2 · Registrar", from: 3, to: 4, start: cue(ID, "registra"), end: cue(ID, "Y después") },
+  { name: "Bloque 2 · Registrar", from: 3, to: 4, start: cue(ID, "se registra"), end: cue(ID, "Y después") },
   { name: "Bloque 3 · Vigilar y renovar", from: 5, to: 6, start: cue(ID, "vigila"), end: cue(ID, "Si el servicio") },
 ];
 // Momento en que el contrato llega a cada fase (repartido dentro de la locución de su bloque).
@@ -43,17 +53,22 @@ const TRACK = TOP + CH + 52;
 
 export const S05: React.FC = () => {
   const t = useSec();
-  const loopAt = cue(ID, "vuelve");
+  const loopAt = cue(ID, "Si el servicio") + 0.2;
   let idx = -1;
   ARRIVE.forEach((a, i) => {
     if (t >= a) idx = i;
   });
   // Posición del contrato sobre el riel
-  let x = cx(0) + CW / 2;
-  for (let i = 1; i < 7; i++) x += (CW + CG) * prog(t, ARRIVE[i] - 0.35, 0.6);
-  const back = prog(t, loopAt, 1.0);
-  x = x + (cx(0) + CW / 2 - x) * back;
-  const loop = lin(t, loopAt, 1.0);
+  const X0 = cx(0) + CW / 2;
+  let x = X0;
+  for (let i = 1; i < 7; i++) x += (CW + CG) * interpolate(t, [ARRIVE[i] - 0.55, ARRIVE[i] + 0.15], [0, 1], { ...CL, easing: EASE.inOut });
+  const trail = x; // el riel se pinta hasta donde va el contrato
+  // Retorno: el contrato sale en la fase 7, la línea de arriba se dibuja y el contrato reaparece en la fase 1.
+  const leave = soft(t, loopAt, 0.3);
+  const loop = interpolate(t, [loopAt + 0.1, loopAt + 1.3], [0, 1], { ...CL, easing: EASE.inOut });
+  const arrive = soft(t, loopAt + 1.25, 0.35);
+  if (arrive > 0) x = X0;
+  void lin;
   return (
     <Shell
       id={ID}
@@ -79,15 +94,15 @@ export const S05: React.FC = () => {
           strokeWidth={4}
           strokeLinecap="round"
           strokeLinejoin="round"
-          opacity={prog(t, loopAt + 0.9, 0.2)}
+          opacity={soft(t, loopAt + 1.15, 0.2)}
         />
       </svg>
-      <Rise at={loopAt + 0.1} y={8} style={{ position: "absolute", left: 560, top: 268, width: 800, textAlign: "center" }}>
+      <Rise at={loopAt} y={8} style={{ position: "absolute", left: 560, top: 268, width: 800, textAlign: "center" }}>
         <span style={{ background: C.bg, padding: "0 18px", fontSize: 27, fontWeight: 700 }}>Si el servicio continúa, vuelve a la Fase 1</span>
       </Rise>
 
       {BLOCKS.map((b, i) => {
-        const on = t >= b.start - 0.2 && t < b.end;
+        const on = soft(t, b.start - 0.3) * (1 - soft(t, b.end - 0.15));
         return (
           <Rise key={b.name} at={0.4 + i * 0.12} y={14} style={{ position: "absolute", left: cx(b.from), top: TOP - 72 }}>
             <div
@@ -95,8 +110,8 @@ export const S05: React.FC = () => {
                 width: cx(b.to) + CW - cx(b.from),
                 height: 56,
                 borderRadius: R.ctl,
-                background: on ? C.ink : C.panel,
-                color: on ? C.white : C.text,
+                background: headBg(on),
+                color: headFg(on),
                 fontFamily: FONT.head,
                 fontWeight: 600,
                 fontSize: 28,
@@ -112,8 +127,9 @@ export const S05: React.FC = () => {
         );
       })}
       {PHASES.map((p, i) => {
-        const active = idx === i && back < 0.5;
-        const done = idx > i || back >= 0.5;
+        const next = i < 6 ? ARRIVE[i + 1] : loopAt + 0.3;
+        const a = soft(t, ARRIVE[i] - 0.15) * (1 - soft(t, next - 0.15));
+        const done = soft(t, next - 0.05, 0.3);
         return (
           <Rise key={p.n} at={0.6 + i * 0.08} y={24} style={{ position: "absolute", left: cx(i), top: TOP }}>
             <div
@@ -123,19 +139,17 @@ export const S05: React.FC = () => {
                 borderRadius: R.card,
                 boxSizing: "border-box",
                 padding: "16px 18px",
-                background: active ? C.yellow : C.white,
-                border: `2px solid ${active ? C.ink : C.line}`,
+                background: cardBg(a),
+                border: `2px solid ${cardLine(a)}`,
                 position: "relative",
               }}
             >
               <div style={{ fontFamily: FONT.head, fontWeight: 700, fontSize: 46, lineHeight: 1 }}>{p.n}</div>
               <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 28, lineHeight: 1.08, marginTop: 8, height: 62 }}>{p.h}</div>
-              <div style={{ fontSize: 23, lineHeight: 1.22, color: active ? C.ink : C.text, marginTop: 6 }}>{p.d}</div>
-              {done ? (
-                <div style={{ position: "absolute", right: 14, top: 14 }}>
-                  <Check size={34} />
-                </div>
-              ) : null}
+              <div style={{ fontSize: 23, lineHeight: 1.22, color: C.text, marginTop: 6 }}>{p.d}</div>
+              <div style={{ position: "absolute", right: 14, top: 14, opacity: done, scale: String(0.6 + 0.4 * done) }}>
+                <Check size={34} />
+              </div>
             </div>
           </Rise>
         );
@@ -143,6 +157,7 @@ export const S05: React.FC = () => {
 
       {/* Riel y contrato */}
       <div style={{ position: "absolute", left: cx(0) + CW / 2, top: TRACK, width: cx(6) - cx(0), height: 4, background: C.line, opacity: prog(t, 1.0, 0.5) }} />
+      <div style={{ position: "absolute", left: X0, top: TRACK, width: Math.max(0, trail - X0), height: 4, background: C.ink, opacity: prog(t, ARRIVE[0] - 0.2, 0.4) }} />
       {PHASES.map((p, i) => (
         <div
           key={p.n}
@@ -153,27 +168,33 @@ export const S05: React.FC = () => {
             width: 18,
             height: 18,
             borderRadius: 9,
-            background: idx >= i ? C.ink : C.line,
+            background: trail >= cx(i) + CW / 2 - 4 && t >= ARRIVE[0] - 0.2 ? C.ink : C.line,
             opacity: prog(t, 1.0, 0.5),
           }}
         />
       ))}
-      <div style={{ position: "absolute", left: x - 26, top: TRACK - 36, opacity: prog(t, ARRIVE[0] - 0.4, 0.4) }}>
+      <div style={{ position: "absolute", left: x - 26, top: TRACK - 36, opacity: prog(t, ARRIVE[0] - 0.4, 0.4) * (1 - leave + arrive), translate: `0px ${-10 * leave * (1 - arrive)}px` }}>
         <ContractIcon size={52} />
       </div>
-      <div
-        style={{
-          position: "absolute",
-          // En las últimas fases la etiqueta pasa a la izquierda del contrato para no salirse del cuadro.
-          ...(idx >= 5 ? { right: 1920 - x + 36 } : { left: x + 34 }),
-          top: TRACK - 24,
-          opacity: prog(t, ARRIVE[0] - 0.2, 0.4) * (1 - back),
-        }}
-      >
-        <Pill size={22} bg={C.ink} color={C.white}>
-          {idx >= 0 ? PHASES[idx].state : ""}
-        </Pill>
-      </div>
+      {[0, 1].map((leftSide) => {
+        // La etiqueta va a la derecha del contrato; desde la fase 6 pasa a la izquierda con fundido cruzado.
+        const sw = soft(t, ARRIVE[5] - 0.55, 0.3);
+        return (
+          <div
+            key={leftSide}
+            style={{
+              position: "absolute",
+              ...(leftSide ? { right: 1920 - x + 36 } : { left: x + 34 }),
+              top: TRACK - 24,
+              opacity: prog(t, ARRIVE[0] - 0.2, 0.4) * (1 - leave) * (leftSide ? sw : 1 - sw),
+            }}
+          >
+            <Pill size={22} bg={C.ink} color={C.white}>
+              {idx >= 0 ? PHASES[idx].state : ""}
+            </Pill>
+          </div>
+        );
+      })}
 
       {BLOCKS.map((b, bi) => (
         <div key={b.name} style={{ position: "absolute", left: cx(b.from), top: TRACK + 42, width: cx(b.to) + CW - cx(b.from), display: "flex", flexWrap: "wrap", gap: 10 }}>

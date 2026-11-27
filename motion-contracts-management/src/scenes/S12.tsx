@@ -13,7 +13,7 @@ const MVP = [
   { at: cue(ID, "Y el cruce"), t: "Cruce diario con SAP Ariba y el PxQ, en BrewDat" },
 ];
 const NEXT = [
-  { at: cue(ID, "En los tres"), who: "En los tres", olas: "", t: "Alta de solicitudes con la regla de la DAG.", bg: C.white, fg: C.ink, sub: C.text, border: C.line },
+  { at: cue(ID, "En los tres", 1), who: "En los tres", olas: "", t: "Alta de solicitudes con la regla de la DAG.", bg: C.white, fg: C.ink, sub: C.text, border: C.line },
   {
     at: cue(ID, "En el Completo"),
     who: "Completo",
