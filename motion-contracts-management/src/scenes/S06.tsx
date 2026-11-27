@@ -11,14 +11,14 @@ const LX1 = 1780;
 const LY = 404;
 const mx = (d: number) => LX0 + ((90 - d) / 90) * (LX1 - LX0);
 const MILES = [
-  { d: 90, at: CARD_AT + 0.5, h: "90 días", s: "Alerta al owner y a su líder" },
+  { d: 90, at: CARD_AT + 0.5, h: "90 días", s: "Alerta al dueño y a su líder" },
   { d: 60, at: cue(ID, "sesenta"), h: "60 días", s: "Copia a los Líderes de Procurement y Value Creation" },
   { d: 30, at: cue(ID, "treinta"), h: "30 días", s: "Escala a los Managers" },
   { d: 0, at: cue(ID, "treinta") + 0.5, h: "Vencimiento", s: "" },
 ];
 const WEEKS = [83, 76, 69, 53, 46, 39, 23, 16, 9];
 const CHAIN = [
-  { t: "El owner decide", at: cue(ID, "el dueño decide") },
+  { t: "El dueño decide", at: cue(ID, "el dueño decide") },
   { t: "Su líder aprueba", at: cue(ID, "su líder aprueba") },
   { t: "Procurement confirma", at: cue(ID, "Procurement confirma") },
 ];
@@ -69,14 +69,14 @@ export const S06: React.FC = () => {
               <ContractIcon size={70} />
               <div>
                 <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 38, lineHeight: 1.1 }}>Contrato por vencer</div>
-                <div style={{ fontSize: 26, color: C.text, marginTop: 6 }}>Para: owner del servicio y su líder</div>
+                <div style={{ fontSize: 26, color: C.text, marginTop: 6 }}>Para: dueño del servicio y su líder</div>
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 26 }}>
               <div style={{ background: C.yellow, border: `2px solid ${C.ink}`, borderRadius: 10, padding: "11px 20px", fontSize: 27, fontWeight: 700 }}>Revisar renovación</div>
               <div style={{ display: "flex", gap: 12 }}>
                 <div style={{ flex: 1, border: `2px solid ${C.ink}`, borderRadius: 12, padding: "11px 20px", fontSize: 27, fontWeight: 700 }}>Corregir datos</div>
-                <div style={{ flex: 1, border: `2px solid ${C.ink}`, borderRadius: 12, padding: "11px 20px", fontSize: 27, fontWeight: 700 }}>No soy el owner</div>
+                <div style={{ flex: 1, border: `2px solid ${C.ink}`, borderRadius: 12, padding: "11px 20px", fontSize: 27, fontWeight: 700 }}>No soy el dueño</div>
               </div>
             </div>
             <div style={{ fontSize: 23, color: C.text, marginTop: 18, lineHeight: 1.25 }}>

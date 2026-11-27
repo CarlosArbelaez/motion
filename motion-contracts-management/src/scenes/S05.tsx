@@ -15,7 +15,7 @@ const PHASES = [
   { n: "4", h: "Ficha y Ariba", d: "Datos clave validados por una persona.", state: "Vigente" },
   { n: "5", h: "Control diario", d: "Cruce diario con Ariba y el PxQ.", state: "Vigente" },
   { n: "6", h: "Alertas", d: "Una alerta con respuesta y escalamiento.", state: "Vigente · en alerta" },
-  { n: "7", h: "Decisión", d: "El owner decide, su líder aprueba y Procurement confirma.", state: "En renovación" },
+  { n: "7", h: "Decisión", d: "El dueño decide, su líder aprueba y Procurement confirma.", state: "En renovación" },
 ];
 const BLOCKS = [
   { name: "Bloque 1 · Formalizar", from: 0, to: 2, start: cue(ID, "formaliza"), end: cue(ID, "Luego") },

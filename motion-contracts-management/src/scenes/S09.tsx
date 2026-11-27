@@ -48,7 +48,7 @@ const Registro: React.FC = () => {
         <div style={{ ...th, width: 340 }}>Servicio</div>
         <div style={{ ...th, width: 260 }}>Estado</div>
         <div style={{ ...th, width: 160 }}>Vence</div>
-        <div style={th}>Owner</div>
+        <div style={th}>Dueño</div>
       </div>
       {rows.map(([w, st, bg], i) => (
         <div key={i} style={row}>
@@ -201,7 +201,7 @@ export const S09: React.FC = () => {
           <div style={{ height: BAR, borderBottom: `2px solid ${C.line}`, display: "flex", alignItems: "center", padding: "0 22px", gap: 14, boxSizing: "border-box" }}>
             <div style={{ width: 28, height: 28, borderRadius: 7, background: C.ink }} />
             <div style={{ fontFamily: FONT.head, fontWeight: 600, fontSize: 25, flex: 1 }}>{PLATFORM_NAME}</div>
-            <span style={{ fontSize: 19, color: C.mute }}>Rol: service owner</span>
+            <span style={{ fontSize: 19, color: C.mute }}>Rol: dueño del servicio</span>
             <div style={{ width: 34, height: 34, borderRadius: 17, background: C.line }} />
           </div>
           <div style={{ display: "flex", height: FH - BAR }}>
